@@ -1,0 +1,24 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>EBS on Integerous DevLog</title>
+    <link>http://integerous.github.io/tags/ebs/</link>
+    <description>Recent content in EBS on Integerous DevLog</description>
+
+    
+
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko-kr</language>
+    <lastBuildDate>Sat, 25 Aug 2018 21:44:50 +0900</lastBuildDate>
+    <atom:link href="/tags/ebs/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>AWS EBS 총정리</title>
+      <link>http://integerous.github.io/post/aws/ebs/</link>
+      <pubDate>Sat, 25 Aug 2018 21:44:50 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/post/aws/ebs/</guid>
+      <description>EBS (Elastic Block Store) EC2 인스턴스에 장착하여 사용할 수 있는 가상 저장 장치. 1. 사용 이유 데이터에 빠르게 액세스하고 장기적으로 지속해야 하는 경우 EC2 인스턴스에서 제공하는 기본</description>
+    </item>
+    
+  </channel>
+</rss>

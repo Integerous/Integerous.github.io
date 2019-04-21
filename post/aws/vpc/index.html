@@ -1,0 +1,778 @@
+
+
+<!DOCTYPE html>
+<html lang="ko-kr">
+  <head>
+    
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-KZXLS88');</script>
+    
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="generator" content="Hugo 0.55.3" />
+    <link rel="shortcut icon" href="/images/favicon.ico">
+    <link href="http://integerous.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Integerous DevLog" />
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:700i" rel="stylesheet">
+    
+    <script src="https://apis.google.com/js/platform.js" async defer>{lang: 'ja'}</script>
+    
+    <link rel="stylesheet" href="https://yandex.st/highlightjs/8.0/styles/default.min.css">
+    <script src="https://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+    <link rel="stylesheet" type="text/css" href="/css/single.css">
+    <title>AWS VPC 총정리 | Integerous DevLog</title>
+  </head>
+  <body>
+    
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KZXLS88"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  
+  
+    <div id="wrap">
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-126908369-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+      <header class="site-header">
+        <div class="site-header-left">
+          <a class="site-header-title" href="http://integerous.github.io/">Integerous DevLog</a>
+        </div>
+      </header>
+      <div class="container">
+        <div id="main">
+
+
+
+
+<div class="article">
+  <header>
+    <div class="article-header">
+      <h1>AWS VPC 총정리</h1>
+      <div class="article-meta">
+        <span class="posttime">2018/10/07</span>
+        
+        
+        
+<div class="tags">
+  <ul>
+    
+    <li>
+        <a href="/tags/aws">AWS</a>
+    </li>
+    
+  </ul>
+</div>
+
+
+      </div>
+    </div>
+    
+  </header>
+  <div class="content">
+    
+
+<blockquote>
+<p><a href="https://www.udemy.com/aws-certified-solutions-architect-associate/">AWS Certified Solutions Architect - Associate 2018</a> 강의를 듣고 내용 정리</p>
+</blockquote>
+
+<p><img src="https://github.com/Integerous/TIL/blob/master/AWS/img/VPCdiagram.png?raw=true" alt="VPC Diagram" /></p>
+
+<h2 id="1-what-is-a-vpc">1. What is a VPC ?</h2>
+
+<p>VPC는 클라우드 내의 <strong>가상 데이터 센터</strong>.</p>
+
+<h2 id="2-what-can-you-do-with-a-vpc">2. What can you do with a VPC ?</h2>
+
+<ul>
+<li>내가 선택한 서브넷에 인스턴스를 실행할 수 있다.</li>
+<li>각각의 서브넷에 커스텀 IP주소 범위를 할당할 수 있다.</li>
+<li>서브넷 간의 Route tables를 설정할 수 있다.
+
+<ul>
+<li>Route Tables : 어떤 서브넷이 다른 서브넷들과 speak 할 수 있는지 정해놓은 것.</li>
+</ul></li>
+<li>인터넷 게이트웨이를 생성하고 우리의 VPC에 붙일 수 있다.</li>
+<li>AWS 자원들을 더욱 안전하게 관리할 수 있다.
+
+<ul>
+<li>서브넷 사용, 특정 IP주소 막기, 네트워크 ACLS 등을 통해서.</li>
+</ul></li>
+<li>인스턴스 보안그룹</li>
+<li>서브넷 네트워크 접근 관리 리스트(ACLS)</li>
+</ul>
+
+<h2 id="3-default-vpc-vs-custom-vpc">3. Default VPC vs Custom VPC</h2>
+
+<h3 id="default-vpc">Default VPC</h3>
+
+<ul>
+<li>사용하기 쉽고, 인스턴스를 즉시 배포할 수 있게한다.</li>
+<li>Default VPC의 모든 서브넷들은 인터넷에 연결할 수 있다.</li>
+<li>프라이빗 서브넷이 없다.</li>
+<li>각각의 EC2 인스턴스는 퍼블릭 IP와 프라이빗IP를 모두 가지고 있다</li>
+</ul>
+
+<h3 id="custom-vpc">Custom VPC</h3>
+
+<ul>
+<li>프라이빗 서브넷이 있다.</li>
+<li>각각의 EC2 인스턴스는 프라이빗 IP만 가지고 있다.</li>
+</ul>
+
+<h2 id="4-vpc-peering">4. VPC Peering</h2>
+
+<ul>
+<li>프라이빗 IP주소들을 이용해서 VPC 끼리 다이렉트 네트워크 루트로 연결한다.</li>
+<li>인스턴스들은 같은 프라이빗 네트워크에 있는 것처럼 여겨진다.</li>
+<li>다른 AWS 계정의 VPC와도 연결할 수 있고, 같은 계정의 VPC와도 연결할 수 있다.</li>
+<li>VPC A와 B, A와 C가 연결되어있어도 B와 C가 연결되어있지 않으면 연결되지 않는다. (we don&rsquo;t have transitive peering in VPC)<br />
+<img src="https://github.com/Integerous/TIL/blob/master/AWS/img/VPCtransitivePeering.png?raw=true" alt="" /></li>
+</ul>
+
+<h2 id="5-summary">5. Summary</h2>
+
+<ul>
+<li>VPC는 AWS 내의 논리적 데이터센터라 생각하면 된다.</li>
+<li>구성
+
+<ul>
+<li>Internet Gateways 또는 Virtual Private Gateways</li>
+<li>Route Tables</li>
+<li>Network Acess Control Lists</li>
+<li>Subnets</li>
+<li>Security Groups</li>
+</ul></li>
+<li>1 Subnet = 1 Availability Zone</li>
+<li>Security Groups는 Stateful 하다.(네트워크 연결 상태를 추적할 수 있다.)</li>
+<li>Network Access Control Lists는 Stateless 하다.</li>
+<li>NO TRANSITIVE PEERING</li>
+</ul>
+
+<h1 id="vpc-실습-1">VPC 실습 1</h1>
+
+<h3 id="1-vpc-만들기">1. <strong>VPC 만들기</strong></h3>
+
+<ul>
+<li>Your VPCs 로 이동</li>
+<li>Create VPC</li>
+<li>Name tag 및 IPv4 CIDR block 설정 (가장 큰 범위는 10.0.0.0/16)</li>
+<li>IPv6 CIDR block = Amazon provided IPv6 CIDR block 으로 설정해야 나중에 더 많은 옵션이 생긴다.</li>
+<li>Tenancy 선택
+
+<ul>
+<li>Default: 다른 고객과 하드웨어를 공유한다.(Multi tenant environment)</li>
+<li>Dedicate: 독립된 하드웨어를 사용하므로 더 비싸다.</li>
+</ul></li>
+</ul>
+
+<h3 id="2-현재까지-상태">2. <strong>현재까지 상태</strong></h3>
+
+<p><img src="https://github.com/Integerous/TIL/blob/master/AWS/img/VPC%20with%20Public%20&amp;%20Private%20Subnet1.png?raw=true" alt="" /></p>
+
+<h3 id="3-subnet-만들기">3. <strong>Subnet 만들기</strong></h3>
+
+<ul>
+<li>Subnets로 이동</li>
+<li>Create Subnets</li>
+<li>VPC 선택</li>
+<li>Name tag 설정(강사는 CIDR block range와 AZ을 나타내기위해 <code>10.0.1.0 - us-east-1a</code> 라고 설정한다.)</li>
+<li>Availability Zone 설정 (us-east-1a)</li>
+<li>IPv4 CIDR block 설정 (10.0.1.0/24)</li>
+<li>IPv6 CIDR block 선택 (강사는 안함)</li>
+<li>Yes, Create 클릭</li>
+</ul>
+
+<h3 id="4-각-서브넷-cidr-블록에서-첫-4개의-ip-주소와-마지막-ip-주소는-사용자가-사용할-수-없으므로-인스턴스에-할당할-수-없습니다-예를-들어-10-0-0-0-24-cidr-블록의-서브넷에서는-다음-5개-ip-주소가-예약되어-있습니다">4. 각 서브넷 CIDR 블록에서 첫 4개의 IP 주소와 마지막 IP 주소는 사용자가 사용할 수 없으므로 인스턴스에 할당할 수 없습니다. 예를 들어 10.0.0.0/24 CIDR 블록의 서브넷에서는 다음 5개 IP 주소가 예약되어 있습니다.</h3>
+
+<ul>
+<li>10.0.0.0: 네트워크 주소.</li>
+<li>10.0.0.1: AWS에서 VPC 라우터용으로 예약한 주소.</li>
+<li>10.0.0.2: AWS에서 예약한 주소. DNS 서버의 IP 주소는 항상 VPC 네트워크 범위를 기초로 2를 더한 것입니다. 그러나 에서는 각 서브넷 범위를 기초로 2를 더한 것도 예약합니다. CIDR 블록이 여러 개인 VPC의 경우, DNS 서버의 IP 주소가 기본 CIDR에 위치합니다. 자세한 내용은 Amazon DNS 서버 단원을 참조하십시오.</li>
+<li>10.0.0.3: AWS에서 앞으로 사용하려고 예약한 주소.</li>
+<li>10.0.0.255: 네트워크 브로드캐스트 주소. VPC에서는 브로드캐스트를 지원하지 않으므로, 이 주소를 예약합니다.</li>
+</ul>
+
+<h3 id="5-두번째-subnet-만들기">5. <strong>두번째 Subnet 만들기</strong></h3>
+
+<ul>
+<li>IPv4 CIDR block 설정 (10.0.2.0/24)</li>
+<li>AZ 설정 (us-east-1b)</li>
+</ul>
+
+<h3 id="6-현재까지-상태">6. <strong>현재까지 상태</strong></h3>
+
+<p><img src="https://github.com/Integerous/TIL/blob/master/AWS/img/VPC%20with%20Public%20&amp;%20Private%20Subnet2.png?raw=true" alt="" /></p>
+
+<h3 id="7-internet-gateway-만들기">7. <strong>Internet Gateway 만들기</strong></h3>
+
+<ul>
+<li>Create Internet Gateway</li>
+<li>Name tag 설정 (강의에서는 MyIGW) 및 Create</li>
+<li>Attach to VPC</li>
+<li>VPC 선택 후 Yes, Attach</li>
+<li><em>하나의 Internet Gateway는 하나의 VPC 에만 붙일 수 있다.</em></li>
+</ul>
+
+<h3 id="8-route-table-만들기">8. <strong>Route Table 만들기</strong></h3>
+
+<ul>
+<li>새로운 서브넷을 만들면 default로 main route table에 연결된다. 하지만 매번 서브넷을 provisioning 할 때마다 main route table이 인터넷 Accessable하기 때문에 새로운 route table을 만든다.</li>
+<li>Create Route Table</li>
+<li>Name tag (강의에서는 MyInternetRouteOut) 및 VPC 설정</li>
+<li>Yes, Create</li>
+</ul>
+
+<h3 id="9-route-table의-인터넷-연결-설정하기">9. <strong>Route Table의 인터넷 연결 설정하기</strong></h3>
+
+<ul>
+<li>새로 생성한 Route Table 선택</li>
+<li>밑의 Routes 선택하고 Edit 클릭</li>
+<li>Add another route (0.0.0.0/0 , target = 좀전에 생성한 Interent Gateway)</li>
+<li>Save</li>
+<li>Add another route (::/0 , target = 위와 동일) 로 IPv6도 설정해준다.</li>
+<li>이제 이 route에 연결되는 모든 서브넷은 Public 서브넷이 된다.</li>
+</ul>
+
+<h3 id="10-subnet을-route-table과-연결하기">10. <strong>Subnet을 Route Table과 연결하기</strong></h3>
+
+<ul>
+<li>Route Tables -&gt; 밑에 Subnet Associations 클릭</li>
+<li>Edit</li>
+<li>Public Subnet으로 사용할 서브넷(10.0.1.0)을 선택하고 Save. (나머지 한 서브넷은 Private이 된다.)</li>
+<li>Subnets로 가서 오른쪽 끝부분에 Auto-assign Public IP을 확인하면 새로 추가한 서브넷들은 No로 되어있다.</li>
+<li>Public Subnet으로 사용할 서브넷을 선택하고</li>
+<li>Subnet Actions -&gt; Modify auto-assign IP settings -&gt; Enable auto-assign public IPv4 address 체크</li>
+<li>Save</li>
+</ul>
+
+<h3 id="11-public-서브넷을-위한-ec2-생성">11. <strong>Public 서브넷을 위한 EC2 생성</strong></h3>
+
+<ul>
+<li>EC2로 이동</li>
+<li>Launch Instance 클릭</li>
+<li>Amazon Linux AMI 클릭</li>
+<li>Network를 Default VPC에서 Custom VPC로 변경</li>
+<li>Subnet 선택 (10.0.1.0)</li>
+<li>next next</li>
+<li>Add tag ( Name / WebServer01)</li>
+<li>next</li>
+<li>Security group 생성 (강의에서는 Web-DMZ)
+
+<ul>
+<li>SSH / 22 / 0.0.0.0/0</li>
+<li>HTTP / 80 / 0.0.0.0/0, ::/0</li>
+</ul></li>
+<li>Keypair 선택 후 시작</li>
+</ul>
+
+<h3 id="12-private-서브넷을-위한-ec2-생성">12. <strong>Private 서브넷을 위한 EC2 생성</strong></h3>
+
+<ul>
+<li>Subnet 선택 (10.0.2.0)</li>
+<li>Add tag ( Name / MyPrivateServer )</li>
+<li>Security 그룹은 default로</li>
+<li>Keypair는 위에꺼랑 같은 것</li>
+</ul>
+
+<h3 id="13-ssh로-접속">13. <strong>ssh로 접속</strong></h3>
+
+<h3 id="14-현재까지-상태">14. <strong>현재까지 상태</strong></h3>
+
+<p><img src="https://github.com/Integerous/TIL/blob/master/AWS/img/VPC%20with%20Public%20&amp;%20Private%20Subnet3.png?raw=true" alt="" /></p>
+
+<h3 id="15-이후에-해야할-것">15. <strong>이후에 해야할 것</strong></h3>
+
+<ul>
+<li>두 개의 보안그룹은 각각 Public 과 Default고,</li>
+<li>두 개의 서브넷은 각각 Public과 Private 이다.</li>
+<li>그래서 두 개의 인스턴스는 서로 다른 보안그룹과 AZ 때문에 서로 연결할 수 없는 상태이다.</li>
+<li>그러므로 이후에는 연결할 수 있도록.</li>
+</ul>
+
+<h1 id="vpc-실습-2">VPC 실습 2</h1>
+
+<blockquote>
+<p>실습 1에 이어 Public 서브넷을 통해 Private 서브넷에 접속하도록 하는 것이 핵심</p>
+</blockquote>
+
+<h3 id="1-인스턴스명-및-보안그룹-수정">1. 인스턴스명 및 보안그룹 수정</h3>
+
+<ul>
+<li>MyPrivateServer -&gt; MyMySQL</li>
+<li>Security group 생성
+
+<ul>
+<li>그룹이름,descripting 설정 (강의에서는 My-RDS-SG)</li>
+<li>VPC 선택 (acloudguruVPC)</li>
+<li>add rule
+
+<ul>
+<li>SSH / 22 / 10.0.1.0/24</li>
+<li>MYSQL/Aurora / 3306 / 10.0.1.0/24</li>
+<li>HTTP / 80 / 10.0.1.0/24</li>
+<li>HTTPS / 443 / 10.0.1.0/24</li>
+<li>All ICMP-IPv4 / 0 - 65535 / 10.0.1.0/24</li>
+</ul></li>
+</ul></li>
+<li>인스턴스로 가서 -&gt; MyMySQL 선택 -&gt; action -&gt; change security group 선택 -&gt; My-RDS-SG로 변경</li>
+</ul>
+
+<h3 id="2-ssh로-public-서버에서-private-서버로-접속해보기-실무에서는-절대-하지-말-것">2. ssh로 Public 서버에서 Private 서버로 접속해보기 (실무에서는 절대 하지 말 것)</h3>
+
+<ul>
+<li>ping 10.0.2.143</li>
+<li>nano mypvk.pem -&gt; 키 내용 복붙</li>
+<li>chmod 400 mypvk.pem</li>
+<li>ssh ec2-user@10.0.2.143 -i mypvk.pem
+<br /></li>
+</ul>
+
+<h1 id="network-address-translation-nat-nat-instances-nat-gateways">Network Address Translation(NAT) / NAT Instances &amp; NAT Gateways</h1>
+
+<h3 id="1-nat-instance-설정하기">1. NAT Instance 설정하기</h3>
+
+<ul>
+<li>EC2로 이동</li>
+<li>인스턴스 시작하기</li>
+<li>Community AMIs 선택</li>
+<li>nat 검색</li>
+<li>amzn-ami-vpc-nat-hvm~.gp2 선택</li>
+<li>VPC 와 Subnet 선택</li>
+<li>Tag 설정 Name / NAT-INSTANCE</li>
+<li>보안그룹 web-DMZ 선택</li>
+<li>시작</li>
+<li>보안그룹 web-DMZ에 Https / 443 / 0.0.0.0,::/0 추가</li>
+
+<li><p>NAT-INSTANCE 선택 후, Actions - Networking - Change Source/Dest. Check 선택</p>
+
+<ul>
+<li>각각의 EC2 인스턴스는 디폴트로 source/destination을 체크한다. 이것은 인스턴스가 주고 받는 모든 트래픽의 source 또는 destination이 되어야한다는 뜻이다. 하지만 NAT 인스턴스는 스스로가 source/destination이 아니더라도 반드시 트래픽을 주고받을 수 있어야 한다. 그러므로 NAT 인스턴스의 source/destination checks를 반드시 disable it 해야한다.
+<br /></li>
+</ul></li>
+
+<li><p>VPC - Route Tables 로 이동</p></li>
+
+<li><p>Default Route 테이블을 선택하고 여기에서 NAT 인스턴스에 의해 Route out 되도록 하기 위해 밑에 Routes 클릭해서 Add another route 클릭</p></li>
+
+<li><p>Destiantion에 0.0.0.0/0 넣고 Target에는 MyIGW가 아닌 NAT 인스턴스 선택. 이로써 NAT 인스턴스에서 바깥세상으로 나가는 Route out 설정된 것.</p></li>
+</ul>
+
+<h3 id="2-nat-인스턴스의-한계">2. NAT 인스턴스의 한계</h3>
+
+<ul>
+<li>NAT 인스턴스로 구성하는것은 단일 인스턴스에 단일 AZ이기 때문에 병목현상에 취약하고, 문제발생시 Private Subnet 안의 모든 서비스가 인터넷 엑세스를 잃게 된다.</li>
+<li>Auto scaling group에 추가하거나 multiple AZ과 multiple Route out to internet을 가질 수 있지만, 점점 복잡해질 뿐이다.</li>
+<li>다행히 아마존이 NAT Gateway를 출시했고, 이를 통해 단일 인스턴스와 단일 AZ에 의존하는 것에서 벗어날 수 있다.</li>
+</ul>
+
+<h3 id="3-nat-gateway-설정하기">3. NAT Gateway 설정하기</h3>
+
+<ul>
+<li>VPC로 이동</li>
+<li>NAT Gateway는 IPv4로 동작하고, Egress Only Internet Gateway는 IPv6로 동작한다.</li>
+<li>NAT Gateway 선택 및 Create NAT Gateway 클릭</li>
+<li>Subnet은 커스텀 VPC의 퍼블릭 서브넷 선택</li>
+<li>Create New EIP 클릭</li>
+<li>Create a NAT Gateway 클릭 (생성되는데 15분정도 소요)</li>
+<li>NAT Gateways로 가서 만든 NAT Gateway의 Status가 available이 되면 Route Tables로 이동</li>
+<li>Default Route Table 선택 및 밑의 Routes 클릭</li>
+<li>Add another route (Destination: 0.0.0.0/0  Target: NAT Gateway) 및 save.</li>
+<li>EC2 인스턴스로 이동</li>
+</ul>
+
+<h3 id="4-nat-gateway와-nat-instance-비교">4. NAT Gateway와 NAT Instance 비교</h3>
+
+<ul>
+<li><strong>Availability</strong>
+
+<ul>
+<li>NAT Gateway : 독립적인 아키텍쳐를 구축하기 위해 각각의 AZ에 NAT Gateway를 생성할 수 있다.</li>
+<li>NAT Instance : 인스턴스들 간의 failover(시스템 대체 작동)를 관리하기 위해 script 사용</li>
+</ul></li>
+<li><strong>Bandwidth</strong>
+
+<ul>
+<li>NAT Gateway : 10Gbps 까지 지원</li>
+<li>NAT Instance : 인스턴스 타입의 대역폭에 따라 다름</li>
+</ul></li>
+<li><strong>Maintenance</strong>
+
+<ul>
+<li>NAT Gateway : AWS에 의해 관리된다.</li>
+<li>NAT Instance : 직접 관리해야한다. (ex 소프트웨어를 업데이트하거나 인스턴스에 OS patch)<br /></li>
+</ul></li>
+<li><strong>Performance</strong>
+
+<ul>
+<li>NAT Gateway : 소프트웨어가 NAT 트래픽을 핸들링하기 위해 최적화되어있다.</li>
+<li>NAT Instance : A generic Amazon Linux AMI that&rsquo;s configured to perform NAT</li>
+</ul></li>
+<li><strong>Cost</strong>
+
+<ul>
+<li>NAT Gateway : 사용한 NAT 게이트웨이의 수, 사용시간, NAT 게이트웨이를 통해 보낸 데이터의 크기에 따라 요금이 부과된다.</li>
+<li>NAT Instance : 사용한 NAT 인스턴스의 수, 사용시간, 인스턴스의 타입과 사이즈에 따라 요금이 부과된다.</li>
+</ul></li>
+<li><strong>Type and Size</strong>
+
+<ul>
+<li>NAT Gateway : Uniform offering - 타입과 사이즈를 결정할 필요없다.</li>
+<li>NAT Instance : 예상되는 워크로드에 따라 알맞는 인스턴스 타입과 사이즈를 선택해야한다.</li>
+</ul></li>
+<li><strong>Public IP Addresses</strong>
+
+<ul>
+<li>NAT Gateway : 생성시에 NAT Gateway와 연결시킬 수 있는 Elastic IP address를 선택한다.</li>
+<li>NAT Instance : Elastic IP address 또는 Public IP address를 사용한다.</li>
+</ul></li>
+<li><strong>Private IP Addresses</strong>
+
+<ul>
+<li>NAT Gateway : 게이트웨이를 생성할 때 서브넷의 IP주소 범위에서 자동으로 선택된다.</li>
+<li>NAT Instance : 인스턴스를 런칭할때 서브넷의 IP주소 범위에서 특정 private IP주소를 할당한다.</li>
+</ul></li>
+<li><strong>Security Groups</strong>
+
+<ul>
+<li>NAT Gateway : NAT Gateway와 연결할 수 없다. 대신 보안그룹을 NAT 게이트웨이 뒤의 리소스와 연결하여 인바운드/아웃바운드 트래픽을 제어할 수 있다.</li>
+<li>NAT Instance : NAT Instance와 그 뒤의 리소스와 연결하여 인바운드/아웃바운드 트래픽을 제어한다.</li>
+</ul></li>
+<li><strong>Network ACLs</strong>
+
+<ul>
+<li>NAT Gateway : 네트워크 ACL을 사용하여 NAT 게이트웨이가 위치하고 있는 서브넷에서 보내고 받는 트래픽을 제어한다.</li>
+<li>NAT Instance : 네트워크 ACL을 사용하여 NAT 인스턴스가 위치하고 있는 서브넷에서 보내고 받는 트래픽을 제어한다.</li>
+</ul></li>
+<li><strong>Flow Logs</strong>
+
+<ul>
+<li>NAT Gateway : 트래픽을 캡쳐하기 위해 flow logs를 사용한다.</li>
+<li>NAT Instance : 트래픽을 캡쳐하기 위해 flow logs를 사용한다.</li>
+</ul></li>
+<li><strong>Port Forwarding</strong>
+
+<ul>
+<li>NAT Gateway : 지원하지 않는다.</li>
+<li>NAT Instance : 포트포워딩을 위해 수동으로 설정을 커스터마이징 해야한다.</li>
+</ul></li>
+<li><strong>Bastion Servers</strong>
+
+<ul>
+<li>NAT Gateway : 지원하지 않는다.</li>
+<li>NAT Instance : bastion 서버로서 사용한다.</li>
+</ul></li>
+<li><strong>Traffic Metrics</strong>
+
+<ul>
+<li>NAT Gateway : NAT 게이트웨이의 CloudWatch 지표를 확인.</li>
+<li>NAT Instance : 인스턴스의 CloudWatch 지표 확인</li>
+</ul></li>
+<li><strong>Timeout behavior</strong>
+
+<ul>
+<li>NAT Gateway : 연결 제한시간이 초과하면 NAT 게이트웨이는 연결을 계속하려하는 NAT 게이트웨이 뒤의 리소스로 RST 패킷을 반환한다.(FIN 패킷 안보냄)</li>
+<li>NAT Instance : 연결 제한시간이 초과하면 NAT 인스턴스는 NAT 인스턴스 뒤의 리소스로 FIN 패킷을 전송하여 연결을 닫는다.</li>
+</ul></li>
+<li><strong>IP fragmentation</strong>
+
+<ul>
+<li>NAT Gateway : UDP 프로토콜에서 IP 조각화된 패킷의 전달을 지원한다. TCP 및 ICMP 프로토콜에 대해서는 조각화를 지원하지 않고, 이러한 프로토콜의 조각화된 패킷은 삭제된다.</li>
+<li>NAT Instance : UDP, TCP 및 ICMP 프로토콜에 대해 IP 조각화된 패킷의 재수집을 지원한다.</li>
+</ul></li>
+</ul>
+
+<h3 id="5-nat-gateway-구성-모습">5. NAT Gateway 구성 모습</h3>
+
+<p><img src="https://github.com/Integerous/TIL/blob/master/AWS/img/VPC%20with%20Public%20&amp;%20Private%20Subnet4.png?raw=true" alt="" /></p>
+
+<h3 id="6-정리">6. 정리</h3>
+
+<ul>
+<li><strong>NAT Instance</strong>
+
+<ul>
+<li>When creating a NAT instance, Disable Source/Destination Check on the Instance</li>
+<li>NAT instances must be in a public subnet</li>
+<li>There must be a route out of the private subnet to the NAT instance, in order for this to work</li>
+<li>The amount of traffic that NAT insatnaces can support depends on the instance size. If you are bottlenecking, increase the instance size</li>
+<li>You can create high availability using Autoscaling Groups, multiple subnets in different AZs, and a script to automate failover</li>
+<li>Behind a Security Group</li>
+</ul></li>
+<li><strong>NAT Gateway</strong>
+
+<ul>
+<li>Preferred by the enterprise</li>
+<li>Scale automatically up to 10Gbps</li>
+<li>No need to patch</li>
+<li>Not associated with security groups</li>
+<li>Automatically assigned a public ip address</li>
+<li>Remember to update your route tables</li>
+<li>No need to disable Source/Destination Checks</li>
+<li>More secure than a NAT instance
+
+<ul>
+<li>Do not have SSH access to your NAT Gateway</li>
+</ul></li>
+</ul></li>
+</ul>
+
+<h1 id="network-access-control-lists-vs-security-groups">Network Access Control Lists vs. Security Groups</h1>
+
+<h2 id="1-network-acl-설정">1. Network ACL 설정</h2>
+
+<ul>
+<li>VPC 이동</li>
+<li>Network ACLs 이동</li>
+<li>Create Network ACL 클릭
+
+<ul>
+<li>Name tag : MyWebNACL , VPC 선택하고 생성</li>
+</ul></li>
+<li>Inbound Rules 수정
+
+<ul>
+<li>Edit 클릭</li>
+<li>Rule #는 100부터 시작, 100번은 IPv4, 101번은 IPv6.</li>
+<li>Rule은 번호 순서대로 적용된다. 예를 들어 100번에 열어두고 99번에 닫아두면 99번이 우선 적용된다.</li>
+<li>100 HTTP(80) 0.0.0.0/0</li>
+<li>200 HTTPS(443) 0.0.0.0/0</li>
+<li>300 SSH(22) 0.0.0.0/0</li>
+</ul></li>
+<li>Outbound Rules 수정
+
+<ul>
+<li>100 HTTP(80) 0.0.0.0/0</li>
+<li>200 HTTPS(443) 0.0.0.0/0</li>
+<li>300 Custom(1024-65535) 0.0.0.0/0</li>
+</ul></li>
+<li>Subnet Association 이동
+
+<ul>
+<li>서브넷과 연결</li>
+</ul></li>
+</ul>
+
+<h2 id="2-exam-tips-network-acls">2. Exam Tips - Network ACLs</h2>
+
+<ul>
+<li>Your VPC automatically comes a default network ACL, and by default it allows all outbound and inbound traffic</li>
+<li>You can create custom network ACLs, By default, each custom network ACL denies all inbound and outbound traffic until you add rules</li>
+<li>Each subnet in your VPC must be associated with a network ACL. If you don&rsquo;t explicitly associate a subnet with a network ACL, the subnet is automatically associated with the default network ACL</li>
+<li>You can associate a network ACL with multiple subnets; however, a subnet can be associated with only one network ACL at a time. When you associate a network ACL with a subnet, the previous association is removed</li>
+<li>Network ACLs contain a numbered list of rules that is evaluated in order, starting with the lowest numbered rule</li>
+<li>Network ACLs are stateless; responses to allowed inbound traffic are subject to the rules for outbound traffic (and vice versa)</li>
+<li>Block IP Addresses using network ACLs not Security Groups</li>
+</ul>
+
+<h1 id="load-balancers-custom-vpcs">Load Balancers &amp; Custom VPCs</h1>
+
+<blockquote>
+<p>Elastic Load Balancer는 들어오는 어플리케이션 트래픽을 EC2 인스턴스, 컨테이너, IP주소와 같은 여러 대상에 자동으로 분산시킨다.<br />
+또한 단일 AZ 또는 다수의 AZ에서 다양한 어플리케이션 부하를 처리할 수 있다.</p>
+</blockquote>
+
+<h2 id="load-balancer-설정">Load Balancer 설정</h2>
+
+<ul>
+<li>Application Load Balancer 생성
+
+<ul>
+<li>Name 설정 (MyALB)</li>
+<li>Internet facing</li>
+<li>IPv4</li>
+<li>HTTP / 80</li>
+<li>VPC 선택</li>
+<li>생성 완료
+<br /></li>
+</ul></li>
+</ul>
+
+<h1 id="vpc-flow-logs">VPC Flow Logs</h1>
+
+<blockquote>
+<p>VPC Flow Logs is a feature that enables you to capture information about the IP traffic going to and from network interfaces in your VPC<br />
+Flow log data is stored using Amazon CloudWatch Logs. After creating a flow log, you can view and retrieve its data in Amazon CloudWatch Logs.</p>
+</blockquote>
+
+<ul>
+<li>Flow logs can be created at 3 levels
+
+<ul>
+<li>VPC</li>
+<li>Subnet</li>
+<li>Network Interface Level</li>
+</ul></li>
+</ul>
+
+<h2 id="flow-log-설정">Flow Log 설정</h2>
+
+<ul>
+<li>VPC로 이동</li>
+<li>VPC 선택 후 Actions -&gt; Create Flow Log</li>
+<li>Filter 선택</li>
+<li>Role 설정 (처음에는 Set Up Permissions로 설정)</li>
+<li>Destination Log Group 설정 (처음에는 CloudWatch로 가서 설정)
+
+<ul>
+<li>CloudWatch 이동</li>
+<li>좌측 메뉴에 Logs 선택</li>
+<li>Create log group 클릭하고 생성</li>
+<li>Flow log 생성 화면으로 돌아가기
+<br /></li>
+</ul></li>
+</ul>
+
+<h2 id="vpc-flow-logs-exam-tips">VPC Flow Logs Exam Tips</h2>
+
+<ul>
+<li>You cannot enable flow logs for VPCs that are peered with your VPC unless the peer VPC is in your account.</li>
+<li>You cannot tag a flow log.</li>
+<li>After you&rsquo;ve creaeted a flow log, you cannot change its configuration; for example, you can&rsquo;t associate a different IAM role with the flow log.</li>
+<li>Not all IP Traffic is monitored
+
+<ul>
+<li>Traffic generated by instances when they contact the Amazon DNS server. If you use your own DNS server, then all traffic to that DNS server is logged.</li>
+<li>Traffic generated by a Windows instance for Amazon Windows license activation.</li>
+<li>Traffic to and from 169.254.169.254 for instance metadata.</li>
+<li>DHCP traffic</li>
+<li>Traffic to the reserved IP address for the default VPC router
+<br /></li>
+</ul></li>
+</ul>
+
+<h1 id="nat-vs-bastion">NAT vs Bastion</h1>
+
+<p><img src="https://github.com/Integerous/TIL/blob/master/AWS/img/VPC%20with%20Public%20&amp;%20Private%20Subnet5.png?raw=true" alt="" /></p>
+
+<h2 id="bastion-host">Bastion host</h2>
+
+<ul>
+<li>Bastion host는 외부에서 접근이 차단되어있는 Private Subnet에 배포된 인스턴스에 SSH로 접근하기 위한 일종의 Proxy 역할을 하는 서버.<br /></li>
+<li>Bastion의 logging을 관리하면 Private Subnet에 접속하는 모든 기록을 관리할 수 있다.</li>
+<li>Bastion host는 Public Subnet에 위치하도록 EC2 instance를 생성한다.</li>
+<li>외부 사용자의 특정 IP만 허용하여 Bastion host에 접속 가능하도록 네트워크 ACL과 Security Group을 설정한다.
+<br /></li>
+</ul>
+
+<h2 id="ssh-tunneling">SSH Tunneling</h2>
+
+<blockquote>
+<p>SSH Tunneling을 이용해서 외부에서 Private Instance에 접속하는 방법</p>
+</blockquote>
+
+<ol>
+<li>Local PC에서 Bastion host에 SSH 할때, -L 옵션을 이용하여 접속한다.<br />
+<code>ssh -i key.pem -L 22:(접속타겟 인스턴스 Private IP):22 ec2-user@(Bastion host Public IP)</code>
+
+<ul>
+<li>SSH를 이용해 Bastion host에 접속할 때 Local 터널링으로 접속하는 명령어</li>
+<li>-L 옵션인 <code>22:(접속타겟 인스턴스 Private IP):22</code> 의 의미는 <code>로컬 포트 22번으로 접속타겟 인스턴스의 22번 포트로 접속하겠다</code></li>
+</ul></li>
+<li>터미널을 하나 더 열어서 <code>ssh -i key.pem ec2-user@localhost</code>
+
+<ul>
+<li>위의 명령어로 접속하면 자동으로 타겟 인스턴스로 SSH Tunneling되어 접속된다.</li>
+</ul></li>
+<li>이 방법으로 Private Subnet에 위치한 모든 서버에 접속가능</li>
+</ol>
+
+<h2 id="nat-vs-bastion-exam-tips">NAT vs Bastion Exam Tips</h2>
+
+<ul>
+<li>A NAT is used to provide internet traffic to EC2 instances in private subnets</li>
+<li>A Bastion is used to securely administer EC2 instances (using SSH or RDP) in private subnets</li>
+</ul>
+
+<h1 id="vpc-endpoint">VPC Endpoint</h1>
+
+<p><img src="https://github.com/Integerous/TIL/blob/master/AWS/img/VPC%20with%20Public%20&amp;%20Private%20Subnet7.png?raw=true" alt="" /></p>
+
+<h2 id="프라이빗-네트워크로-endpoint-s3에-접근하기">프라이빗 네트워크로 Endpoint S3에 접근하기</h2>
+
+<p><img src="https://github.com/Integerous/TIL/blob/master/AWS/img/VPC%20with%20Public%20&amp;%20Private%20Subnet6.png?raw=true" alt="" /></p>
+
+<h1 id="reference">*Reference</h1>
+
+<ul>
+<li><a href="https://aws.amazon.com/">https://aws.amazon.com/</a></li>
+<li><a href="https://aws.amazon.com/ko/solutions/case-studies/peoplefund/">https://aws.amazon.com/ko/solutions/case-studies/peoplefund/</a></li>
+<li><a href="https://www.udemy.com/aws-certified-solutions-architect-associate/learn/v4/t/lecture/2050704?start=0">https://www.udemy.com/aws-certified-solutions-architect-associate/learn/v4/t/lecture/2050704?start=0</a></li>
+<li><a href="http://bluese05.tistory.com/48">http://bluese05.tistory.com/48</a></li>
+</ul>
+
+  </div>
+  <footer>
+    <div class="article-footer">
+      
+
+      
+      
+      
+      
+      
+      <div id="pagenavigation-next-prev">
+        
+        <div id="pagenavigation-next">
+          <span class="pagenav-label">&lt; 이전 글</span>
+          <a href="http://integerous.github.io/post/aws/deployonec2/">AWS EC2 서버에 Java 프로젝트 배포/재배포</a>
+        </div>
+        
+        
+        <div id="pagenavigation-prev">
+          <span class="pagenav-label">다음 글 ></span>
+          <a href="http://integerous.github.io/post/java/stringconcat/">Java 문자열 연결방법 비교</a>
+        </div>
+        
+      </div>
+      
+    </div>
+
+    <script src="https://utteranc.es/client.js"
+    repo="integerous/blog-comments"
+    issue-term="pathname"
+    crossorigin="anonymous"
+    async>
+    </script>
+  </footer>
+</div>
+
+
+
+
+
+</div>
+
+</div>
+<footer>
+<div id="site-footer-wrap">
+  <div id="site-footer">
+    <span>Powered by <a href="https://gohugo.io/">Hugo</a>.</span>
+    <span>
+      
+      Copyright (c) 2018, <a href="http://integerous.github.io/">Integerous DevLog</a>
+      
+    </span>
+  </div>
+</div>
+</footer>
+</div>
+</body>
+</html>

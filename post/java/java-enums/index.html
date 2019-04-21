@@ -1,0 +1,208 @@
+
+
+<!DOCTYPE html>
+<html lang="ko-kr">
+  <head>
+    
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-KZXLS88');</script>
+    
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="generator" content="Hugo 0.55.3" />
+    <link rel="shortcut icon" href="/images/favicon.ico">
+    <link href="http://integerous.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Integerous DevLog" />
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:700i" rel="stylesheet">
+    
+    <script src="https://apis.google.com/js/platform.js" async defer>{lang: 'ja'}</script>
+    
+    <link rel="stylesheet" href="https://yandex.st/highlightjs/8.0/styles/default.min.css">
+    <script src="https://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+    <link rel="stylesheet" type="text/css" href="/css/single.css">
+    <title>자바의 정석 - 열거형(Enums) | Integerous DevLog</title>
+  </head>
+  <body>
+    
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KZXLS88"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  
+  
+    <div id="wrap">
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-126908369-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+      <header class="site-header">
+        <div class="site-header-left">
+          <a class="site-header-title" href="http://integerous.github.io/">Integerous DevLog</a>
+        </div>
+      </header>
+      <div class="container">
+        <div id="main">
+
+
+
+
+<div class="article">
+  <header>
+    <div class="article-header">
+      <h1>자바의 정석 - 열거형(Enums)</h1>
+      <div class="article-meta">
+        <span class="posttime">2018/10/28</span>
+        
+        
+        
+<div class="tags">
+  <ul>
+    
+    <li>
+        <a href="/tags/java">Java</a>
+    </li>
+    
+  </ul>
+</div>
+
+
+      </div>
+    </div>
+    
+  </header>
+  <div class="content">
+    
+
+<blockquote>
+<p>자바의 정석(남궁성 저) 학습내용 정리</p>
+</blockquote>
+
+<h2 id="1-열거형-enums">1. 열거형(Enums)</h2>
+
+<blockquote>
+<p>Java의 열거형은 C언어의 열거형과 다르게 열거형이 갖는 값 뿐만 아니라 타입까지 관리한다.<br />
+기존의 상수의 값이 바뀌면, 해당 상수를 참조하는 모든 소스를 다시 컴파일 해야한다. 하지만 열거형 상수를 사용하면 기존의 소스를 다시 컴파일하지 않아도 된다.</p>
+</blockquote>
+
+<h3 id="1-1-사용방법">1.1. 사용방법</h3>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#8b008b;font-weight:bold">enum</span> 열거형이름 { 상수명1, 상수명2, ...}</code></pre></div>
+<ul>
+<li>열거형 상수 간의 비교에는 <code>==</code>을 사용할 수 있다. <code>equals()</code>가 아닌 <code>==</code>으로 비교가능한 것은 그만큼 빠르다는 것이다.</li>
+<li>하지만 비교연산자(&lt;, &gt;)는 사용할 수 없고 <code>compareTo()</code>는 사용 가능하다.</li>
+<li>switch문의 조건식에 열거형 사용하기</li>
+</ul>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">  <span style="color:#00688b;font-weight:bold">void</span> <span style="color:#008b45">move</span>() {
+    <span style="color:#8b008b;font-weight:bold">switch</span>(dir) {
+        <span style="color:#8b008b;font-weight:bold">case</span> EAST: x++; <span style="color:#228b22">//Direction.EAST라고 쓰면 안된다.(열거형 이름 없이 상수 이름만 적어야 한다.)
+</span><span style="color:#228b22"></span>          <span style="color:#8b008b;font-weight:bold">break</span>;
+        <span style="color:#8b008b;font-weight:bold">case</span> WEST: x--;
+          <span style="color:#8b008b;font-weight:bold">break</span>;
+        <span style="color:#8b008b;font-weight:bold">case</span> SOUTH: y++;
+          <span style="color:#8b008b;font-weight:bold">break</span>;
+        <span style="color:#8b008b;font-weight:bold">case</span> NORTH: y--;
+          <span style="color:#8b008b;font-weight:bold">break</span>;
+    }
+  }</code></pre></div>
+<h3 id="1-2-열거형의-이해">1.2. 열거형의 이해</h3>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#8b008b;font-weight:bold">enum</span> Direction { EAST, WEST, SOUTH, NORTH }</code></pre></div>
+<ul>
+<li>열거형 상수 하나하나가 Direction 객체이다.</li>
+</ul>
+
+<p>위의 문장을 클래스로 정의하면,</p>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#8b008b;font-weight:bold">class</span> <span style="color:#008b45;font-weight:bold">Direction</span> {
+  <span style="color:#8b008b;font-weight:bold">static</span> <span style="color:#8b008b;font-weight:bold">final</span> Direction EAST = <span style="color:#8b008b;font-weight:bold">new</span> Direction(<span style="color:#cd5555">&#34;EAST&#34;</span>);
+  <span style="color:#8b008b;font-weight:bold">static</span> <span style="color:#8b008b;font-weight:bold">final</span> Direction WEST = <span style="color:#8b008b;font-weight:bold">new</span> Direction(<span style="color:#cd5555">&#34;WEST&#34;</span>);
+  <span style="color:#8b008b;font-weight:bold">static</span> <span style="color:#8b008b;font-weight:bold">final</span> Direction SOUTH = <span style="color:#8b008b;font-weight:bold">new</span> Direction(<span style="color:#cd5555">&#34;SOUTH&#34;</span>);
+  <span style="color:#8b008b;font-weight:bold">static</span> <span style="color:#8b008b;font-weight:bold">final</span> Direction NORTH = <span style="color:#8b008b;font-weight:bold">new</span> Direction(<span style="color:#cd5555">&#34;NORTH&#34;</span>);
+  
+  <span style="color:#8b008b;font-weight:bold">private</span> String name;
+  
+  <span style="color:#8b008b;font-weight:bold">private</span> <span style="color:#008b45">Direction</span>(String name)  {
+    <span style="color:#8b008b;font-weight:bold">this</span>.<span style="color:#658b00">name</span> = name;
+  }
+}</code></pre></div>
+<ul>
+<li>Direction클래스의 static상수 EAST, WEST, SOUTH, NORTH의 값은 객체의 주소이고, 이 값은 바뀌지 않는 값이므로 <code>==</code>로 비교가 가능한 것이다.</li>
+</ul>
+
+<h3 id="추가학습">*추가학습</h3>
+
+<ul>
+<li><a href="http://woowabros.github.io/tools/2017/07/10/java-enum-uses.html">Java Enum 활용기 - 우아한형제들 기술블로그</a></li>
+</ul>
+
+  </div>
+  <footer>
+    <div class="article-footer">
+      
+
+      
+      
+      
+      
+      
+      <div id="pagenavigation-next-prev">
+        
+        <div id="pagenavigation-next">
+          <span class="pagenav-label">&lt; 이전 글</span>
+          <a href="http://integerous.github.io/post/java/java-thread/">자바의 정석 - 쓰레드(Thread)</a>
+        </div>
+        
+        
+        <div id="pagenavigation-prev">
+          <span class="pagenav-label">다음 글 ></span>
+          <a href="http://integerous.github.io/post/java/java-generics/">자바의 정석 - 지네릭스(Generics)</a>
+        </div>
+        
+      </div>
+      
+    </div>
+
+    <script src="https://utteranc.es/client.js"
+    repo="integerous/blog-comments"
+    issue-term="pathname"
+    crossorigin="anonymous"
+    async>
+    </script>
+  </footer>
+</div>
+
+
+
+
+
+</div>
+
+</div>
+<footer>
+<div id="site-footer-wrap">
+  <div id="site-footer">
+    <span>Powered by <a href="https://gohugo.io/">Hugo</a>.</span>
+    <span>
+      
+      Copyright (c) 2018, <a href="http://integerous.github.io/">Integerous DevLog</a>
+      
+    </span>
+  </div>
+</div>
+</footer>
+</div>
+</body>
+</html>

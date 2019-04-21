@@ -1,0 +1,42 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ETC on Integerous DevLog</title>
+    <link>http://integerous.github.io/categories/etc/</link>
+    <description>Recent content in ETC on Integerous DevLog</description>
+
+    
+
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko-kr</language>
+    <lastBuildDate>Tue, 04 Dec 2018 00:29:40 +0900</lastBuildDate>
+    <atom:link href="/categories/etc/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>내가 읽은&#43;읽을 개발서적 정리</title>
+      <link>http://integerous.github.io/post/etc/books/</link>
+      <pubDate>Tue, 04 Dec 2018 00:29:40 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/post/etc/books/</guid>
+      <description>2019년 1월 29일 기준 읽는 중 HTTP 완벽 가이드 SQL 레벨업 하루 3분 네트워크 교실 그림으로 개념을 이해하는 알고리즘 프로그래밍 대회에서 배우는 알고리즘 문제 해결</description>
+    </item>
+    
+    <item>
+      <title>Git으로 협업하는 방법</title>
+      <link>http://integerous.github.io/post/etc/gitflow/</link>
+      <pubDate>Sat, 20 Oct 2018 21:17:01 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/post/etc/gitflow/</guid>
+      <description>회사에서 Git을 활용한 협업 workflow를 세팅하기 위해 학습하며 기록한 내용입니다. 회사의 협업 환경 = Git + Bitbucket + Trello + Telegram Bitbucket 대신 Github을 사용해도</description>
+    </item>
+    
+    <item>
+      <title>Hugo로 github.io 블로그 만들기</title>
+      <link>http://integerous.github.io/post/etc/creating_static_blog/</link>
+      <pubDate>Sun, 12 Aug 2018 20:48:55 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/post/etc/creating_static_blog/</guid>
+      <description>주소가 github.io인 개발 블로그들이 눈에 많이 띄었다. 찾다보니 Jekyll, Hexo, Hugo 등 Static Site Generator의 존재를 알게 되었다. Hugo와 Github Page의 조합</description>
+    </item>
+    
+  </channel>
+</rss>

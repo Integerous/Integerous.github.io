@@ -1,9 +1,10 @@
 /**
  * init
  */
-* {
+ * {
   margin: 0px;
   padding: 0px;
+  box-sizing: border-box;
 }
 
 html, body {
@@ -11,7 +12,8 @@ html, body {
 }
 
 body {
-  font-family: sans-serif;
+  /* font-family: sans-serif; */
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
 }
 
 img {
@@ -53,9 +55,11 @@ a:hover {
 }
 
 .site-header a {
-  color: #303030;
+  color: #4078c0ab;
   text-decoration: none;
-  font-size: 20px;
+  font-size: 25px;
+  font-family: 'Open Sans', sans-serif;
+
 }
 
 .site-header-left {
@@ -81,7 +85,7 @@ a:hover {
  * articles
  */
 .article {
-  width: 590px;
+  width: 610px;
   padding: 0px 20px 20px 20px;
   clear: left;
   overflow: hidden;
@@ -99,39 +103,32 @@ a:hover {
   margin-top: 4px;
 }
 
-.article .content {
-  clear: left;
-  color: #303030;
-  margin-bottom: 10px;
-}
 
-.article .content ol,
-.article .content ul
-{
-  padding-left: 40px;
-}
 
 .article .content a {
-  font-size: 14px;
+  color: #0366d6;
+  text-decoration: none;
 }
 
 .article .content a:hover {
-  font-size: 14px;
+  color: red;
+  font-weight: bold;
+  /* font-size: 14px; */
 }
 
 .article .tags a {
-  font-size: 10px;
+  font-size: 11px;
 }
 
 .article .tags a:hover {
-  font-size: 10px;
+  font-size: 11px;
 }
 
 /**
  * sidebar
  */
 .sidebar {
-  width: 310px;
+  width: 250px;
   float: right;
   min-height:200px; 
   height: 200px;
@@ -227,7 +224,10 @@ a:hover {
 
 #author span {
   display: inline-block;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
+  color: #888;
+  font-family: sans-serif;
+  /* font-style: italic; */
 }
 
 #author a {
@@ -238,6 +238,12 @@ a:hover {
 
 #author a:hover {
   color: #4078C0;
+}
+
+#author img {
+  max-width: 95%;
+  border-radius: 50%;
+  margin-bottom: 10px;
 }
 
 /**
@@ -295,14 +301,14 @@ h1 {
 
 h2 {
     position: relative;
-    padding: 20px 0px 20px 41px;
+    /* padding: 20px 0px 20px 41px; */
     color: #303030;
     font-size: 25px;
-    min-height: 40px;
+    /* min-height: 40px; */
     line-height: 40px;
 }
 
-h2:before {
+/* h2:before {
     position: absolute;
     top: 30px;
     left: 6px;
@@ -320,18 +326,18 @@ h2:after {
     height: 17px;
     border: 4px solid #747474;
     content: "";
-}
+} */
 
 h3 {
     position: relative;
-    padding: 10px 0px 10px 30px;
+    /* padding: 10px 0px 10px 30px; */
     color: #303030;
     font-size: 20px;
-    min-height: 33px;
+    /* min-height: 33px; */
     line-height: 33px;
 }
 
-h3:before {
+/* h3:before {
     position: absolute;
     top: 15px;
     left: 0px;
@@ -339,19 +345,19 @@ h3:before {
     height: 13px;
     border: 4px solid #747474;
     content: "";
-}
+} */
 
 h4 {
     position: relative;
-    padding: 10px 0px 10px 25px;
+    /* padding: 10px 0px 10px 25px; */
     color: #303030;
     font-size: 16px;
-    min-height: 25px;
+    /* min-height: 25px; */
     line-height: 25px;
-    content: "";
+    /* content: ""; */
 }
 
-h4:before {
+/* h4:before {
     position: absolute;
     top: 12px;
     left: 0px;
@@ -359,10 +365,18 @@ h4:before {
     height: 10px;
     border: 4px solid #B4B3BA;
     content: "";
-}
+} */
 
 .article-header {
-  margin-bottom: 20px;
+  margin-bottom: 25px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #B4B3BA;
+}
+
+/* 정수 */
+.article-header h1{
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .article .adsense {
@@ -373,33 +387,155 @@ h4:before {
 
 .article .content {
   word-break: break-word;
+  clear: left;
+  color: #303030;
+  margin-bottom: 10px;
+  font-size: 15.5px;
+  line-height: 1.6;
+}
+
+
+#TableOfContents{
+  font-size: 12px;
+  padding: 10px;
+  border: 1px solid #B4B3BA;
+}
+
+#TableOfContents li a{
+  color: #4078C0;
+  text-decoration: none;
+}
+
+#TableOfContents li a:hover{
+  font-weight: bold;
+  color: red;
+}
+
+.article .content ol,
+.article .content ul {
+  padding-left: 2em;
+}
+
+.article .content ul ul,
+.article .content ul ol,
+.article .content ol ol,
+.article .content ol ul {
+  margin-top : 0;
+  margin-bottom : 0;
+}
+
+
+/* 정수 */
+.article .content>*:first-child{
+  margin-top: 0 !important;
+}
+
+.article .content h1 {
+  padding-bottom: 0.3em;
+  font-size: 2em;
+  border-bottom: 1px solid #eaecef;
+}
+
+.article .content h2 {
+  padding-bottom: 0.3em;
+  font-size: 1.5em;
+  border-bottom: 1px solid #eaecef;
+}
+
+.article .content h3 {
+  font-size: 1.25em
+}
+
+.article .content h1,
+.article .content h2,
+.article .content h3,
+.article .content h4,
+.article .content h5,
+.article .content h6  {
+  margin-top: 24px;
+  margin-bottom: 16px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.article .content li+li {
+  margin-top: .25em;
 }
 
 .article .content ul,
 .article .content ol,
-.article .content p {
-  margin-bottom: 20px;
+.article .content dl,
+.article .content p,
+.article .content table,
+.article .content pre,
+.article .content blockquote {
+  margin-top: 0;
+  margin-bottom: 16px;
 }
 
 .article .content pre {
+  padding: 16px;
   overflow: auto;
+  font-size: 90%;
+  line-height: 1.45;
+  background-color: #f6f8fa;
+  border-radius: 3px;
+  /* overflow: auto;
   white-space: pre-wrap;
   word-wrap: break-word;
-  margin-bottom: 20px;
+  margin-bottom: 20px; */
+}
+
+.article .content pre tt,
+.article .content pre code  {
+  display: inline;
+  max-width: auto;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+  line-height: inherit;
+  word-wrap: normal;
+  background-color: transparent;
+  border: 0;
+}
+
+.article .content pre>code  {
+  padding: 0;
+  margin: 0;
+  font-size: 100%;
+  word-break: normal;
+  white-space: pre;
+  background: transparent;
+  border: 0;
+}
+
+.article .content tt,
+.article .content code{
+  padding: 0.2em 0.4em;
+  margin: 0;
+  font-size: 85%;
+  background-color: rgba(27,31,35,0.05);
+  border-radius: 3px;
+
+  font-family: "SFMono-Regular",Consolas,"Liberation Mono",Menlo,Courier,monospace;
 }
 
 .article .content blockquote {
-  position: relative;
+  padding: 0 1em;
+  color: #6a737d;
+  border-left: 0.25em solid #dfe2e5;
+
+  /* position: relative;
 
   background: #F6F7F8;
   padding: 20px 25px 10px 45px;
   margin: 5px 17px 20px 0px;
 
   font-size: 13px;
-  font-style: italic;
+  font-style: italic; */
 }
 
-.article .content blockquote:before{
+/* .article .content blockquote:before{
   position: absolute;
   left: 5px;
   top: 0px;
@@ -407,6 +543,13 @@ h4:before {
   content: "\201C";
   font-size: 60px;
   color: #747474;
+} */
+
+.article .content blockquote>:last-child {
+  margin-bottom: 0;
+}
+.article .content blockquote>:first-child {
+  margin-top: 0;
 }
 
 .article .content blockquote p {
@@ -424,9 +567,11 @@ h4:before {
  */
 #articles-list-header h1 {
   font-size: 25px;
-  color: #303030;
+  color: #00c3bd;
   text-decoration: none;
-  padding-left: 20px;
+  /* padding-left: 20px; */
+  display: flex;
+    justify-content: center;
 }
 
 #articles-list-header {
@@ -445,6 +590,8 @@ h4:before {
   padding: 0;
   min-height: 18px;
   line-height: 18px;
+  /* 내가 수정한 부분 */
+  margin-bottom: 10px;
 }
 
 #article-list h2:before {
@@ -486,7 +633,7 @@ h4:before {
   text-decoration: none;
   color: #303030;
   font-size: 14px;
-  padding: 10px 8px;
+  padding: 2px 8px;
   margin-bottom: 10px;
   margin-right: 10px;
   border: 1px solid #747474;
@@ -542,28 +689,44 @@ h4:before {
 }
 
 #pagenavigation-next-prev {
-  clear: left;
+  /* clear: left; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0px;
+  background-color: #f6f8fa;
 }
 
-#pagenavigation-next {
-  margin-bottom: 15px;
+#pagenavigation-next-prev > div{
+  padding: 0px 25px;
 }
+
+/* #pagenavigation-next {
+  padding: 0px 20px;
+} */
 
 #pagenavigation-next-prev span {
   display: block;
   font-size: 13px;
   font-weight: bold;
+  color: #747474;
+  padding-bottom: 5px;
 }
 
 #pagenavigation-next-prev a {
-  color: #747474;
-  font-size: 14px;
+  color: #4078C0;
+  font-size: 16px;
+  text-decoration: none;
+  font-weight: bold;
 }
 
 #pagenavigation-next-prev a:hover {
-  color: #4078C0;
-  font-size: 14px;
+  color: red;
+  font-size: 16px;
+  text-decoration: none;
+  font-weight: bold;
 }
+
 
 /**
  * responsive styles
@@ -622,6 +785,10 @@ h4:before {
     width: auto;
   }
 
+  #author img {
+    max-width: 30%;
+  }
+
   .sidebar .adsense {
     margin-left: 20px;
   }
@@ -654,7 +821,7 @@ h4:before {
   }
 
   #article-list h2 {
-    font-size: 14px;
+    font-size: 16px;
   }
 
   #article-list {
@@ -679,5 +846,8 @@ h4:before {
   #site-footer {
     padding: 10px 0px 10px 10px;
   }
-}
 
+  #author img {
+    max-width: 50%;
+  }
+}

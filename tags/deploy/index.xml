@@ -1,0 +1,24 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Deploy on Integerous DevLog</title>
+    <link>http://integerous.github.io/tags/deploy/</link>
+    <description>Recent content in Deploy on Integerous DevLog</description>
+
+    
+
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko-kr</language>
+    <lastBuildDate>Sun, 07 Oct 2018 23:30:21 +0900</lastBuildDate>
+    <atom:link href="/tags/deploy/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>AWS EC2 서버에 Java 프로젝트 배포/재배포</title>
+      <link>http://integerous.github.io/post/aws/deployonec2/</link>
+      <pubDate>Sun, 07 Oct 2018 23:30:21 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/post/aws/deployonec2/</guid>
+      <description>회사 고객센터용 카카오톡 챗봇을 만들어 AWS EC2 서버에 배포하기 위해 박재성님 유튜브 강의를 들으며 실습한 내용 목차 1. AWS EC2 인스턴스 생성 2. 생성한 인스턴스(서버)에</description>
+    </item>
+    
+  </channel>
+</rss>

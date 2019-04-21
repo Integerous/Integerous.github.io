@@ -1,0 +1,294 @@
+
+
+<!DOCTYPE html>
+<html lang="ko-kr">
+  <head>
+    
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-KZXLS88');</script>
+    
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="generator" content="Hugo 0.55.3" />
+    <link rel="shortcut icon" href="/images/favicon.ico">
+    <link href="http://integerous.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Integerous DevLog" />
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:700i" rel="stylesheet">
+    
+    <script src="https://apis.google.com/js/platform.js" async defer>{lang: 'ja'}</script>
+    
+    <link rel="stylesheet" href="https://yandex.st/highlightjs/8.0/styles/default.min.css">
+    <script src="https://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+    <link rel="stylesheet" type="text/css" href="/css/single.css">
+    <title>자바의 정석 - 추상클래스, 인터페이스 | Integerous DevLog</title>
+  </head>
+  <body>
+    
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KZXLS88"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  
+  
+    <div id="wrap">
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-126908369-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+      <header class="site-header">
+        <div class="site-header-left">
+          <a class="site-header-title" href="http://integerous.github.io/">Integerous DevLog</a>
+        </div>
+      </header>
+      <div class="container">
+        <div id="main">
+
+
+
+
+<div class="article">
+  <header>
+    <div class="article-header">
+      <h1>자바의 정석 - 추상클래스, 인터페이스</h1>
+      <div class="article-meta">
+        <span class="posttime">2018/10/03</span>
+        
+        
+        
+<div class="tags">
+  <ul>
+    
+    <li>
+        <a href="/tags/java">Java</a>
+    </li>
+    
+  </ul>
+</div>
+
+
+      </div>
+    </div>
+    
+  </header>
+  <div class="content">
+    
+
+<blockquote>
+<p>자바의 정석(남궁성 저) 학습내용 정리</p>
+</blockquote>
+
+<h2 id="1-추상-클래스-abstract-class">1. 추상 클래스 (Abstract class)</h2>
+
+<ul>
+<li>미완성 메소드(추상메소드)를 포함하고 있다는 것을 제외하고는 일반클래스와 같다.</li>
+<li>추상메소드가 없어도 <code>abstract</code>를 붙여서 추상클래스로 지정할 수 있다.</li>
+<li>추상클래스는 인스턴스를 생성할 수 없다.</li>
+<li>추상클래스는 상속을 통해서 자손클래스에 의해서만 완성된다.<br />
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#8b008b;font-weight:bold">abstract</span> <span style="color:#8b008b;font-weight:bold">class</span> <span style="color:#008b45;font-weight:bold">클래스이름</span>  {
+  ...
+}</code></pre></div></li>
+</ul>
+
+<h2 id="2-추상-메소드-abstract-method">2. 추상 메소드 (Abstract method)</h2>
+
+<ul>
+<li>선언부만 작성하고 구현부는 작성하지 않은 것이 추상메소드.
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#228b22">/* 주석을 통해 기능 설명 */</span>
+<span style="color:#8b008b;font-weight:bold">abstract</span> 리턴타입 <span style="color:#008b45">메소드이름</span>();</code></pre></div></li>
+<li>추상클래스로부터 상속받는 자손클래스는 오버라이딩을 통해 조상인 추상클래스의 추상메소드를 모두 구현해야 한다.</li>
+<li>만약 부모로 부터 상속받은 추상메소드 중 하나라도 구현하지 않으면 자식클래스 역시 추상클래스로 지정해야 한다.</li>
+</ul>
+
+<h2 id="3-인터페이스">3. 인터페이스</h2>
+
+<ul>
+<li>인터페이스는 일종의 추상클래스다.</li>
+<li>인터페이스는 추상클래스처럼 추상메소드를 갖지만, 추상클래스와 달리 몸통을 갖춘 일반 메소드 또는 멤버변수를 가질 수 없다.</li>
+<li>인터페이스는 오직 추상메소드와 상수만을 멤버로 가질 수 있다.</li>
+</ul>
+
+<h2 id="4-인터페이스의-작성">4. 인터페이스의 작성</h2>
+
+<ul>
+<li><div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#8b008b;font-weight:bold">interface</span> <span style="color:#008b45;font-weight:bold">PlayingCard</span> {
+  <span style="color:#8b008b;font-weight:bold">public</span> <span style="color:#8b008b;font-weight:bold">static</span> <span style="color:#8b008b;font-weight:bold">final</span> <span style="color:#00688b;font-weight:bold">int</span> SPADE = 4;
+  <span style="color:#8b008b;font-weight:bold">final</span> <span style="color:#00688b;font-weight:bold">int</span> DIAMOND = 3; <span style="color:#228b22">//public static final int DIAMOND = 3;
+</span><span style="color:#228b22"></span>  <span style="color:#8b008b;font-weight:bold">static</span> <span style="color:#00688b;font-weight:bold">int</span> HEART = 2;  <span style="color:#228b22">//public static final int HEART = 2;
+</span><span style="color:#228b22"></span>  <span style="color:#00688b;font-weight:bold">int</span> CLOVER = 1;        <span style="color:#228b22">//public static final int CLOVER = 1;
+</span><span style="color:#228b22"></span>  
+  <span style="color:#8b008b;font-weight:bold">public</span> <span style="color:#8b008b;font-weight:bold">abstract</span> String <span style="color:#008b45">getCardNumber</span>();
+  String <span style="color:#008b45">getCardKind</span>();  <span style="color:#228b22">//public abstract String getCardKind();
+</span><span style="color:#228b22"></span>}</code></pre></div></li>
+<li>모든 멤버변수는 public static final 이어야하며, 이를 생략할 수 있다.<br /></li>
+<li>모든 메서드는 public abstract 이어야하며, 이를 생략할 수 있다.<br />
+
+<ul>
+<li>단, jdk 1.8부터 static 메서드와 디폴트 메서트는 예외
+<br /></li>
+</ul></li>
+</ul>
+
+<h2 id="5-인터페이스의-상속과-구현">5. 인터페이스의 상속과 구현</h2>
+
+<ul>
+<li>인터페이스는 인터페이스로부터만 상속받을 수 있다.</li>
+<li>클래스와 달리 다중 상속이 가능하다.</li>
+<li>인터페이스도 추상클래스처럼 그 자체로는 인스턴스를 생성할 수 없다.</li>
+<li>클래스는 <code>extends</code>(확장하다) 사용, 인터페이스는 <code>implements</code>(구현하다) 사용.</li>
+<li>상속과 구현을 동시에 할 수 있다.
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#8b008b;font-weight:bold">class</span> <span style="color:#008b45;font-weight:bold">Fighter</span> <span style="color:#8b008b;font-weight:bold">extends</span> Unit <span style="color:#8b008b;font-weight:bold">implements</span> Fightable {
+  <span style="color:#8b008b;font-weight:bold">public</span> <span style="color:#00688b;font-weight:bold">void</span> <span style="color:#008b45">move</span>(<span style="color:#00688b;font-weight:bold">int</span> x, <span style="color:#00688b;font-weight:bold">int</span> y)  { <span style="color:#228b22">/* 내용 생략 */</span> }
+  <span style="color:#8b008b;font-weight:bold">public</span> <span style="color:#00688b;font-weight:bold">void</span> <span style="color:#008b45">attack</span>(Unit u)  { <span style="color:#228b22">/* 내용 생략 */</span> }
+}</code></pre></div></li>
+</ul>
+
+<h2 id="6-인터페이스를-이용한-다형성">6. 인터페이스를 이용한 다형성</h2>
+
+<ul>
+<li><p>리턴 타입이 인터페이스라는 것은 메소드가 해당 인터페이스를 구현한 클래스의 인스턴스를 반환한다는 것을 의미한다.
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">Fightable <span style="color:#008b45">method</span>()  {
+    ...
+    Fighter f = <span style="color:#8b008b;font-weight:bold">new</span> Fighter();
+    <span style="color:#8b008b;font-weight:bold">return</span> f;
+}</code></pre></div></p></li>
+
+<li><p>repair 메소드의 매개변수의 타입을 Repairable로 선언하면, 이 메소드의 매개변수로 Repairable 인터페이스를 구현한 클래스의 인스턴스만 받아들여진다.
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#8b008b;font-weight:bold">interface</span> <span style="color:#008b45">Repairable</span>() {}
+<span style="color:#8b008b;font-weight:bold">class</span> <span style="color:#008b45;font-weight:bold">SCV</span> <span style="color:#8b008b;font-weight:bold">extends</span> GroundUnit <span style="color:#8b008b;font-weight:bold">implements</span> Repairable {
+    ...
+}
+<span style="color:#8b008b;font-weight:bold">class</span> <span style="color:#008b45;font-weight:bold">Tank</span> <span style="color:#8b008b;font-weight:bold">extends</span> GroundUnit <span style="color:#8b008b;font-weight:bold">implements</span> Repairable {
+    ...
+}
+<span style="color:#8b008b;font-weight:bold">class</span> <span style="color:#008b45;font-weight:bold">Drop</span> <span style="color:#8b008b;font-weight:bold">extends</span> AirUnit <span style="color:#8b008b;font-weight:bold">implements</span> Repairable  {
+    ...
+}</code></pre></div>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#00688b;font-weight:bold">void</span> <span style="color:#008b45">repair</span>(Repairable r) {
+    <span style="color:#228b22">// 매개변수로 넘겨받은 유닛을 수리한다.
+</span><span style="color:#228b22"></span>}</code></pre></div></p></li>
+
+<li><p>앞으로 새로운 클래스가 추가될 때, SCV의 repair 메소드에 의해 수리가 가능하도록 하려면 Repairable 인터페이스를 구현하면 된다.</p></li>
+
+<li><p>인터페이스 타입의 매개변수가 갖는 의미는 메소드 호출 시 해당 인터페이스를 구현한 클래스의 인스턴스를 매개변수로 제공해야 한다는 것이다.</p></li>
+</ul>
+
+<h2 id="7-default-메소드와-static-메소드">7. default 메소드와 static 메소드</h2>
+
+<ul>
+<li>인터페이스에 원래 추상메소드만 선언할 수 있었는데, JDK1.8부터 default 메소드와 static 메소드도 추가할 수 있게 되었다.</li>
+<li>인터페이스의 default메소드와 static메소드는 접근 제어자가 항상 public이며, 생략할 수 있다.</li>
+<li>default 메소드는 추상메소드의 기본적인 구현을 제공하는 메소드이다.</li>
+<li>default 메소드는 추상메소드가 아니기 때문에 default 메소드가 새로 추가되어도 해당 인터페이스를 구현한 클래스를 변경하지 않아도 된다.</li>
+<li>default 메소드는 추상메소드와 달리 일반 메소드처럼 몸통{}이 있어야 한다.</li>
+</ul>
+
+<h2 id="8-내부클래스">8. 내부클래스</h2>
+
+<ul>
+<li>내부 클래스는 클래스 내에 선언된 클래스다.</li>
+<li>내부 클래스는 주로 AWT나 Swing과 같은 GUI어플리케이션의 이벤트처리 외에는 잘 사용하지 않는다.</li>
+<li>내부 클래스의 종류와 특징
+
+<ul>
+<li>instance class
+
+<ul>
+<li>외부 클래스의 멤버변수 선언위치에 선언.</li>
+<li>외부 클래스의 인스턴스 멤버처럼 다루어진다.</li>
+<li>주로 외부 클래스의 인스턴스 멤버들과 관련된 작업에 사용될 목적으로 선언된다.</li>
+</ul></li>
+<li>static class
+
+<ul>
+<li>외부 클래스의 멤버변수 선언위치에 선언.</li>
+<li>외부 클래스의 static 멤버처럼 다루어진다.</li>
+<li>특히 static 메소드에서 사용될 목적으로 선언된다.</li>
+</ul></li>
+<li>local class
+
+<ul>
+<li>외부 클래스의 메소드나 초기화블럭 안에 선언.</li>
+<li>선언된 영역 내부에서만 사용될 수 있다.</li>
+</ul></li>
+<li>anonymous class
+
+<ul>
+<li>클래스의 선언과 객체의 생성을 동시에 하는 이름없는 클래스(일회용)</li>
+</ul></li>
+</ul></li>
+</ul>
+
+  </div>
+  <footer>
+    <div class="article-footer">
+      
+
+      
+      
+      
+      
+      
+      <div id="pagenavigation-next-prev">
+        
+        <div id="pagenavigation-next">
+          <span class="pagenav-label">&lt; 이전 글</span>
+          <a href="http://integerous.github.io/post/java/java-exception/">자바의 정석 - 예외 처리(Exception handling)</a>
+        </div>
+        
+        
+        <div id="pagenavigation-prev">
+          <span class="pagenav-label">다음 글 ></span>
+          <a href="http://integerous.github.io/post/java/java-polymorphism/">자바의 정석 - 다형성(Polymorphism)</a>
+        </div>
+        
+      </div>
+      
+    </div>
+
+    <script src="https://utteranc.es/client.js"
+    repo="integerous/blog-comments"
+    issue-term="pathname"
+    crossorigin="anonymous"
+    async>
+    </script>
+  </footer>
+</div>
+
+
+
+
+
+</div>
+
+</div>
+<footer>
+<div id="site-footer-wrap">
+  <div id="site-footer">
+    <span>Powered by <a href="https://gohugo.io/">Hugo</a>.</span>
+    <span>
+      
+      Copyright (c) 2018, <a href="http://integerous.github.io/">Integerous DevLog</a>
+      
+    </span>
+  </div>
+</div>
+</footer>
+</div>
+</body>
+</html>

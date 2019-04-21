@@ -1,11 +1,150 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>My New Hugo Site on My New Hugo Site</title>
-    <link>http://example.org/</link>
-    <description>Recent content in My New Hugo Site on My New Hugo Site</description>
+    <title>Integerous DevLog on Integerous DevLog</title>
+    <link>http://integerous.github.io/</link>
+    <description>Recent content in Integerous DevLog on Integerous DevLog</description>
+
+    
+
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>ko-kr</language>
+    <lastBuildDate>Sun, 16 Dec 2018 19:17:14 +0900</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>체대 출신 개발자의 2018년 회고</title>
+      <link>http://integerous.github.io/post/essay/memoirs2018/</link>
+      <pubDate>Sun, 16 Dec 2018 19:17:14 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/post/essay/memoirs2018/</guid>
+      <description>이 글은 개인적인 회고록이다. 그래서 독백체 자문자답 형식으로 2018년을 정리해보고자 한다. 1. 시작 2017년은 다사다난 했다. 취업(1월), 졸업(2월</description>
+    </item>
+    
+    <item>
+      <title>내가 읽은&#43;읽을 개발서적 정리</title>
+      <link>http://integerous.github.io/post/etc/books/</link>
+      <pubDate>Tue, 04 Dec 2018 00:29:40 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/post/etc/books/</guid>
+      <description>2019년 1월 29일 기준 읽는 중 HTTP 완벽 가이드 SQL 레벨업 하루 3분 네트워크 교실 그림으로 개념을 이해하는 알고리즘 프로그래밍 대회에서 배우는 알고리즘 문제 해결</description>
+    </item>
+    
+    <item>
+      <title>자바의 정석 - 직렬화(Serialization)</title>
+      <link>http://integerous.github.io/post/java/java-serialization/</link>
+      <pubDate>Sun, 02 Dec 2018 00:37:49 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/post/java/java-serialization/</guid>
+      <description>자바의 정석(남궁성 저) 2권 학습내용 정리 1. 직렬화란? 객체를 데이터 스트림으로 만드는 것 객체에 저장된 데이터를 스트림에 쓰기 위해 연속적인 데이터로 변환하는</description>
+    </item>
+    
+    <item>
+      <title>자바의 정석 - 스트림(Stream)</title>
+      <link>http://integerous.github.io/post/java/java-stream/</link>
+      <pubDate>Thu, 29 Nov 2018 00:10:13 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/post/java/java-stream/</guid>
+      <description>자바의 정석(남궁성 저) 2권 학습내용 정리 1. 스트림(Stream) 스트림은 데이터 소스를 추상화하고, 데이터를 다루는데 자주 사용되는 메서드들을 정의해 놓</description>
+    </item>
+    
+    <item>
+      <title>자바의 정석 - 람다식(Lambda Expression)</title>
+      <link>http://integerous.github.io/post/java/java-lambda/</link>
+      <pubDate>Thu, 29 Nov 2018 00:10:00 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/post/java/java-lambda/</guid>
+      <description>자바의 정석(남궁성 저) 2권 학습내용 정리 1. 람다식 메서드를 하나의 식(expression)으로 표현한 것. 메서드를 람다식으로 표현하면 메서드의 이름과</description>
+    </item>
+    
+    <item>
+      <title>자바의 정석 - 쓰레드(Thread)</title>
+      <link>http://integerous.github.io/post/java/java-thread/</link>
+      <pubDate>Tue, 30 Oct 2018 01:39:34 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/post/java/java-thread/</guid>
+      <description>자바의 정석(남궁성 저) 2권 학습 1. 프로세스와 쓰레드 프로세스란 실행중인 프로그램이다. 프로그램을 실행하면 OS로부터 실행에 필요한 자원(메모리)를 할당</description>
+    </item>
+    
+    <item>
+      <title>자바의 정석 - 열거형(Enums)</title>
+      <link>http://integerous.github.io/post/java/java-enums/</link>
+      <pubDate>Sun, 28 Oct 2018 19:29:48 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/post/java/java-enums/</guid>
+      <description>자바의 정석(남궁성 저) 학습내용 정리 1. 열거형(Enums) Java의 열거형은 C언어의 열거형과 다르게 열거형이 갖는 값 뿐만 아니라 타입까지 관리한다. 기</description>
+    </item>
+    
+    <item>
+      <title>자바의 정석 - 지네릭스(Generics)</title>
+      <link>http://integerous.github.io/post/java/java-generics/</link>
+      <pubDate>Thu, 25 Oct 2018 00:28:04 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/post/java/java-generics/</guid>
+      <description>자바의 정석(남궁성 저) 학습내용 정리 1. 지네릭스(Generics) 지네릭스는 다양한 타입의 객체들을 다루는 메서드나 컬렉션 클래스에 컴파일 시의 타입 체크</description>
+    </item>
+    
+    <item>
+      <title>Git으로 협업하는 방법</title>
+      <link>http://integerous.github.io/post/etc/gitflow/</link>
+      <pubDate>Sat, 20 Oct 2018 21:17:01 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/post/etc/gitflow/</guid>
+      <description>회사에서 Git을 활용한 협업 workflow를 세팅하기 위해 학습하며 기록한 내용입니다. 회사의 협업 환경 = Git + Bitbucket + Trello + Telegram Bitbucket 대신 Github을 사용해도</description>
+    </item>
+    
+    <item>
+      <title>286컴퓨터와 도트프린터</title>
+      <link>http://integerous.github.io/post/essay/father/</link>
+      <pubDate>Sun, 14 Oct 2018 12:49:22 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/post/essay/father/</guid>
+      <description>2018년 10월 14일 성주 외삼촌댁에서 1997년 어느 가을 날. 나는 8살이었다. 아빠는 오토바이에 누나와 나를 앉히시고 10분 거리의 할아버지 댁에 갔다.</description>
+    </item>
+    
+    <item>
+      <title>AWS EC2 서버에 Java 프로젝트 배포/재배포</title>
+      <link>http://integerous.github.io/post/aws/deployonec2/</link>
+      <pubDate>Sun, 07 Oct 2018 23:30:21 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/post/aws/deployonec2/</guid>
+      <description>회사 고객센터용 카카오톡 챗봇을 만들어 AWS EC2 서버에 배포하기 위해 박재성님 유튜브 강의를 들으며 실습한 내용 목차 1. AWS EC2 인스턴스 생성 2. 생성한 인스턴스(서버)에</description>
+    </item>
+    
+    <item>
+      <title>AWS VPC 총정리</title>
+      <link>http://integerous.github.io/post/aws/vpc/</link>
+      <pubDate>Sun, 07 Oct 2018 22:56:09 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/post/aws/vpc/</guid>
+      <description>AWS Certified Solutions Architect - Associate 2018 강의를 듣고 내용 정리 1. What is a VPC ? VPC는 클라우드 내의 가상 데이터 센터. 2. What can you do with a VPC ? 내가 선택한 서브넷에 인스턴스를 실행할 수 있다.</description>
+    </item>
+    
+    <item>
+      <title>Java 문자열 연결방법 비교</title>
+      <link>http://integerous.github.io/post/java/stringconcat/</link>
+      <pubDate>Sun, 07 Oct 2018 18:21:44 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/post/java/stringconcat/</guid>
+      <description>CodeWars에서 알고리즘 문제들을 풀다보면 문자열 연결할 일이 많았는데, 퍼포먼스 이슈가 많다 보니 정리가 필요했다. 이 글에서는 StringBuilder, StringBuffer, + 연산자, Conc</description>
+    </item>
+    
+    <item>
+      <title>AWS S3 총정리</title>
+      <link>http://integerous.github.io/post/aws/s3/</link>
+      <pubDate>Sun, 07 Oct 2018 18:12:32 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/post/aws/s3/</guid>
+      <description>S3 (Simple Storage Service) 인터넷 스토리지 서비스. 용량에 관계 없이 파일을 저장할 수 있고 웹(HTTP 프로토콜)에서 파일에 접근할 수 있다. 1. 사용 이유 S3는 저장 용량이 무한대</description>
+    </item>
+    
+    <item>
+      <title>자바의 정석 - 컬렉션 프레임웍(Collections Framework)</title>
+      <link>http://integerous.github.io/post/java/java-collections/</link>
+      <pubDate>Sun, 07 Oct 2018 10:02:58 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/post/java/java-collections/</guid>
+      <description>자바의 정석(남궁성 저) 학습내용 정리 1. 컬렉션 프레임웍 (Collections Framework) &amp;lsquo;데이터 그룹을 다루고 표현하기 위한 단일화된 구조&amp;rsquo; - Java API문서 JDK1.2</description>
+    </item>
     
   </channel>
 </rss>

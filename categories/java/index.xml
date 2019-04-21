@@ -1,0 +1,132 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Java on Integerous DevLog</title>
+    <link>http://integerous.github.io/categories/java/</link>
+    <description>Recent content in Java on Integerous DevLog</description>
+
+    
+
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko-kr</language>
+    <lastBuildDate>Sun, 02 Dec 2018 00:37:49 +0900</lastBuildDate>
+    <atom:link href="/categories/java/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>자바의 정석 - 직렬화(Serialization)</title>
+      <link>http://integerous.github.io/post/java/java-serialization/</link>
+      <pubDate>Sun, 02 Dec 2018 00:37:49 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/post/java/java-serialization/</guid>
+      <description>자바의 정석(남궁성 저) 2권 학습내용 정리 1. 직렬화란? 객체를 데이터 스트림으로 만드는 것 객체에 저장된 데이터를 스트림에 쓰기 위해 연속적인 데이터로 변환하는</description>
+    </item>
+    
+    <item>
+      <title>자바의 정석 - 스트림(Stream)</title>
+      <link>http://integerous.github.io/post/java/java-stream/</link>
+      <pubDate>Thu, 29 Nov 2018 00:10:13 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/post/java/java-stream/</guid>
+      <description>자바의 정석(남궁성 저) 2권 학습내용 정리 1. 스트림(Stream) 스트림은 데이터 소스를 추상화하고, 데이터를 다루는데 자주 사용되는 메서드들을 정의해 놓</description>
+    </item>
+    
+    <item>
+      <title>자바의 정석 - 람다식(Lambda Expression)</title>
+      <link>http://integerous.github.io/post/java/java-lambda/</link>
+      <pubDate>Thu, 29 Nov 2018 00:10:00 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/post/java/java-lambda/</guid>
+      <description>자바의 정석(남궁성 저) 2권 학습내용 정리 1. 람다식 메서드를 하나의 식(expression)으로 표현한 것. 메서드를 람다식으로 표현하면 메서드의 이름과</description>
+    </item>
+    
+    <item>
+      <title>자바의 정석 - 쓰레드(Thread)</title>
+      <link>http://integerous.github.io/post/java/java-thread/</link>
+      <pubDate>Tue, 30 Oct 2018 01:39:34 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/post/java/java-thread/</guid>
+      <description>자바의 정석(남궁성 저) 2권 학습 1. 프로세스와 쓰레드 프로세스란 실행중인 프로그램이다. 프로그램을 실행하면 OS로부터 실행에 필요한 자원(메모리)를 할당</description>
+    </item>
+    
+    <item>
+      <title>자바의 정석 - 열거형(Enums)</title>
+      <link>http://integerous.github.io/post/java/java-enums/</link>
+      <pubDate>Sun, 28 Oct 2018 19:29:48 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/post/java/java-enums/</guid>
+      <description>자바의 정석(남궁성 저) 학습내용 정리 1. 열거형(Enums) Java의 열거형은 C언어의 열거형과 다르게 열거형이 갖는 값 뿐만 아니라 타입까지 관리한다. 기</description>
+    </item>
+    
+    <item>
+      <title>자바의 정석 - 지네릭스(Generics)</title>
+      <link>http://integerous.github.io/post/java/java-generics/</link>
+      <pubDate>Thu, 25 Oct 2018 00:28:04 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/post/java/java-generics/</guid>
+      <description>자바의 정석(남궁성 저) 학습내용 정리 1. 지네릭스(Generics) 지네릭스는 다양한 타입의 객체들을 다루는 메서드나 컬렉션 클래스에 컴파일 시의 타입 체크</description>
+    </item>
+    
+    <item>
+      <title>Java 문자열 연결방법 비교</title>
+      <link>http://integerous.github.io/post/java/stringconcat/</link>
+      <pubDate>Sun, 07 Oct 2018 18:21:44 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/post/java/stringconcat/</guid>
+      <description>CodeWars에서 알고리즘 문제들을 풀다보면 문자열 연결할 일이 많았는데, 퍼포먼스 이슈가 많다 보니 정리가 필요했다. 이 글에서는 StringBuilder, StringBuffer, + 연산자, Conc</description>
+    </item>
+    
+    <item>
+      <title>자바의 정석 - 컬렉션 프레임웍(Collections Framework)</title>
+      <link>http://integerous.github.io/post/java/java-collections/</link>
+      <pubDate>Sun, 07 Oct 2018 10:02:58 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/post/java/java-collections/</guid>
+      <description>자바의 정석(남궁성 저) 학습내용 정리 1. 컬렉션 프레임웍 (Collections Framework) &amp;lsquo;데이터 그룹을 다루고 표현하기 위한 단일화된 구조&amp;rsquo; - Java API문서 JDK1.2</description>
+    </item>
+    
+    <item>
+      <title>자바의 정석 - 날짜와 시간(Calendar와 Date, java.time패키지)</title>
+      <link>http://integerous.github.io/post/java/java-calendar-date/</link>
+      <pubDate>Wed, 03 Oct 2018 14:01:53 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/post/java/java-calendar-date/</guid>
+      <description>자바의 정석(남궁성 저) 학습내용 정리 1. Calendar 와 Date Date는 JDK1.0, Calendar는 JDK1.1 부터 제공되었다. JDK1.8부터 java.time 패키지로 Calendar와 Dat</description>
+    </item>
+    
+    <item>
+      <title>자바의 정석 - java.lang 패키지</title>
+      <link>http://integerous.github.io/post/java/java-lang/</link>
+      <pubDate>Wed, 03 Oct 2018 13:26:15 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/post/java/java-lang/</guid>
+      <description>자바의 정석(남궁성 저) 학습내용 정리 1. java.lang 패키지 java.lang 패키지의 클래스들은 import문 없이도 사용 가능하다. 2. Object 클래스 Object 클래스는 모든 클래스의 최고 조상 Object</description>
+    </item>
+    
+    <item>
+      <title>자바의 정석 - 예외 처리(Exception handling)</title>
+      <link>http://integerous.github.io/post/java/java-exception/</link>
+      <pubDate>Wed, 03 Oct 2018 13:20:33 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/post/java/java-exception/</guid>
+      <description>자바의 정석(남궁성 저) 학습내용 정리 1. 예외 처리 (Exception handling) 에러는 메모리 부족(OutOfMemoryError)이나 스택오버플로우(StackOverF</description>
+    </item>
+    
+    <item>
+      <title>자바의 정석 - 추상클래스, 인터페이스</title>
+      <link>http://integerous.github.io/post/java/java-abstract-interface/</link>
+      <pubDate>Wed, 03 Oct 2018 12:33:20 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/post/java/java-abstract-interface/</guid>
+      <description>자바의 정석(남궁성 저) 학습내용 정리 1. 추상 클래스 (Abstract class) 미완성 메소드(추상메소드)를 포함하고 있다는 것을 제외하고는 일반클래스와 같다. 추상메소드가 없어</description>
+    </item>
+    
+    <item>
+      <title>자바의 정석 - 다형성(Polymorphism)</title>
+      <link>http://integerous.github.io/post/java/java-polymorphism/</link>
+      <pubDate>Wed, 03 Oct 2018 11:43:34 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/post/java/java-polymorphism/</guid>
+      <description>자바의 정석(남궁성 저) 학습내용 정리 1. 다형성 (Polymorphism) Java에서는 한 타입의 참조변수로 여러 타입의 객체를 참조할 수 있도록 하는 것. 부모클래스 타입의 참조변수로</description>
+    </item>
+    
+  </channel>
+</rss>

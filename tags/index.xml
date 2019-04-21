@@ -1,11 +1,105 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on My New Hugo Site</title>
-    <link>http://example.org/tags/</link>
-    <description>Recent content in Tags on My New Hugo Site</description>
+    <title>Tags on Integerous DevLog</title>
+    <link>http://integerous.github.io/tags/</link>
+    <description>Recent content in Tags on Integerous DevLog</description>
+
+    
+
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>ko-kr</language>
+    <lastBuildDate>Sun, 16 Dec 2018 19:17:14 +0900</lastBuildDate>
     <atom:link href="/tags/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>essay</title>
+      <link>http://integerous.github.io/tags/essay/</link>
+      <pubDate>Sun, 16 Dec 2018 19:17:14 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/tags/essay/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Book</title>
+      <link>http://integerous.github.io/tags/book/</link>
+      <pubDate>Tue, 04 Dec 2018 00:29:40 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/tags/book/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Java</title>
+      <link>http://integerous.github.io/tags/java/</link>
+      <pubDate>Sun, 02 Dec 2018 00:37:49 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/tags/java/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Git</title>
+      <link>http://integerous.github.io/tags/git/</link>
+      <pubDate>Sat, 20 Oct 2018 21:17:01 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/tags/git/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>AWS</title>
+      <link>http://integerous.github.io/tags/aws/</link>
+      <pubDate>Sun, 07 Oct 2018 23:30:21 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/tags/aws/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Deploy</title>
+      <link>http://integerous.github.io/tags/deploy/</link>
+      <pubDate>Sun, 07 Oct 2018 23:30:21 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/tags/deploy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>S3</title>
+      <link>http://integerous.github.io/tags/s3/</link>
+      <pubDate>Sun, 07 Oct 2018 18:12:32 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/tags/s3/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>EBS</title>
+      <link>http://integerous.github.io/tags/ebs/</link>
+      <pubDate>Sat, 25 Aug 2018 21:44:50 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/tags/ebs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Blog</title>
+      <link>http://integerous.github.io/tags/blog/</link>
+      <pubDate>Sun, 12 Aug 2018 20:48:55 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/tags/blog/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hugo</title>
+      <link>http://integerous.github.io/tags/hugo/</link>
+      <pubDate>Sun, 12 Aug 2018 20:48:55 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/tags/hugo/</guid>
+      <description></description>
+    </item>
     
   </channel>
 </rss>

@@ -1,0 +1,401 @@
+
+
+<!DOCTYPE html>
+<html lang="ko-kr">
+  <head>
+    
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-KZXLS88');</script>
+    
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="generator" content="Hugo 0.55.3" />
+    <link rel="shortcut icon" href="/images/favicon.ico">
+    <link href="http://integerous.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Integerous DevLog" />
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:700i" rel="stylesheet">
+    
+    <script src="https://apis.google.com/js/platform.js" async defer>{lang: 'ja'}</script>
+    
+    <link rel="stylesheet" href="https://yandex.st/highlightjs/8.0/styles/default.min.css">
+    <script src="https://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+    <link rel="stylesheet" type="text/css" href="/css/single.css">
+    <title>자바의 정석 - 람다식(Lambda Expression) | Integerous DevLog</title>
+  </head>
+  <body>
+    
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KZXLS88"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  
+  
+    <div id="wrap">
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-126908369-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+      <header class="site-header">
+        <div class="site-header-left">
+          <a class="site-header-title" href="http://integerous.github.io/">Integerous DevLog</a>
+        </div>
+      </header>
+      <div class="container">
+        <div id="main">
+
+
+
+
+<div class="article">
+  <header>
+    <div class="article-header">
+      <h1>자바의 정석 - 람다식(Lambda Expression)</h1>
+      <div class="article-meta">
+        <span class="posttime">2018/11/29</span>
+        
+        
+        
+<div class="tags">
+  <ul>
+    
+    <li>
+        <a href="/tags/java">Java</a>
+    </li>
+    
+  </ul>
+</div>
+
+
+      </div>
+    </div>
+    
+  </header>
+  <div class="content">
+    
+
+<blockquote>
+<p>자바의 정석(남궁성 저) 2권 학습내용 정리</p>
+</blockquote>
+
+<h2 id="1-람다식">1. 람다식</h2>
+
+<blockquote>
+<p>메서드를 하나의 식(expression)으로 표현한 것.<br />
+메서드를 람다식으로 표현하면 메서드의 이름과 반환값이 없어지므로 람다식을 익명함수(anonymous function)라고도 한다.</p>
+</blockquote>
+
+<p>람다식은 메서드의 매개변수로 전달될 수 있고,<br />
+메서드의 결과로 반환될 수 있다.<br />
+즉, 메서드를 변수처럼 다루는 것이 가능하다.</p>
+
+<h2 id="2-람다식-작성하기">2. 람다식 작성하기</h2>
+
+<ul>
+<li>메서드에서 이름과 반환타입 제거</li>
+<li>매개변수 선언부와 몸통{} 사이에 -&gt; 추가</li>
+</ul>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#228b22">//기존
+</span><span style="color:#228b22"></span>반환타입 <span style="color:#008b45">메서드이름</span> (매개변수 선언)  {
+  ...
+}
+
+<span style="color:#228b22">//람다식
+</span><span style="color:#228b22"></span>(매개변수 선언) -&gt;  {
+  ...
+}</code></pre></div>
+<ul>
+<li>반환값이 있는 메서드는 return 대신 식(expression)으로 대신할 수 있다.(연산 결과가 자동으로 반환값이 되고 ; 생략)</li>
+<li>매개변수의 타입은 추론가능하면 생략 가능 (대부분 생략 가능)</li>
+<li>두 매개변수 중 하나의 타입만 생략하는 것은 불가능</li>
+<li>매개변수가 하나뿐이면 괄호() 생략 가능</li>
+<li>중괄호{} 안의 문장이 하나일 때는 중괄호{} 생략 가능 (문장 끝에 ; 생략)</li>
+<li>중괄호{} 안의 문장이 return문일경우 중괄호{} 생략 불가능</li>
+</ul>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#228b22">//기존
+</span><span style="color:#228b22"></span><span style="color:#00688b;font-weight:bold">int</span> <span style="color:#008b45">max</span>(<span style="color:#00688b;font-weight:bold">int</span> a, <span style="color:#00688b;font-weight:bold">int</span> b) {
+  <span style="color:#8b008b;font-weight:bold">return</span> a &gt; b ? a : b;
+}
+
+<span style="color:#228b22">//람다식
+</span><span style="color:#228b22"></span>(<span style="color:#00688b;font-weight:bold">int</span> a, <span style="color:#00688b;font-weight:bold">int</span> b) -&gt; {
+  <span style="color:#8b008b;font-weight:bold">return</span> a &gt; b ? a : b;
+}
+
+<span style="color:#228b22">//return문 대신 expression 사용
+</span><span style="color:#228b22"></span>(<span style="color:#00688b;font-weight:bold">int</span> a, <span style="color:#00688b;font-weight:bold">int</span> b) -&gt; a &gt; b ? a: b
+
+<span style="color:#228b22">//매개변수 타입 생략
+</span><span style="color:#228b22"></span>(a, b) -&gt; a &gt; b ? a : b
+
+<span style="color:#228b22">//매개변수 1개일 경우 괄호 생략
+</span><span style="color:#228b22"></span>a -&gt; a*a     <span style="color:#228b22">//OK
+</span><span style="color:#228b22"></span><span style="color:#00688b;font-weight:bold">int</span> a -&gt; a*a <span style="color:#228b22">//에러
+</span><span style="color:#228b22"></span>
+<span style="color:#228b22">//본문 문장 1개일 경우 중괄호 생략
+</span><span style="color:#228b22"></span>(String name, <span style="color:#00688b;font-weight:bold">int</span> i) -&gt; System.<span style="color:#658b00">out</span>.<span style="color:#658b00">println</span>(name+<span style="color:#cd5555">&#34;=&#34;</span>+i)</code></pre></div>
+<h2 id="3-함수형-인터페이스-functional-interface">3. 함수형 인터페이스(Functional Interface)</h2>
+
+<blockquote>
+<p>람다식을 다루기 위한 인터페이스</p>
+</blockquote>
+
+<p>람다식은 메서드와 동등한 것이 아니라 익명클래스의 객체와 동등하다.</p>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#228b22">// 람다식
+</span><span style="color:#228b22"></span>  (<span style="color:#00688b;font-weight:bold">int</span> a, <span style="color:#00688b;font-weight:bold">int</span> b) -&gt; a &gt; b ? a : b
+
+<span style="color:#228b22">// 익명클래스의 객체
+</span><span style="color:#228b22"></span>  <span style="color:#8b008b;font-weight:bold">new</span> Object()  {
+    <span style="color:#00688b;font-weight:bold">int</span> <span style="color:#008b45">max</span>(<span style="color:#00688b;font-weight:bold">int</span> a, <span style="color:#00688b;font-weight:bold">int</span> b) {
+      <span style="color:#8b008b;font-weight:bold">return</span> a &gt; b ? a : b ;
+    }
+  }</code></pre></div>
+<p>람다식으로 정의된 익명 객체의 메서드를 호출하려면 참조변수가 필요하다.<br />
+이 때, 참조변수의 타입은 클래스 또는 인터페이스가 가능한데,<br />
+람다식과 동등한 메서드가 정의되어 있는 것이어야 한다.</p>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#228b22">// 예를 들어 max() 메서드가 정의된 Myfunction 인터페이스 정의
+</span><span style="color:#228b22"></span>  <span style="color:#8b008b;font-weight:bold">interface</span> <span style="color:#008b45;font-weight:bold">MyFunction</span>  {
+    <span style="color:#8b008b;font-weight:bold">public</span> <span style="color:#8b008b;font-weight:bold">abstract</span> <span style="color:#00688b;font-weight:bold">int</span> <span style="color:#008b45">max</span>(<span style="color:#00688b;font-weight:bold">int</span> a, <span style="color:#00688b;font-weight:bold">int</span> b);
+
+<span style="color:#228b22">// MyFunction 인터페이스를 구현한 익명클래스 객체 생성
+</span><span style="color:#228b22"></span>  MyFunction f = <span style="color:#8b008b;font-weight:bold">new</span> MyFunction() {
+    <span style="color:#8b008b;font-weight:bold">public</span> <span style="color:#00688b;font-weight:bold">int</span> <span style="color:#008b45">max</span> (<span style="color:#00688b;font-weight:bold">int</span> a, <span style="color:#00688b;font-weight:bold">int</span> b);
+      <span style="color:#8b008b;font-weight:bold">return</span> a &gt; b ? a : b;
+    }
+  }
+  <span style="color:#00688b;font-weight:bold">int</span> big = f.<span style="color:#658b00">max</span>(5, 3);  <span style="color:#228b22">//익명 객체의 메서드 호출
+</span><span style="color:#228b22"></span>
+<span style="color:#228b22">// 위의 익명 객체를 람다식으로 대체
+</span><span style="color:#228b22"></span>  MyFunction f = (<span style="color:#00688b;font-weight:bold">int</span> a, <span style="color:#00688b;font-weight:bold">int</span> b) -&gt; a &gt; b ? a : b;
+  <span style="color:#00688b;font-weight:bold">int</span> big = f.<span style="color:#658b00">max</span>(5, 3);</code></pre></div>
+<p>위 처럼 MyFunction 인터페이스를 구현한 익명 객체를 람다식으로 대체 가능한 이유는 람다식도 실제로는 익명 객체이고,
+MyFunction 인터페이스를 구현한 익명 객체의 메서드 max()와 람다식의 매개변수의 타입과 개수, 반환값이 일치하기 때문이다.</p>
+
+<p>단, 함수형 인터페이스에는 오직 하나의 추상 메서드만 정의되어 있어야 한다. 그래야 람다식과 인터페이스가 1:1로 연결되기 때문이다.
+반면 static 메서드와 default 메서드의 개수에는 제약이 없다.</p>
+
+<p>@FunctionalInterface를 붙이면 컴파일러가 함수형 인터페이스를 올바르게 정의하였는지 확인해준다.</p>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#228b22">// 기존 인터페이스의 메서드 구현
+</span><span style="color:#228b22"></span>  List&lt;String&gt; list = Arrays.<span style="color:#658b00">asList</span>(<span style="color:#cd5555">&#34;abc&#34;</span>, <span style="color:#cd5555">&#34;aaa&#34;</span>, <span style="color:#cd5555">&#34;bbb&#34;</span>, <span style="color:#cd5555">&#34;ccc&#34;</span>);
+  Collections.<span style="color:#658b00">sort</span>(list, <span style="color:#8b008b;font-weight:bold">new</span> Comparator&lt;String&gt;() {
+    <span style="color:#8b008b;font-weight:bold">public</span> <span style="color:#00688b;font-weight:bold">int</span> <span style="color:#008b45">compare</span>(String s1, String s2)  {
+      <span style="color:#8b008b;font-weight:bold">return</span> s2.<span style="color:#658b00">compareTo</span>(s1);
+    }
+  });
+
+<span style="color:#228b22">// 람다식으로 구현
+</span><span style="color:#228b22"></span>  List&lt;String&gt; list = Arrays.<span style="color:#658b00">asList</span>(<span style="color:#cd5555">&#34;abc&#34;</span>, <span style="color:#cd5555">&#34;aaa&#34;</span>, <span style="color:#cd5555">&#34;bbb&#34;</span>, <span style="color:#cd5555">&#34;ccc&#34;</span>);
+  Collections.<span style="color:#658b00">sort</span>(list, (s1, s2) -&gt; s2.<span style="color:#658b00">compareTo</span>(s1));</code></pre></div>
+<p>함수형 인터페이스로 람다식을 참조할 수 있지만, 람다식의 타입이 함수형 인터페이스의 타입과 일치하는 것은 아니다.
+람다식은 익명 객체이고 익명 객체는 타입이 없다. (정확히는 타입이 있지만 컴파일러가 임의로 이름을 정하기 때문에 알 수 없다.)
+그러므로 아래와 같이 형변환이 필요하다.</p>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">MyFunction f = (MyFunction) (()-&gt;{}); //</code></pre></div>
+<p>람다식은 MyFunction인터페이스를 직접 구현하지 않았지만, 이 인터페이스를 구현한 클래스의 객체와 완전히 동일하기 때문에 위와 같은 형변환을 허용한다.
+그리고 이 형변환은 생략 가능하다.</p>
+
+<p>람다식은 이름이 없을 뿐 분명히 객체인데도, Object 타입으로 형변환 할 수 없다. 람다식은 오직 함수형 인터페이스로만 형변환이 가능하다.
+굳이 Object 타입으로 형변환하려면 아래와 같이 먼저 함수형 인터페이스로 변환해야 한다.</p>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">Object obj = (Object)(MyFunction)(()-&gt;{});
+String str = (Object)(MyFunction)(()-&gt;{})).<span style="color:#658b00">toString</span>();</code></pre></div>
+<h2 id="4-java-util-function-패키지">4. java.util.function 패키지</h2>
+
+<blockquote>
+<p>이 패키지에 자주 쓰이는 형식의 메서드를 함수형 인터페이스로 정의해놓았다.</p>
+</blockquote>
+
+<table>
+<thead>
+<tr>
+<th>함수형 인터페이스</th>
+<th>메서드</th>
+<th>설명</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>java.lang.Runnable</td>
+<td>void run()</td>
+<td>매개변수도 없고, 반환값도 없음</td>
+</tr>
+
+<tr>
+<td>Supplier<T></td>
+<td>T get()</td>
+<td>매개변수는 없고, 반환값만 있음</td>
+</tr>
+
+<tr>
+<td>Consumer<T></td>
+<td>void accept(T t)</td>
+<td>Supplier와 반대로 매개변수만 있고, 반환값이 없음</td>
+</tr>
+
+<tr>
+<td>Function<T,R></td>
+<td>R apply(T t)</td>
+<td>일반적인 함수. 하나의 매개변수를 받아서 결과를 반환</td>
+</tr>
+
+<tr>
+<td>Predicate<T></td>
+<td>boolean test(T t)</td>
+<td>조건식을 표현하는데 사용. 매개변수는 하나, 반환 타입은 boolean</td>
+</tr>
+
+<tr>
+<td>BiConsumer<T,U></td>
+<td>void accept(T t, U u)</td>
+<td>두개의 매개변수만 있고, 반환값이 없음</td>
+</tr>
+
+<tr>
+<td>BiPredicate<T,U></td>
+<td>boolean test(T t, U u)</td>
+<td>조건식을 표현하는데 사용됨. 매개변수는 둘, 반환값은 boolean</td>
+</tr>
+
+<tr>
+<td>BiFunction<T,U,R></td>
+<td>R apply(T t, U u)</td>
+<td>두개의 매개변수를 받아서 하나의 결과를 반환</td>
+</tr>
+</tbody>
+</table>
+
+<ul>
+<li>수학에서 결과로 true 또는 false를 반환하는 함수를 Predicate 라고 한다.<br /></li>
+<li>매개변수가 2개인 함수형 인터페이스는 이름 앞에 &lsquo;Bi&rsquo;가 붙는다.<br /></li>
+<li>Supplier는 매개변수는 없고 반환값만 존재하는데 메서드는 두 개의 값을 반환할 수 없으므로 BiSupplier가 없다.<br /></li>
+<li>매개변수의 타입과 반환타입이 일치할 때는 Function 대신 UnaryOperator를 사용한다. (매개 변수 2개면 BinaryOperator)</li>
+</ul>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#228b22">// 조건식 표현에 사용되는 Predicate
+</span><span style="color:#228b22"></span>
+Predicate&lt;String&gt; isEmptyStr = s -&gt; s.<span style="color:#658b00">length</span>() == 0;
+String s = <span style="color:#cd5555">&#34;&#34;</span>;
+
+<span style="color:#8b008b;font-weight:bold">if</span>(isEmptyStr.<span style="color:#658b00">test</span>(s))
+  System.<span style="color:#658b00">out</span>.<span style="color:#658b00">println</span>(<span style="color:#cd5555">&#34;This is an empty String.&#34;</span>);</code></pre></div>
+<h2 id="5-function의-합성과-predicate의-결합">5. Function의 합성과 Predicate의 결합</h2>
+
+<h3 id="5-1-function의-합성">5.1. Function의 합성</h3>
+
+<blockquote>
+<p>두 람다식을 합성해서 새로운 람다식을 만들 수 있다.</p>
+</blockquote>
+
+<p>함수 f, g가 있을 때<br />
+f.andThen(g)는 함수 f를 먼저 적용하고 g 적용.<br />
+f.compose(g)는 함수 g를 먼저 적용하고 f 적용.</p>
+
+<h3 id="5-2-predicate의-결합">5.2. Predicate의 결합</h3>
+
+<blockquote>
+<p>여러 Predicate를 and(), or(), negate()로 연결해서 하나의 새로운 Predicate로 결합할 수 있다.
+Predicate의 끝에 negate()를 붙이면 조건식 전체가 부정이 된다.</p>
+</blockquote>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">Predicate&lt;Integer&gt; p = i -&gt; i &lt; 100;
+Predicate&lt;Integer&gt; q = i -&gt; i &lt; 200;
+Predicate&lt;Integer&gt; r = i -&gt; i%2 == 0;
+Predicate&lt;Integer&gt; notP = p.<span style="color:#658b00">negate</span>();
+
+<span style="color:#228b22">// 100 &lt;= i &amp;&amp; (i &lt; 200 || i%2==0)
+</span><span style="color:#228b22"></span>Predicate&lt;Integer&gt; all = notP.<span style="color:#658b00">and</span>(q.<span style="color:#658b00">or</span>(r));
+System.<span style="color:#658b00">out</span>.<span style="color:#658b00">println</span>(all.<span style="color:#658b00">test</span>(150));  // <span style="color:#8b008b;font-weight:bold">true</span></code></pre></div>
+<p>static 메서드인 isEqual()은 두 대상을 비교하는 Predicate를 만들 때 사용한다.<br />
+isEqual()의 매개변수로 비교대상을 하나 지정하고, 또 다른 비교대상은 test()의 매개변수로 지정한다.</p>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">Predicate&lt;String&gt; p = Predicate.<span style="color:#658b00">isEqual</span>(str1);
+<span style="color:#00688b;font-weight:bold">boolean</span> result = p.<span style="color:#658b00">test</span>(str2);  <span style="color:#228b22">//str1과 str2가 같은지 비교하여 결과를 반환
+</span><span style="color:#228b22"></span>
+<span style="color:#228b22">// 위의 두 문장을 하나로 합치면
+</span><span style="color:#228b22"></span><span style="color:#00688b;font-weight:bold">boolean</span> result = Predicate.<span style="color:#658b00">isEqual</span>(str1).<span style="color:#658b00">test</span>(str2);</code></pre></div>
+<h2 id="6-메서드-참조-method-reference">6. 메서드 참조(Method reference)</h2>
+
+<blockquote>
+<p>람다식이 하나의 메서드만 호출하는 경우, 메서드 참조를 통해 람다식을 간략히 할 수 있다.<br />
+클래스명::메서드명 또는 참조변수::메서드명</p>
+</blockquote>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#228b22">// 기존
+</span><span style="color:#228b22"></span>Function&lt;String, Integer&gt; f = (String s) -&gt; Integer.<span style="color:#658b00">parseInt</span>(s);
+
+<span style="color:#228b22">// 메서드 참조
+</span><span style="color:#228b22"></span>Funcation&lt;String, Integer&gt; f = Integer::parseInt;</code></pre></div>
+<p>생성자를 호출하는 람다식도 메서드 참조로 변환 가능</p>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">Supplier&lt;MyClass&gt; s = () -&gt; <span style="color:#8b008b;font-weight:bold">new</span> MyClass();  <span style="color:#228b22">// 람다식
+</span><span style="color:#228b22"></span>Supplier&lt;MyClass&gt; s = MyClass::<span style="color:#8b008b;font-weight:bold">new</span>; // 메서드 참조</code></pre></div>
+<p>배열 생성할 경우</p>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">Function&lt;Integer, <span style="color:#00688b;font-weight:bold">int</span>[]&gt; f = x -&gt; <span style="color:#8b008b;font-weight:bold">new</span> <span style="color:#00688b;font-weight:bold">int</span>[x]; <span style="color:#228b22">// 람다식
+</span><span style="color:#228b22"></span>Function&lt;Integer, <span style="color:#00688b;font-weight:bold">int</span>[]&gt; f2 = <span style="color:#00688b;font-weight:bold">int</span>[]::<span style="color:#8b008b;font-weight:bold">new</span>; // 메서드 참조</code></pre></div>
+  </div>
+  <footer>
+    <div class="article-footer">
+      
+
+      
+      
+      
+      
+      
+      <div id="pagenavigation-next-prev">
+        
+        <div id="pagenavigation-next">
+          <span class="pagenav-label">&lt; 이전 글</span>
+          <a href="http://integerous.github.io/post/java/java-stream/">자바의 정석 - 스트림(Stream)</a>
+        </div>
+        
+        
+        <div id="pagenavigation-prev">
+          <span class="pagenav-label">다음 글 ></span>
+          <a href="http://integerous.github.io/post/java/java-thread/">자바의 정석 - 쓰레드(Thread)</a>
+        </div>
+        
+      </div>
+      
+    </div>
+
+    <script src="https://utteranc.es/client.js"
+    repo="integerous/blog-comments"
+    issue-term="pathname"
+    crossorigin="anonymous"
+    async>
+    </script>
+  </footer>
+</div>
+
+
+
+
+
+</div>
+
+</div>
+<footer>
+<div id="site-footer-wrap">
+  <div id="site-footer">
+    <span>Powered by <a href="https://gohugo.io/">Hugo</a>.</span>
+    <span>
+      
+      Copyright (c) 2018, <a href="http://integerous.github.io/">Integerous DevLog</a>
+      
+    </span>
+  </div>
+</div>
+</footer>
+</div>
+</body>
+</html>

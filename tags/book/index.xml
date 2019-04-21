@@ -1,0 +1,24 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Book on Integerous DevLog</title>
+    <link>http://integerous.github.io/tags/book/</link>
+    <description>Recent content in Book on Integerous DevLog</description>
+
+    
+
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko-kr</language>
+    <lastBuildDate>Tue, 04 Dec 2018 00:29:40 +0900</lastBuildDate>
+    <atom:link href="/tags/book/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>내가 읽은&#43;읽을 개발서적 정리</title>
+      <link>http://integerous.github.io/post/etc/books/</link>
+      <pubDate>Tue, 04 Dec 2018 00:29:40 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/post/etc/books/</guid>
+      <description>2019년 1월 29일 기준 읽는 중 HTTP 완벽 가이드 SQL 레벨업 하루 3분 네트워크 교실 그림으로 개념을 이해하는 알고리즘 프로그래밍 대회에서 배우는 알고리즘 문제 해결</description>
+    </item>
+    
+  </channel>
+</rss>

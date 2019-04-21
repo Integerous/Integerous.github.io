@@ -1,0 +1,24 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>S3 on Integerous DevLog</title>
+    <link>http://integerous.github.io/tags/s3/</link>
+    <description>Recent content in S3 on Integerous DevLog</description>
+
+    
+
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko-kr</language>
+    <lastBuildDate>Sun, 07 Oct 2018 18:12:32 +0900</lastBuildDate>
+    <atom:link href="/tags/s3/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>AWS S3 총정리</title>
+      <link>http://integerous.github.io/post/aws/s3/</link>
+      <pubDate>Sun, 07 Oct 2018 18:12:32 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/post/aws/s3/</guid>
+      <description>S3 (Simple Storage Service) 인터넷 스토리지 서비스. 용량에 관계 없이 파일을 저장할 수 있고 웹(HTTP 프로토콜)에서 파일에 접근할 수 있다. 1. 사용 이유 S3는 저장 용량이 무한대</description>
+    </item>
+    
+  </channel>
+</rss>
