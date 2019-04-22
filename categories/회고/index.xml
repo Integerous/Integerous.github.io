@@ -1,0 +1,24 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>회고 on Integerous DevLog</title>
+    <link>http://integerous.github.io/categories/%ED%9A%8C%EA%B3%A0/</link>
+    <description>Recent content in 회고 on Integerous DevLog</description>
+
+    
+
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko-kr</language>
+    <lastBuildDate>Sun, 16 Dec 2018 19:17:14 +0900</lastBuildDate>
+    <atom:link href="/categories/%ED%9A%8C%EA%B3%A0/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>체대 출신 개발자의 2018년 회고</title>
+      <link>http://integerous.github.io/post/memoirs/memoirs2018/</link>
+      <pubDate>Sun, 16 Dec 2018 19:17:14 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/post/memoirs/memoirs2018/</guid>
+      <description>이 글은 개인적인 회고록이다. 그래서 독백체 자문자답 형식으로 2018년을 정리해보고자 한다. 1. 시작 2017년은 다사다난 했다. 취업(1월), 졸업(2월</description>
+    </item>
+    
+  </channel>
+</rss>
