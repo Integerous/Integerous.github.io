@@ -1,0 +1,24 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Web on Integerous DevLog</title>
+    <link>http://integerous.github.io/tags/web/</link>
+    <description>Recent content in Web on Integerous DevLog</description>
+
+    
+
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko-kr</language>
+    <lastBuildDate>Tue, 23 Apr 2019 00:39:42 +0900</lastBuildDate>
+    <atom:link href="/tags/web/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>[번역] Path Variable과 Query Parameter는 언제 사용해야 할까?</title>
+      <link>http://integerous.github.io/post/translated/pathvariable_queryparam/</link>
+      <pubDate>Tue, 23 Apr 2019 00:39:42 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/post/translated/pathvariable_queryparam/</guid>
+      <description>원작자의 허락을 받고 번역한 글입니다. 원문: When Should You Use Path Variable and Query Parameter? *역자 주: Spring boot와 Vue.js로 파일럿 프로젝트를 개발하던 중, 카테고리로 게시물 목</description>
+    </item>
+    
+  </channel>
+</rss>

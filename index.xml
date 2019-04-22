@@ -8,8 +8,17 @@
 
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sun, 16 Dec 2018 19:17:14 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 23 Apr 2019 00:39:42 +0900</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>[번역] Path Variable과 Query Parameter는 언제 사용해야 할까?</title>
+      <link>http://integerous.github.io/post/translated/pathvariable_queryparam/</link>
+      <pubDate>Tue, 23 Apr 2019 00:39:42 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/post/translated/pathvariable_queryparam/</guid>
+      <description>원작자의 허락을 받고 번역한 글입니다. 원문: When Should You Use Path Variable and Query Parameter? *역자 주: Spring boot와 Vue.js로 파일럿 프로젝트를 개발하던 중, 카테고리로 게시물 목</description>
+    </item>
     
     <item>
       <title>체대 출신 개발자의 2018년 회고</title>
@@ -135,15 +144,6 @@
       
       <guid>http://integerous.github.io/post/aws/s3/</guid>
       <description>S3 (Simple Storage Service) 인터넷 스토리지 서비스. 용량에 관계 없이 파일을 저장할 수 있고 웹(HTTP 프로토콜)에서 파일에 접근할 수 있다. 1. 사용 이유 S3는 저장 용량이 무한대</description>
-    </item>
-    
-    <item>
-      <title>자바의 정석 - 컬렉션 프레임웍(Collections Framework)</title>
-      <link>http://integerous.github.io/post/java/java-collections/</link>
-      <pubDate>Sun, 07 Oct 2018 10:02:58 +0900</pubDate>
-      
-      <guid>http://integerous.github.io/post/java/java-collections/</guid>
-      <description>자바의 정석(남궁성 저) 학습내용 정리 1. 컬렉션 프레임웍 (Collections Framework) &amp;lsquo;데이터 그룹을 다루고 표현하기 위한 단일화된 구조&amp;rsquo; - Java API문서 JDK1.2</description>
     </item>
     
   </channel>
