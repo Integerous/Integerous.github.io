@@ -8,8 +8,17 @@
 
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Tue, 23 Apr 2019 00:39:42 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 23 Apr 2019 01:58:27 +0900</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>&lt;JPA 프로그래밍 기본기 다지기&gt; 내용 정리</title>
+      <link>http://integerous.github.io/post/jpa/jpa_basics/</link>
+      <pubDate>Tue, 23 Apr 2019 01:58:27 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/post/jpa/jpa_basics/</guid>
+      <description>Tacademy 강의를 듣고 내용 정리 강사: 김영한님 (현 우아한형제들 개발자) 이 강의는 김영한님의 두꺼운 JPA 책을 본격적으로 보기 전에 보면 딱 좋을 강의라고 생각한다. 그런데</description>
+    </item>
     
     <item>
       <title>[번역] Path Variable과 Query Parameter는 언제 사용해야 할까?</title>
@@ -135,15 +144,6 @@
       
       <guid>http://integerous.github.io/post/java/stringconcat/</guid>
       <description>CodeWars에서 알고리즘 문제들을 풀다보면 문자열 연결할 일이 많았는데, 퍼포먼스 이슈가 많다 보니 정리가 필요했다. 이 글에서는 StringBuilder, StringBuffer, + 연산자, Conc</description>
-    </item>
-    
-    <item>
-      <title>AWS S3 총정리</title>
-      <link>http://integerous.github.io/post/aws/s3/</link>
-      <pubDate>Sun, 07 Oct 2018 18:12:32 +0900</pubDate>
-      
-      <guid>http://integerous.github.io/post/aws/s3/</guid>
-      <description>S3 (Simple Storage Service) 인터넷 스토리지 서비스. 용량에 관계 없이 파일을 저장할 수 있고 웹(HTTP 프로토콜)에서 파일에 접근할 수 있다. 1. 사용 이유 S3는 저장 용량이 무한대</description>
     </item>
     
   </channel>

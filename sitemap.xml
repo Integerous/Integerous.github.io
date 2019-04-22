@@ -3,31 +3,48 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://integerous.github.io/categories/</loc>
-    <lastmod>2019-04-23T00:58:29+09:00</lastmod>
-    <priority>0</priority>
+    <loc>http://integerous.github.io/post/jpa/jpa_basics/</loc>
+    <lastmod>2019-04-23T01:58:27+09:00</lastmod>
   </url>
   
   <url>
-    <loc>http://integerous.github.io/categories/etc/</loc>
-    <lastmod>2019-04-23T00:58:29+09:00</lastmod>
+    <loc>http://integerous.github.io/categories/</loc>
+    <lastmod>2019-04-23T01:58:27+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://integerous.github.io/</loc>
-    <lastmod>2019-04-23T00:58:29+09:00</lastmod>
+    <lastmod>2019-04-23T01:58:27+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://integerous.github.io/categories/jpa/</loc>
+    <lastmod>2019-04-23T01:58:27+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://integerous.github.io/tags/jpa/</loc>
+    <lastmod>2019-04-23T01:58:27+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://integerous.github.io/post/</loc>
-    <lastmod>2019-04-23T00:58:29+09:00</lastmod>
+    <lastmod>2019-04-23T01:58:27+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://integerous.github.io/tags/</loc>
+    <lastmod>2019-04-23T01:58:27+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://integerous.github.io/categories/etc/</loc>
     <lastmod>2019-04-23T00:58:29+09:00</lastmod>
     <priority>0</priority>
   </url>
@@ -57,18 +74,18 @@
   
   <url>
     <loc>http://integerous.github.io/tags/essay/</loc>
-    <lastmod>2019-04-22T00:49:47+09:00</lastmod>
+    <lastmod>2019-04-23T01:14:10+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://integerous.github.io/post/memoirs/memoirs2018/</loc>
-    <lastmod>2018-12-16T19:17:14+09:00</lastmod>
+    <lastmod>2019-04-23T01:14:10+09:00</lastmod>
   </url>
   
   <url>
     <loc>http://integerous.github.io/categories/%ED%9A%8C%EA%B3%A0/</loc>
-    <lastmod>2018-12-16T19:17:14+09:00</lastmod>
+    <lastmod>2019-04-23T01:14:10+09:00</lastmod>
     <priority>0</priority>
   </url>
   

@@ -586,7 +586,8 @@ h4 {
 }
 
 #article-list h2 {
-  font-size: 18px;
+  /* font-size: 18px; */
+  font-size: 19px;
   padding: 0;
   min-height: 18px;
   line-height: 18px;
