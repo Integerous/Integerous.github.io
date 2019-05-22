@@ -8,8 +8,17 @@
 
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sun, 02 Dec 2018 00:37:49 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 22 May 2019 23:47:00 +0900</lastBuildDate>
     <atom:link href="/tags/java/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>추상(abstract) 클래스가 필요한 기본적인 이유</title>
+      <link>http://integerous.github.io/post/java/abstract_class/</link>
+      <pubDate>Wed, 22 May 2019 23:47:00 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/post/java/abstract_class/</guid>
+      <description>Java의 정석으로 Java의 개념들을 공부한 나는 추상클래스가 언제나 찝찝했다. 개발을 공부하기 시작한지 얼마 안되어 학습한 내용이었기 때문에 적당한 수준으</description>
+    </item>
     
     <item>
       <title>자바의 정석 - 직렬화(Serialization)</title>

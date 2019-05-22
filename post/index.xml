@@ -8,8 +8,17 @@
 
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Tue, 23 Apr 2019 01:58:27 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 22 May 2019 23:47:00 +0900</lastBuildDate>
     <atom:link href="/post/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>추상(abstract) 클래스가 필요한 기본적인 이유</title>
+      <link>http://integerous.github.io/post/java/abstract_class/</link>
+      <pubDate>Wed, 22 May 2019 23:47:00 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/post/java/abstract_class/</guid>
+      <description>Java의 정석으로 Java의 개념들을 공부한 나는 추상클래스가 언제나 찝찝했다. 개발을 공부하기 시작한지 얼마 안되어 학습한 내용이었기 때문에 적당한 수준으</description>
+    </item>
     
     <item>
       <title>&lt;JPA 프로그래밍 기본기 다지기&gt; 내용 정리</title>
@@ -135,15 +144,6 @@
       
       <guid>http://integerous.github.io/post/aws/vpc/</guid>
       <description>AWS Certified Solutions Architect - Associate 2018 강의를 듣고 내용 정리 1. What is a VPC ? VPC는 클라우드 내의 가상 데이터 센터. 2. What can you do with a VPC ? 내가 선택한 서브넷에 인스턴스를 실행할 수 있다.</description>
-    </item>
-    
-    <item>
-      <title>Java 문자열 연결방법 비교</title>
-      <link>http://integerous.github.io/post/java/stringconcat/</link>
-      <pubDate>Sun, 07 Oct 2018 18:21:44 +0900</pubDate>
-      
-      <guid>http://integerous.github.io/post/java/stringconcat/</guid>
-      <description>CodeWars에서 알고리즘 문제들을 풀다보면 문자열 연결할 일이 많았는데, 퍼포먼스 이슈가 많다 보니 정리가 필요했다. 이 글에서는 StringBuilder, StringBuffer, + 연산자, Conc</description>
     </item>
     
   </channel>
