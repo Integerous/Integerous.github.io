@@ -8,8 +8,17 @@
 
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Wed, 22 May 2019 23:47:00 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 30 May 2019 23:04:20 +0900</lastBuildDate>
     <atom:link href="/tags/java/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Try-with-resources를 이용한 자원해제 처리</title>
+      <link>http://integerous.github.io/post/java/try_with_resources/</link>
+      <pubDate>Thu, 30 May 2019 23:04:20 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/post/java/try_with_resources/</guid>
+      <description>코드 리뷰를 받던 중 Try-with-resources를 알게 되어 정리 코드 리뷰를 받기 전 코드는 아래와 같았다. public static String getHtml(String url) { try{ URL targetUrl = new URL(url); BufferedReader reader = new BufferedReader(new InputStreamReader(targetUrl.openStream())); StringBuffer</description>
+    </item>
     
     <item>
       <title>추상(abstract) 클래스가 필요한 기본적인 이유</title>
@@ -135,15 +144,6 @@
       
       <guid>http://integerous.github.io/post/java/java-abstract-interface/</guid>
       <description>자바의 정석(남궁성 저) 학습내용 정리 1. 추상 클래스 (Abstract class) 미완성 메소드(추상메소드)를 포함하고 있다는 것을 제외하고는 일반클래스와 같다. 추상메소드가 없어</description>
-    </item>
-    
-    <item>
-      <title>자바의 정석 - 다형성(Polymorphism)</title>
-      <link>http://integerous.github.io/post/java/java-polymorphism/</link>
-      <pubDate>Wed, 03 Oct 2018 11:43:34 +0900</pubDate>
-      
-      <guid>http://integerous.github.io/post/java/java-polymorphism/</guid>
-      <description>자바의 정석(남궁성 저) 학습내용 정리 1. 다형성 (Polymorphism) Java에서는 한 타입의 참조변수로 여러 타입의 객체를 참조할 수 있도록 하는 것. 부모클래스 타입의 참조변수로</description>
     </item>
     
   </channel>

@@ -8,8 +8,17 @@
 
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Wed, 22 May 2019 23:47:00 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 30 May 2019 23:04:20 +0900</lastBuildDate>
     <atom:link href="/post/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Try-with-resources를 이용한 자원해제 처리</title>
+      <link>http://integerous.github.io/post/java/try_with_resources/</link>
+      <pubDate>Thu, 30 May 2019 23:04:20 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/post/java/try_with_resources/</guid>
+      <description>코드 리뷰를 받던 중 Try-with-resources를 알게 되어 정리 코드 리뷰를 받기 전 코드는 아래와 같았다. public static String getHtml(String url) { try{ URL targetUrl = new URL(url); BufferedReader reader = new BufferedReader(new InputStreamReader(targetUrl.openStream())); StringBuffer</description>
+    </item>
     
     <item>
       <title>추상(abstract) 클래스가 필요한 기본적인 이유</title>
@@ -135,15 +144,6 @@
       
       <guid>http://integerous.github.io/post/aws/deployonec2/</guid>
       <description>회사 고객센터용 카카오톡 챗봇을 만들어 AWS EC2 서버에 배포하기 위해 박재성님 유튜브 강의를 들으며 실습한 내용 목차 1. AWS EC2 인스턴스 생성 2. 생성한 인스턴스(서버)에</description>
-    </item>
-    
-    <item>
-      <title>AWS VPC 총정리</title>
-      <link>http://integerous.github.io/post/aws/vpc/</link>
-      <pubDate>Sun, 07 Oct 2018 22:56:09 +0900</pubDate>
-      
-      <guid>http://integerous.github.io/post/aws/vpc/</guid>
-      <description>AWS Certified Solutions Architect - Associate 2018 강의를 듣고 내용 정리 1. What is a VPC ? VPC는 클라우드 내의 가상 데이터 센터. 2. What can you do with a VPC ? 내가 선택한 서브넷에 인스턴스를 실행할 수 있다.</description>
     </item>
     
   </channel>

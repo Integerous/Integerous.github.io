@@ -8,8 +8,17 @@
 
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Wed, 22 May 2019 23:47:00 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 30 May 2019 23:04:20 +0900</lastBuildDate>
     <atom:link href="/categories/java/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Try-with-resources를 이용한 자원해제 처리</title>
+      <link>http://integerous.github.io/post/java/try_with_resources/</link>
+      <pubDate>Thu, 30 May 2019 23:04:20 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/post/java/try_with_resources/</guid>
+      <description>코드 리뷰를 받던 중 Try-with-resources를 알게 되어 정리 코드 리뷰를 받기 전 코드는 아래와 같았다. public static String getHtml(String url) { try{ URL targetUrl = new URL(url); BufferedReader reader = new BufferedReader(new InputStreamReader(targetUrl.openStream())); StringBuffer</description>
+    </item>
     
     <item>
       <title>추상(abstract) 클래스가 필요한 기본적인 이유</title>
