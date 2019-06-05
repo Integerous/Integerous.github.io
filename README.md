@@ -50,7 +50,7 @@ Hugo
 ### 3.1. 내가 Hugo를 선택한 이유
   - Go로 제작되었다. (Go를 공부중이다.)
   - Hugo는 런타임에 다른 의존성이 필요하지 않아 빌드시간이 세계에서 제일 빠르다.  
-  ("Hugo is the world’s fastest static website engine.")
+    ("Hugo is the world’s fastest static website engine.")
   - ***오픈소스에 기여할 기회 !!*** (Hugo는 한글 Reference가 거의 없는 오픈소스이며 Jekyll에 비해 기여할 수 있는 여지가 남아있다.)
 
 ### 3.2. [CloudZ Labs](http://tech.cloudz-labs.io/posts/hugo/hugo/)에서 Github Page와 환상의 조합인 Jekyll 대신 Hugo를 선택한 이유
@@ -97,7 +97,7 @@ Hugo
   - `$ git init`
   - `$ git remote add origin git@github.com:integerous/blog.git`
 - `integerous.github.io 저장소`를 blog의 submodule로 등록한다.
-  - `$ git submodule add -b masater git@github.com:integerous/integerous.github.io.git public`
+  - `$ git submodule add -b master git@github.com:integerous/integerous.github.io.git public`
   - 이렇게 함으로써 `hugo` 명령으로 `public`에 웹사이트를 만들 때, 만들어진 `public` 디렉토리는 다른 remote origin을 가질 것이다.
 
 ### 4.6. 컨텐츠 생성
