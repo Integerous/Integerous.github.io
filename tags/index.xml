@@ -8,8 +8,44 @@
 
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Tue, 04 Jun 2019 00:29:21 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 02 Dec 2019 04:32:43 +0900</lastBuildDate>
     <atom:link href="/tags/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Network</title>
+      <link>http://integerous.github.io/tags/network/</link>
+      <pubDate>Mon, 02 Dec 2019 04:32:43 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/tags/network/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Nginx</title>
+      <link>http://integerous.github.io/tags/nginx/</link>
+      <pubDate>Mon, 02 Dec 2019 04:32:43 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/tags/nginx/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Raspberry Pi</title>
+      <link>http://integerous.github.io/tags/raspberry-pi/</link>
+      <pubDate>Mon, 02 Dec 2019 04:32:43 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/tags/raspberry-pi/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SSL</title>
+      <link>http://integerous.github.io/tags/ssl/</link>
+      <pubDate>Mon, 02 Dec 2019 04:32:43 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/tags/ssl/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Java</title>
@@ -107,33 +143,6 @@
       <pubDate>Sun, 07 Oct 2018 18:12:32 +0900</pubDate>
       
       <guid>http://integerous.github.io/tags/s3/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>EBS</title>
-      <link>http://integerous.github.io/tags/ebs/</link>
-      <pubDate>Sat, 25 Aug 2018 21:44:50 +0900</pubDate>
-      
-      <guid>http://integerous.github.io/tags/ebs/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Blog</title>
-      <link>http://integerous.github.io/tags/blog/</link>
-      <pubDate>Sun, 12 Aug 2018 20:48:55 +0900</pubDate>
-      
-      <guid>http://integerous.github.io/tags/blog/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Hugo</title>
-      <link>http://integerous.github.io/tags/hugo/</link>
-      <pubDate>Sun, 12 Aug 2018 20:48:55 +0900</pubDate>
-      
-      <guid>http://integerous.github.io/tags/hugo/</guid>
       <description></description>
     </item>
     

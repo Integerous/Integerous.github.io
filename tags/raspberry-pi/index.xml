@@ -1,0 +1,24 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Raspberry Pi on Integerous DevLog</title>
+    <link>http://integerous.github.io/tags/raspberry-pi/</link>
+    <description>Recent content in Raspberry Pi on Integerous DevLog</description>
+
+    
+
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko-kr</language>
+    <lastBuildDate>Mon, 02 Dec 2019 04:32:43 +0900</lastBuildDate>
+    <atom:link href="/tags/raspberry-pi/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>라즈베리파이4로 토이프로젝트용 서버 만들기 - 1편</title>
+      <link>http://integerous.github.io/post/server/raspberry_server_1/</link>
+      <pubDate>Mon, 02 Dec 2019 04:32:43 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/post/server/raspberry_server_1/</guid>
+      <description>토이프로젝트를 올릴 서버를 2019년 7월에 새로 출시한 라즈베리파이4로 만들어 보았다. 크게 3단계로 작업을 진행할 예정이다. 1편 - 라즈베리파이4를 서버</description>
+    </item>
+    
+  </channel>
+</rss>

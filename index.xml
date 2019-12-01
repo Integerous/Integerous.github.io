@@ -8,8 +8,17 @@
 
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Tue, 04 Jun 2019 00:29:21 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 02 Dec 2019 04:32:43 +0900</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>라즈베리파이4로 토이프로젝트용 서버 만들기 - 1편</title>
+      <link>http://integerous.github.io/post/server/raspberry_server_1/</link>
+      <pubDate>Mon, 02 Dec 2019 04:32:43 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/post/server/raspberry_server_1/</guid>
+      <description>토이프로젝트를 올릴 서버를 2019년 7월에 새로 출시한 라즈베리파이4로 만들어 보았다. 크게 3단계로 작업을 진행할 예정이다. 1편 - 라즈베리파이4를 서버</description>
+    </item>
     
     <item>
       <title>XML 데이터를 Java 객체로 변환하기 (feat. JAXB)</title>
@@ -135,15 +144,6 @@
       
       <guid>http://integerous.github.io/post/etc/gitflow/</guid>
       <description>회사에서 Git을 활용한 협업 workflow를 세팅하기 위해 학습하며 기록한 내용입니다. 회사의 협업 환경 = Git + Bitbucket + Trello + Telegram Bitbucket 대신 Github을 사용해도</description>
-    </item>
-    
-    <item>
-      <title>286컴퓨터와 도트프린터</title>
-      <link>http://integerous.github.io/post/essay/father/</link>
-      <pubDate>Sun, 14 Oct 2018 12:49:22 +0900</pubDate>
-      
-      <guid>http://integerous.github.io/post/essay/father/</guid>
-      <description>2018년 10월 14일 성주 외삼촌댁에서 1997년 어느 가을 날. 나는 8살이었다. 아빠는 오토바이에 누나와 나를 앉히시고 10분 거리의 할아버지 댁에 갔다.</description>
     </item>
     
   </channel>
