@@ -170,7 +170,7 @@ if (!doNotTrack) {
 
 <h3 id="1-0-구입한-제품들">1.0. 구입한 제품들</h3>
 
-<p><img src="https://github.com/Integerous/images/blob/master/raspberry-pi/whole_mini.png?raw=true" width="600"></p>
+<p><img src="https://github.com/Integerous/raspberry-server/blob/master/images/whole_mini.png?raw=true" width="600"></p>
 
 <ol>
 <li><strong>Raspberry Pi 4 보드</strong> (<a href="https://www.canakit.com/raspberry-pi-4-4gb.html">링크</a>)</li>
@@ -206,7 +206,7 @@ if (!doNotTrack) {
 
 <li><p>전원을 연결하면 빨간불과 녹색불이 켜지고, 팬이 돌아간다.</p>
 
-<p><img src="https://github.com/Integerous/images/blob/master/raspberry-pi/power_on.png?raw=true" width="600"></p></li>
+<p><img src="https://github.com/Integerous/raspberry-server/blob/master/images/power_on.png?raw=true" width="600"></p></li>
 </ol>
 
 <h3 id="1-2-안전하게-종료하기">1.2. 안전하게 종료하기</h3>
@@ -271,7 +271,7 @@ SD카드가 고장날 수 있고, 상황에 따라 데이터가 손실될 수 �
 <li>나는 서버로만 사용할 예정이기 때문에 Desktop GUI가 없지만 리소스 소모가 적은 Lite 버전을 선택했다.</li>
 </ul>
 
-<p><img src="https://github.com/Integerous/images/blob/master/raspberry-pi/raspbian.png?raw=true"></p>
+<p><img src="https://github.com/Integerous/raspberry-server/blob/master/images/raspbian.png?raw=true"></p>
 
 <h3 id="2-2-sd카드에-raspbian-이미지-굽기">2.2. SD카드에 Raspbian 이미지 굽기</h3>
 
@@ -285,9 +285,9 @@ SD카드가 고장날 수 있고, 상황에 따라 데이터가 손실될 수 �
 <li>이미지를 선택하고, SD카드를 선택하고, Flash(굽기)!
 
 <ul>
-<li>이 때, 다운받은 Raspbian OS 이미지가 zip 파일일텐데, 압축을 풀 필요없이 그대로 사용하면 된다.</li>
+<li>이 때, 다운받은 Raspbian OS 이미지가 zip 파일일텐데, 압축을 풀 필요없이 그대로 사용하면 된다.
+<img src="https://github.com/Integerous/raspberry-server/blob/master/images/etcher1.png?raw=true" width="600"><br /></li>
 </ul></li>
-<li><img src="https://github.com/Integerous/images/blob/master/raspberry-pi/etcher1.png?raw=true" width="600"><br /></li>
 </ul></li>
 </ol>
 
@@ -315,7 +315,7 @@ SD카드가 고장날 수 있고, 상황에 따라 데이터가 손실될 수 �
 <br /></li>
 </ol>
 
-<p><img src="https://github.com/Integerous/images/blob/master/raspberry-pi/raspberry_config.png?raw=true" width="600"></p>
+<p><img src="https://github.com/Integerous/raspberry-server/blob/master/images/raspberry_config.png?raw=true" width="600"></p>
 
 <h3 id="3-1-비밀번호-변경">3.1. 비밀번호 변경</h3>
 
@@ -515,7 +515,7 @@ ipTIME A3004NS-M 모델 (펌웨어 버전 11.00.4) 기준으로 작성했다.</p
 
 <li><p>하단에 [사용중인 IP 주소 정보] 중 라즈베리파이의 체크박스를 클릭하고 위에 등록 버튼 클릭.</p>
 
-<p><img src="https://github.com/Integerous/images/blob/master/raspberry-pi/iptime01.png?raw=true" width="600"></p></li>
+<p><img src="https://github.com/Integerous/raspberry-server/blob/master/images/iptime01.png?raw=true" width="600"></p></li>
 </ol>
 
 <h3 id="4-1-ddns-설정">4.1. DDNS 설정</h3>
@@ -646,7 +646,7 @@ charset utf-8;
 
 <li><p>그 이후, SSL을 설정하고 <code>go-quality.dev</code>로 접근하니 아래 처럼 라즈베리파이에 실행중인 Nginx 랜딩페이지가 나타났다. (도메인 연결 성공)</p>
 
-<p><img src="https://github.com/Integerous/images/blob/master/raspberry-pi/nginx_index.png?raw=true" width="600"></p></li>
+<p><img src="https://github.com/Integerous/raspberry-server/blob/master/images/nginx_index.png?raw=true" width="600"></p></li>
 </ol>
 
 <h3 id="6-2-ssl-인증서-생성-및-적용">6.2. SSL 인증서 생성 및 적용</h3>
@@ -686,7 +686,7 @@ Let&rsquo;s Encrypt는 &ldquo;전 세계 모든 사이트를 HTTPS로 만들기!
 <li><p>인증서 생성 결과 확인</p>
 
 <ul>
-<li><img src="https://github.com/Integerous/images/blob/master/raspberry-pi/certbot.png?raw=true" width="600"></li>
+<li><img src="https://github.com/Integerous/raspberry-server/blob/master/images/certbot.png?raw=true" width="600"></li>
 <li>위의 결과를 요약하자면,
 
 <ul>
@@ -726,7 +726,7 @@ Let&rsquo;s Encrypt는 &ldquo;전 세계 모든 사이트를 HTTPS로 만들기!
 <li><code>$ netstat -ant</code>
 
 <ul>
-<li><img src="https://github.com/Integerous/images/blob/master/raspberry-pi/ssl_443.png?raw=true" width="600"></li>
+<li><img src="https://github.com/Integerous/raspberry-server/blob/master/images/ssl_443.png?raw=true" width="600"></li>
 <li>443 포트 listening을 확인한다.
 <br /></li>
 </ul></li>
@@ -735,8 +735,8 @@ Let&rsquo;s Encrypt는 &ldquo;전 세계 모든 사이트를 HTTPS로 만들기!
 <li><p>SSL 적용 확인</p>
 
 <ul>
-<li>SSL을 적용했는데 브라우저의 주소창 왼쪽 자물쇠가 여전히 잠겨있지 않다면, <a href="https://www.whynopadlock.com">whynopadlock</a>에서 문제점을 진단받아본다.</li>
-<li><img src="https://github.com/Integerous/images/blob/master/raspberry-pi/ssl_inspection.png?raw=true" width="600">
+<li>SSL을 적용했는데 브라우저의 주소창 왼쪽 자물쇠가 여전히 잠겨있지 않다면, <a href="https://www.whynopadlock.com">whynopadlock</a>에서 문제점을 진단받아본다.
+<img src="https://github.com/Integerous/raspberry-server/blob/master/images/ssl_inspection.png?raw=true" width="600">
 <br /></li>
 </ul></li>
 </ol>
