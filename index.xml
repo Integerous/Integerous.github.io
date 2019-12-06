@@ -8,8 +8,17 @@
 
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Mon, 02 Dec 2019 04:32:43 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 07 Dec 2019 00:40:29 +0900</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>ActiveMQ의 Virtual Destinations를 활용한 메세지 로드밸런싱</title>
+      <link>http://integerous.github.io/post/server/activemq_virtual_destinations/</link>
+      <pubDate>Sat, 07 Dec 2019 00:40:29 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/post/server/activemq_virtual_destinations/</guid>
+      <description>실무에서 AmazonMQ(ActiveMQ)로 메세지 브로커를 구성하며 알게 된, Virtual Destinations 에 대해 정리해본다. 정확하게는, Topic을 이용한 Pub-sub 방식의 메세</description>
+    </item>
     
     <item>
       <title>라즈베리파이4로 토이프로젝트용 서버 만들기 - 1편</title>
@@ -135,15 +144,6 @@
       
       <guid>http://integerous.github.io/post/java/java-generics/</guid>
       <description>자바의 정석(남궁성 저) 학습내용 정리 1. 지네릭스(Generics) 지네릭스는 다양한 타입의 객체들을 다루는 메서드나 컬렉션 클래스에 컴파일 시의 타입 체크</description>
-    </item>
-    
-    <item>
-      <title>Git으로 협업하는 방법</title>
-      <link>http://integerous.github.io/post/etc/gitflow/</link>
-      <pubDate>Sat, 20 Oct 2018 21:17:01 +0900</pubDate>
-      
-      <guid>http://integerous.github.io/post/etc/gitflow/</guid>
-      <description>회사에서 Git을 활용한 협업 workflow를 세팅하기 위해 학습하며 기록한 내용입니다. 회사의 협업 환경 = Git + Bitbucket + Trello + Telegram Bitbucket 대신 Github을 사용해도</description>
     </item>
     
   </channel>

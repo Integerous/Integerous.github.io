@@ -1,0 +1,410 @@
+
+
+<!DOCTYPE html>
+<html lang="ko-kr">
+  <head>
+    
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-KZXLS88');</script>
+    
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="generator" content="Hugo 0.55.3" />
+    <link rel="shortcut icon" href="/images/favicon.ico">
+    <link href="http://integerous.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Integerous DevLog" />
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:700i" rel="stylesheet">
+    
+    <script src="https://apis.google.com/js/platform.js" async defer>{lang: 'ja'}</script>
+    
+    <link rel="stylesheet" href="https://yandex.st/highlightjs/8.0/styles/default.min.css">
+    <script src="https://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+    <link rel="stylesheet" type="text/css" href="/css/single.css">
+    <title>ActiveMQ의 Virtual Destinations를 활용한 메세지 로드밸런싱 | Integerous DevLog</title>
+  </head>
+  <body>
+    
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KZXLS88"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  
+  
+    <div id="wrap">
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-126908369-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+      <header class="site-header">
+        <div class="site-header-left">
+          <a class="site-header-title" href="http://integerous.github.io/">Integerous DevLog</a>
+        </div>
+      </header>
+      <div class="container">
+        <div id="main">
+
+
+
+
+<div class="article">
+  <header>
+    <div class="article-header">
+      <h1>ActiveMQ의 Virtual Destinations를 활용한 메세지 로드밸런싱</h1>
+      <div class="article-meta">
+        <span class="posttime">2019/12/07</span>
+
+        
+        
+<div class="tags">
+  <ul>
+    
+    <li>
+        <a href="/tags/activemq">ActiveMQ</a>
+    </li>
+    
+    <li>
+        <a href="/tags/amazonmq">AmazonMQ</a>
+    </li>
+    
+    <li>
+        <a href="/tags/message-broker">Message Broker</a>
+    </li>
+    
+    <li>
+        <a href="/tags/%EB%A1%9C%EB%93%9C%EB%B0%B8%EB%9F%B0%EC%8B%B1">로드밸런싱</a>
+    </li>
+    
+    <li>
+        <a href="/tags/spring">Spring</a>
+    </li>
+    
+  </ul>
+</div>
+
+
+      </div>
+    </div>
+    
+  </header>
+  <div class="content">
+    
+
+<blockquote>
+<p>실무에서 AmazonMQ(ActiveMQ)로 메세지 브로커를 구성하며 알게 된, <code>Virtual Destinations</code> 에 대해 정리해본다.<br />
+정확하게는, Topic을 이용한 Pub-sub 방식의 메세지 브로킹 환경에서, <code>Virtual Destinations</code>를 활용한 메세지 로드밸런싱에 대한 내용이다.</p>
+</blockquote>
+
+<p></br></p>
+
+<h2 id="0-queue-topic-virtual-topic-비교">0. Queue, Topic, Virtual Topic 비교</h2>
+
+<blockquote>
+<p>Virtual Topic을 설명하기 전에 Queue 방식과 Topic 방식을 소개한다.</p>
+</blockquote>
+
+<h3 id="1-queue">1. Queue</h3>
+
+<blockquote>
+<p>ActiveMQ의 Queue는 Producer가 보낸 메세지를 1개의 Consumer가 받는다.<br />
+1:1 방식</p>
+</blockquote>
+
+<p><img src="https://github.com/Integerous/TIL/blob/master/ETC/images/activemq/queue.png?raw=true" alt="" /></p>
+
+<h3 id="2-topic">2. Topic</h3>
+
+<blockquote>
+<p>ActiveMQ의 Topic은 Producer(Publisher)가 메세지를 발행(publish)하고,<br />
+N개의 Consumer(Subscriber)가 메세지를 구독(subscribe) 한다.<br />
+1:N Pub-Sub 방식</p>
+</blockquote>
+
+<p><img src="https://github.com/Integerous/TIL/blob/master/ETC/images/activemq/topics.png?raw=true" alt="" /></p>
+
+<pre><code>이 때, 모든 Consumer는 같은 메세지를 받는다.
+</code></pre>
+
+<h3 id="3-virtual-topic">3. Virtual Topic</h3>
+
+<blockquote>
+<p>Virtual Topic은 Topic 방식과 유사하나, Publisher는 가상의(논리적인) Topic에 메세지를 발행하고,<br />
+Subscriber가 가상의 Topic을 구독하면, (즉, Listening을 시작하면)<br />
+ActiveMQ 브로커에 해당 Subscriber를 위한 물리적인 Queue가 자동으로 생성되고,<br />
+Subscriber는 생성된 물리 Queue에 주입된 메세지를 소비한다.</p>
+</blockquote>
+
+<p><img src="https://github.com/Integerous/TIL/blob/master/ETC/images/activemq/VirtualTopics.png?raw=true" alt="" /></p>
+
+<pre><code>이 때, 각 Consumer는 아래와 같이 Topic에서 직접 메세지를 받을 수도 있고, Queue로부터 받을 수도 있다.  
+
+[producer] --&gt; [VirtualTopic.T] --&gt; [consumerA]
+                                --&gt; [VirtualQueueConsumer.VirtualTopicT] --&gt; [ConsumerB]
+                                                                         --&gt; [ConsumerC]
+</code></pre>
+
+<p></br></p>
+
+<h2 id="1-virtual-topics을-사용한-이유">1. Virtual Topics을 사용한 이유</h2>
+
+<ul>
+<li><p><strong>상황</strong></p>
+
+<ul>
+<li>메세지를 뿌리는 <code>뉴스 서비스</code>와, 메세지를 받아서 처리해야하는 <code>TV 서비스</code>, <code>Hub 서비스</code>가 있는 상황</li>
+<li>기존에는 뉴스 서비스의 메세지를 Hub 서비스만 받았기 때문에 <code>AWS SQS로 1:1 메세지 브로킹</code>을 하고 있었다.</li>
+<li>그런데 TV 서비스가 추가되면서, 메세지 Listener가 두 곳이 되어서 SQS Queue를 추가로 생성해야 했다.</li>
+<li>현재는 Listener가 2개 뿐이지만, 이후에 추가될 수 있기 때문에 1:1로 메세지를 브로킹하는 Queue 방식은 지양하고,</li>
+<li><code>AmazonMQ(ActiveMQ)의 Topic을 사용하여 1:N Pub-Sub 방식의 메세지 브로커를 구성</code>하였다.
+<br />
+<br /></li>
+</ul></li>
+
+<li><p><strong>문제 발생</strong></p>
+
+<ul>
+<li>멀티 모듈 프로젝트로 구성된 Hub 서비스의 경우, Scheduler라는 모듈이 메세지를 받아서 처리한다.</li>
+<li>그런데 2개의 Scheduler 서버가 메세지를 나누어 받아서 처리하고 있었고, 문제가 발생했다.</li>
+<li>기존에 AWS SQS에서는 각 서버가 하나의 Queue에서 메세지를 꺼내가기 때문에 문제가 되지 않았다.</li>
+<li>AmazonMQ(ActiveMQ)의 <code>Topic 방식은 Subscriber 모두에게 같은 메세지가 전달</code>된다.</li>
+<li>때문에 2개의 Scheduler 서버가 각각 같은 메세지를 전달 받아서 처리하므로, <code>메세지 중복처리 문제가 발생</code>했다.
+<br />
+<br /></li>
+</ul></li>
+
+<li><p><strong>해결 방안 1 (1개의 서버만 사용)</strong></p>
+
+<ul>
+<li>TV 서비스 처럼 1개의 서버만 Subscriber로 사용하면 중복처리 문제는 바로 해결된다.</li>
+<li>하지만 추후에 서버 스케일 아웃이 필요한 상황이 도래하면, 똑같은 문제에 봉착하므로 임시방편일 뿐이었다.<br /></li>
+<li>또한, 각종 Batch 로직이 돌고있는 Scheduler 서버가 2개로 구성된 것으로 보아, 서버가 뻗을 경우 비즈니스에 데미지가 있다는 것이기 때문에, 2대의 서버를 1대로 줄이는 것은 위험했다.<br /></li>
+<li>게다가 클라우드가 아닌 IDC에 구성된 서버들이기 때문에 스케일 변경에 더 많은 작업들이 필요했고, 현재 리소스가 부족한 IDC 서버 담당 팀에 부담이 되는 상황이었다.</li>
+<li>그래서 패스.
+<br />
+<br /></li>
+</ul></li>
+
+<li><p><strong>해결 방안 2 (UUID 활용)</strong></p>
+
+<ul>
+<li>뉴스 서비스에서 메세지(뉴스 데이터)를 Publish 하기 전에 UUID를 포함시켜주면, Subscriber들은 UUID를 활용해서 중복처리를 방지할 수 있다.</li>
+<li>하지만 UUID를 생성하는 순간, 관련 모든 서비스에 영향을 미치는 관리 포인트가 하나 늘어난다. (Publisher와 Subscriber 양쪽 DB에 UUID컬럼 추가, 관련 클래스에 UUID 로직 추가 등등)</li>
+<li>또한, UUID를 사용해서 중복처리를 방어하는 로직은 DB접근을 비약적으로 증가시키기 때문에, 결국 서버를 1대만 사용하는것 보다도 비효율적이다.</li>
+<li>그렇다고 DB접근을 줄이고자 Redis로 UUID를 캐싱하는 것은 또 관리 포인트를 늘리는 일이었다.</li>
+<li>그래서 패스.
+<br />
+<br /></li>
+</ul></li>
+
+<li><p><strong>해결 방안 3 (Virtual Destinations 사용)</strong></p>
+
+<ul>
+<li>팀원분에게 얼핏 듣기로는, RabbitMQ는 그룹을 나누어 메세지를 전달하도록 설정할 수 있어서, 같은 그룹에서는 중복처리를 방지할 수 있다고 한다. (확인 안해봄)</li>
+<li>ActiveMQ도 그런 기능이 있을거라는 생각에 <a href="https://activemq.apache.org/features">공식 문서</a>를 뒤적거리다가, Destination Features 카테고리에서 <a href="https://activemq.apache.org/virtual-destinations">Virtual Destinations</a>를 찾았다.</li>
+<li>결론적으로 Virtual Topic을 사용하면,
+
+<ul>
+<li><code>뉴스 (Publisher)는 Topic 방식 그대로 메세지를 publish하고, (topic 이름만 변경)</code></li>
+<li><code>단일 서버인 TV (Subscirber)는 Topic 방식 그대로 메세지를 subscribe하고, (topic 이름만 변경)</code></li>
+<li><code>N개의 서버인 Hub (Subscriber)는 Topic 방식으로 메세지를 subscribe하되, 논리적 topic을 Listening할 때 자동으로 생성되는 물리적 Queue로 부터 메세지를 subscribe 한다.</code></li>
+</ul></li>
+<li><strong>이 방법을 해결책으로 선택 !</strong>
+<br />
+<br /></li>
+</ul></li>
+
+<li><p><strong>결과</strong></p>
+
+<ul>
+<li>2대의 Scheduler 서버가 하나의 Queue에서 메세지를 꺼내가서 소비하므로 중복처리 문제가 해결되었다.</li>
+<li>기존의 Topic방식을 그대로 사용하기 때문에 관리포인트가 증가하지 않았다. (topic 이름만 바꾸면 끝)</li>
+<li>Pub-Sub 방식을 사용하기 때문에 Subscriber가 증가해도 Publisher를 수정할 필요가 없었다.</li>
+<li>Scheduler의 서버가 999개로 늘어도 하나의 Queue에서 메세지를 가져가기 때문에 스케일 아웃시에도 중복처리 문제가 발생하지 않는다.
+<br /></li>
+</ul></li>
+</ul>
+
+<p></br></p>
+
+<h2 id="2-virtual-topics-사용-방법-with-spring-boot">2. Virtual Topics 사용 방법 (with Spring Boot)</h2>
+
+<blockquote>
+<p>사용 방법은 너무나 간단하다. <code>out-of-the-box</code>(꺼내서 바로 쓰는) 기능이기 때문에<br />
+기존의 Topic 방식에서 Topic 명만 Convention에 맞게 변경하면 된다.<br />
+Topic 방식으로 ActiveMQ를 사용하는 내용은 <a href="https://github.com/Integerous/TIL/blob/master/Spring/AmazonMQ%2BSpringBoot.md">AmazonMQ + Spring Boot</a>를 참고하면 된다.</p>
+
+<p>예전에는 <code>activemq.xml</code>에 <code>&lt;DestinationInterceptor&gt;</code> 설정도 해야만,<br />
+해당 Topic이름으로 들어온 메세지를 Interceptor가 가로채서 VirtualTopic으로 처리했지만,<br />
+이제는 일반적인 상황에서는 이 마저도 필요 없다.</p>
+</blockquote>
+
+<ul>
+<li><p><strong>Produer(Publisher)</strong></p>
+
+<ul>
+<li><p>기존 Topic 방식으로 Topic을 생성하되, Topic이름 앞에 <code>VirtualTopic.</code>을 붙여서<br />
+<code>VirtualTopic.{Topic이름}</code>으로 생성하면 끝이다.</p>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#8b008b;font-weight:bold">private</span> JmsTemplate jmsTemplate;
+    
+<span style="color:#228b22">// Message 생성
+</span><span style="color:#228b22"></span>    
+jmsTemplate.<span style="color:#658b00">convertAndSend</span>(<span style="color:#8b008b;font-weight:bold">new</span> ActiveMQTopic(<span style="color:#cd5555">&#34;VirtualTopic.토픽이름&#34;</span>, 생성한 Message), </code></pre></div></li>
+</ul></li>
+
+<li><p><strong>단일 서버 Consumer(Subscriber)</strong></p>
+
+<ul>
+<li>Topic에서 바로 메세지를 받아도 되므로, 기존 Topic 방식으로 메세지를 Listening 한다.<br /></li>
+
+<li><p>이 때, destination을 Producer가 생성한 Topic이름을 설정하면 끝이다.</p>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#707a7c">@JmsListener</span>(destination = <span style="color:#cd5555">&#34;VirtualTopic.{Topic이름}&#34;</span>)
+<span style="color:#8b008b;font-weight:bold">public</span> <span style="color:#00688b;font-weight:bold">void</span> <span style="color:#008b45">amazonMqNewsListener</span>(<span style="color:#707a7c">@Payload</span> MessageDto messageDto) {
+    <span style="color:#228b22">// 로직 처리
+</span><span style="color:#228b22"></span>}</code></pre></div></li>
+</ul></li>
+
+<li><p><strong>로드밸런싱이 필요한 Consumer(Subscriber)</strong></p>
+
+<ul>
+<li><p>반드시 jms의 <code>pub-sub-domain</code> 설정을 <code>false</code>로 변경해야 한다.</p>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml"><span style="color:#228b22"># application.yml</span><span style="color:#bbb">
+</span><span style="color:#bbb">    
+</span><span style="color:#bbb"></span>spring:<span style="color:#bbb">
+</span><span style="color:#bbb">  </span>jms:<span style="color:#bbb">
+</span><span style="color:#bbb">    </span>pub-sub-domain:<span style="color:#bbb"> </span><span style="color:#8b008b;font-weight:bold">false</span></code></pre></div></li>
+
+<li><p>N개의 서버가 메세지를 나누어 받아야 하므로, 기존 Topic 방식으로 메세지를 Listening 하되,</p></li>
+
+<li><p>이 때, destination을 Producer가 생성한 Topic이름 앞에 <code>Consumer.{clientId}.</code>를 붙여서<br />
+<code>Consumer.{clientId}.VirtualTopic.{Topic이름}</code>으로 설정하면 끝이다.</p>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#707a7c">@JmsListener</span>(destination = <span style="color:#cd5555">&#34;Consumer.{clientId}.VirtualTopic.{Topic이름}&#34;</span>)
+<span style="color:#8b008b;font-weight:bold">public</span> <span style="color:#00688b;font-weight:bold">void</span> <span style="color:#008b45">amazonMqNewsListener</span>(<span style="color:#707a7c">@Payload</span> MessageDto messageDto) {
+<span style="color:#228b22">// 로직 처리
+</span><span style="color:#228b22"></span>}</code></pre></div></li>
+
+<li><p>만약 clientId를 따로 설정하지 않았다면, 해당 부분에 원하는 이름을 넣어도 무관하다.</p></li>
+</ul></li>
+
+<li><p><strong>Topic 이름 생성 규칙을 바꾸고 싶은 경우</strong></p>
+
+<ul>
+<li><p>이 경우, <code>activemq.xml</code> 파일에 아래 설정을 추가해서, <code>name</code>과 <code>prefix</code>를 원하는 대로 바꾸면 된다.</p>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#8b008b;font-weight:bold">&lt;destinationInterceptors&gt;</span> 
+  <span style="color:#8b008b;font-weight:bold">&lt;virtualDestinationInterceptor&gt;</span> 
+    <span style="color:#8b008b;font-weight:bold">&lt;virtualDestinations&gt;</span> 
+      <span style="color:#8b008b;font-weight:bold">&lt;virtualTopic</span> <span style="color:#658b00">name=</span><span style="color:#cd5555">&#34;&gt;&#34;</span> <span style="color:#658b00">prefix=</span><span style="color:#cd5555">&#34;VirtualTopicConsumers.*.&#34;</span> <span style="color:#658b00">selectorAware=</span><span style="color:#cd5555">&#34;false&#34;</span><span style="color:#8b008b;font-weight:bold">/&gt;</span>   
+    <span style="color:#8b008b;font-weight:bold">&lt;/virtualDestinations&gt;</span>
+  <span style="color:#8b008b;font-weight:bold">&lt;/virtualDestinationInterceptor&gt;</span> 
+<span style="color:#8b008b;font-weight:bold">&lt;/destinationInterceptors&gt;</span></code></pre></div></li>
+
+<li><p>위의 내용 중 <code>virtualTopic name=&quot;&gt;&quot;</code>의 <code>&gt;</code>는 모든 설정을 Virtual Topic으로 받겠다는 설정이다.</p></li>
+
+<li><p>위의 내용이 Default 설정이며, AmazonMQ에서는 해당 부분이 주석처리된 채로 <code>activemq.xml</code>이 생성된다.</p></li>
+</ul></li>
+
+<li><p><strong>AmazonMQ의 activemq.xml 설정</strong></p>
+
+<ul>
+<li><p>기존에는 AmazonMQ에서 Virtual Destinations를 사용하려면, <code>activemq.xml</code> 에 아래에 동그라미 친 부분과 같이 <code>useVirtualTopics=&quot;true&quot;</code>와 <code>&lt;destinationInterceptors&gt;...&lt;/&gt;</code>부분의 설정을 추가해야 했다.</p>
+
+<p><img src="https://github.com/Integerous/TIL/blob/master/ETC/images/activemq/activemq_xml_2.png?raw=true" alt="" /></p></li>
+
+<li><p>그런데, <a href="https://forums.aws.amazon.com/thread.jspa?threadID=268432">이 대화</a>에서 AWS 엔지니어의 말에 의하면 Virtual Destinations가 기본적으로 enabled 된 상태로 activemq.xml이 생성된다.</p></li>
+
+<li><p><code>We've changed the way default configurations are created. By default virtual destinations are now enabled (an empty element is no longer present in the default XML configuration).</code></p></li>
+
+<li><p>즉, Topic 명명규칙을 변경할 생각이 없으면, 아무런 설정이 필요 없다.</p></li>
+</ul></li>
+</ul>
+
+<p></br></p>
+
+<h2 id="3-맺으며">3. 맺으며</h2>
+
+<p>ActiveMQ를 복잡한 환경과 설정으로 사용해 본 것은 아니라서, 나같은 초보에게만 도움이 되었을 내용이다. 하지만 Message Broker 사용 경험과 지식이 1도 없는 상태에서, Virtual Destinations를 이용해서 문제를 해결하기 까지의 과정은 재미있고 유익했다.</p>
+
+<p>2대의 Scheduler 서버가 Queue에 들어온 메세지를 나누어 가져가는 로그를 확인할 때의 그 기쁨이, 이 내용을 작성하게 한 원동력이 되었다. 언젠가 더 크고 복잡한 서비스에서 Message Broker를 사용할 일이 생긴다면, 이 경험이 큰 도움이 될 것 같다.</p>
+
+<blockquote>
+<p>혹시나 틀린 내용이 있다면, 꼭 지적해주시길 부탁드립니다.</p>
+</blockquote>
+
+<p></br></p>
+
+<h2 id="reference">* Reference</h2>
+
+<ul>
+<li><a href="http://activemq.apache.org/virtual-destinations.html">ActiveMQ 공식문서 - Virtual Destinations</a></li>
+<li><a href="https://tuhrig.de/virtual-topics-in-activemq/">Virtual Topics in ActiveMQ</a></li>
+<li><a href="https://access.redhat.com/solutions/250303">What are Virtual Destinations in ActiveMQ and how do they work?</a></li>
+<li><a href="https://tuhrig.de/queues-vs-topics-vs-virtual-topics-in-activemq/">Queues vs. Topics vs. Virtual Topics (in ActiveMQ)</a></li>
+</ul>
+
+  </div>
+  <footer>
+    <div class="article-footer">
+      
+
+      
+      
+      
+      
+      
+      <div id="pagenavigation-next-prev">
+        
+        
+        <div id="pagenavigation-prev">
+          <span class="pagenav-label">다음 글 ></span>
+          <a href="http://integerous.github.io/post/server/raspberry_server_1/">라즈베리파이4로 토이프로젝트용 서버 만들기 - 1편</a>
+        </div>
+        
+      </div>
+      
+    </div>
+
+    <script src="https://utteranc.es/client.js"
+    repo="integerous/blog-comments"
+    issue-term="pathname"
+    crossorigin="anonymous"
+    async>
+    </script>
+  </footer>
+</div>
+
+
+
+
+
+</div>
+
+</div>
+<footer>
+<div id="site-footer-wrap">
+  <div id="site-footer">
+    <span>Powered by <a href="https://gohugo.io/">Hugo</a>.</span>
+    <span>
+      
+      Copyright (c) 2019, <a href="http://integerous.github.io/">Integerous DevLog</a>
+      
+    </span>
+  </div>
+</div>
+</footer>
+</div>
+</body>
+</html>

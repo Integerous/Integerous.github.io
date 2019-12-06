@@ -8,8 +8,53 @@
 
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Mon, 02 Dec 2019 04:32:43 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 07 Dec 2019 00:40:29 +0900</lastBuildDate>
     <atom:link href="/tags/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>ActiveMQ</title>
+      <link>http://integerous.github.io/tags/activemq/</link>
+      <pubDate>Sat, 07 Dec 2019 00:40:29 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/tags/activemq/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>AmazonMQ</title>
+      <link>http://integerous.github.io/tags/amazonmq/</link>
+      <pubDate>Sat, 07 Dec 2019 00:40:29 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/tags/amazonmq/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Message Broker</title>
+      <link>http://integerous.github.io/tags/message-broker/</link>
+      <pubDate>Sat, 07 Dec 2019 00:40:29 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/tags/message-broker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Spring</title>
+      <link>http://integerous.github.io/tags/spring/</link>
+      <pubDate>Sat, 07 Dec 2019 00:40:29 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/tags/spring/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>로드밸런싱</title>
+      <link>http://integerous.github.io/tags/%EB%A1%9C%EB%93%9C%EB%B0%B8%EB%9F%B0%EC%8B%B1/</link>
+      <pubDate>Sat, 07 Dec 2019 00:40:29 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/tags/%EB%A1%9C%EB%93%9C%EB%B0%B8%EB%9F%B0%EC%8B%B1/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Network</title>
@@ -57,15 +102,6 @@
     </item>
     
     <item>
-      <title>Spring</title>
-      <link>http://integerous.github.io/tags/spring/</link>
-      <pubDate>Tue, 04 Jun 2019 00:29:21 +0900</pubDate>
-      
-      <guid>http://integerous.github.io/tags/spring/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>JPA</title>
       <link>http://integerous.github.io/tags/jpa/</link>
       <pubDate>Tue, 23 Apr 2019 01:58:27 +0900</pubDate>
@@ -107,42 +143,6 @@
       <pubDate>Tue, 04 Dec 2018 00:29:40 +0900</pubDate>
       
       <guid>http://integerous.github.io/tags/book/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Git</title>
-      <link>http://integerous.github.io/tags/git/</link>
-      <pubDate>Sat, 20 Oct 2018 21:17:01 +0900</pubDate>
-      
-      <guid>http://integerous.github.io/tags/git/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>AWS</title>
-      <link>http://integerous.github.io/tags/aws/</link>
-      <pubDate>Sun, 07 Oct 2018 23:30:21 +0900</pubDate>
-      
-      <guid>http://integerous.github.io/tags/aws/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Deploy</title>
-      <link>http://integerous.github.io/tags/deploy/</link>
-      <pubDate>Sun, 07 Oct 2018 23:30:21 +0900</pubDate>
-      
-      <guid>http://integerous.github.io/tags/deploy/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>S3</title>
-      <link>http://integerous.github.io/tags/s3/</link>
-      <pubDate>Sun, 07 Oct 2018 18:12:32 +0900</pubDate>
-      
-      <guid>http://integerous.github.io/tags/s3/</guid>
       <description></description>
     </item>
     

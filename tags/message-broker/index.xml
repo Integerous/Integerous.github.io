@@ -1,0 +1,24 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Message Broker on Integerous DevLog</title>
+    <link>http://integerous.github.io/tags/message-broker/</link>
+    <description>Recent content in Message Broker on Integerous DevLog</description>
+
+    
+
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko-kr</language>
+    <lastBuildDate>Sat, 07 Dec 2019 00:40:29 +0900</lastBuildDate>
+    <atom:link href="/tags/message-broker/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>ActiveMQ의 Virtual Destinations를 활용한 메세지 로드밸런싱</title>
+      <link>http://integerous.github.io/post/server/activemq_virtual_destinations/</link>
+      <pubDate>Sat, 07 Dec 2019 00:40:29 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/post/server/activemq_virtual_destinations/</guid>
+      <description>실무에서 AmazonMQ(ActiveMQ)로 메세지 브로커를 구성하며 알게 된, Virtual Destinations 에 대해 정리해본다. 정확하게는, Topic을 이용한 Pub-sub 방식의 메세</description>
+    </item>
+    
+  </channel>
+</rss>
