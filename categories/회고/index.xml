@@ -8,8 +8,17 @@
 
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sun, 16 Dec 2018 19:17:14 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 22 Dec 2019 22:00:56 +0900</lastBuildDate>
     <atom:link href="/categories/%ED%9A%8C%EA%B3%A0/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>체대 출신 개발자의 2019년 회고</title>
+      <link>http://integerous.github.io/post/memoirs/memoirs2019/</link>
+      <pubDate>Sun, 22 Dec 2019 22:00:56 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/post/memoirs/memoirs2019/</guid>
+      <description>이 글은 개인적인 회고록이다. 그래서 독백체 2019년의 경험과 생각을 정리하고자 한다. 1. 요란한 빈 수레 1년 전 오늘, 체대 출신 개발자의 2018년 회고를 블로</description>
+    </item>
     
     <item>
       <title>체대 출신 개발자의 2018년 회고</title>

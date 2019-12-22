@@ -8,8 +8,17 @@
 
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sat, 07 Dec 2019 00:40:29 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 22 Dec 2019 22:00:56 +0900</lastBuildDate>
     <atom:link href="/categories/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>회고</title>
+      <link>http://integerous.github.io/categories/%ED%9A%8C%EA%B3%A0/</link>
+      <pubDate>Sun, 22 Dec 2019 22:00:56 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/categories/%ED%9A%8C%EA%B3%A0/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Server</title>
@@ -53,15 +62,6 @@
       <pubDate>Tue, 23 Apr 2019 00:39:42 +0900</pubDate>
       
       <guid>http://integerous.github.io/categories/%EB%B2%88%EC%97%AD/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>회고</title>
-      <link>http://integerous.github.io/categories/%ED%9A%8C%EA%B3%A0/</link>
-      <pubDate>Sun, 16 Dec 2018 19:17:14 +0900</pubDate>
-      
-      <guid>http://integerous.github.io/categories/%ED%9A%8C%EA%B3%A0/</guid>
       <description></description>
     </item>
     

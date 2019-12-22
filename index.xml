@@ -8,8 +8,17 @@
 
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sat, 07 Dec 2019 00:40:29 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 22 Dec 2019 22:00:56 +0900</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>체대 출신 개발자의 2019년 회고</title>
+      <link>http://integerous.github.io/post/memoirs/memoirs2019/</link>
+      <pubDate>Sun, 22 Dec 2019 22:00:56 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/post/memoirs/memoirs2019/</guid>
+      <description>이 글은 개인적인 회고록이다. 그래서 독백체 2019년의 경험과 생각을 정리하고자 한다. 1. 요란한 빈 수레 1년 전 오늘, 체대 출신 개발자의 2018년 회고를 블로</description>
+    </item>
     
     <item>
       <title>ActiveMQ의 Virtual Destinations를 활용한 메시지 로드밸런싱</title>
@@ -135,15 +144,6 @@
       
       <guid>http://integerous.github.io/post/java/java-enums/</guid>
       <description>자바의 정석(남궁성 저) 학습내용 정리 1. 열거형(Enums) Java의 열거형은 C언어의 열거형과 다르게 열거형이 갖는 값 뿐만 아니라 타입까지 관리한다. 기</description>
-    </item>
-    
-    <item>
-      <title>자바의 정석 - 지네릭스(Generics)</title>
-      <link>http://integerous.github.io/post/java/java-generics/</link>
-      <pubDate>Thu, 25 Oct 2018 00:28:04 +0900</pubDate>
-      
-      <guid>http://integerous.github.io/post/java/java-generics/</guid>
-      <description>자바의 정석(남궁성 저) 학습내용 정리 1. 지네릭스(Generics) 지네릭스는 다양한 타입의 객체들을 다루는 메서드나 컬렉션 클래스에 컴파일 시의 타입 체크</description>
     </item>
     
   </channel>

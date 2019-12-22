@@ -8,8 +8,17 @@
 
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sat, 07 Dec 2019 00:40:29 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 22 Dec 2019 22:00:56 +0900</lastBuildDate>
     <atom:link href="/tags/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>essay</title>
+      <link>http://integerous.github.io/tags/essay/</link>
+      <pubDate>Sun, 22 Dec 2019 22:00:56 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/tags/essay/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>ActiveMQ</title>
@@ -125,15 +134,6 @@
       <pubDate>Tue, 23 Apr 2019 00:39:42 +0900</pubDate>
       
       <guid>http://integerous.github.io/tags/%EB%B2%88%EC%97%AD/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>essay</title>
-      <link>http://integerous.github.io/tags/essay/</link>
-      <pubDate>Sun, 16 Dec 2018 19:17:14 +0900</pubDate>
-      
-      <guid>http://integerous.github.io/tags/essay/</guid>
       <description></description>
     </item>
     
