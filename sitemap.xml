@@ -4,42 +4,42 @@
   
   <url>
     <loc>http://integerous.github.io/categories/</loc>
-    <lastmod>2019-12-22T22:38:19+09:00</lastmod>
+    <lastmod>2019-12-22T22:49:43+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://integerous.github.io/</loc>
-    <lastmod>2019-12-22T22:38:19+09:00</lastmod>
+    <lastmod>2019-12-22T22:49:43+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://integerous.github.io/post/</loc>
-    <lastmod>2019-12-22T22:38:19+09:00</lastmod>
+    <lastmod>2019-12-22T22:49:43+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://integerous.github.io/tags/</loc>
-    <lastmod>2019-12-22T22:38:19+09:00</lastmod>
+    <lastmod>2019-12-22T22:49:43+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://integerous.github.io/tags/essay/</loc>
-    <lastmod>2019-12-22T22:38:19+09:00</lastmod>
+    <lastmod>2019-12-22T22:49:43+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://integerous.github.io/post/memoirs/memoirs2019/</loc>
-    <lastmod>2019-12-22T22:38:19+09:00</lastmod>
+    <lastmod>2019-12-22T22:49:43+09:00</lastmod>
   </url>
   
   <url>
     <loc>http://integerous.github.io/categories/%ED%9A%8C%EA%B3%A0/</loc>
-    <lastmod>2019-12-22T22:38:19+09:00</lastmod>
+    <lastmod>2019-12-22T22:49:43+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -114,13 +114,13 @@
   </url>
   
   <url>
-    <loc>http://integerous.github.io/categories/java/</loc>
+    <loc>http://integerous.github.io/tags/java/</loc>
     <lastmod>2019-06-04T00:38:24+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://integerous.github.io/tags/java/</loc>
+    <loc>http://integerous.github.io/categories/java/</loc>
     <lastmod>2019-06-04T00:38:24+09:00</lastmod>
     <priority>0</priority>
   </url>
@@ -146,13 +146,13 @@
   </url>
   
   <url>
-    <loc>http://integerous.github.io/categories/jpa/</loc>
+    <loc>http://integerous.github.io/tags/jpa/</loc>
     <lastmod>2019-04-23T02:15:30+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://integerous.github.io/tags/jpa/</loc>
+    <loc>http://integerous.github.io/categories/jpa/</loc>
     <lastmod>2019-04-23T02:15:30+09:00</lastmod>
     <priority>0</priority>
   </url>
@@ -175,13 +175,13 @@
   </url>
   
   <url>
-    <loc>http://integerous.github.io/categories/%EB%B2%88%EC%97%AD/</loc>
+    <loc>http://integerous.github.io/tags/%EB%B2%88%EC%97%AD/</loc>
     <lastmod>2019-04-23T00:58:29+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://integerous.github.io/tags/%EB%B2%88%EC%97%AD/</loc>
+    <loc>http://integerous.github.io/categories/%EB%B2%88%EC%97%AD/</loc>
     <lastmod>2019-04-23T00:58:29+09:00</lastmod>
     <priority>0</priority>
   </url>
@@ -255,13 +255,13 @@
   </url>
   
   <url>
-    <loc>http://integerous.github.io/categories/aws/</loc>
+    <loc>http://integerous.github.io/tags/aws/</loc>
     <lastmod>2019-04-22T00:49:47+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://integerous.github.io/tags/aws/</loc>
+    <loc>http://integerous.github.io/categories/aws/</loc>
     <lastmod>2019-04-22T00:49:47+09:00</lastmod>
     <priority>0</priority>
   </url>
