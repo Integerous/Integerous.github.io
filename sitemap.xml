@@ -4,32 +4,43 @@
   
   <url>
     <loc>http://integerous.github.io/categories/</loc>
-    <lastmod>2019-12-23T21:33:53+09:00</lastmod>
+    <lastmod>2020-01-13T22:53:38+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://integerous.github.io/</loc>
-    <lastmod>2019-12-23T21:33:53+09:00</lastmod>
+    <lastmod>2020-01-13T22:53:38+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://integerous.github.io/post/</loc>
-    <lastmod>2019-12-23T21:33:53+09:00</lastmod>
+    <lastmod>2020-01-13T22:53:38+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://integerous.github.io/tags/</loc>
-    <lastmod>2019-12-23T21:33:53+09:00</lastmod>
+    <lastmod>2020-01-13T22:53:38+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://integerous.github.io/tags/essay/</loc>
-    <lastmod>2019-12-23T21:33:53+09:00</lastmod>
+    <lastmod>2020-01-13T22:53:38+09:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://integerous.github.io/categories/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC/</loc>
+    <lastmod>2020-01-13T22:53:38+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://integerous.github.io/post/essay/the_elephant_and_the_flea/</loc>
+    <lastmod>2020-01-13T22:53:38+09:00</lastmod>
   </url>
   
   <url>
@@ -39,7 +50,7 @@
   
   <url>
     <loc>http://integerous.github.io/categories/%ED%9A%8C%EA%B3%A0/</loc>
-    <lastmod>2019-12-23T21:33:53+09:00</lastmod>
+    <lastmod>2019-12-23T22:25:03+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -188,7 +199,7 @@
   
   <url>
     <loc>http://integerous.github.io/post/memoirs/memoirs2018/</loc>
-    <lastmod>2019-04-23T01:14:10+09:00</lastmod>
+    <lastmod>2019-12-23T22:25:03+09:00</lastmod>
   </url>
   
   <url>
@@ -246,12 +257,6 @@
   <url>
     <loc>http://integerous.github.io/post/essay/father/</loc>
     <lastmod>2019-04-22T00:49:47+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://integerous.github.io/categories/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC/</loc>
-    <lastmod>2019-04-22T00:49:47+09:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>

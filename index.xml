@@ -8,8 +8,17 @@
 
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sun, 22 Dec 2019 22:00:56 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 13 Jan 2020 22:53:38 +0900</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>코끼리와 벼룩</title>
+      <link>http://integerous.github.io/post/essay/the_elephant_and_the_flea/</link>
+      <pubDate>Mon, 13 Jan 2020 22:53:38 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/post/essay/the_elephant_and_the_flea/</guid>
+      <description>31살에 31권 읽기 이종립님의 2019년 회고에서 2019년에 76권의 책을 읽으셨다고 했다. ㄷㄷㄷ 게다가 1000페이지가 넘는 TCP/IP와 이산수학</description>
+    </item>
     
     <item>
       <title>체대 출신 개발자의 2019년 회고</title>
@@ -135,15 +144,6 @@
       
       <guid>http://integerous.github.io/post/java/java-thread/</guid>
       <description>자바의 정석(남궁성 저) 2권 학습 1. 프로세스와 쓰레드 프로세스란 실행중인 프로그램이다. 프로그램을 실행하면 OS로부터 실행에 필요한 자원(메모리)를 할당</description>
-    </item>
-    
-    <item>
-      <title>자바의 정석 - 열거형(Enums)</title>
-      <link>http://integerous.github.io/post/java/java-enums/</link>
-      <pubDate>Sun, 28 Oct 2018 19:29:48 +0900</pubDate>
-      
-      <guid>http://integerous.github.io/post/java/java-enums/</guid>
-      <description>자바의 정석(남궁성 저) 학습내용 정리 1. 열거형(Enums) Java의 열거형은 C언어의 열거형과 다르게 열거형이 갖는 값 뿐만 아니라 타입까지 관리한다. 기</description>
     </item>
     
   </channel>

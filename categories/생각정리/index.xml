@@ -8,8 +8,17 @@
 
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sun, 14 Oct 2018 12:49:22 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 13 Jan 2020 22:53:38 +0900</lastBuildDate>
     <atom:link href="/categories/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>코끼리와 벼룩</title>
+      <link>http://integerous.github.io/post/essay/the_elephant_and_the_flea/</link>
+      <pubDate>Mon, 13 Jan 2020 22:53:38 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/post/essay/the_elephant_and_the_flea/</guid>
+      <description>31살에 31권 읽기 이종립님의 2019년 회고에서 2019년에 76권의 책을 읽으셨다고 했다. ㄷㄷㄷ 게다가 1000페이지가 넘는 TCP/IP와 이산수학</description>
+    </item>
     
     <item>
       <title>286컴퓨터와 도트프린터</title>
