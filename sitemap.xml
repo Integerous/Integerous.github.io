@@ -4,25 +4,42 @@
   
   <url>
     <loc>http://integerous.github.io/categories/</loc>
-    <lastmod>2020-01-14T00:17:21+09:00</lastmod>
+    <lastmod>2020-01-18T22:06:06+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://integerous.github.io/</loc>
-    <lastmod>2020-01-14T00:17:21+09:00</lastmod>
+    <lastmod>2020-01-18T22:06:06+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
+    <loc>http://integerous.github.io/categories/java/</loc>
+    <lastmod>2020-01-18T22:06:06+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://integerous.github.io/tags/java/</loc>
+    <lastmod>2020-01-18T22:06:06+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://integerous.github.io/post/java/serialization/</loc>
+    <lastmod>2020-01-18T22:06:06+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://integerous.github.io/post/</loc>
-    <lastmod>2020-01-14T00:17:21+09:00</lastmod>
+    <lastmod>2020-01-18T22:06:06+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://integerous.github.io/tags/</loc>
-    <lastmod>2020-01-14T00:17:21+09:00</lastmod>
+    <lastmod>2020-01-18T22:06:06+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -122,18 +139,6 @@
   <url>
     <loc>http://integerous.github.io/post/server/raspberry_server_1/</loc>
     <lastmod>2019-12-02T23:43:22+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://integerous.github.io/categories/java/</loc>
-    <lastmod>2019-06-04T00:38:24+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://integerous.github.io/tags/java/</loc>
-    <lastmod>2019-06-04T00:38:24+09:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>

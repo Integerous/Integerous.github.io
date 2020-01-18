@@ -8,8 +8,17 @@
 
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Mon, 13 Jan 2020 22:53:38 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 18 Jan 2020 22:00:08 +0900</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Java Serialization 개념 정리</title>
+      <link>http://integerous.github.io/post/java/serialization/</link>
+      <pubDate>Sat, 18 Jan 2020 22:00:08 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/post/java/serialization/</guid>
+      <description>새로 맡게 된 레거시 프로젝트의 몇몇 클래스들이 Serializable 인터페이스를 왜 상속받는지 알아보는 과정에서 Java 직렬화 개념 정리 작성일 : 2019년 10월 13일 간단하게 Java 내</description>
+    </item>
     
     <item>
       <title>코끼리와 벼룩</title>
@@ -135,15 +144,6 @@
       
       <guid>http://integerous.github.io/post/java/java-lambda/</guid>
       <description>자바의 정석(남궁성 저) 2권 학습내용 정리 1. 람다식 메서드를 하나의 식(expression)으로 표현한 것. 메서드를 람다식으로 표현하면 메서드의 이름과</description>
-    </item>
-    
-    <item>
-      <title>자바의 정석 - 쓰레드(Thread)</title>
-      <link>http://integerous.github.io/post/java/java-thread/</link>
-      <pubDate>Tue, 30 Oct 2018 01:39:34 +0900</pubDate>
-      
-      <guid>http://integerous.github.io/post/java/java-thread/</guid>
-      <description>자바의 정석(남궁성 저) 2권 학습 1. 프로세스와 쓰레드 프로세스란 실행중인 프로그램이다. 프로그램을 실행하면 OS로부터 실행에 필요한 자원(메모리)를 할당</description>
     </item>
     
   </channel>

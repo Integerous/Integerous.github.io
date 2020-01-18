@@ -8,8 +8,17 @@
 
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Tue, 04 Jun 2019 00:29:21 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 18 Jan 2020 22:00:08 +0900</lastBuildDate>
     <atom:link href="/categories/java/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Java Serialization 개념 정리</title>
+      <link>http://integerous.github.io/post/java/serialization/</link>
+      <pubDate>Sat, 18 Jan 2020 22:00:08 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/post/java/serialization/</guid>
+      <description>새로 맡게 된 레거시 프로젝트의 몇몇 클래스들이 Serializable 인터페이스를 왜 상속받는지 알아보는 과정에서 Java 직렬화 개념 정리 작성일 : 2019년 10월 13일 간단하게 Java 내</description>
+    </item>
     
     <item>
       <title>XML 데이터를 Java 객체로 변환하기 (feat. JAXB)</title>
@@ -135,15 +144,6 @@
       
       <guid>http://integerous.github.io/post/java/java-exception/</guid>
       <description>자바의 정석(남궁성 저) 학습내용 정리 1. 예외 처리 (Exception handling) 에러는 메모리 부족(OutOfMemoryError)이나 스택오버플로우(StackOverF</description>
-    </item>
-    
-    <item>
-      <title>자바의 정석 - 추상클래스, 인터페이스</title>
-      <link>http://integerous.github.io/post/java/java-abstract-interface/</link>
-      <pubDate>Wed, 03 Oct 2018 12:33:20 +0900</pubDate>
-      
-      <guid>http://integerous.github.io/post/java/java-abstract-interface/</guid>
-      <description>자바의 정석(남궁성 저) 학습내용 정리 1. 추상 클래스 (Abstract class) 미완성 메소드(추상메소드)를 포함하고 있다는 것을 제외하고는 일반클래스와 같다. 추상메소드가 없어</description>
     </item>
     
   </channel>
