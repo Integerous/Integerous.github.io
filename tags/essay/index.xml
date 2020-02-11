@@ -8,11 +8,20 @@
 
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Mon, 13 Jan 2020 22:53:38 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 11 Feb 2020 20:15:36 +0900</lastBuildDate>
     <atom:link href="/tags/essay/" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>코끼리와 벼룩</title>
+      <title>&lt;해커와 화가&gt;</title>
+      <link>http://integerous.github.io/post/essay/hackers_and_painters/</link>
+      <pubDate>Tue, 11 Feb 2020 20:15:36 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/post/essay/hackers_and_painters/</guid>
+      <description>저자의 한 줄 짜리 약력 단어 2개로 충분히 설명되는 삶과 긴 설명이 필요한 삶, 그리고 쓸 약력이 없는 삶(= 나). 임백준님과 정희님도 엄청 대단한 분들이지만, 단 2개</description>
+    </item>
+    
+    <item>
+      <title>&lt;코끼리와 벼룩&gt;</title>
       <link>http://integerous.github.io/post/essay/the_elephant_and_the_flea/</link>
       <pubDate>Mon, 13 Jan 2020 22:53:38 +0900</pubDate>
       
