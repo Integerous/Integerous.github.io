@@ -8,8 +8,17 @@
 
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Tue, 11 Feb 2020 20:15:36 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 22 Feb 2020 22:12:09 +0900</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>&lt;다크호스&gt;</title>
+      <link>http://integerous.github.io/post/essay/dark_horse/</link>
+      <pubDate>Sat, 22 Feb 2020 22:12:09 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/post/essay/dark_horse/</guid>
+      <description>내가 해온 피벗(pivot)과 앞으로 하게 될 피벗에 용기를 주는 책이다. 나를 방목형으로 키우셨음에도, 대기업 퇴사에는 유독 강하게 반대하셨던 어머니가 왜 그러</description>
+    </item>
     
     <item>
       <title>&lt;해커와 화가&gt;</title>
@@ -135,15 +144,6 @@
       
       <guid>http://integerous.github.io/post/java/java-serialization/</guid>
       <description>자바의 정석(남궁성 저) 2권 학습내용 정리 1. 직렬화란? 객체를 데이터 스트림으로 만드는 것 객체에 저장된 데이터를 스트림에 쓰기 위해 연속적인 데이터로 변환하는</description>
-    </item>
-    
-    <item>
-      <title>자바의 정석 - 스트림(Stream)</title>
-      <link>http://integerous.github.io/post/java/java-stream/</link>
-      <pubDate>Thu, 29 Nov 2018 00:10:13 +0900</pubDate>
-      
-      <guid>http://integerous.github.io/post/java/java-stream/</guid>
-      <description>자바의 정석(남궁성 저) 2권 학습내용 정리 1. 스트림(Stream) 스트림은 데이터 소스를 추상화하고, 데이터를 다루는데 자주 사용되는 메서드들을 정의해 놓</description>
     </item>
     
   </channel>
