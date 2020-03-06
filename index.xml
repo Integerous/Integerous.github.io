@@ -8,8 +8,17 @@
 
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sat, 22 Feb 2020 22:12:09 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 06 Mar 2020 00:29:40 +0900</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>내가 읽은&#43;읽을 개발서적 정리</title>
+      <link>http://integerous.github.io/post/etc/books/</link>
+      <pubDate>Fri, 06 Mar 2020 00:29:40 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/post/etc/books/</guid>
+      <description>2020년 3월 6일 기준 최신순 정렬 읽는 중 해커, 광기의 랩소디 스프링부트와 AWS로 혼자 구현하는 웹서비스 만화로 배우는 리눅스 시스템 관리 1편 HTTP 완벽 가이드</description>
+    </item>
     
     <item>
       <title>&lt;다크호스&gt;</title>
@@ -126,15 +135,6 @@
       
       <guid>http://integerous.github.io/post/memoirs/memoirs2018/</guid>
       <description>이 글은 개인적인 회고록이다. 그래서 독백체 자문자답 형식으로 2018년을 정리해보고자 한다. 1. 시작 2017년은 다사다난 했다. 취업(1월), 졸업(2월</description>
-    </item>
-    
-    <item>
-      <title>내가 읽은&#43;읽을 개발서적 정리</title>
-      <link>http://integerous.github.io/post/etc/books/</link>
-      <pubDate>Tue, 04 Dec 2018 00:29:40 +0900</pubDate>
-      
-      <guid>http://integerous.github.io/post/etc/books/</guid>
-      <description>2020년 3월 6일 기준 최신순 정렬 읽는 중 해커, 광기의 랩소디 스프링부트와 AWS로 혼자 구현하는 웹서비스 만화로 배우는 리눅스 시스템 관리 1편 HTTP 완벽 가이드</description>
     </item>
     
     <item>
