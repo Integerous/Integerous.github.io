@@ -8,24 +8,24 @@
 
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Fri, 06 Mar 2020 00:29:40 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 11 Mar 2020 23:06:02 +0900</lastBuildDate>
     <atom:link href="/tags/" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Book</title>
       <link>http://integerous.github.io/tags/book/</link>
-      <pubDate>Fri, 06 Mar 2020 00:29:40 +0900</pubDate>
+      <pubDate>Wed, 11 Mar 2020 23:06:02 +0900</pubDate>
       
       <guid>http://integerous.github.io/tags/book/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>essay</title>
-      <link>http://integerous.github.io/tags/essay/</link>
-      <pubDate>Sat, 22 Feb 2020 22:12:09 +0900</pubDate>
+      <title>Review</title>
+      <link>http://integerous.github.io/tags/review/</link>
+      <pubDate>Wed, 11 Mar 2020 23:06:02 +0900</pubDate>
       
-      <guid>http://integerous.github.io/tags/essay/</guid>
+      <guid>http://integerous.github.io/tags/review/</guid>
       <description></description>
     </item>
     
@@ -35,6 +35,15 @@
       <pubDate>Sat, 18 Jan 2020 22:00:08 +0900</pubDate>
       
       <guid>http://integerous.github.io/tags/java/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>essay</title>
+      <link>http://integerous.github.io/tags/essay/</link>
+      <pubDate>Sun, 22 Dec 2019 22:00:56 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/tags/essay/</guid>
       <description></description>
     </item>
     
@@ -134,15 +143,6 @@
       <pubDate>Tue, 23 Apr 2019 00:39:42 +0900</pubDate>
       
       <guid>http://integerous.github.io/tags/web/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>번역</title>
-      <link>http://integerous.github.io/tags/%EB%B2%88%EC%97%AD/</link>
-      <pubDate>Tue, 23 Apr 2019 00:39:42 +0900</pubDate>
-      
-      <guid>http://integerous.github.io/tags/%EB%B2%88%EC%97%AD/</guid>
       <description></description>
     </item>
     
