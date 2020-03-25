@@ -8,8 +8,17 @@
 
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Wed, 11 Mar 2020 23:06:02 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 25 Mar 2020 20:30:38 +0900</lastBuildDate>
     <atom:link href="/post/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>&lt;달리기를 말할 때 내가 하고 싶은 이야기&gt;</title>
+      <link>http://integerous.github.io/post/review/what_i_talk_about_when_i_talk_about_running/</link>
+      <pubDate>Wed, 25 Mar 2020 20:30:38 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/post/review/what_i_talk_about_when_i_talk_about_running/</guid>
+      <description>이런 저런 일들에 휘둘린 요즘, 무언가를 꾸준히 하는 것에 대한 이야기를 듣고 싶었다. 나는 어떤 일을 시작할 때 마다 &amp;lsquo;꾸준히 해야만 한다&amp;rsquo;</description>
+    </item>
     
     <item>
       <title>&lt;부의 추월차선&gt;</title>
@@ -135,15 +144,6 @@
       
       <guid>http://integerous.github.io/post/translated/pathvariable_queryparam/</guid>
       <description>원작자의 허락을 받고 번역한 글입니다. 원문: When Should You Use Path Variable and Query Parameter? *역자 주: Spring boot와 Vue.js로 파일럿 프로젝트를 개발하던 중, 카테고리로 게시물 목</description>
-    </item>
-    
-    <item>
-      <title>체대 출신 개발자의 2018년 회고</title>
-      <link>http://integerous.github.io/post/memoirs/memoirs2018/</link>
-      <pubDate>Sun, 16 Dec 2018 19:17:14 +0900</pubDate>
-      
-      <guid>http://integerous.github.io/post/memoirs/memoirs2018/</guid>
-      <description>이 글은 개인적인 회고록이다. 그래서 독백체 자문자답 형식으로 2018년을 정리해보고자 한다. 1. 시작 2017년은 다사다난 했다. 취업(1월), 졸업(2월</description>
     </item>
     
   </channel>
