@@ -8,8 +8,17 @@
 
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Wed, 25 Mar 2020 20:30:38 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 04 May 2020 11:18:37 +0900</lastBuildDate>
     <atom:link href="/post/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>&lt;승려와 수수께끼&gt;</title>
+      <link>http://integerous.github.io/post/review/the_monk_and_the_riddle/</link>
+      <pubDate>Mon, 04 May 2020 11:18:37 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/post/review/the_monk_and_the_riddle/</guid>
+      <description>이 책이 &amp;ldquo;인생책&amp;rdquo;이라고 표현한 지인이 있어서 바로 구매했다. 결과적으로 나의 인생책은 되지 않았지만, 내가 사업을 진행중이었다면 인</description>
+    </item>
     
     <item>
       <title>&lt;달리기를 말할 때 내가 하고 싶은 이야기&gt;</title>
@@ -135,15 +144,6 @@
       
       <guid>http://integerous.github.io/post/jpa/jpa_basics/</guid>
       <description>Tacademy 강의를 듣고 내용 정리 강사: 김영한님 (현 우아한형제들 개발자) 이 강의는 김영한님의 두꺼운 JPA 책을 본격적으로 보기 전에 보면 딱 좋을 강의라고 생각한다. 그런데</description>
-    </item>
-    
-    <item>
-      <title>[번역] Path Variable과 Query Parameter는 언제 사용해야 할까?</title>
-      <link>http://integerous.github.io/post/translated/pathvariable_queryparam/</link>
-      <pubDate>Tue, 23 Apr 2019 00:39:42 +0900</pubDate>
-      
-      <guid>http://integerous.github.io/post/translated/pathvariable_queryparam/</guid>
-      <description>원작자의 허락을 받고 번역한 글입니다. 원문: When Should You Use Path Variable and Query Parameter? *역자 주: Spring boot와 Vue.js로 파일럿 프로젝트를 개발하던 중, 카테고리로 게시물 목</description>
     </item>
     
   </channel>
