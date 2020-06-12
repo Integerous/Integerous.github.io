@@ -8,8 +8,17 @@
 
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Mon, 04 May 2020 11:18:37 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 12 Jun 2020 23:37:51 +0900</lastBuildDate>
     <atom:link href="/post/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>&lt;디스럽터&gt;</title>
+      <link>http://integerous.github.io/post/review/non-bullshit_innovation/</link>
+      <pubDate>Fri, 12 Jun 2020 23:37:51 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/post/review/non-bullshit_innovation/</guid>
+      <description>원서 제목은 Non-bullshit Innovation: Radical Ideas from the World&amp;rsquo;s Smartest Minds 김봉진 전 우아한형제들 대표님이 페이스북에 쓴 이 책의 후기를 보고 바로 구매했다. 스스로 &amp;lsquo;과시적 독서가&amp;rsqu</description>
+    </item>
     
     <item>
       <title>&lt;승려와 수수께끼&gt;</title>
@@ -135,15 +144,6 @@
       
       <guid>http://integerous.github.io/post/java/abstract_class/</guid>
       <description>Java의 정석으로 Java의 개념들을 공부한 나는 추상클래스가 언제나 찝찝했다. 개발을 공부하기 시작한지 얼마 안되어 학습한 내용이었기 때문에 적당한 수준으</description>
-    </item>
-    
-    <item>
-      <title>&lt;JPA 프로그래밍 기본기 다지기&gt; 내용 정리</title>
-      <link>http://integerous.github.io/post/jpa/jpa_basics/</link>
-      <pubDate>Tue, 23 Apr 2019 01:58:27 +0900</pubDate>
-      
-      <guid>http://integerous.github.io/post/jpa/jpa_basics/</guid>
-      <description>Tacademy 강의를 듣고 내용 정리 강사: 김영한님 (현 우아한형제들 개발자) 이 강의는 김영한님의 두꺼운 JPA 책을 본격적으로 보기 전에 보면 딱 좋을 강의라고 생각한다. 그런데</description>
     </item>
     
   </channel>
