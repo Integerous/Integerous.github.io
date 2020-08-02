@@ -8,8 +8,17 @@
 
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Fri, 12 Jun 2020 23:37:51 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 02 Aug 2020 21:47:10 +0900</lastBuildDate>
     <atom:link href="/post/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>&lt;직업으로서의 소설가&gt;</title>
+      <link>http://integerous.github.io/post/review/homo_underliner/</link>
+      <pubDate>Sun, 02 Aug 2020 21:47:10 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/post/review/homo_underliner/</guid>
+      <description>올 초 내 나이만큼 책 읽기 프로젝트를 시작하면서, 지인들을 만날 때 마다 그들의 인생책이 무엇인지 물어보고 바로 구매해서 읽기 시작했다. 내 주변에는 나보다 못난 사람</description>
+    </item>
     
     <item>
       <title>&lt;디스럽터&gt;</title>
@@ -135,15 +144,6 @@
       
       <guid>http://integerous.github.io/post/java/try_with_resources/</guid>
       <description>코드 리뷰를 받던 중 Try-with-resources를 알게 되어 정리 코드 리뷰를 받기 전 코드는 아래와 같았다. public static String getHtml(String url) { try{ URL targetUrl = new URL(url); BufferedReader reader = new BufferedReader(new InputStreamReader(targetUrl.openStream())); StringBuffer</description>
-    </item>
-    
-    <item>
-      <title>추상(abstract) 클래스가 필요한 기본적인 이유</title>
-      <link>http://integerous.github.io/post/java/abstract_class/</link>
-      <pubDate>Wed, 22 May 2019 23:47:00 +0900</pubDate>
-      
-      <guid>http://integerous.github.io/post/java/abstract_class/</guid>
-      <description>Java의 정석으로 Java의 개념들을 공부한 나는 추상클래스가 언제나 찝찝했다. 개발을 공부하기 시작한지 얼마 안되어 학습한 내용이었기 때문에 적당한 수준으</description>
     </item>
     
   </channel>
