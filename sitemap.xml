@@ -3,50 +3,55 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://integerous.github.io/post/review/the_art_of_travel/</loc>
-    <lastmod>2020-08-22T00:23:28+09:00</lastmod>
+    <loc>http://integerous.github.io/post/review/the_life_before_us/</loc>
+    <lastmod>2020-09-10T19:43:58+09:00</lastmod>
   </url>
   
   <url>
     <loc>http://integerous.github.io/tags/book/</loc>
-    <lastmod>2020-08-22T00:23:28+09:00</lastmod>
+    <lastmod>2020-09-10T19:43:58+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://integerous.github.io/categories/</loc>
-    <lastmod>2020-08-22T00:23:28+09:00</lastmod>
+    <lastmod>2020-09-10T19:43:58+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://integerous.github.io/</loc>
-    <lastmod>2020-08-22T00:23:28+09:00</lastmod>
+    <lastmod>2020-09-10T19:43:58+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://integerous.github.io/post/</loc>
-    <lastmod>2020-08-22T00:23:28+09:00</lastmod>
+    <lastmod>2020-09-10T19:43:58+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://integerous.github.io/tags/review/</loc>
-    <lastmod>2020-08-22T00:23:28+09:00</lastmod>
+    <lastmod>2020-09-10T19:43:58+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://integerous.github.io/tags/</loc>
-    <lastmod>2020-08-22T00:23:28+09:00</lastmod>
+    <lastmod>2020-09-10T19:43:58+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://integerous.github.io/categories/%EC%84%9C%ED%8F%89/</loc>
-    <lastmod>2020-08-22T00:23:28+09:00</lastmod>
+    <lastmod>2020-09-10T19:43:58+09:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://integerous.github.io/post/review/the_art_of_travel/</loc>
+    <lastmod>2020-08-22T01:30:18+09:00</lastmod>
   </url>
   
   <url>
@@ -96,13 +101,13 @@
   </url>
   
   <url>
-    <loc>http://integerous.github.io/categories/java/</loc>
+    <loc>http://integerous.github.io/tags/java/</loc>
     <lastmod>2020-01-18T22:09:34+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://integerous.github.io/tags/java/</loc>
+    <loc>http://integerous.github.io/categories/java/</loc>
     <lastmod>2020-01-18T22:09:34+09:00</lastmod>
     <priority>0</priority>
   </url>
@@ -225,13 +230,13 @@
   </url>
   
   <url>
-    <loc>http://integerous.github.io/categories/jpa/</loc>
+    <loc>http://integerous.github.io/tags/jpa/</loc>
     <lastmod>2019-04-23T02:15:30+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://integerous.github.io/tags/jpa/</loc>
+    <loc>http://integerous.github.io/categories/jpa/</loc>
     <lastmod>2019-04-23T02:15:30+09:00</lastmod>
     <priority>0</priority>
   </url>
@@ -248,13 +253,13 @@
   </url>
   
   <url>
-    <loc>http://integerous.github.io/categories/%EB%B2%88%EC%97%AD/</loc>
+    <loc>http://integerous.github.io/tags/%EB%B2%88%EC%97%AD/</loc>
     <lastmod>2019-04-23T00:58:29+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://integerous.github.io/tags/%EB%B2%88%EC%97%AD/</loc>
+    <loc>http://integerous.github.io/categories/%EB%B2%88%EC%97%AD/</loc>
     <lastmod>2019-04-23T00:58:29+09:00</lastmod>
     <priority>0</priority>
   </url>
@@ -317,13 +322,13 @@
   </url>
   
   <url>
-    <loc>http://integerous.github.io/categories/aws/</loc>
+    <loc>http://integerous.github.io/tags/aws/</loc>
     <lastmod>2019-04-22T00:49:47+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://integerous.github.io/tags/aws/</loc>
+    <loc>http://integerous.github.io/categories/aws/</loc>
     <lastmod>2019-04-22T00:49:47+09:00</lastmod>
     <priority>0</priority>
   </url>
