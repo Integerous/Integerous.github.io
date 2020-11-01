@@ -8,8 +8,17 @@
 
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Tue, 06 Oct 2020 21:12:36 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 01 Nov 2020 21:54:30 +0900</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>&lt;인연&gt;</title>
+      <link>http://integerous.github.io/post/review/connection/</link>
+      <pubDate>Sun, 01 Nov 2020 21:54:30 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/post/review/connection/</guid>
+      <description>수필집 by 피천득, 1996 이 책은 김진짜가 사석에 자주 언급한 책이라 구매했다. 주변에 다독하는 지인이 별로 없는 탓에, 책을 많이 읽어온 진짜형(나보다 1살 많음)이 자</description>
+    </item>
     
     <item>
       <title>&lt;미치지 않고서야&gt;</title>
@@ -135,15 +144,6 @@
       
       <guid>http://integerous.github.io/post/review/the_elephant_and_the_flea/</guid>
       <description>31살에 31권 읽기 이종립님의 2019년 회고에서 2019년에 76권의 책을 읽으셨다고 했다. ㄷㄷㄷ 게다가 1000페이지가 넘는 TCP/IP와 이산수학</description>
-    </item>
-    
-    <item>
-      <title>체대 출신 개발자의 2019년 회고</title>
-      <link>http://integerous.github.io/post/memoirs/memoirs2019/</link>
-      <pubDate>Sun, 22 Dec 2019 22:00:56 +0900</pubDate>
-      
-      <guid>http://integerous.github.io/post/memoirs/memoirs2019/</guid>
-      <description>이 글은 개인적인 회고록이다. 그래서 독백체 2019년의 경험과 생각을 정리하고자 한다. 1. 요란한 빈 수레 1년 전 오늘, 체대 출신 개발자의 2018년 회고를 블로</description>
     </item>
     
   </channel>
