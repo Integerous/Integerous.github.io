@@ -8,8 +8,17 @@
 
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sun, 01 Nov 2020 21:54:30 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 08 Nov 2020 20:57:37 +0900</lastBuildDate>
     <atom:link href="/post/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>&lt;아이디어 불패의 법칙&gt;</title>
+      <link>http://integerous.github.io/post/review/the_right_it/</link>
+      <pubDate>Sun, 08 Nov 2020 20:57:37 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/post/review/the_right_it/</guid>
+      <description>원서 제목은 The Right It: Why So Many Ideas Fail and How to Make Sure Yours Succeed by 알베르토 사보이아(Alberto Savoia), 2019 이 책은 참여중인 부동산 경매 정보방에서 추천받은 책이라 구매했다. 그런</description>
+    </item>
     
     <item>
       <title>&lt;인연&gt;</title>
@@ -135,15 +144,6 @@
       
       <guid>http://integerous.github.io/post/java/serialization/</guid>
       <description>새로 맡게 된 레거시 프로젝트의 몇몇 클래스들이 Serializable 인터페이스를 왜 상속받는지 알아보는 과정에서 Java 직렬화 개념 정리 작성일 : 2019년 10월 13일 간단하게 Java 내</description>
-    </item>
-    
-    <item>
-      <title>&lt;코끼리와 벼룩&gt;</title>
-      <link>http://integerous.github.io/post/review/the_elephant_and_the_flea/</link>
-      <pubDate>Mon, 13 Jan 2020 22:53:38 +0900</pubDate>
-      
-      <guid>http://integerous.github.io/post/review/the_elephant_and_the_flea/</guid>
-      <description>31살에 31권 읽기 이종립님의 2019년 회고에서 2019년에 76권의 책을 읽으셨다고 했다. ㄷㄷㄷ 게다가 1000페이지가 넘는 TCP/IP와 이산수학</description>
     </item>
     
   </channel>
