@@ -8,8 +8,17 @@
 
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Tue, 17 Nov 2020 21:45:49 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 27 Dec 2020 22:36:11 +0900</lastBuildDate>
     <atom:link href="/tags/review/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>&lt;그리스인 조르바&gt;</title>
+      <link>http://integerous.github.io/post/review/zorba_the_greek/</link>
+      <pubDate>Sun, 27 Dec 2020 22:36:11 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/post/review/zorba_the_greek/</guid>
+      <description>원서 제목은 VIOS KE POLITIA TU ALEXI ZORBA by 니코스 카잔차키스(Nikos Kazantzakis), 1946 이 책은 나의 2020년 프로젝트 중 하나인 내 나이 만큼 책 읽기의 마지막(31번) 책이다. 마지막</description>
+    </item>
     
     <item>
       <title>&lt;상자 밖에 있는 사람&gt;</title>
@@ -135,15 +144,6 @@
       
       <guid>http://integerous.github.io/post/review/hackers_and_painters/</guid>
       <description>저자의 한 줄 짜리 약력 단어 2개로 충분히 설명되는 삶과 긴 설명이 필요한 삶, 그리고 쓸 약력이 없는 삶(= 나). 임백준님과 정희님도 엄청 대단한 분들이지만, 단 2개</description>
-    </item>
-    
-    <item>
-      <title>&lt;코끼리와 벼룩&gt;</title>
-      <link>http://integerous.github.io/post/review/the_elephant_and_the_flea/</link>
-      <pubDate>Mon, 13 Jan 2020 22:53:38 +0900</pubDate>
-      
-      <guid>http://integerous.github.io/post/review/the_elephant_and_the_flea/</guid>
-      <description>31살에 31권 읽기 이종립님의 2019년 회고에서 2019년에 76권의 책을 읽으셨다고 했다. ㄷㄷㄷ 게다가 1000페이지가 넘는 TCP/IP와 이산수학</description>
     </item>
     
   </channel>
