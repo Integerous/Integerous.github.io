@@ -3,6 +3,47 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://integerous.github.io/categories/</loc>
+    <lastmod>2021-01-23T00:04:10+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://integerous.github.io/</loc>
+    <lastmod>2021-01-23T00:04:10+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://integerous.github.io/post/</loc>
+    <lastmod>2021-01-23T00:04:10+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://integerous.github.io/tags/</loc>
+    <lastmod>2021-01-23T00:04:10+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://integerous.github.io/tags/essay/</loc>
+    <lastmod>2021-01-23T00:04:10+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://integerous.github.io/categories/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC/</loc>
+    <lastmod>2021-01-23T00:04:10+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://integerous.github.io/post/essay/lucky_with_women/</loc>
+    <lastmod>2021-01-23T00:04:10+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://integerous.github.io/post/review/zorba_the_greek/</loc>
     <lastmod>2020-12-28T00:59:48+09:00</lastmod>
   </url>
@@ -14,32 +55,8 @@
   </url>
   
   <url>
-    <loc>http://integerous.github.io/categories/</loc>
-    <lastmod>2021-01-22T23:57:33+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://integerous.github.io/</loc>
-    <lastmod>2021-01-22T23:57:33+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://integerous.github.io/post/</loc>
-    <lastmod>2021-01-22T23:57:33+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>http://integerous.github.io/tags/review/</loc>
     <lastmod>2020-12-28T00:59:48+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://integerous.github.io/tags/</loc>
-    <lastmod>2021-01-22T23:57:33+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -52,23 +69,6 @@
   <url>
     <loc>http://integerous.github.io/post/review/getting_out_of_the_box/</loc>
     <lastmod>2020-12-28T00:59:48+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://integerous.github.io/tags/essay/</loc>
-    <lastmod>2021-01-22T23:57:33+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://integerous.github.io/categories/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC/</loc>
-    <lastmod>2021-01-22T23:57:33+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://integerous.github.io/post/essay/lucky_with_women/</loc>
-    <lastmod>2021-01-22T23:57:33+09:00</lastmod>
   </url>
   
   <url>
