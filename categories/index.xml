@@ -8,8 +8,17 @@
 
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Fri, 22 Jan 2021 20:55:49 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 23 Jan 2021 00:24:24 +0900</lastBuildDate>
     <atom:link href="/categories/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>회고</title>
+      <link>http://integerous.github.io/categories/%ED%9A%8C%EA%B3%A0/</link>
+      <pubDate>Sat, 23 Jan 2021 00:24:24 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/categories/%ED%9A%8C%EA%B3%A0/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>생각정리</title>
@@ -44,15 +53,6 @@
       <pubDate>Sat, 18 Jan 2020 22:00:08 +0900</pubDate>
       
       <guid>http://integerous.github.io/categories/java/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>회고</title>
-      <link>http://integerous.github.io/categories/%ED%9A%8C%EA%B3%A0/</link>
-      <pubDate>Sun, 22 Dec 2019 22:00:56 +0900</pubDate>
-      
-      <guid>http://integerous.github.io/categories/%ED%9A%8C%EA%B3%A0/</guid>
       <description></description>
     </item>
     

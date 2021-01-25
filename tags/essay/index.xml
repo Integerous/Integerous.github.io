@@ -8,8 +8,17 @@
 
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Fri, 22 Jan 2021 20:55:49 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 23 Jan 2021 00:24:24 +0900</lastBuildDate>
     <atom:link href="/tags/essay/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>체대 출신 개발자의 2020년 회고</title>
+      <link>http://integerous.github.io/post/memoirs/memoirs2020/</link>
+      <pubDate>Sat, 23 Jan 2021 00:24:24 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/post/memoirs/memoirs2020/</guid>
+      <description>이 글은 개인적인 회고록이다. 그래서 독백체 체대 출신 개발자의 2018년 회고와 체대 출신 개발자의 2019년 회고에 이어, 2020년의 경험과 생각을 정리하고</description>
+    </item>
     
     <item>
       <title>여자 복이 많다</title>
