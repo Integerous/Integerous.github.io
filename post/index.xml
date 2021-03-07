@@ -8,8 +8,17 @@
 
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sat, 23 Jan 2021 00:24:24 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 07 Mar 2021 14:45:01 +0900</lastBuildDate>
     <atom:link href="/post/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>&lt;규칙 없음&gt;</title>
+      <link>http://integerous.github.io/post/review/no_rules_rules/</link>
+      <pubDate>Sun, 07 Mar 2021 14:45:01 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/post/review/no_rules_rules/</guid>
+      <description>원서 제목은 NO RULES RULES by 리드 헤이스팅스(Reed Hastings), 에린 마이어(Erin Meyer), 2020 이 책은 이직한 회사에서 집으로 보낸 입사 선물 중 하나였다. 넷플릭스 공동창업자들이</description>
+    </item>
     
     <item>
       <title>체대 출신 개발자의 2020년 회고</title>
@@ -135,15 +144,6 @@
       
       <guid>http://integerous.github.io/post/review/what_i_talk_about_when_i_talk_about_running/</guid>
       <description>이런 저런 일들에 휘둘린 요즘, 무언가를 꾸준히 하는 것에 대한 이야기를 듣고 싶었다. 나는 어떤 일을 시작할 때 마다 &amp;lsquo;꾸준히 해야만 한다&amp;rsquo;</description>
-    </item>
-    
-    <item>
-      <title>&lt;부의 추월차선&gt;</title>
-      <link>http://integerous.github.io/post/review/the_millionaire_fastlane/</link>
-      <pubDate>Wed, 11 Mar 2020 23:06:02 +0900</pubDate>
-      
-      <guid>http://integerous.github.io/post/review/the_millionaire_fastlane/</guid>
-      <description>나와 성향이 비슷한 친구들이 추천해준 책이다. 단백질보충제 사업을 접고 취업준비를 하던 2016년쯤에 이 책을 읽었다면, 내 삶이 완전 다른 방향으로 향했을 것 같다</description>
     </item>
     
   </channel>

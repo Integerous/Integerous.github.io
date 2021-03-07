@@ -8,8 +8,17 @@
 
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sat, 23 Jan 2021 00:24:24 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 07 Mar 2021 14:45:01 +0900</lastBuildDate>
     <atom:link href="/categories/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>서평</title>
+      <link>http://integerous.github.io/categories/%EC%84%9C%ED%8F%89/</link>
+      <pubDate>Sun, 07 Mar 2021 14:45:01 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/categories/%EC%84%9C%ED%8F%89/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>회고</title>
@@ -26,15 +35,6 @@
       <pubDate>Fri, 22 Jan 2021 20:55:49 +0900</pubDate>
       
       <guid>http://integerous.github.io/categories/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>서평</title>
-      <link>http://integerous.github.io/categories/%EC%84%9C%ED%8F%89/</link>
-      <pubDate>Sun, 27 Dec 2020 22:36:11 +0900</pubDate>
-      
-      <guid>http://integerous.github.io/categories/%EC%84%9C%ED%8F%89/</guid>
       <description></description>
     </item>
     

@@ -3,43 +3,66 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://integerous.github.io/post/review/no_rules_rules/</loc>
+    <lastmod>2021-03-07T14:45:01+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://integerous.github.io/tags/book/</loc>
+    <lastmod>2021-03-07T14:45:01+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://integerous.github.io/categories/</loc>
-    <lastmod>2021-01-25T21:03:17+09:00</lastmod>
+    <lastmod>2021-03-07T14:45:01+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://integerous.github.io/</loc>
-    <lastmod>2021-01-25T21:03:17+09:00</lastmod>
+    <lastmod>2021-03-07T14:45:01+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://integerous.github.io/post/</loc>
-    <lastmod>2021-01-25T21:03:17+09:00</lastmod>
+    <lastmod>2021-03-07T14:45:01+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://integerous.github.io/tags/review/</loc>
+    <lastmod>2021-03-07T14:45:01+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://integerous.github.io/tags/</loc>
-    <lastmod>2021-01-25T21:03:17+09:00</lastmod>
+    <lastmod>2021-03-07T14:45:01+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://integerous.github.io/categories/%EC%84%9C%ED%8F%89/</loc>
+    <lastmod>2021-03-07T14:45:01+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://integerous.github.io/tags/essay/</loc>
-    <lastmod>2021-01-25T21:03:17+09:00</lastmod>
+    <lastmod>2021-01-25T21:22:25+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://integerous.github.io/post/memoirs/memoirs2020/</loc>
-    <lastmod>2021-01-25T21:03:17+09:00</lastmod>
+    <lastmod>2021-01-25T21:22:25+09:00</lastmod>
   </url>
   
   <url>
     <loc>http://integerous.github.io/categories/%ED%9A%8C%EA%B3%A0/</loc>
-    <lastmod>2021-01-25T21:03:17+09:00</lastmod>
+    <lastmod>2021-01-25T21:22:25+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -57,24 +80,6 @@
   <url>
     <loc>http://integerous.github.io/post/review/zorba_the_greek/</loc>
     <lastmod>2021-01-25T19:52:23+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://integerous.github.io/tags/book/</loc>
-    <lastmod>2021-01-25T19:52:23+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://integerous.github.io/tags/review/</loc>
-    <lastmod>2021-01-25T19:52:23+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://integerous.github.io/categories/%EC%84%9C%ED%8F%89/</loc>
-    <lastmod>2021-01-25T19:52:23+09:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>

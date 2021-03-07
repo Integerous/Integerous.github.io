@@ -8,8 +8,17 @@
 
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sun, 27 Dec 2020 22:36:11 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 07 Mar 2021 14:45:01 +0900</lastBuildDate>
     <atom:link href="/tags/book/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>&lt;규칙 없음&gt;</title>
+      <link>http://integerous.github.io/post/review/no_rules_rules/</link>
+      <pubDate>Sun, 07 Mar 2021 14:45:01 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/post/review/no_rules_rules/</guid>
+      <description>원서 제목은 NO RULES RULES by 리드 헤이스팅스(Reed Hastings), 에린 마이어(Erin Meyer), 2020 이 책은 이직한 회사에서 집으로 보낸 입사 선물 중 하나였다. 넷플릭스 공동창업자들이</description>
+    </item>
     
     <item>
       <title>&lt;그리스인 조르바&gt;</title>
@@ -135,15 +144,6 @@
       
       <guid>http://integerous.github.io/post/etc/books/</guid>
       <description>2020년 3월 6일 기준 최신순 정렬 읽는 중 해커, 광기의 랩소디 스프링부트와 AWS로 혼자 구현하는 웹서비스 만화로 배우는 리눅스 시스템 관리 1편 HTTP 완벽 가이드</description>
-    </item>
-    
-    <item>
-      <title>&lt;다크호스&gt;</title>
-      <link>http://integerous.github.io/post/review/dark_horse/</link>
-      <pubDate>Sat, 22 Feb 2020 22:12:09 +0900</pubDate>
-      
-      <guid>http://integerous.github.io/post/review/dark_horse/</guid>
-      <description>내가 해온 피벗(pivot)과 앞으로 하게 될 피벗에 용기를 주는 책이다. 나를 방목형으로 키우셨음에도, 대기업 퇴사에는 유독 강하게 반대하셨던 어머니가 왜 그러</description>
     </item>
     
   </channel>
