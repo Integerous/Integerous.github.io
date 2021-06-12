@@ -8,8 +8,17 @@
 
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sun, 07 Mar 2021 14:45:01 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 12 Jun 2021 17:19:20 +0900</lastBuildDate>
     <atom:link href="/categories/%EC%84%9C%ED%8F%89/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>&lt;빌 브라이슨의 틀리기 쉬운 영어&gt;</title>
+      <link>http://integerous.github.io/post/review/troublesome_words/</link>
+      <pubDate>Sat, 12 Jun 2021 17:19:20 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/post/review/troublesome_words/</guid>
+      <description>원서 제목은 BRYSON&amp;rsquo;S DICTIONARY OF TROUBLESOME WORDS by 빌 브라이슨(Bill Bryson), 2001 이 책은 100% 제목에 이끌려 충동 구매한 책이다. 개발자가 된 이후, 구글링 또는 기술 문서를 읽으며 영어 문장은 매일</description>
+    </item>
     
     <item>
       <title>&lt;규칙 없음&gt;</title>
@@ -135,15 +144,6 @@
       
       <guid>http://integerous.github.io/post/review/the_millionaire_fastlane/</guid>
       <description>나와 성향이 비슷한 친구들이 추천해준 책이다. 단백질보충제 사업을 접고 취업준비를 하던 2016년쯤에 이 책을 읽었다면, 내 삶이 완전 다른 방향으로 향했을 것 같다</description>
-    </item>
-    
-    <item>
-      <title>&lt;다크호스&gt;</title>
-      <link>http://integerous.github.io/post/review/dark_horse/</link>
-      <pubDate>Sat, 22 Feb 2020 22:12:09 +0900</pubDate>
-      
-      <guid>http://integerous.github.io/post/review/dark_horse/</guid>
-      <description>내가 해온 피벗(pivot)과 앞으로 하게 될 피벗에 용기를 주는 책이다. 나를 방목형으로 키우셨음에도, 대기업 퇴사에는 유독 강하게 반대하셨던 어머니가 왜 그러</description>
     </item>
     
   </channel>
