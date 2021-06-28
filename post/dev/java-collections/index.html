@@ -1,0 +1,842 @@
+
+
+<!DOCTYPE html>
+<html lang="ko-kr">
+  <head>
+    
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-KZXLS88');</script>
+    
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="generator" content="Hugo 0.55.3" />
+    <link rel="shortcut icon" href="/images/favicon.ico">
+    <link href="http://integerous.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Integerous DevLog" />
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:700i" rel="stylesheet">
+    
+    <script src="https://apis.google.com/js/platform.js" async defer>{lang: 'ja'}</script>
+    
+    <link rel="stylesheet" href="https://yandex.st/highlightjs/8.0/styles/default.min.css">
+    <script src="https://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+    <link rel="stylesheet" type="text/css" href="/css/single.css">
+    <title>자바의 정석 - 컬렉션 프레임웍(Collections Framework) | Integerous DevLog</title>
+  </head>
+  <body>
+    
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KZXLS88"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  
+  
+    <div id="wrap">
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-126908369-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+      <header class="site-header">
+        <div class="site-header-left">
+          <a class="site-header-title" href="http://integerous.github.io/">Integerous DevLog</a>
+        </div>
+      </header>
+      <div class="container">
+        <div id="main">
+
+
+
+
+<div class="article">
+  <header>
+    <div class="article-header">
+      <h1>자바의 정석 - 컬렉션 프레임웍(Collections Framework)</h1>
+      <div class="article-meta">
+        <span class="posttime">2018/10/07</span>
+
+        
+        
+<div class="tags">
+  <ul>
+    
+    <li>
+        <a href="/tags/java">Java</a>
+    </li>
+    
+  </ul>
+</div>
+
+
+      </div>
+    </div>
+    
+  </header>
+  <div class="content">
+    
+
+<div style="display: flex; justify-content: space-around">
+    <div>
+        <a href="http://bit.ly/all-in-one-study">
+            <img src="/images/memoirs/2020/all-in-one-1.jpg" width="280" style="filter: drop-shadow(0 0.3rem 0.4rem rgba(0, 0, 0, 0.5))" />
+        </a> 
+    </div> 
+    <div>
+        <a href="http://bit.ly/all-in-one-job">
+            <img src="/images/memoirs/2020/all-in-one-2.jpg" width="280" style="filter: drop-shadow(0 0.3rem 0.4rem rgba(0, 0, 0, 0.5))" />
+        </a>  
+    </div>
+    <div>
+        <a href="http://bit.ly/all-in-one-united">
+            <img src="/images/memoirs/2020/all-in-one-3.jpg" width="280" style="filter: drop-shadow(0 0.3rem 0.4rem rgba(0, 0, 0, 0.5))" />
+        </a>  
+    </div>
+</div>
+
+<hr />
+
+<p></br></p>
+
+<blockquote>
+<p>자바의 정석(남궁성 저) 학습내용 정리</p>
+</blockquote>
+
+<h1 id="1-컬렉션-프레임웍-collections-framework">1. 컬렉션 프레임웍 (Collections Framework)</h1>
+
+<blockquote>
+<p>&lsquo;데이터 그룹을 다루고 표현하기 위한 단일화된 구조&rsquo; - Java API문서<br />
+JDK1.2 이전까지는 Vector, Hashtable, Properties와 같은 컬렉션 클래스들을 각자의 방식으로 처리</p>
+</blockquote>
+
+<h2 id="1-1-핵심-인터페이스">1.1. 핵심 인터페이스</h2>
+
+<ul>
+<li>List
+
+<ul>
+<li>순서 있는 데이터 집합</li>
+<li>데이터 중복 허용</li>
+<li>예시) 대기자 명단</li>
+</ul></li>
+<li>Set
+
+<ul>
+<li>순서 없는 데이터 집합</li>
+<li>데이터 중복 불허</li>
+<li>예시) 양의 정수집합, 소수의 집합</li>
+</ul></li>
+<li>Map
+
+<ul>
+<li>키와 값의 쌍으로 이루어진 데이터 집합</li>
+<li>순서 없고, 키 중복 불허, 값 중복 허용</li>
+<li>어떤 두 값을 연결한다는 의미에서 Map이라 지어짐</li>
+<li>예시) 우편번호, 지역번호
+<br /></li>
+</ul></li>
+</ul>
+
+<blockquote>
+<p>Vector나 Hashtable과 같은 기존의 컬렉션 클래스들은 호환을 위해,<br />
+설계를 변경해서 남겨두었지만 사용안하는 것이 좋다.<br />
+대신 새로 추가된 ArrayList와 HashMap 사용 권장.</p>
+</blockquote>
+
+<h2 id="1-2-인터페이스-상속계층도">1.2. 인터페이스 상속계층도</h2>
+
+<blockquote>
+<p>List 상속계층도
+- <code>List</code>
+  - <code>Vector</code>
+    - <code>Stack</code>
+  - <code>ArrayList</code>
+  - <code>LinkedList</code></p>
+
+<p>Set 상속계층도
+- <code>List</code>
+  - <code>HashSet</code>
+  - <code>SortedSet</code>
+    - <code>TreeSet</code></p>
+
+<p>Map 상속계층도
+- <code>Map</code>
+  - <code>Hashtable</code>
+  - <code>HashMap</code>
+    - <code>LinkedHashMap</code>
+  - <code>SortedMap</code>
+    - <code>TreeMap</code></p>
+</blockquote>
+
+<h2 id="1-3-map-entry-인터페이스">1.3. Map.Entry 인터페이스</h2>
+
+<blockquote>
+<p>Map.Entry 인터페이스는 Map 인터페이스의 내부 인터페이스이다.<br />
+Map에 저장되는 key-value 쌍을 다루기 위해 내부에 Entry 인터페이스 정의.<br />
+내부 클래스와 같이 인터페이스 안에 인터페이스를 정의하는 내부 인터페이스가 가능하다.</p>
+</blockquote>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#8b008b;font-weight:bold">public</span> <span style="color:#8b008b;font-weight:bold">interface</span> <span style="color:#008b45;font-weight:bold">Map</span>  {
+  ...
+  <span style="color:#8b008b;font-weight:bold">interface</span> <span style="color:#008b45;font-weight:bold">Entry</span> {
+      Object <span style="color:#008b45">getKey</span>();
+      Object <span style="color:#008b45">getValue</span>();
+      Object <span style="color:#008b45">setValue</span>(Object value);
+      <span style="color:#00688b;font-weight:bold">boolean</span> <span style="color:#008b45">equals</span>(Object o);
+      <span style="color:#00688b;font-weight:bold">int</span> <span style="color:#008b45">hashCode</span>();
+      ...
+  }
+}</code></pre></div>
+<h1 id="2-arraylist">2. ArrayList</h1>
+
+<blockquote>
+<p>ArrayList는 기존의 Vector를 개선한 것.<br />
+ArrayList는 Object 배열을 이용해서 데이터를 순차적으로 저장한다.<br />
+배열에 더 이상 저장할 공간이 없으면,<br />
+보다 큰 새로운 배열을 생성해서 기존 배열에 저장된 내용을 새로운 배열로 복사하고 저장한다.<br />
+선언된 배열의 타입이 Object이기 때문에 모든 종류의 객체를 담을 수 있다.</p>
+</blockquote>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#8b008b;font-weight:bold">public</span> <span style="color:#8b008b;font-weight:bold">class</span> <span style="color:#008b45;font-weight:bold">ArrayList</span> <span style="color:#8b008b;font-weight:bold">extends</span> AbstractList
+    <span style="color:#8b008b;font-weight:bold">implements</span> List, RandomAccess, Cloneable, java.<span style="color:#658b00">io</span>.<span style="color:#658b00">Serializable</span>  {
+        ...
+    <span style="color:#8b008b;font-weight:bold">transient</span> Object[] elementData;  <span style="color:#228b22">// Object배열
+</span><span style="color:#228b22"></span>        ...
+}</code></pre></div>
+<h2 id="2-1-list의-공통-요소-삭제하기">2.1. list의 공통 요소 삭제하기</h2>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#8b008b;font-weight:bold">for</span>(<span style="color:#00688b;font-weight:bold">int</span> i = list2.<span style="color:#658b00">size</span>()-1; i &gt;= 0; i--)  {
+    <span style="color:#8b008b;font-weight:bold">if</span>(list1.<span style="color:#658b00">contains</span>(list2.<span style="color:#658b00">get</span>(i)))
+        list2.<span style="color:#658b00">remove</span>(i);
+}</code></pre></div>
+<p>위의 코드에서 변수 i를 증가시키면서 삭제하면, 한 요소가 삭제될 때마다<br />
+빈 공간을 채우기 위해 나머지 요소들이 자리이동을 해야해서 올바른 결과를 얻을 수 없다.<br />
+그래서 i를 감소시키면서 삭제를 해야 자리이동이 발생해도 영향을 받지 않는다.</p>
+
+<h2 id="2-2-문자열-데이터를-원하는-길이로-잘라서-arraylist에-담기">2.2. 문자열 데이터를 원하는 길이로 잘라서 ArrayList에 담기</h2>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#8b008b;font-weight:bold">import</span> <span style="color:#008b45;text-decoration:underline">java.util.*</span>;
+
+<span style="color:#8b008b;font-weight:bold">class</span> <span style="color:#008b45;font-weight:bold">ArrayListEx</span> {
+  <span style="color:#8b008b;font-weight:bold">public</span> <span style="color:#8b008b;font-weight:bold">static</span> <span style="color:#00688b;font-weight:bold">void</span> <span style="color:#008b45">main</span>(String[] args)  {
+  
+    <span style="color:#8b008b;font-weight:bold">final</span> <span style="color:#00688b;font-weight:bold">int</span> LIMIT = 10; <span style="color:#228b22">//자르고자 하는 글자의 개수 지정
+</span><span style="color:#228b22"></span>    String source = <span style="color:#cd5555">&#34;0123456789abcdefghijklmnopqrstuvwxyz&#34;</span>
+    <span style="color:#00688b;font-weight:bold">int</span> length = source.<span style="color:#658b00">length</span>();
+    
+    List list = <span style="color:#8b008b;font-weight:bold">new</span> ArrayList(length/LIMIT + 10); <span style="color:#228b22">//크기를 여유있게 잡음
+</span><span style="color:#228b22"></span>    
+    <span style="color:#8b008b;font-weight:bold">for</span>(<span style="color:#00688b;font-weight:bold">int</span> 1=0; i&lt; length; i+=LIMIT) {
+        <span style="color:#8b008b;font-weight:bold">if</span>(i+LIMIT &lt; length)
+            list.<span style="color:#658b00">add</span>(source.<span style="color:#658b00">substring</span>(i, i+LIMIT));
+        <span style="color:#8b008b;font-weight:bold">else</span>
+            list.<span style="color:#658b00">add</span>(source.<span style="color:#658b00">substring</span>(i));
+    }
+    
+    <span style="color:#8b008b;font-weight:bold">for</span>(<span style="color:#00688b;font-weight:bold">int</span> i=0; i &lt; list.<span style="color:#658b00">size</span>(); i++)  {
+        System.<span style="color:#658b00">out</span>.<span style="color:#658b00">println</span>(list.<span style="color:#658b00">get</span>(i));
+    }
+  }
+}</code></pre></div>
+<p>단순히 문자열을 특정 크기로 잘라서 출력할 것이라면<br />
+<code>charAt(int i)</code>와 for문을 이용하면 되지만,<br />
+ArrayList에 담음으로서 더 다양한 작업을 간단하게 처리할 수 있다.</p>
+
+<blockquote>
+<p>ArrayList나 Vector 같이 배열을 이용한 자료구조는<br />
+데이터를 읽어오고 저장하는 데는 효율이 좋지만,<br />
+용량을 변경해야할 때는 새로운 배열을 생성한 후<br />
+기존 배열로부터 새 배열로 데이터를 복사하기 때문에 효율이 떨어진다.<br />
+그러므로 인스턴스를 생성할 때부터 충분한 크기로 생성해야 한다.</p>
+</blockquote>
+
+<h2 id="2-3-remove-메소드">2.3. remove() 메소드</h2>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">Object[] data = <span style="color:#8b008b;font-weight:bold">null</span>;  <span style="color:#228b22">// 객체를 담기위한 객체배열 선언
+</span><span style="color:#228b22"></span><span style="color:#00688b;font-weight:bold">int</span> capacity = 0;  <span style="color:#228b22">// 용량
+</span><span style="color:#228b22"></span><span style="color:#00688b;font-weight:bold">int</span> size = 0;  <span style="color:#228b22">// 크기
+</span><span style="color:#228b22"></span>
+<span style="color:#8b008b;font-weight:bold">public</span> Object <span style="color:#008b45">remove</span>(<span style="color:#00688b;font-weight:bold">int</span> index) {
+    Object oldObj = <span style="color:#8b008b;font-weight:bold">null</span>;
+    
+    <span style="color:#8b008b;font-weight:bold">if</span>(index &lt; 0 || index &gt;=size)
+        <span style="color:#8b008b;font-weight:bold">throw</span> <span style="color:#8b008b;font-weight:bold">new</span> IndexOutOfBoundsException(<span style="color:#cd5555">&#34;범위를 벗어났습니다.&#34;</span>);
+    oldObj = data[index];
+    
+    <span style="color:#8b008b;font-weight:bold">if</span>(index != size-1) {
+        System.<span style="color:#658b00">arraycopy</span>(data, index+1, data, index, size-index-1);
+    }
+    
+    data[size-1] = <span style="color:#8b008b;font-weight:bold">null</span>;
+    size--;
+    
+    <span style="color:#8b008b;font-weight:bold">return</span> oldObj;
+}</code></pre></div>
+<blockquote>
+<p>배열의 중간에 위치한 객체를 추가하거나 삭제하는 경우<br />
+System.arraycopy()를 호출해서 다른 데이터의 위치를 이동시켜야 하기 때문에 작업시간이 오래걸린다.</p>
+</blockquote>
+
+<h1 id="3-linkedlist">3. LinkedList</h1>
+
+<p>배열은 데이터를 읽어오는데 걸리는 시간이 빠르다는 장점이 있지만,<br />
+크기를 변경할 수 없으므로, 새로운 배열을 생성해서 데이터를 복사해야 한다.<br />
+그리고 배열의 실행 속도를 향상시키기 위해서는 충분히 큰 크기로 배열을 생성해야하므로 메모리가 낭비된다.</p>
+
+<p>또한, 배열은 차례대로 데이터를 추가하고 마지막에서부터 데이터를 삭제하는 것은 빠르다.
+하지만 배열 중간에 데이터를 추가하려면, 빈자리를 만들기 위해 다른 데이터들을 복사해서 이동해야 한다.</p>
+
+<h2 id="3-1-삭제">3.1. 삭제</h2>
+
+<p>간단하다. 삭제하고자 하는 요소의 이전요소가 삭제하고자 하는 요소의 다음요소를 참조하도록 변경하면 끝.
+배열처럼 데이터를 이동하기 위해 복사하는 과정이 없기 때문에 처리속도가 매우 빠르다.</p>
+
+<h2 id="3-2-이중-연결리스트-doubly-linked-list">3.2. 이중 연결리스트 (Doubly Linked List)</h2>
+
+<p>링크드 리스트는 이동방향이 단방향이기 때문에 이전 요소에 대한 접근은 어렵다.<br />
+이중 연결리스트는 연결리스트에 참조변수를 하나 더 추가하여, 이전 요소에 대한 참조가 가능</p>
+
+<h2 id="3-3-arraylist와-linkedlist-비교">3.3. ArrayList와 LinkedList 비교</h2>
+
+<ul>
+<li>순차적인 추가/삭제시 ArrayList가 더 빠르다.
+
+<ul>
+<li>순차적으로 삭제한다는 것은 마지막 데이터부터 역순으로 삭제하는 것이고, ArrayList는 단지 마지막 요소의 값을 null로 바꾸면 된다.</li>
+</ul></li>
+<li>중간 데이터의 추가/삭제시 LinkList가 더 빠르다.
+
+<ul>
+<li>LinkedList는 각 요소간의 연결만 변경해주면 되기 때문</li>
+<li>반면 ArrayList는 각 요소들을 재배치하여 추가할 공간을 확보하거나 빈공간을 채워야 한다.</li>
+</ul></li>
+</ul>
+
+<h1 id="4-stack과-queue">4. Stack과 Queue</h1>
+
+<p>Stack은 마지막에 저장한 데이터를 가장 먼저 꺼내게 되는 LIFO(Last In First Out)구조.<br />
+Queue는 처음에 저장한 데이터를 가장 먼저 꺼내게 되는 FIFO(First In First Out)구조.</p>
+
+<h2 id="4-1-stack과-queue-구현">4.1. Stack과 Queue 구현</h2>
+
+<ul>
+<li>Stack
+
+<ul>
+<li>순차적으로 데이터를 추가하고 삭제하는 스택에는 ArrayList와 같은 배열 기반의 컬렉션 클래스가 적합</li>
+</ul></li>
+<li>Queue
+
+<ul>
+<li>큐는 데이터를 꺼낼 때 항상 첫번째 저장된 데이터를 삭제한다.</li>
+<li>그러므로 ArrayList와 같은 배열 기반의 컬렉션 클래스를 사용한다면, 데이터를 꺼낼 때마다 빈공간을 채우기 위해 데이터 복사가 발생해서 비효율적.</li>
+<li>큐는 ArrayList보다 데이터의 추가/삭제가 쉬운 LinkedList가 더 적합하다.
+<br /></li>
+</ul></li>
+</ul>
+
+<h2 id="4-2-stack-메소드">4.2. Stack 메소드</h2>
+
+<ul>
+<li><code>boolean empty()</code> : Stack이 비어있는지 알려준다.<br /></li>
+<li><code>Object peek()</code> : Stack의 맨 위에 저장된 객체를 반환. <code>pop()</code>과 달리 Stack에서 객체를 꺼내지는 않음<br /></li>
+<li><code>Object pop()</code> : Stack의 맨 위에 저장된 객체를 꺼낸다.</li>
+<li><code>Object push(Object item)</code> : Stack에 객체(item)를 저장한다.</li>
+<li><code>int search(Object o)</code> : Stack에서 주어진 객체(o)를 찾아서 그 위치를 반환. 못찾으면 -1 반환. (배열과 달리 위치는 0이 아닌 1부터 시작)</li>
+</ul>
+
+<h2 id="4-3-queue-메소드">4.3. Queue 메소드</h2>
+
+<ul>
+<li><code>boolean add(Object o)</code> : 지정된 객체를 Queue에 추가한다. 성공하면 <code>true</code> 반환. 저장공간 부족하면 <code>IlligalStateException</code> 발생</li>
+<li><code>boolean offer(Object o) : Queue에 객체를 저장. 성공하면</code>true<code>실패하면</code>false` 반환</li>
+<li><code>Object remove()</code> : Queue에서 객체를 꺼내 반환. 비어있으면 <code>NoSuchElementException</code> 발생</li>
+<li><code>Object poll()</code> : Queue에서 객체를 꺼내서 반환. 비어있으면 <code>null</code> 반환</li>
+<li><code>Object element()</code> : 삭제없이 요소를 읽어온다. <code>peek()</code>과 달리 Queue가 비었을 때 <code>NoSuchElementException 발생</code></li>
+<li><code>Object peek()</code> : 삭제없이 요소를 읽어 온다. Queue가 비어있으면 <code>null</code> 반환
+<br />
+
+<br /></li>
+</ul>
+
+<blockquote>
+<p>Java에서는 스택을 Stack 클래스로 구현하여 제공하고 있지만<br />
+큐는 Queue 인터페이스로 정의해놓고 클래스는 제공하지 않는다.<br />
+대신 Queue 인터페이스를 구현한 클래스들 중 하나를 선택해서 사용하면 된다.</p>
+</blockquote>
+
+<h2 id="4-4-stack-직접-구현하기">4.4. Stack 직접 구현하기</h2>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#8b008b;font-weight:bold">import</span> <span style="color:#008b45;text-decoration:underline">java.util.*</span>;
+
+<span style="color:#8b008b;font-weight:bold">class</span> <span style="color:#008b45;font-weight:bold">MyStack</span> <span style="color:#8b008b;font-weight:bold">extends</span> Vector  {
+  <span style="color:#8b008b;font-weight:bold">public</span> Object <span style="color:#008b45">push</span>(Object item) {
+    addElement(item);
+    <span style="color:#8b008b;font-weight:bold">return</span> item;
+  }
+  
+  <span style="color:#8b008b;font-weight:bold">public</span> Object <span style="color:#008b45">pop</span>() {
+    Object obj = peek();  <span style="color:#228b22">//  Stack에 저장된 마지막 요소를 읽어온다.
+</span><span style="color:#228b22"></span>    removeElementAt(size()-1); <span style="color:#228b22">// 마지막 요소를 삭제한다. 배열의 인덱스가 0부터 시작하므로 1을 빼준다.
+</span><span style="color:#228b22"></span>    <span style="color:#8b008b;font-weight:bold">return</span> obj;
+  }
+  
+  <span style="color:#8b008b;font-weight:bold">public</span> Object <span style="color:#008b45">peek</span>() {
+    <span style="color:#00688b;font-weight:bold">int</span> len = size();
+    <span style="color:#8b008b;font-weight:bold">if</span> (len == 0)
+      <span style="color:#8b008b;font-weight:bold">throw</span> <span style="color:#8b008b;font-weight:bold">new</span> EmptyStackException();
+    <span style="color:#8b008b;font-weight:bold">return</span> elementAt(len -1);
+  }
+  
+  <span style="color:#8b008b;font-weight:bold">public</span> <span style="color:#00688b;font-weight:bold">boolean</span> <span style="color:#008b45">empty</span>()  {
+    <span style="color:#8b008b;font-weight:bold">return</span> size() == 0;
+  }
+  
+  <span style="color:#8b008b;font-weight:bold">public</span> <span style="color:#00688b;font-weight:bold">int</span> <span style="color:#008b45">search</span>(Object 0)  {
+    <span style="color:#00688b;font-weight:bold">int</span> i = lastIndexOf(o);   <span style="color:#228b22">// 끝에서부터 객체를 찾는다.
+</span><span style="color:#228b22"></span>    <span style="color:#8b008b;font-weight:bold">if</span> (i &gt;= 0)  {
+      <span style="color:#8b008b;font-weight:bold">return</span> size() - i;
+    }
+    <span style="color:#8b008b;font-weight:bold">return</span> -1;  <span style="color:#228b22">// 해당 객체를 찾지 못하면 -1 반환
+</span><span style="color:#228b22"></span>  }
+}</code></pre></div>
+<h2 id="4-5-deque-double-ended-queue">4.5. Deque(Double-Ended Queue)</h2>
+
+<blockquote>
+<p>Deque는 양쪽 끝에 추가/삭제 가능<br />
+Deque는 스택과 큐를 하나로 합쳐놓은 것과 같으며 스택으로 사용할 수도, 큐로 사용할 수도 있다.</p>
+</blockquote>
+
+<table>
+<thead>
+<tr>
+<th>Deque</th>
+<th>Queue</th>
+<th>Stack</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>offerLast()</td>
+<td>offer()</td>
+<td>push()</td>
+</tr>
+
+<tr>
+<td>pollLast()</td>
+<td></td>
+<td>pop()</td>
+</tr>
+
+<tr>
+<td>pollFirst()</td>
+<td>poll()</td>
+<td></td>
+</tr>
+
+<tr>
+<td>peekFirst()</td>
+<td>peek()</td>
+<td></td>
+</tr>
+
+<tr>
+<td>peekLast()</td>
+<td></td>
+<td>peek()</td>
+</tr>
+</tbody>
+</table>
+
+<h1 id="5-iterator">5. Iterator</h1>
+
+<blockquote>
+<p>컬렉션 프레임웍에서는 컬렉션에 저장된 요소들을 읽어오는 방법을 표준화하였다.<br />
+컬렉션에 저장된 각 요소에 접근하는 Iterator인터페이스를 정의하고,<br />
+Collection 인터페이스에는 Iterator(Iterator를 구현한 클래스의 인스턴스)를 반환하는 iterator()를 정의하고 있다.</p>
+</blockquote>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#8b008b;font-weight:bold">public</span> <span style="color:#8b008b;font-weight:bold">interface</span> <span style="color:#008b45;font-weight:bold">Iterator</span> {
+  <span style="color:#00688b;font-weight:bold">boolean</span> <span style="color:#008b45">hasnext</span>();
+  Object <span style="color:#008b45">next</span>();
+  <span style="color:#00688b;font-weight:bold">void</span> <span style="color:#008b45">remove</span>();
+}
+
+<span style="color:#8b008b;font-weight:bold">public</span> <span style="color:#8b008b;font-weight:bold">interface</span> <span style="color:#008b45;font-weight:bold">Collection</span> {
+  ...
+  <span style="color:#8b008b;font-weight:bold">public</span> Iterator <span style="color:#008b45">iterator</span>();
+  ...
+}</code></pre></div>
+<ul>
+<li><p>컬렉션 클래스에 대해 iterator()를 호출하여 Iterator를 얻은 다음 반복문(주로 while문)을 사용해서 컬렉션 클래스의 요소들을 읽어 온다.</p>
+
+<ul>
+<li><code>boolean hasNext()</code> - 읽어올 요소가 남아있는지 확인. 있으면 true 없으면 false</li>
+<li><code>Object next()</code> - 다음 요소를 읽어 온다. next()를 호출하기 전에 hasNext()를 호출해서 읽어 올 요소가 있는지 확인하는 것이 안전.</li>
+<li><code>void remove()</code> - next()로 읽어 온 요소를 삭제한다. next()를 호출한 다음에 remove()를 호출해야 한다.
+<br /></li>
+</ul></li>
+
+<li><p>Map 인터페이스를 구현한 컬렉션 클래스는 Key와 Value를 쌍으로 저장하기 때문에 iterator()를 직접 호출할 수 없다. 대신 keySet()이나 entrySet()을 통해 Key와 Value를 각각 따로 Set의 형태로 얻어 온 후에 다시 iterator()를 호출해야 Iterator를 얻을 수 있다.</p>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">Map map = <span style="color:#8b008b;font-weight:bold">new</span> HashMap();
+...
+Iterator it = map.<span style="color:#658b00">keySet</span>().<span style="color:#658b00">iterator</span>();</code></pre></div></li>
+
+<li><p>List클래스들은 저장순서를 유지하기 때문에 Iterator를 이용해서 읽어 온 결과 역시 저장 순서와 동일하지만 Set클래스들은 각 요소간의 순서가 유지되지 않기 때문에 Iterator를 이용해서 저장된 요소들을 읽어 와도 처음에 저장된 순서와 같지 않다.</p></li>
+</ul>
+
+<h2 id="5-1-listiterator">5.1. ListIterator</h2>
+
+<blockquote>
+<p>ListIterator는 Iterator를 상속받아서 기능을 추가한 것으로, 컬렉션의 요소에 접근할 때 Iterator는 단방향으로만 이동할 수 있지만, ListIterator는 양방향으로의 이동이 가능. 단, List인터페이스를 구현한 컬렉션에서만 사용 가능</p>
+</blockquote>
+
+<ul>
+<li><code>void add(Object o)</code> - 컬렉션에 새로운 객체(o)를 추가</li>
+<li><code>hasPrevious()</code> - 읽어 올 이전 요소가 남아있는지 확인. 있으면 true, 없으면 false</li>
+<li><code>Object previous()</code> - 이전 요소를 읽어 온다. previous()를 호출하기 전에 hasPrevious()를 호출해서 읽어 올 요소가 있는지 확인하는 것이 안전.</li>
+<li><code>int nextIndex()</code> - 다음 요소의 index를 반환</li>
+<li><code>int previousIndex()</code> - 이전 요소의 index를 반환</li>
+<li><code>void set(Object o)</code> - next() 또는 previous()로 읽어 온 요소를 지정된 객체(o)로 변경. 반드시 next()나 previous()를 먼저 호출한 다음에 이 메서드를 호출해야한다.</li>
+</ul>
+
+<h1 id="6-arrays">6. Arrays</h1>
+
+<blockquote>
+<p>Arrays 클래스에는 배열을 다루는데 유용한 메소드가 정의되어 있다.<br />
+Arrays에 정의된 메소드는 모두 static 메소드다.</p>
+</blockquote>
+
+<h2 id="6-1-배열-복사-copyof-copyofrange">6.1. 배열 복사 - copyOf(), copyOfRange()</h2>
+
+<blockquote>
+<p>copyOf()는 배열 전체 복사, copyOfRange()는 배열의 일부를 복사해서 새로운 배열을 만들어 반환.<br />
+copyOfRange()에 지정된 범위의 끝은 포함되지 않는다.</p>
+</blockquote>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#00688b;font-weight:bold">int</span>[] arr = {0,1,2,3,4,};
+<span style="color:#00688b;font-weight:bold">int</span>[] arr2 = Arrays.<span style="color:#658b00">copyOf</span>(arr, 3); <span style="color:#228b22">// arr2 = [0,1,2]
+</span><span style="color:#228b22"></span><span style="color:#00688b;font-weight:bold">int</span>[] arr3 = Arrays.<span style="color:#658b00">copyOfRange</span>(arr, 2, 4); // arr3 = [2,3]</code></pre></div>
+<h2 id="6-2-배열-채우기-fill-setall">6.2. 배열 채우기 - fill(), setAll()</h2>
+
+<blockquote>
+<p>fill()은 배열의 모든 요소를 지정된 값으로 채운다.<br />
+setAll()은 배열을 채우는데 사용할 함수형 인터페이스를 매개변수로 받는다.</p>
+</blockquote>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#00688b;font-weight:bold">int</span>[] arr = <span style="color:#8b008b;font-weight:bold">new</span> <span style="color:#00688b;font-weight:bold">int</span>[5];
+Arrays.<span style="color:#658b00">fill</span>(arr, 9);  <span style="color:#228b22">// arr = [9,9,9,9,9]
+</span><span style="color:#228b22"></span>Arrays.<span style="color:#658b00">setAll</span>(arr, () -&gt; (<span style="color:#00688b;font-weight:bold">int</span>)(Math.<span style="color:#658b00">random</span>()*5)+1); // arr = [1,5,2,1,1]</code></pre></div>
+<h2 id="6-3-배열-정렬-검색-sort-binarysearch">6.3. 배열 정렬, 검색 - sort(), binarySearch()</h2>
+
+<blockquote>
+<p>sort()는 배열 정렬, binarySearch()는 배열에 저장된 요소를 검색<br />
+binarySearch()는 배열에서 지정된 값이 저장된 위치(index)를 찾아서 반환. 반드시 배열이 정렬된 상태여야 올바른 결과를 얻는다.</p>
+</blockquote>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#00688b;font-weight:bold">int</span>[] arr = { 3, 2, 0, 1, 4,};
+Arrays.<span style="color:#658b00">sort</span>(arr); <span style="color:#228b22">// arr = [0,1,2,3,4]
+</span><span style="color:#228b22"></span><span style="color:#00688b;font-weight:bold">int</span> idx = Arrays.<span style="color:#658b00">binarySearch</span>(arr, 2); // idx = 2</code></pre></div>
+<h2 id="6-4-문자열의-비교-출력-equals-tostring">6.4. 문자열의 비교, 출력 - equals(), toString()</h2>
+
+<blockquote>
+<p>equals(), toString()은 일차원 배열에만 사용 가능.<br />
+다차원 배열에는 deepEquals(), deepToString() 사용.<br />
+deepToString()은 배열의 모든 요소를 재귀적으로 접근해서 문자열을 구성하므로 3차원 이상의 배열에도 동작</p>
+</blockquote>
+
+<ul>
+<li>다차원 배열은 &lsquo;배열의 배열&rsquo;의 형태로 구성하기 때문에 equals()로 비교하면, 문자열을 비교하는 것이 아니라 &lsquo;배열에 저장된 배열의 주소&rsquo;를 비교하게 된다.</li>
+</ul>
+
+<h2 id="6-5-배열을-list로-반환-aslist-object-a">6.5. 배열을 List로 반환 - asList(Object&hellip;a)</h2>
+
+<blockquote>
+<p>asList()는 배열을 List에 담아서 반환.</p>
+</blockquote>
+
+<ul>
+<li>매개변수의 타입이 가변인수라서 배열 생성 없이 저장할 요소들만 나열하는 것도 가능<br /></li>
+<li>asList()가 반환한 List의 크기를 변경할 수 없다.<br /></li>
+<li>크기 변경가능한 List는 <code>List list = new ArrayList(Arrays.asList(1,2,3,4,5));</code></li>
+</ul>
+
+<h1 id="7-comparator와-comparable">7. Comparator와 Comparable</h1>
+
+<blockquote>
+<p>Arrays.sort()를 호출하면 알아서 배열을 정렬하는 것처럼 보이지만,<br />
+사실은 Chractor클래스의 Comparable의 구현에 의해 정렬되었던 것.<br />
+Comparble을 구현한 클래스는 정렬이 가능하다는 것을 의미.</p>
+</blockquote>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#8b008b;font-weight:bold">public</span> <span style="color:#8b008b;font-weight:bold">interface</span> <span style="color:#008b45;font-weight:bold">Comparator</span> {
+  <span style="color:#00688b;font-weight:bold">int</span> <span style="color:#008b45">compare</span>(Object o1, Object o2);
+  <span style="color:#00688b;font-weight:bold">boolean</span> <span style="color:#008b45">equals</span>(Object obj);
+}
+
+<span style="color:#8b008b;font-weight:bold">public</span> <span style="color:#8b008b;font-weight:bold">interface</span> <span style="color:#008b45;font-weight:bold">Comparable</span> {
+  <span style="color:#8b008b;font-weight:bold">public</span> <span style="color:#00688b;font-weight:bold">int</span> <span style="color:#008b45">compareTo</span>(Object o);
+}</code></pre></div>
+<blockquote>
+<p>Comparable은 java.lang 패키지에 있고, Comparator는 java.util 패키지에 있다.</p>
+</blockquote>
+
+<ul>
+<li>Comparable : 기본 정렬기준을 구현하는데 사용.</li>
+<li>Comparator : 기본 정렬기준 외에 다른 기준으로 정렬하고자할 때 사용</li>
+</ul>
+
+<h1 id="8-hashset">8. HashSet</h1>
+
+<blockquote>
+<p>HashSet은 Set인터페이스를 구현한 가장 대표적인 컬렉션.<br />
+HashSet은 저장순서를 유지하지 않으므로 저장순서를 유지하고자 한다면 LinkedHashSet 사용.</p>
+</blockquote>
+
+<ul>
+<li>로또번호 예제<br /></li>
+</ul>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#8b008b;font-weight:bold">import</span> <span style="color:#008b45;text-decoration:underline">java.util.*</span>;
+
+<span style="color:#8b008b;font-weight:bold">class</span> <span style="color:#008b45;font-weight:bold">HashSetLotto</span>  {
+    <span style="color:#8b008b;font-weight:bold">public</span> <span style="color:#8b008b;font-weight:bold">static</span> <span style="color:#00688b;font-weight:bold">void</span> <span style="color:#008b45">main</span>(String[] args)  {
+        
+        Set set = <span style="color:#8b008b;font-weight:bold">new</span> HashSet();
+        
+        <span style="color:#8b008b;font-weight:bold">for</span> (<span style="color:#00688b;font-weight:bold">int</span> i = 0; set.<span style="color:#658b00">size</span>() &lt; 6; i++)  {
+            <span style="color:#00688b;font-weight:bold">int</span> num = (<span style="color:#00688b;font-weight:bold">int</span>)(Math.<span style="color:#658b00">random</span>()*45) + 1;
+            set.<span style="color:#658b00">add</span>(<span style="color:#8b008b;font-weight:bold">new</span> Integer(num));
+        }
+        
+        List list = <span style="color:#8b008b;font-weight:bold">new</span> LinkedList(set);
+        Collections.<span style="color:#658b00">sort</span>(list);
+        System.<span style="color:#658b00">out</span>.<span style="color:#658b00">println</span>(list);
+    }
+}</code></pre></div>
+<blockquote>
+<p>번호를 크기 순으로 정렬하기 위해 Collections클래스의 sort(List list)를 사용했다.<br />
+이 메서드는 인자로 List인터페이스 타입을 필요로 하기 때문에<br />
+LinkedList클래스의 생성자 LinkedList(Collection c)를 이용해서 HashSet에 저장된 객체들을 LinkedList에 담아서 처리했다.</p>
+</blockquote>
+
+<h1 id="9-treeset">9. TreeSet</h1>
+
+<blockquote>
+<p>TreeSet은 이진검색트리(binary search tree) 형태로 데이터를 저장하는 컬렉션 클래스다.<br />
+TreeSet은 이진검색트리의 성능을 향상시킨 Red-Black tree로 구현되어 있다.<br />
+중복된 데이터의 저장을 허용하지 않으며, 정렬된 위치에 저장하므로 저장순서를 유지하지도 않는다.<br />
+TreeSet은 정렬된 상태를 유지하기 때문에 단일 값 검색과 범위검색, 예를 들면 3과 7사이의 범위에 있는 값을 검색하는 것이 매우 빠르다.</p>
+</blockquote>
+
+<ul>
+<li><p>Binary Search Tree</p>
+
+<ul>
+<li>모든 노드는 최대 두 개의 자식노드를 가질 수 있다.</li>
+<li>왼쪽 자식노드의 값은 부모노드의 값보다 작고, 오른쪽 자식노드의 값은 부모노드의 값보다 커야한다.</li>
+<li>노드의 추가 삭제에 시간이 걸린다.(순차적으로 저장하지 않으므로)</li>
+<li>검색(범위검색)과 정렬에 유리하다.</li>
+<li>중복된 값을 저장하지 못한다.</li>
+</ul></li>
+
+<li><p>TreeSet으로 만든 로또번호 생성 프로그램 (HashSet으로 만든 것과 달리 정렬하는 코드가 필요없다. TreeSet은 저장할 때 이미 정렬하기 때문에.)</p></li>
+</ul>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">  <span style="color:#8b008b;font-weight:bold">import</span> <span style="color:#008b45;text-decoration:underline">java.util.*</span>;
+  
+  <span style="color:#8b008b;font-weight:bold">class</span> <span style="color:#008b45;font-weight:bold">TreeSetLotto</span>  {
+    <span style="color:#8b008b;font-weight:bold">public</span> <span style="color:#8b008b;font-weight:bold">static</span> <span style="color:#00688b;font-weight:bold">void</span> <span style="color:#008b45">main</span>(String[]args) {
+      Set set = <span style="color:#8b008b;font-weight:bold">new</span> TreeSet();
+      
+      <span style="color:#8b008b;font-weight:bold">for</span> (<span style="color:#00688b;font-weight:bold">int</span> i =0; set.<span style="color:#658b00">size</span>() &lt; 6; i++) {
+        <span style="color:#00688b;font-weight:bold">int</span> num = (<span style="color:#00688b;font-weight:bold">int</span>)(Math.<span style="color:#658b00">random</span>()*45) + 1;
+        set.<span style="color:#658b00">add</span>(num); <span style="color:#228b22">// set.add(new Integer(num));
+</span><span style="color:#228b22"></span>      }
+      
+      System.<span style="color:#658b00">out</span>.<span style="color:#658b00">println</span>(set);
+    }
+  }</code></pre></div>
+<ul>
+<li>headSet()과 tailSet()을 사용하면, TreeSet에 저장된 객체 중 지정된 기준 값보다 큰 값의 객체들과 작은 값의 객체들을 얻을 수 있다.</li>
+</ul>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">  <span style="color:#8b008b;font-weight:bold">import</span> <span style="color:#008b45;text-decoration:underline">java.util.*</span>;
+  
+  <span style="color:#8b008b;font-weight:bold">class</span> <span style="color:#008b45;font-weight:bold">TreeSetEx2</span>  {
+    <span style="color:#8b008b;font-weight:bold">public</span> <span style="color:#8b008b;font-weight:bold">static</span> <span style="color:#00688b;font-weight:bold">void</span> <span style="color:#008b45">main</span>(String[] args)  {
+      TreeSet set = <span style="color:#8b008b;font-weight:bold">new</span> TreeSet();
+      <span style="color:#00688b;font-weight:bold">int</span>[] score = {80, 95, 50, 35, 45, 65, 10, 100};
+
+      <span style="color:#8b008b;font-weight:bold">for</span> (<span style="color:#00688b;font-weight:bold">int</span> i=0; i &lt; score.<span style="color:#658b00">length</span>; i++)
+        set.<span style="color:#658b00">add</span>(<span style="color:#8b008b;font-weight:bold">new</span> Integer(score[i]));
+
+      System.<span style="color:#658b00">out</span>.<span style="color:#658b00">println</span>(<span style="color:#cd5555">&#34;50보다 작은 값 :&#34;</span> + set.<span style="color:#658b00">headSet</span>(<span style="color:#8b008b;font-weight:bold">new</span> Integer(50)));
+      System.<span style="color:#658b00">out</span>.<span style="color:#658b00">println</span>(<span style="color:#cd5555">&#34;50보다 큰 값 :&#34;</span> + set.<span style="color:#658b00">tailSet</span>(<span style="color:#8b008b;font-weight:bold">new</span> Integer(50)));
+    }
+  }</code></pre></div>
+<h1 id="10-hashmap">10. HashMap</h1>
+
+<blockquote>
+<p>Hashtable과 HashMap의 관계는 Vector와 ArrayList의 관계와 같아서 Hashtable보다는 새로운 버전인 HashMap을 사용할 것을 권한다.<br />
+HashMap은 Map을 구현했으므로 키와 값을 묶어서 하나의 데이터로 저장한다.<br />
+그리고 hashing을 사용하기 때문에 많은 양의 데이터를 검색하는데 뛰어난 성능을 보인다.</p>
+</blockquote>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#8b008b;font-weight:bold">public</span> <span style="color:#8b008b;font-weight:bold">class</span> <span style="color:#008b45;font-weight:bold">HashMap</span> <span style="color:#8b008b;font-weight:bold">extends</span> AbstractMap 
+                    <span style="color:#8b008b;font-weight:bold">implements</span> Map, Cloneable, Serializable  {
+  
+  <span style="color:#8b008b;font-weight:bold">transient</span> Entry[] table;
+    ...
+  
+  <span style="color:#8b008b;font-weight:bold">static</span> <span style="color:#8b008b;font-weight:bold">class</span> <span style="color:#008b45;font-weight:bold">Entry</span> <span style="color:#8b008b;font-weight:bold">implements</span> Map.<span style="color:#658b00">Entry</span> {
+    <span style="color:#8b008b;font-weight:bold">final</span> Object key;
+    Object value;
+      ...
+  }
+}</code></pre></div>
+<blockquote>
+<p>HashMap은 Entry라는 내부 클래스를 정의하고, 다시 Entry타입의 배열을 선언한다.<br />
+키와 값은 별개의 값이 아니라 서로 관련된 값이기 때문에<br />
+각각의 배열로 선언하기 보다는 하나의 클래스로 정의해서 하나의 배열로 다루는 것이 데이터의 무결성(integrity)적인 측면에서 더 바람직하기 때문.</p>
+</blockquote>
+
+<ul>
+<li>HashMap은 키와 값을 각각 Object 타입으로 저장한다.</li>
+<li>(Object, Object)의 형태로 저장하기 때문에 어떠한 객체도 저장할 수 있지만 key는 주로 String을 대문자 또는 소문자로 통일해서 사용한다.</li>
+</ul>
+
+<h1 id="11-해싱과-해시함수">11. 해싱과 해시함수</h1>
+
+<blockquote>
+<p>해싱이란 해시함수(hash function)를 이용해서 데이터를 해시테이블(hash table)에 저장하고 검색하는 기법<br />
+해시함수는 데이터가 저장된 곳을 알려주기 때문에 다량의 데이터 중에서도 원하는 데이터를 빠르게 찾을 수 있다.</p>
+</blockquote>
+
+<ul>
+<li>해싱을 구현한 함수 - HashSet, HashMap, Hashtable</li>
+<li>Hashtable은 Collection Framework가 도입되면서 HashMap으로 대체되었으나 이전소스와의 호환성 문제로 남겨두고 있다.</li>
+</ul>
+
+<h2 id="11-1-hashcode">11.1. hashCode()</h2>
+
+<ul>
+<li>HashMap과 같이 해싱을 구현한 컬렉션 클래스에서는 Object클래스에 정의된 hashCode()를 해시함수로 사용한다.</li>
+<li>Object클래스에 정의된 hashCode()는 객체의 주소를 이용하는 알고리즘으로 해시코드를 만들기 때문에 모든 객체에 대해 hashCode()를 호출한 결과가 서로 유일한 훌륭한 방법이다.</li>
+<li>String클래스의 경우 Object로 부터 상속받은 hashCode()를 오버라이딩해서 문자열의 내용으로 해시코드를 만들어낸다. 그래서 서로 다른 String인스턴스일지라도 같은 내용의 문자열을 가졌다면 hashCode()를 호출하면 같은 해시코드를 얻는다.</li>
+</ul>
+
+<h1 id="12-treemap">12. TreeMap</h1>
+
+<blockquote>
+<p>TreeMap은 이름에서 알 수 있듯이 이진검색트리의 형태로 키와 값의 쌍으로 이루어진 데이터를 저장한다.<br />
+그래서 검색과 정렬에 적합한 클래스이다.<br />
+검색의 경우 대부분의 경우에서 HashMap이 TreeMap보다 더 뛰어나다.<br />
+다만 범위검색이나 정렬이 필요한 경우 TreeMap이 낫다.</p>
+</blockquote>
+
+<h1 id="13-properties">13. Properties</h1>
+
+<blockquote>
+<p>Properties는 HashMap의 구버전인 Hashtable을 상속받아 구현한 것이다.<br />
+Hashtable은 키와 값을 (Object, Object)의 형태로 저장하는데 비해<br />
+Properties는 (String, String)의 형태로 저장하는 보다 단순화된 컬렉션클래스이다.</p>
+</blockquote>
+
+<ul>
+<li>주로 애플리케이션의 환경설정과 관련된 속성(property)을 저장하는데 사용된다.<br /></li>
+<li>데이터를 파일로부터 읽고 쓰는 편리한 기능을 제공한다.</li>
+<li>Properties는 컬렉션프레임웍 이전의 구버전이므로 Iterator가 아닌 Enumeration을 사용한다.<br /></li>
+<li>list메소드로 Properties에 저장된 모든 데이터를 화면 또는 파일에 편하게 출력할 수 있다.<br /></li>
+</ul>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">  <span style="color:#00688b;font-weight:bold">void</span> <span style="color:#008b45">list</span>(PrintStream out)
+  <span style="color:#00688b;font-weight:bold">void</span> <span style="color:#008b45">list</span>(PrintWriter out)</code></pre></div>
+<h1 id="14-collections">14. Collections</h1>
+
+<blockquote>
+<p>Arrays가 배열과 관련된 메소드를 제공하는 것처럼, Collections는 컬렉션과 관련된 메소드를 제공한다.<br />
+fill(), copy(), sort(), binarySearch() 등의 메소드는 두 클래스 모두에 포함되어 있으며 같은 기능을 한다.</p>
+</blockquote>
+
+<h2 id="14-1-컬렉션의-동기화">14.1. 컬렉션의 동기화</h2>
+
+<ul>
+<li>멀티 쓰레드(multi-thread) 프로그래밍에서는 하나의 객체를 여러 쓰레드가 동시에 접근할 수 있기 때문에 데이터의 일관성(consistency)을 유지하기 위해서는 공유되는 객체에 동기화(synchronization)가 필요하다.<br /></li>
+<li>새로 추가된 ArrayList와 HashMap과 같은 컬렉션은 동기화를 자체적으로 처리하지 않는다.<br /></li>
+<li>필요한 경우에만 java.util.Collections 클래스의 동기화 메소드를 이용해서 동기화처리가 가능하도록 변경하였다.
+<br /></li>
+</ul>
+
+<h1 id="15-컬렉션-클래스-요약">15. 컬렉션 클래스 요약</h1>
+
+<ul>
+<li><code>ArrayList</code> : 배열기반. 데이터의 추가와 삭제에 불리. 순차적인 추가삭제는 제일 빠름. 임의의 요소에 대한 접근성이 뛰어남.</li>
+<li><code>LinkedList</code> : 연결기반. 데이터의 추가와 삭제에 유리. 임의의 요소에 대한 접근성이 좋지 않다.</li>
+<li><code>HashMap</code> : 배열과 연결이 결합된 상태. 추가,삭제,검색,접근성이 모두 뛰어남. 검색에는 최고의 성능.</li>
+<li><code>TreeMap</code> : 연결기반. 정렬과 검색(특히 범위검색)에 적합. 검색성능은 HashMap보다 떨어짐.</li>
+<li><code>Stack</code> : Vector를 상속받아 구현</li>
+<li><code>Queue</code> : LinkedList가 Queue인터페이스를 구현</li>
+<li><code>Properties</code> : Hashtable을 상속받아 구현</li>
+<li><code>HashSet</code> : HashMap을 이용해서 구현</li>
+<li><code>TreeSet</code> : TreeMap을 이용해서 구현</li>
+<li><code>LinkedHashMap</code> : HashMap과 HashSet에 저장순서유지기능 추가</li>
+<li><code>LinkedHashSet</code> : HashMap과 HashSet에 저장순서유지기능 추가</li>
+</ul>
+
+  </div>
+  <footer>
+    <div class="article-footer">
+      
+
+      
+      
+      
+      
+      
+      <div id="pagenavigation-next-prev">
+        
+        <div id="pagenavigation-next">
+          <span class="pagenav-label">&lt; 이전 글</span>
+          <a href="http://integerous.github.io/post/dev/s3/">AWS S3 총정리</a>
+        </div>
+        
+        
+        <div id="pagenavigation-prev">
+          <span class="pagenav-label">다음 글 ></span>
+          <a href="http://integerous.github.io/post/dev/java-calendar-date/">자바의 정석 - 날짜와 시간(Calendar와 Date, java.time패키지)</a>
+        </div>
+        
+      </div>
+      
+    </div>
+
+    <script src="https://utteranc.es/client.js"
+    repo="integerous/blog-comments"
+    issue-term="pathname"
+    crossorigin="anonymous"
+    async>
+    </script>
+  </footer>
+</div>
+
+
+
+
+
+</div>
+
+</div>
+<footer>
+<div id="site-footer-wrap">
+  <div id="site-footer">
+    <span>Powered by <a href="https://gohugo.io/">Hugo</a>.</span>
+    <span>
+      
+      Copyright (c) 2021, <a href="http://integerous.github.io/">Integerous DevLog</a>
+      
+    </span>
+  </div>
+</div>
+</footer>
+</div>
+</body>
+</html>

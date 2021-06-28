@@ -1,0 +1,538 @@
+
+
+<!DOCTYPE html>
+<html lang="ko-kr">
+  <head>
+    
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-KZXLS88');</script>
+    
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="generator" content="Hugo 0.55.3" />
+    <link rel="shortcut icon" href="/images/favicon.ico">
+    <link href="http://integerous.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Integerous DevLog" />
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:700i" rel="stylesheet">
+    
+    <script src="https://apis.google.com/js/platform.js" async defer>{lang: 'ja'}</script>
+    
+    <link rel="stylesheet" href="https://yandex.st/highlightjs/8.0/styles/default.min.css">
+    <script src="https://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+    <link rel="stylesheet" type="text/css" href="/css/single.css">
+    <title>XML 데이터를 Java 객체로 변환하기 (feat. JAXB) | Integerous DevLog</title>
+  </head>
+  <body>
+    
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KZXLS88"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  
+  
+    <div id="wrap">
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-126908369-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+      <header class="site-header">
+        <div class="site-header-left">
+          <a class="site-header-title" href="http://integerous.github.io/">Integerous DevLog</a>
+        </div>
+      </header>
+      <div class="container">
+        <div id="main">
+
+
+
+
+<div class="article">
+  <header>
+    <div class="article-header">
+      <h1>XML 데이터를 Java 객체로 변환하기 (feat. JAXB)</h1>
+      <div class="article-meta">
+        <span class="posttime">2019/06/04</span>
+
+        
+        
+<div class="tags">
+  <ul>
+    
+    <li>
+        <a href="/tags/java">Java</a>
+    </li>
+    
+    <li>
+        <a href="/tags/spring">Spring</a>
+    </li>
+    
+  </ul>
+</div>
+
+
+      </div>
+    </div>
+    
+  </header>
+  <div class="content">
+    
+
+<div style="display: flex; justify-content: space-around">
+    <div>
+        <a href="http://bit.ly/all-in-one-study">
+            <img src="/images/memoirs/2020/all-in-one-1.jpg" width="280" style="filter: drop-shadow(0 0.3rem 0.4rem rgba(0, 0, 0, 0.5))" />
+        </a> 
+    </div> 
+    <div>
+        <a href="http://bit.ly/all-in-one-job">
+            <img src="/images/memoirs/2020/all-in-one-2.jpg" width="280" style="filter: drop-shadow(0 0.3rem 0.4rem rgba(0, 0, 0, 0.5))" />
+        </a>  
+    </div>
+    <div>
+        <a href="http://bit.ly/all-in-one-united">
+            <img src="/images/memoirs/2020/all-in-one-3.jpg" width="280" style="filter: drop-shadow(0 0.3rem 0.4rem rgba(0, 0, 0, 0.5))" />
+        </a>  
+    </div>
+</div>
+
+<hr />
+
+<p></br></p>
+
+<blockquote>
+<p>XML 데이터를 Java 객체로 변환하여 사용한 경험을 정리해본다.</p>
+</blockquote>
+
+<p>JSON 데이터만 다루다가 XML을 다루어야 했기 때문에 조금 생소했다. (요즘 같은 세상에 XML 이라니!)<br />
+그런데 아직 XML을 사용하는 API들이 많다는 사실을 알게 되었고, 항공 분야는 거의 모든 API가 XML이라고 한다.</p>
+
+<p>처음에는 <a href="https://m.blog.naver.com/platinasnow/220730608310">한국거래소의 주가정보 가져오기</a>라는 블로그 글을 참고하여<br />
+API가 제공해주는 XML 데이터를 JSON Object로 변환하고, 이를 다시 Map 형태로 바꾸는 방법으로 개발했다.</p>
+
+<p>그런데 이 경우 개발은 빠르게 진행할 수 있었지만, 예외 처리와 데이터 가공에 한계가 있었다.<br />
+부팀장님으로부터 XML 데이터를 Java 객체로 변환하여 다루는 <code>Unmarshalling</code>이라는 개념을 듣게 되었고,<br />
+이를 지원해주는 Java API인 <strong>JAXB</strong>(Java Architecture for XML Binding)를 알게 되었다.</p>
+
+<p></br></p>
+
+<h2 id="jaxb">JAXB ?</h2>
+
+<p>JAXB는 Java 클래스를 XML로 변환해주는 <code>Marshalling</code>과 XML을 Java 객체로 변환해주는 <code>Unmarshalling</code> 기능을 제공한다.</p>
+
+<blockquote>
+<p>JAXB는 JDK1.6에 번들링되어있기 때문에 JDK 1.6 이상의 버전이면 별다른 설정없이 바로 사용할 수 있다.<br />
+(JDK 1.6 이하의 경우 <a href="https://github.com/eclipse-ee4j/jaxb-ri">JAXB 공식 Repo</a>에서 다운받아서 사용해야 한다는데 안해봐서 모르겠다.)</p>
+</blockquote>
+
+<p></br></p>
+
+<p align="center">
+  <img src="https://github.com/Integerous/TIL/blob/master/ETC/images/JAXB_architecture.gif?raw=true">
+</p>
+
+<p>이미지 출처:
+<a href="https://www.ibm.com/support/knowledgecenter/ko/SSEQTP_9.0.0/com.ibm.websphere.base.doc/ae/cwbs_jaxb.html">IBM Knowledge Center</a></p>
+
+<p></br></p>
+
+<p>간단히 설명하자면 <code>xjc 스키마 컴파일러</code>를 통해 XML 스키마를 Java 객체로 변환하고,<br />
+<code>schemagen 스키마 생성기</code>를 통해 Java 객체를 XML 스키마로 작성해주는 것이다.</p>
+
+<p></br></p>
+
+<h2 id="krx-한국거래소-주가정보-api">KRX(한국거래소) 주가정보 API</h2>
+
+<blockquote>
+<p><a href="https://kasp.krx.co.kr/contents/02/02010000/ASP02010000.jsp">KRX(한국거래소)의 주가정보 API</a>가 제공해주는 실시간 시세 데이터는 아래와 같다.<br />
+(임시로 네이버의 종목코드를 사용했다.)</p>
+</blockquote>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#1e889b">&lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34; ?&gt;</span>
+<span style="color:#8b008b;font-weight:bold">&lt;stockprice</span> <span style="color:#658b00">querytime=</span><span style="color:#cd5555">&#34;2019-06-03 14:18:12&#34;</span> <span style="color:#8b008b;font-weight:bold">&gt;</span>
+	<span style="color:#8b008b;font-weight:bold">&lt;TBL_DailyStock&gt;</span>
+		<span style="color:#8b008b;font-weight:bold">&lt;DailyStock</span> <span style="color:#658b00">day_Date=</span><span style="color:#cd5555">&#34;19/06/03&#34;</span> <span style="color:#658b00">day_EndPrice=</span><span style="color:#cd5555">&#34;115,000&#34;</span> <span style="color:#658b00">day_Dungrak=</span><span style="color:#cd5555">&#34;2&#34;</span> <span style="color:#658b00">day_getDebi=</span><span style="color:#cd5555">&#34;3,500&#34;</span> <span style="color:#658b00">day_Start=</span><span style="color:#cd5555">&#34;113,000&#34;</span> <span style="color:#658b00">day_High=</span><span style="color:#cd5555">&#34;115,000&#34;</span> <span style="color:#658b00">day_Low=</span><span style="color:#cd5555">&#34;112,000&#34;</span> <span style="color:#658b00">day_Volume=</span><span style="color:#cd5555">&#34;270,570&#34;</span> <span style="color:#658b00">day_getAmount=</span><span style="color:#cd5555">&#34;30,831,869,000&#34;</span><span style="color:#8b008b;font-weight:bold">/&gt;</span>
+		<span style="color:#8b008b;font-weight:bold">&lt;DailyStock</span> <span style="color:#658b00">day_Date=</span><span style="color:#cd5555">&#34;19/05/31&#34;</span> <span style="color:#658b00">day_EndPrice=</span><span style="color:#cd5555">&#34;111,500&#34;</span> <span style="color:#658b00">day_Dungrak=</span><span style="color:#cd5555">&#34;5&#34;</span> <span style="color:#658b00">day_getDebi=</span><span style="color:#cd5555">&#34;500&#34;</span> <span style="color:#658b00">day_Start=</span><span style="color:#cd5555">&#34;111,500&#34;</span> <span style="color:#658b00">day_High=</span><span style="color:#cd5555">&#34;112,500&#34;</span> <span style="color:#658b00">day_Low=</span><span style="color:#cd5555">&#34;110,000&#34;</span> <span style="color:#658b00">day_Volume=</span><span style="color:#cd5555">&#34;310,649&#34;</span> <span style="color:#658b00">day_getAmount=</span><span style="color:#cd5555">&#34;34,620,804,500&#34;</span><span style="color:#8b008b;font-weight:bold">/&gt;</span>
+		<span style="color:#8b008b;font-weight:bold">&lt;DailyStock</span> <span style="color:#658b00">day_Date=</span><span style="color:#cd5555">&#34;19/05/30&#34;</span> <span style="color:#658b00">day_EndPrice=</span><span style="color:#cd5555">&#34;112,000&#34;</span> <span style="color:#658b00">day_Dungrak=</span><span style="color:#cd5555">&#34;2&#34;</span> <span style="color:#658b00">day_getDebi=</span><span style="color:#cd5555">&#34;2,500&#34;</span> <span style="color:#658b00">day_Start=</span><span style="color:#cd5555">&#34;110,000&#34;</span> <span style="color:#658b00">day_High=</span><span style="color:#cd5555">&#34;114,000&#34;</span> <span style="color:#658b00">day_Low=</span><span style="color:#cd5555">&#34;109,500&#34;</span> <span style="color:#658b00">day_Volume=</span><span style="color:#cd5555">&#34;378,379&#34;</span> <span style="color:#658b00">day_getAmount=</span><span style="color:#cd5555">&#34;42,526,903,757&#34;</span><span style="color:#8b008b;font-weight:bold">/&gt;</span>
+		<span style="color:#8b008b;font-weight:bold">&lt;DailyStock</span> <span style="color:#658b00">day_Date=</span><span style="color:#cd5555">&#34;19/05/29&#34;</span> <span style="color:#658b00">day_EndPrice=</span><span style="color:#cd5555">&#34;109,500&#34;</span> <span style="color:#658b00">day_Dungrak=</span><span style="color:#cd5555">&#34;2&#34;</span> <span style="color:#658b00">day_getDebi=</span><span style="color:#cd5555">&#34;1,000&#34;</span> <span style="color:#658b00">day_Start=</span><span style="color:#cd5555">&#34;109,000&#34;</span> <span style="color:#658b00">day_High=</span><span style="color:#cd5555">&#34;111,000&#34;</span> <span style="color:#658b00">day_Low=</span><span style="color:#cd5555">&#34;108,500&#34;</span> <span style="color:#658b00">day_Volume=</span><span style="color:#cd5555">&#34;515,196&#34;</span> <span style="color:#658b00">day_getAmount=</span><span style="color:#cd5555">&#34;56,529,874,000&#34;</span><span style="color:#8b008b;font-weight:bold">/&gt;</span>
+		<span style="color:#8b008b;font-weight:bold">&lt;DailyStock</span> <span style="color:#658b00">day_Date=</span><span style="color:#cd5555">&#34;19/05/28&#34;</span> <span style="color:#658b00">day_EndPrice=</span><span style="color:#cd5555">&#34;108,500&#34;</span> <span style="color:#658b00">day_Dungrak=</span><span style="color:#cd5555">&#34;5&#34;</span> <span style="color:#658b00">day_getDebi=</span><span style="color:#cd5555">&#34;2,000&#34;</span> <span style="color:#658b00">day_Start=</span><span style="color:#cd5555">&#34;109,500&#34;</span> <span style="color:#658b00">day_High=</span><span style="color:#cd5555">&#34;112,500&#34;</span> <span style="color:#658b00">day_Low=</span><span style="color:#cd5555">&#34;108,500&#34;</span> <span style="color:#658b00">day_Volume=</span><span style="color:#cd5555">&#34;1,490,526&#34;</span> <span style="color:#658b00">day_getAmount=</span><span style="color:#cd5555">&#34;162,354,790,344&#34;</span><span style="color:#8b008b;font-weight:bold">/&gt;</span>
+		<span style="color:#8b008b;font-weight:bold">&lt;DailyStock</span> <span style="color:#658b00">day_Date=</span><span style="color:#cd5555">&#34;19/05/27&#34;</span> <span style="color:#658b00">day_EndPrice=</span><span style="color:#cd5555">&#34;110,500&#34;</span> <span style="color:#658b00">day_Dungrak=</span><span style="color:#cd5555">&#34;5&#34;</span> <span style="color:#658b00">day_getDebi=</span><span style="color:#cd5555">&#34;3,000&#34;</span> <span style="color:#658b00">day_Start=</span><span style="color:#cd5555">&#34;112,500&#34;</span> <span style="color:#658b00">day_High=</span><span style="color:#cd5555">&#34;113,000&#34;</span> <span style="color:#658b00">day_Low=</span><span style="color:#cd5555">&#34;109,500&#34;</span> <span style="color:#658b00">day_Volume=</span><span style="color:#cd5555">&#34;369,902&#34;</span> <span style="color:#658b00">day_getAmount=</span><span style="color:#cd5555">&#34;41,005,007,000&#34;</span><span style="color:#8b008b;font-weight:bold">/&gt;</span>
+		<span style="color:#8b008b;font-weight:bold">&lt;DailyStock</span> <span style="color:#658b00">day_Date=</span><span style="color:#cd5555">&#34;19/05/24&#34;</span> <span style="color:#658b00">day_EndPrice=</span><span style="color:#cd5555">&#34;113,500&#34;</span> <span style="color:#658b00">day_Dungrak=</span><span style="color:#cd5555">&#34;2&#34;</span> <span style="color:#658b00">day_getDebi=</span><span style="color:#cd5555">&#34;500&#34;</span> <span style="color:#658b00">day_Start=</span><span style="color:#cd5555">&#34;113,000&#34;</span> <span style="color:#658b00">day_High=</span><span style="color:#cd5555">&#34;115,000&#34;</span> <span style="color:#658b00">day_Low=</span><span style="color:#cd5555">&#34;112,500&#34;</span> <span style="color:#658b00">day_Volume=</span><span style="color:#cd5555">&#34;408,081&#34;</span> <span style="color:#658b00">day_getAmount=</span><span style="color:#cd5555">&#34;46,387,229,000&#34;</span><span style="color:#8b008b;font-weight:bold">/&gt;</span>
+		<span style="color:#8b008b;font-weight:bold">&lt;DailyStock</span> <span style="color:#658b00">day_Date=</span><span style="color:#cd5555">&#34;19/05/23&#34;</span> <span style="color:#658b00">day_EndPrice=</span><span style="color:#cd5555">&#34;113,000&#34;</span> <span style="color:#658b00">day_Dungrak=</span><span style="color:#cd5555">&#34;3&#34;</span> <span style="color:#658b00">day_getDebi=</span><span style="color:#cd5555">&#34;0&#34;</span> <span style="color:#658b00">day_Start=</span><span style="color:#cd5555">&#34;112,500&#34;</span> <span style="color:#658b00">day_High=</span><span style="color:#cd5555">&#34;114,000&#34;</span> <span style="color:#658b00">day_Low=</span><span style="color:#cd5555">&#34;110,000&#34;</span> <span style="color:#658b00">day_Volume=</span><span style="color:#cd5555">&#34;545,497&#34;</span> <span style="color:#658b00">day_getAmount=</span><span style="color:#cd5555">&#34;61,145,647,703&#34;</span><span style="color:#8b008b;font-weight:bold">/&gt;</span>
+		<span style="color:#8b008b;font-weight:bold">&lt;DailyStock</span> <span style="color:#658b00">day_Date=</span><span style="color:#cd5555">&#34;19/05/22&#34;</span> <span style="color:#658b00">day_EndPrice=</span><span style="color:#cd5555">&#34;113,000&#34;</span> <span style="color:#658b00">day_Dungrak=</span><span style="color:#cd5555">&#34;5&#34;</span> <span style="color:#658b00">day_getDebi=</span><span style="color:#cd5555">&#34;1,500&#34;</span> <span style="color:#658b00">day_Start=</span><span style="color:#cd5555">&#34;115,000&#34;</span> <span style="color:#658b00">day_High=</span><span style="color:#cd5555">&#34;115,000&#34;</span> <span style="color:#658b00">day_Low=</span><span style="color:#cd5555">&#34;111,000&#34;</span> <span style="color:#658b00">day_Volume=</span><span style="color:#cd5555">&#34;567,069&#34;</span> <span style="color:#658b00">day_getAmount=</span><span style="color:#cd5555">&#34;64,006,105,000&#34;</span><span style="color:#8b008b;font-weight:bold">/&gt;</span>
+		<span style="color:#8b008b;font-weight:bold">&lt;DailyStock</span> <span style="color:#658b00">day_Date=</span><span style="color:#cd5555">&#34;19/05/21&#34;</span> <span style="color:#658b00">day_EndPrice=</span><span style="color:#cd5555">&#34;114,500&#34;</span> <span style="color:#658b00">day_Dungrak=</span><span style="color:#cd5555">&#34;5&#34;</span> <span style="color:#658b00">day_getDebi=</span><span style="color:#cd5555">&#34;4,000&#34;</span> <span style="color:#658b00">day_Start=</span><span style="color:#cd5555">&#34;117,500&#34;</span> <span style="color:#658b00">day_High=</span><span style="color:#cd5555">&#34;119,500&#34;</span> <span style="color:#658b00">day_Low=</span><span style="color:#cd5555">&#34;113,500&#34;</span> <span style="color:#658b00">day_Volume=</span><span style="color:#cd5555">&#34;603,105&#34;</span> <span style="color:#658b00">day_getAmount=</span><span style="color:#cd5555">&#34;70,058,497,000&#34;</span><span style="color:#8b008b;font-weight:bold">/&gt;</span>
+	<span style="color:#8b008b;font-weight:bold">&lt;/TBL_DailyStock&gt;</span>
+	<span style="color:#8b008b;font-weight:bold">&lt;TBL_AskPrice&gt;</span>
+		<span style="color:#8b008b;font-weight:bold">&lt;AskPrice</span> <span style="color:#658b00">member_memdoMem=</span><span style="color:#cd5555">&#34;미래에셋대우&#34;</span> <span style="color:#658b00">member_memdoVol=</span><span style="color:#cd5555">&#34;55,036&#34;</span> <span style="color:#658b00">member_memsoMem=</span><span style="color:#cd5555">&#34;모간서울&#34;</span> <span style="color:#658b00">member_mesuoVol=</span><span style="color:#cd5555">&#34;51,883&#34;</span><span style="color:#8b008b;font-weight:bold">/&gt;</span>
+		<span style="color:#8b008b;font-weight:bold">&lt;AskPrice</span> <span style="color:#658b00">member_memdoMem=</span><span style="color:#cd5555">&#34;키움증권&#34;</span> <span style="color:#658b00">member_memdoVol=</span><span style="color:#cd5555">&#34;22,730&#34;</span> <span style="color:#658b00">member_memsoMem=</span><span style="color:#cd5555">&#34;메릴린치&#34;</span> <span style="color:#658b00">member_mesuoVol=</span><span style="color:#cd5555">&#34;26,117&#34;</span><span style="color:#8b008b;font-weight:bold">/&gt;</span>
+		<span style="color:#8b008b;font-weight:bold">&lt;AskPrice</span> <span style="color:#658b00">member_memdoMem=</span><span style="color:#cd5555">&#34;NH투자증권&#34;</span> <span style="color:#658b00">member_memdoVol=</span><span style="color:#cd5555">&#34;19,927&#34;</span> <span style="color:#658b00">member_memsoMem=</span><span style="color:#cd5555">&#34;에스지&#34;</span> <span style="color:#658b00">member_mesuoVol=</span><span style="color:#cd5555">&#34;15,435&#34;</span><span style="color:#8b008b;font-weight:bold">/&gt;</span>
+		<span style="color:#8b008b;font-weight:bold">&lt;AskPrice</span> <span style="color:#658b00">member_memdoMem=</span><span style="color:#cd5555">&#34;모간서울&#34;</span> <span style="color:#658b00">member_memdoVol=</span><span style="color:#cd5555">&#34;16,103&#34;</span> <span style="color:#658b00">member_memsoMem=</span><span style="color:#cd5555">&#34;씨엘&#34;</span> <span style="color:#658b00">member_mesuoVol=</span><span style="color:#cd5555">&#34;13,549&#34;</span><span style="color:#8b008b;font-weight:bold">/&gt;</span>
+		<span style="color:#8b008b;font-weight:bold">&lt;AskPrice</span> <span style="color:#658b00">member_memdoMem=</span><span style="color:#cd5555">&#34;CS증권&#34;</span> <span style="color:#658b00">member_memdoVol=</span><span style="color:#cd5555">&#34;15,608&#34;</span> <span style="color:#658b00">member_memsoMem=</span><span style="color:#cd5555">&#34;미래에셋대우&#34;</span> <span style="color:#658b00">member_mesuoVol=</span><span style="color:#cd5555">&#34;13,470&#34;</span><span style="color:#8b008b;font-weight:bold">/&gt;</span>
+	<span style="color:#8b008b;font-weight:bold">&lt;/TBL_AskPrice&gt;</span>
+	<span style="color:#8b008b;font-weight:bold">&lt;TBL_StockInfo</span> <span style="color:#658b00">JongName=</span><span style="color:#cd5555">&#34;NAVER보통주&#34;</span> <span style="color:#658b00">CurJuka=</span><span style="color:#cd5555">&#34;115,000&#34;</span> <span style="color:#658b00">DungRak=</span><span style="color:#cd5555">&#34;2&#34;</span> <span style="color:#658b00">Debi=</span><span style="color:#cd5555">&#34;3,500&#34;</span> <span style="color:#658b00">PrevJuka=</span><span style="color:#cd5555">&#34;111,500&#34;</span> <span style="color:#658b00">Volume=</span><span style="color:#cd5555">&#34;270,570&#34;</span> <span style="color:#658b00">Money=</span><span style="color:#cd5555">&#34;30,831,869,000&#34;</span> <span style="color:#658b00">StartJuka=</span><span style="color:#cd5555">&#34;113,000&#34;</span> <span style="color:#658b00">HighJuka=</span><span style="color:#cd5555">&#34;115,000&#34;</span> <span style="color:#658b00">LowJuka=</span><span style="color:#cd5555">&#34;112,000&#34;</span> <span style="color:#658b00">High52=</span><span style="color:#cd5555">&#34;782,000&#34;</span> <span style="color:#658b00">Low52=</span><span style="color:#cd5555">&#34;106,500&#34;</span> <span style="color:#658b00">UpJuka=</span><span style="color:#cd5555">&#34;144,500&#34;</span> <span style="color:#658b00">DownJuka=</span><span style="color:#cd5555">&#34;78,500&#34;</span> <span style="color:#658b00">Per=</span><span style="color:#cd5555">&#34;25.92&#34;</span> <span style="color:#658b00">Amount=</span><span style="color:#cd5555">&#34;164,813,395&#34;</span> <span style="color:#658b00">FaceJuka=</span><span style="color:#cd5555">&#34;100&#34;</span> <span style="color:#8b008b;font-weight:bold">/&gt;</span>
+	<span style="color:#8b008b;font-weight:bold">&lt;TBL_Hoga</span> <span style="color:#658b00">mesuJan0=</span><span style="color:#cd5555">&#34;3,709&#34;</span> <span style="color:#658b00">mesuHoka0=</span><span style="color:#cd5555">&#34;113,500&#34;</span> <span style="color:#658b00">mesuJan1=</span><span style="color:#cd5555">&#34;5,714&#34;</span> <span style="color:#658b00">mesuHoka1=</span><span style="color:#cd5555">&#34;113,000&#34;</span> <span style="color:#658b00">mesuJan2=</span><span style="color:#cd5555">&#34;3,504&#34;</span> <span style="color:#658b00">mesuHoka2=</span><span style="color:#cd5555">&#34;112,500&#34;</span> <span style="color:#658b00">mesuJan3=</span><span style="color:#cd5555">&#34;4,100&#34;</span> <span style="color:#658b00">mesuHoka3=</span><span style="color:#cd5555">&#34;112,000&#34;</span> <span style="color:#658b00">mesuJan4=</span><span style="color:#cd5555">&#34;3,813&#34;</span> <span style="color:#658b00">mesuHoka4=</span><span style="color:#cd5555">&#34;111,500&#34;</span> <span style="color:#658b00">medoJan0=</span><span style="color:#cd5555">&#34;4,389&#34;</span> <span style="color:#658b00">medoHoka0=</span><span style="color:#cd5555">&#34;116,000&#34;</span> <span style="color:#658b00">medoJan1=</span><span style="color:#cd5555">&#34;5,532&#34;</span> <span style="color:#658b00">medoHoka1=</span><span style="color:#cd5555">&#34;115,500&#34;</span> <span style="color:#658b00">medoJan2=</span><span style="color:#cd5555">&#34;14,353&#34;</span> <span style="color:#658b00">medoHoka2=</span><span style="color:#cd5555">&#34;115,000&#34;</span> <span style="color:#658b00">medoJan3=</span><span style="color:#cd5555">&#34;6,572&#34;</span> <span style="color:#658b00">medoHoka3=</span><span style="color:#cd5555">&#34;114,500&#34;</span> <span style="color:#658b00">medoJan4=</span><span style="color:#cd5555">&#34;734&#34;</span> <span style="color:#658b00">medoHoka4=</span><span style="color:#cd5555">&#34;114,000&#34;</span><span style="color:#8b008b;font-weight:bold">/&gt;</span>
+	<span style="color:#8b008b;font-weight:bold">&lt;TBL_TimeConclude&gt;</span>
+		<span style="color:#8b008b;font-weight:bold">&lt;TBL_TimeConclude</span> <span style="color:#658b00">time=</span><span style="color:#cd5555">&#34;14:18:20&#34;</span> <span style="color:#658b00">negoprice=</span><span style="color:#cd5555">&#34;115,000&#34;</span> <span style="color:#658b00">Dungrak=</span><span style="color:#cd5555">&#34;2&#34;</span> <span style="color:#658b00">Debi=</span><span style="color:#cd5555">&#34;3,500&#34;</span> <span style="color:#658b00">sellprice=</span><span style="color:#cd5555">&#34;115,000&#34;</span> <span style="color:#658b00">buyprice=</span><span style="color:#cd5555">&#34;114,500&#34;</span> <span style="color:#658b00">amount=</span><span style="color:#cd5555">&#34;4&#34;</span><span style="color:#8b008b;font-weight:bold">/&gt;</span>
+		<span style="color:#8b008b;font-weight:bold">&lt;TBL_TimeConclude</span> <span style="color:#658b00">time=</span><span style="color:#cd5555">&#34;14:18:10&#34;</span> <span style="color:#658b00">negoprice=</span><span style="color:#cd5555">&#34;114,500&#34;</span> <span style="color:#658b00">Dungrak=</span><span style="color:#cd5555">&#34;2&#34;</span> <span style="color:#658b00">Debi=</span><span style="color:#cd5555">&#34;3,000&#34;</span> <span style="color:#658b00">sellprice=</span><span style="color:#cd5555">&#34;115,000&#34;</span> <span style="color:#658b00">buyprice=</span><span style="color:#cd5555">&#34;114,500&#34;</span> <span style="color:#658b00">amount=</span><span style="color:#cd5555">&#34;80&#34;</span><span style="color:#8b008b;font-weight:bold">/&gt;</span>
+		<span style="color:#8b008b;font-weight:bold">&lt;TBL_TimeConclude</span> <span style="color:#658b00">time=</span><span style="color:#cd5555">&#34;14:18:00&#34;</span> <span style="color:#658b00">negoprice=</span><span style="color:#cd5555">&#34;115,000&#34;</span> <span style="color:#658b00">Dungrak=</span><span style="color:#cd5555">&#34;2&#34;</span> <span style="color:#658b00">Debi=</span><span style="color:#cd5555">&#34;3,500&#34;</span> <span style="color:#658b00">sellprice=</span><span style="color:#cd5555">&#34;115,000&#34;</span> <span style="color:#658b00">buyprice=</span><span style="color:#cd5555">&#34;114,500&#34;</span> <span style="color:#658b00">amount=</span><span style="color:#cd5555">&#34;108&#34;</span><span style="color:#8b008b;font-weight:bold">/&gt;</span>
+		<span style="color:#8b008b;font-weight:bold">&lt;TBL_TimeConclude</span> <span style="color:#658b00">time=</span><span style="color:#cd5555">&#34;14:17:50&#34;</span> <span style="color:#658b00">negoprice=</span><span style="color:#cd5555">&#34;115,000&#34;</span> <span style="color:#658b00">Dungrak=</span><span style="color:#cd5555">&#34;2&#34;</span> <span style="color:#658b00">Debi=</span><span style="color:#cd5555">&#34;3,500&#34;</span> <span style="color:#658b00">sellprice=</span><span style="color:#cd5555">&#34;115,000&#34;</span> <span style="color:#658b00">buyprice=</span><span style="color:#cd5555">&#34;114,500&#34;</span> <span style="color:#658b00">amount=</span><span style="color:#cd5555">&#34;95&#34;</span><span style="color:#8b008b;font-weight:bold">/&gt;</span>
+		<span style="color:#8b008b;font-weight:bold">&lt;TBL_TimeConclude</span> <span style="color:#658b00">time=</span><span style="color:#cd5555">&#34;14:17:40&#34;</span> <span style="color:#658b00">negoprice=</span><span style="color:#cd5555">&#34;115,000&#34;</span> <span style="color:#658b00">Dungrak=</span><span style="color:#cd5555">&#34;2&#34;</span> <span style="color:#658b00">Debi=</span><span style="color:#cd5555">&#34;3,500&#34;</span> <span style="color:#658b00">sellprice=</span><span style="color:#cd5555">&#34;115,000&#34;</span> <span style="color:#658b00">buyprice=</span><span style="color:#cd5555">&#34;114,500&#34;</span> <span style="color:#658b00">amount=</span><span style="color:#cd5555">&#34;216&#34;</span><span style="color:#8b008b;font-weight:bold">/&gt;</span>
+		<span style="color:#8b008b;font-weight:bold">&lt;TBL_TimeConclude</span> <span style="color:#658b00">time=</span><span style="color:#cd5555">&#34;14:17:30&#34;</span> <span style="color:#658b00">negoprice=</span><span style="color:#cd5555">&#34;114,500&#34;</span> <span style="color:#658b00">Dungrak=</span><span style="color:#cd5555">&#34;2&#34;</span> <span style="color:#658b00">Debi=</span><span style="color:#cd5555">&#34;3,000&#34;</span> <span style="color:#658b00">sellprice=</span><span style="color:#cd5555">&#34;115,000&#34;</span> <span style="color:#658b00">buyprice=</span><span style="color:#cd5555">&#34;114,500&#34;</span> <span style="color:#658b00">amount=</span><span style="color:#cd5555">&#34;17&#34;</span><span style="color:#8b008b;font-weight:bold">/&gt;</span>
+		<span style="color:#8b008b;font-weight:bold">&lt;TBL_TimeConclude</span> <span style="color:#658b00">time=</span><span style="color:#cd5555">&#34;14:17:20&#34;</span> <span style="color:#658b00">negoprice=</span><span style="color:#cd5555">&#34;114,500&#34;</span> <span style="color:#658b00">Dungrak=</span><span style="color:#cd5555">&#34;2&#34;</span> <span style="color:#658b00">Debi=</span><span style="color:#cd5555">&#34;3,000&#34;</span> <span style="color:#658b00">sellprice=</span><span style="color:#cd5555">&#34;115,000&#34;</span> <span style="color:#658b00">buyprice=</span><span style="color:#cd5555">&#34;114,500&#34;</span> <span style="color:#658b00">amount=</span><span style="color:#cd5555">&#34;15&#34;</span><span style="color:#8b008b;font-weight:bold">/&gt;</span>
+		<span style="color:#8b008b;font-weight:bold">&lt;TBL_TimeConclude</span> <span style="color:#658b00">time=</span><span style="color:#cd5555">&#34;14:17:10&#34;</span> <span style="color:#658b00">negoprice=</span><span style="color:#cd5555">&#34;114,500&#34;</span> <span style="color:#658b00">Dungrak=</span><span style="color:#cd5555">&#34;2&#34;</span> <span style="color:#658b00">Debi=</span><span style="color:#cd5555">&#34;3,000&#34;</span> <span style="color:#658b00">sellprice=</span><span style="color:#cd5555">&#34;115,000&#34;</span> <span style="color:#658b00">buyprice=</span><span style="color:#cd5555">&#34;114,500&#34;</span> <span style="color:#658b00">amount=</span><span style="color:#cd5555">&#34;39&#34;</span><span style="color:#8b008b;font-weight:bold">/&gt;</span>
+		<span style="color:#8b008b;font-weight:bold">&lt;TBL_TimeConclude</span> <span style="color:#658b00">time=</span><span style="color:#cd5555">&#34;14:17:00&#34;</span> <span style="color:#658b00">negoprice=</span><span style="color:#cd5555">&#34;114,500&#34;</span> <span style="color:#658b00">Dungrak=</span><span style="color:#cd5555">&#34;2&#34;</span> <span style="color:#658b00">Debi=</span><span style="color:#cd5555">&#34;3,000&#34;</span> <span style="color:#658b00">sellprice=</span><span style="color:#cd5555">&#34;115,000&#34;</span> <span style="color:#658b00">buyprice=</span><span style="color:#cd5555">&#34;114,500&#34;</span> <span style="color:#658b00">amount=</span><span style="color:#cd5555">&#34;451&#34;</span><span style="color:#8b008b;font-weight:bold">/&gt;</span>
+		<span style="color:#8b008b;font-weight:bold">&lt;TBL_TimeConclude</span> <span style="color:#658b00">time=</span><span style="color:#cd5555">&#34;14:16:50&#34;</span> <span style="color:#658b00">negoprice=</span><span style="color:#cd5555">&#34;115,000&#34;</span> <span style="color:#658b00">Dungrak=</span><span style="color:#cd5555">&#34;2&#34;</span> <span style="color:#658b00">Debi=</span><span style="color:#cd5555">&#34;3,500&#34;</span> <span style="color:#658b00">sellprice=</span><span style="color:#cd5555">&#34;115,000&#34;</span> <span style="color:#658b00">buyprice=</span><span style="color:#cd5555">&#34;114,500&#34;</span> <span style="color:#658b00">amount=</span><span style="color:#cd5555">&#34;503&#34;</span><span style="color:#8b008b;font-weight:bold">/&gt;</span>
+		<span style="color:#8b008b;font-weight:bold">&lt;/TBL_TimeConclude&gt;</span>
+	<span style="color:#8b008b;font-weight:bold">&lt;stockInfo</span> <span style="color:#658b00">kosdaqJisu=</span><span style="color:#cd5555">&#34;697.33&#34;</span> <span style="color:#658b00">kosdaqJisuBuho=</span><span style="color:#cd5555">&#34;2&#34;</span> <span style="color:#658b00">kosdaqJisuDebi=</span><span style="color:#cd5555">&#34;0.86&#34;</span> <span style="color:#658b00">starJisu=</span><span style="color:#cd5555">&#34;1328.27&#34;</span> <span style="color:#658b00">starJisuBuho=</span><span style="color:#cd5555">&#34;2&#34;</span> <span style="color:#658b00">starJisuDebi=</span><span style="color:#cd5555">&#34;10.63&#34;</span> <span style="color:#658b00">jisu50=</span><span style="color:#cd5555">&#34;&#34;</span> <span style="color:#658b00">jisu50Buho=</span><span style="color:#cd5555">&#34;&#34;</span> <span style="color:#658b00">jisu50Debi=</span><span style="color:#cd5555">&#34;&#34;</span> <span style="color:#658b00">myNowTime=</span><span style="color:#cd5555">&#34;2019/06/03 14:18:15&#34;</span> <span style="color:#658b00">myJangGubun=</span><span style="color:#cd5555">&#34;장중&#34;</span> <span style="color:#658b00">myPublicPrice=</span><span style="color:#cd5555">&#34;&#34;</span> <span style="color:#658b00">krx100Jisu=</span><span style="color:#cd5555">&#34;4319.08&#34;</span> <span style="color:#658b00">krx100buho=</span><span style="color:#cd5555">&#34;2&#34;</span> <span style="color:#658b00">krx100Debi=</span><span style="color:#cd5555">&#34;60.71&#34;</span> <span style="color:#658b00">kospiJisu=</span><span style="color:#cd5555">&#34;2063.14&#34;</span> <span style="color:#658b00">kospiBuho=</span><span style="color:#cd5555">&#34;2&#34;</span> <span style="color:#658b00">kospiDebi=</span><span style="color:#cd5555">&#34;21.40&#34;</span> <span style="color:#658b00">kospi200Jisu=</span><span style="color:#cd5555">&#34;267.55&#34;</span> <span style="color:#658b00">kospi200Buho=</span><span style="color:#cd5555">&#34;2&#34;</span> <span style="color:#658b00">kospi200Debi=</span><span style="color:#cd5555">&#34;3.66&#34;</span><span style="color:#8b008b;font-weight:bold">/&gt;</span>
+<span style="color:#8b008b;font-weight:bold">&lt;/stockprice&gt;</span></code></pre></div>
+<p>이 중 필요한 데이터는 아래와 같았다.</p>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#8b008b;font-weight:bold">&lt;stockprice</span> <span style="color:#658b00">querytime=</span><span style="color:#cd5555">&#34;2019-05-22 15:19:56&#34;</span><span style="color:#8b008b;font-weight:bold">&gt;</span>
+
+    <span style="color:#8b008b;font-weight:bold">&lt;TBL_DailyStock&gt;</span>
+        <span style="color:#8b008b;font-weight:bold">&lt;DailyStock</span> <span style="color:#658b00">day_Date=</span><span style="color:#cd5555">&#34;19/05/22&#34;</span> <span style="color:#658b00">day_EndPrice=</span><span style="color:#cd5555">&#34;113,000&#34;</span> <span style="color:#658b00">day_Dungrak=</span><span style="color:#cd5555">&#34;5&#34;</span> <span style="color:#658b00">day_getDebi=</span><span style="color:#cd5555">&#34;1,500&#34;</span> <span style="color:#658b00">day_Start=</span><span style="color:#cd5555">&#34;115,000&#34;</span> <span style="color:#658b00">day_High=</span><span style="color:#cd5555">&#34;115,000&#34;</span> <span style="color:#658b00">day_Low=</span><span style="color:#cd5555">&#34;111,000&#34;</span> <span style="color:#658b00">day_Volume=</span><span style="color:#cd5555">&#34;521,770&#34;</span> <span style="color:#658b00">day_getAmount=</span><span style="color:#cd5555">&#34;58,887,446,500&#34;</span><span style="color:#8b008b;font-weight:bold">/&gt;</span>
+        <span style="color:#8b008b;font-weight:bold">&lt;DailyStock</span> <span style="color:#658b00">day_Date=</span><span style="color:#cd5555">&#34;19/05/21&#34;</span> <span style="color:#658b00">day_EndPrice=</span><span style="color:#cd5555">&#34;114,500&#34;</span> <span style="color:#658b00">day_Dungrak=</span><span style="color:#cd5555">&#34;5&#34;</span> <span style="color:#658b00">day_getDebi=</span><span style="color:#cd5555">&#34;4,000&#34;</span> <span style="color:#658b00">day_Start=</span><span style="color:#cd5555">&#34;117,500&#34;</span> <span style="color:#658b00">day_High=</span><span style="color:#cd5555">&#34;119,500&#34;</span> <span style="color:#658b00">day_Low=</span><span style="color:#cd5555">&#34;113,500&#34;</span> <span style="color:#658b00">day_Volume=</span><span style="color:#cd5555">&#34;603,105&#34;</span> <span style="color:#658b00">day_getAmount=</span><span style="color:#cd5555">&#34;70,058,497,000&#34;</span><span style="color:#8b008b;font-weight:bold">/&gt;</span>
+        <span style="color:#8b008b;font-weight:bold">&lt;DailyStock</span> <span style="color:#658b00">day_Date=</span><span style="color:#cd5555">&#34;19/05/20&#34;</span> <span style="color:#658b00">day_EndPrice=</span><span style="color:#cd5555">&#34;118,500&#34;</span> <span style="color:#658b00">day_Dungrak=</span><span style="color:#cd5555">&#34;5&#34;</span> <span style="color:#658b00">day_getDebi=</span><span style="color:#cd5555">&#34;2,500&#34;</span> <span style="color:#658b00">day_Start=</span><span style="color:#cd5555">&#34;121,500&#34;</span> <span style="color:#658b00">day_High=</span><span style="color:#cd5555">&#34;121,500&#34;</span> <span style="color:#658b00">day_Low=</span><span style="color:#cd5555">&#34;118,000&#34;</span> <span style="color:#658b00">day_Volume=</span><span style="color:#cd5555">&#34;449,916&#34;</span> <span style="color:#658b00">day_getAmount=</span><span style="color:#cd5555">&#34;53,573,016,000&#34;</span><span style="color:#8b008b;font-weight:bold">/&gt;</span>
+        <span style="color:#8b008b;font-weight:bold">&lt;DailyStock</span> <span style="color:#658b00">day_Date=</span><span style="color:#cd5555">&#34;19/05/17&#34;</span> <span style="color:#658b00">day_EndPrice=</span><span style="color:#cd5555">&#34;121,000&#34;</span> <span style="color:#658b00">day_Dungrak=</span><span style="color:#cd5555">&#34;2&#34;</span> <span style="color:#658b00">day_getDebi=</span><span style="color:#cd5555">&#34;2,000&#34;</span> <span style="color:#658b00">day_Start=</span><span style="color:#cd5555">&#34;120,000&#34;</span> <span style="color:#658b00">day_High=</span><span style="color:#cd5555">&#34;123,500&#34;</span> <span style="color:#658b00">day_Low=</span><span style="color:#cd5555">&#34;118,500&#34;</span> <span style="color:#658b00">day_Volume=</span><span style="color:#cd5555">&#34;439,545&#34;</span> <span style="color:#658b00">day_getAmount=</span><span style="color:#cd5555">&#34;53,184,383,000&#34;</span><span style="color:#8b008b;font-weight:bold">/&gt;</span>
+        <span style="color:#8b008b;font-weight:bold">&lt;DailyStock</span> <span style="color:#658b00">day_Date=</span><span style="color:#cd5555">&#34;19/05/16&#34;</span> <span style="color:#658b00">day_EndPrice=</span><span style="color:#cd5555">&#34;119,000&#34;</span> <span style="color:#658b00">day_Dungrak=</span><span style="color:#cd5555">&#34;5&#34;</span> <span style="color:#658b00">day_getDebi=</span><span style="color:#cd5555">&#34;1,000&#34;</span> <span style="color:#658b00">day_Start=</span><span style="color:#cd5555">&#34;120,500&#34;</span> <span style="color:#658b00">day_High=</span><span style="color:#cd5555">&#34;121,000&#34;</span> <span style="color:#658b00">day_Low=</span><span style="color:#cd5555">&#34;118,000&#34;</span> <span style="color:#658b00">day_Volume=</span><span style="color:#cd5555">&#34;484,468&#34;</span> <span style="color:#658b00">day_getAmount=</span><span style="color:#cd5555">&#34;57,871,810,000&#34;</span><span style="color:#8b008b;font-weight:bold">/&gt;</span>
+        <span style="color:#8b008b;font-weight:bold">&lt;DailyStock</span> <span style="color:#658b00">day_Date=</span><span style="color:#cd5555">&#34;19/05/15&#34;</span> <span style="color:#658b00">day_EndPrice=</span><span style="color:#cd5555">&#34;120,000&#34;</span> <span style="color:#658b00">day_Dungrak=</span><span style="color:#cd5555">&#34;5&#34;</span> <span style="color:#658b00">day_getDebi=</span><span style="color:#cd5555">&#34;2,000&#34;</span> <span style="color:#658b00">day_Start=</span><span style="color:#cd5555">&#34;121,500&#34;</span> <span style="color:#658b00">day_High=</span><span style="color:#cd5555">&#34;123,000&#34;</span> <span style="color:#658b00">day_Low=</span><span style="color:#cd5555">&#34;120,000&#34;</span> <span style="color:#658b00">day_Volume=</span><span style="color:#cd5555">&#34;460,936&#34;</span> <span style="color:#658b00">day_getAmount=</span><span style="color:#cd5555">&#34;55,811,604,000&#34;</span><span style="color:#8b008b;font-weight:bold">/&gt;</span>
+        <span style="color:#8b008b;font-weight:bold">&lt;DailyStock</span> <span style="color:#658b00">day_Date=</span><span style="color:#cd5555">&#34;19/05/14&#34;</span> <span style="color:#658b00">day_EndPrice=</span><span style="color:#cd5555">&#34;122,000&#34;</span> <span style="color:#658b00">day_Dungrak=</span><span style="color:#cd5555">&#34;5&#34;</span> <span style="color:#658b00">day_getDebi=</span><span style="color:#cd5555">&#34;500&#34;</span> <span style="color:#658b00">day_Start=</span><span style="color:#cd5555">&#34;121,000&#34;</span> <span style="color:#658b00">day_High=</span><span style="color:#cd5555">&#34;123,500&#34;</span> <span style="color:#658b00">day_Low=</span><span style="color:#cd5555">&#34;119,500&#34;</span> <span style="color:#658b00">day_Volume=</span><span style="color:#cd5555">&#34;532,037&#34;</span> <span style="color:#658b00">day_getAmount=</span><span style="color:#cd5555">&#34;64,845,489,250&#34;</span><span style="color:#8b008b;font-weight:bold">/&gt;</span>
+        <span style="color:#8b008b;font-weight:bold">&lt;DailyStock</span> <span style="color:#658b00">day_Date=</span><span style="color:#cd5555">&#34;19/05/13&#34;</span> <span style="color:#658b00">day_EndPrice=</span><span style="color:#cd5555">&#34;122,500&#34;</span> <span style="color:#658b00">day_Dungrak=</span><span style="color:#cd5555">&#34;3&#34;</span> <span style="color:#658b00">day_getDebi=</span><span style="color:#cd5555">&#34;0&#34;</span> <span style="color:#658b00">day_Start=</span><span style="color:#cd5555">&#34;121,500&#34;</span> <span style="color:#658b00">day_High=</span><span style="color:#cd5555">&#34;124,000&#34;</span> <span style="color:#658b00">day_Low=</span><span style="color:#cd5555">&#34;121,500&#34;</span> <span style="color:#658b00">day_Volume=</span><span style="color:#cd5555">&#34;343,827&#34;</span> <span style="color:#658b00">day_getAmount=</span><span style="color:#cd5555">&#34;42,101,773,000&#34;</span><span style="color:#8b008b;font-weight:bold">/&gt;</span>
+        <span style="color:#8b008b;font-weight:bold">&lt;DailyStock</span> <span style="color:#658b00">day_Date=</span><span style="color:#cd5555">&#34;19/05/10&#34;</span> <span style="color:#658b00">day_EndPrice=</span><span style="color:#cd5555">&#34;122,500&#34;</span> <span style="color:#658b00">day_Dungrak=</span><span style="color:#cd5555">&#34;2&#34;</span> <span style="color:#658b00">day_getDebi=</span><span style="color:#cd5555">&#34;3,500&#34;</span> <span style="color:#658b00">day_Start=</span><span style="color:#cd5555">&#34;120,500&#34;</span> <span style="color:#658b00">day_High=</span><span style="color:#cd5555">&#34;123,000&#34;</span> <span style="color:#658b00">day_Low=</span><span style="color:#cd5555">&#34;120,000&#34;</span> <span style="color:#658b00">day_Volume=</span><span style="color:#cd5555">&#34;474,352&#34;</span> <span style="color:#658b00">day_getAmount=</span><span style="color:#cd5555">&#34;57,723,276,000&#34;</span><span style="color:#8b008b;font-weight:bold">/&gt;</span>
+        <span style="color:#8b008b;font-weight:bold">&lt;DailyStock</span> <span style="color:#658b00">day_Date=</span><span style="color:#cd5555">&#34;19/05/09&#34;</span> <span style="color:#658b00">day_EndPrice=</span><span style="color:#cd5555">&#34;119,000&#34;</span> <span style="color:#658b00">day_Dungrak=</span><span style="color:#cd5555">&#34;5&#34;</span> <span style="color:#658b00">day_getDebi=</span><span style="color:#cd5555">&#34;4,500&#34;</span> <span style="color:#658b00">day_Start=</span><span style="color:#cd5555">&#34;122,500&#34;</span> <span style="color:#658b00">day_High=</span><span style="color:#cd5555">&#34;124,000&#34;</span> <span style="color:#658b00">day_Low=</span><span style="color:#cd5555">&#34;119,000&#34;</span> <span style="color:#658b00">day_Volume=</span><span style="color:#cd5555">&#34;799,208&#34;</span> <span style="color:#658b00">day_getAmount=</span><span style="color:#cd5555">&#34;95,972,050,550&#34;</span><span style="color:#8b008b;font-weight:bold">/&gt;</span>
+    <span style="color:#8b008b;font-weight:bold">&lt;/TBL_DailyStock&gt;</span>
+
+    <span style="color:#8b008b;font-weight:bold">&lt;TBL_StockInfo</span>
+        <span style="color:#658b00">JongName=</span><span style="color:#cd5555">&#34;NAVER보통주&#34;</span>
+        <span style="color:#658b00">CurJuka=</span><span style="color:#cd5555">&#34;113,000&#34;</span>
+        <span style="color:#658b00">StockDungRak=</span><span style="color:#cd5555">&#34;5&#34;</span>
+        <span style="color:#658b00">Debi=</span><span style="color:#cd5555">&#34;1,500&#34;</span>
+        <span style="color:#658b00">PrevJuka=</span><span style="color:#cd5555">&#34;114,500&#34;</span>
+        <span style="color:#658b00">Volume=</span><span style="color:#cd5555">&#34;521,770&#34;</span>
+        <span style="color:#658b00">Money=</span><span style="color:#cd5555">&#34;58,887,446,500&#34;</span>
+        <span style="color:#658b00">StartJuka=</span><span style="color:#cd5555">&#34;115,000&#34;</span>
+        <span style="color:#658b00">HighJuka=</span><span style="color:#cd5555">&#34;115,000&#34;</span>
+        <span style="color:#658b00">LowJuka=</span><span style="color:#cd5555">&#34;111,000&#34;</span>
+        <span style="color:#658b00">High52=</span><span style="color:#cd5555">&#34;782,000&#34;</span>
+        <span style="color:#658b00">Low52=</span><span style="color:#cd5555">&#34;106,500&#34;</span>
+        <span style="color:#658b00">UpJuka=</span><span style="color:#cd5555">&#34;148,500&#34;</span>
+        <span style="color:#658b00">DownJuka=</span><span style="color:#cd5555">&#34;80,500&#34;</span>
+        <span style="color:#658b00">Per=</span><span style="color:#cd5555">&#34;25.47&#34;</span>
+        <span style="color:#658b00">Amount=</span><span style="color:#cd5555">&#34;164,813,395&#34;</span>
+        <span style="color:#658b00">FaceJuka=</span><span style="color:#cd5555">&#34;100&#34;</span> <span style="color:#8b008b;font-weight:bold">/&gt;</span>
+
+<span style="color:#8b008b;font-weight:bold">&lt;/stockprice&gt;</span></code></pre></div>
+<p>즉, 필요한 데이터는 <code>&lt;TBL_DailyStock&gt;</code>과 <code>&lt;TBL_StockInfo&gt;</code> 단 2개의 테이블이기 때문에 간단하다고 생각했다.<br />
+그런데 이 두 테이블의 모양새가 조금 달랐다.</p>
+
+<p><code>&lt;TBL_DailyStock&gt;</code>는 최근 10일의 DailyStock 을 가지고 있고, 각 DailyStock 은 9개의 Attribute를 가지고 있는 반면,<br />
+<code>&lt;TBL_StockInfo&gt;</code>는 17개의 Attribute만 가지고 있었다.</p>
+
+<p><strong>JAXB Unmarshalling의 핵심은 이 XML스키마 모양대로 Java 클래스를 생성하면,<br />
+클래스의 각 필드에 해당하는 XML의 데이터가 바인딩되는 것이다.</strong></p>
+
+<p>그러므로 XML 스키마의 모양새를 정확하게 파악한 후에 Java Class를 생성해야 한다.</p>
+
+<p></br></p>
+
+<h2 id="java-class-생성">Java Class 생성</h2>
+
+<p>우선, 최상위 태그는 <code>&lt;stockprice&gt;</code>이므로 아래와 같이 <code>StockPrice</code> 클래스를 생성하고,<br />
+JAXB 바인딩 런타임 API가 알 수 있도록 <code>@XmlRootElement(name = &quot;stockprice&quot;)</code> 어노테이션을 붙여 매핑 정보를 생성했다.</p>
+
+<p>그런데 <code>&lt;stockprice&gt;</code>의 경우 Attribute로 <code>querytime</code>을 가지고 있고,<br />
+2개의 테이블(<code>&lt;TBL_DailyStock&gt;</code>, <code>&lt;TBL_StockInfo&gt;</code>)을 내포하고 있다.</p>
+
+<p>그러므로 querytime, TBL_DailyStock, TBL_StockInfo 를 필드로 만들고 각각<br />
+<code>@XmlAttribute</code>와 <code>@XmlElement</code> 어노테이션으로 XML 스키마와 모양새를 맞추었다.</p>
+
+<p>그리고 <code>TBL_DailyStock</code>과 <code>TBL_StockInfo</code>는 내부에 데이터 셋을 가지고 있으므로 Inner Class로 만들고,<br />
+<code>@XmlRootElement</code> 어노테이션을 추가했다.</p>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#228b22">/**
+</span><span style="color:#228b22"> * &lt;stockprice querytime=&#34;...&#34;&gt;
+</span><span style="color:#228b22"> *     &lt;TBL_DailyStock&gt;&lt;/TBL_DailyStock&gt;
+</span><span style="color:#228b22"> *     &lt;TBL_StockInfo&gt;&lt;/TBL_StockInfo&gt;
+</span><span style="color:#228b22"> * &lt;/stockprice&gt;
+</span><span style="color:#228b22"> */</span>
+<span style="color:#707a7c">@Getter</span>
+<span style="color:#707a7c">@ToString</span>
+<span style="color:#707a7c">@XmlRootElement</span>(name = <span style="color:#cd5555">&#34;stockprice&#34;</span>)
+<span style="color:#8b008b;font-weight:bold">public</span> <span style="color:#8b008b;font-weight:bold">class</span> <span style="color:#008b45;font-weight:bold">StockPrice</span> {
+
+    <span style="color:#707a7c">@XmlAttribute</span>(name = <span style="color:#cd5555">&#34;querytime&#34;</span>)
+    <span style="color:#8b008b;font-weight:bold">private</span> String querytime;
+
+    <span style="color:#707a7c">@XmlElement</span>(name = <span style="color:#cd5555">&#34;TBL_DailyStock&#34;</span>)
+    <span style="color:#8b008b;font-weight:bold">private</span> TBL_DailyStock tbl_dailyStock;
+
+    <span style="color:#707a7c">@XmlElement</span>(name = <span style="color:#cd5555">&#34;TBL_StockInfo&#34;</span>)
+    <span style="color:#8b008b;font-weight:bold">private</span> TBL_StockInfo tbl_stockInfo;
+    
+    <span style="color:#228b22">// 예외처리, 유효성검증 관련 코드 생략
+</span><span style="color:#228b22"></span>
+    <span style="color:#707a7c">@Getter</span>
+    <span style="color:#707a7c">@ToString</span>
+    <span style="color:#707a7c">@XmlRootElement</span>(name = <span style="color:#cd5555">&#34;TBL_DailyStock&#34;</span>)
+    <span style="color:#8b008b;font-weight:bold">public</span> <span style="color:#8b008b;font-weight:bold">static</span> <span style="color:#8b008b;font-weight:bold">class</span> <span style="color:#008b45;font-weight:bold">TBL_DailyStock</span> {
+
+        <span style="color:#707a7c">@XmlElement</span>(name = <span style="color:#cd5555">&#34;DailyStock&#34;</span>)
+        <span style="color:#8b008b;font-weight:bold">private</span> List&lt;DailyStock&gt; dailyStocks;
+
+	    <span style="color:#228b22">// 예외처리, 유효성검증 관련 코드 생략
+</span><span style="color:#228b22"></span>    }
+
+    <span style="color:#707a7c">@Getter</span>
+    <span style="color:#707a7c">@ToString</span>
+    <span style="color:#707a7c">@XmlRootElement</span>(name = <span style="color:#cd5555">&#34;TBL_StockInfo&#34;</span>)
+    <span style="color:#8b008b;font-weight:bold">public</span> <span style="color:#8b008b;font-weight:bold">static</span> <span style="color:#8b008b;font-weight:bold">class</span> <span style="color:#008b45;font-weight:bold">TBL_StockInfo</span> {
+
+        <span style="color:#707a7c">@XmlAttribute</span>(name = <span style="color:#cd5555">&#34;JongName&#34;</span>)
+        <span style="color:#8b008b;font-weight:bold">private</span> String jongName;
+
+        <span style="color:#707a7c">@XmlAttribute</span>(name = <span style="color:#cd5555">&#34;CurJuka&#34;</span>)
+        <span style="color:#8b008b;font-weight:bold">private</span> String curJuka;
+
+        <span style="color:#8b008b;font-weight:bold">private</span> String dungRak;
+
+        <span style="color:#707a7c">@XmlAttribute</span>(name = <span style="color:#cd5555">&#34;DungRak&#34;</span>)
+        <span style="color:#8b008b;font-weight:bold">public</span> <span style="color:#00688b;font-weight:bold">void</span> <span style="color:#008b45">setDungRak</span>(String dungRak) {
+
+            <span style="color:#8b008b;font-weight:bold">if</span>(<span style="color:#cd5555">&#34;2&#34;</span>.<span style="color:#658b00">equals</span>(dungRak)) {
+                <span style="color:#8b008b;font-weight:bold">this</span>.<span style="color:#658b00">dungRak</span> = StockDungRak.<span style="color:#658b00">UP</span>.<span style="color:#658b00">getName</span>();
+            } <span style="color:#8b008b;font-weight:bold">else</span> <span style="color:#8b008b;font-weight:bold">if</span>(<span style="color:#cd5555">&#34;3&#34;</span>.<span style="color:#658b00">equals</span>(dungRak)) {
+                <span style="color:#8b008b;font-weight:bold">this</span>.<span style="color:#658b00">dungRak</span> = StockDungRak.<span style="color:#658b00">FLAT</span>.<span style="color:#658b00">getName</span>();
+            } <span style="color:#8b008b;font-weight:bold">else</span> <span style="color:#8b008b;font-weight:bold">if</span>(<span style="color:#cd5555">&#34;5&#34;</span>.<span style="color:#658b00">equals</span>(dungRak)) {
+                <span style="color:#8b008b;font-weight:bold">this</span>.<span style="color:#658b00">dungRak</span> = StockDungRak.<span style="color:#658b00">DOWN</span>.<span style="color:#658b00">getName</span>();
+            }
+        }
+	    <span style="color:#228b22">// 이하 필드 생략
+</span><span style="color:#228b22"></span>        <span style="color:#228b22">// 예외처리, 유효성검증 관련 코드 생략
+</span><span style="color:#228b22"></span>    }
+}</code></pre></div>
+<p>이 때, 위의 코드의 dungRak 처럼 Setter를 사용하여 데이터를 재가공해야 하는 경우,<br />
+필드 대신 Setter에 @XmlAttribute 어노테이션을 붙여야 데이터가 제대로 바인딩된다.</p>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">...
+
+<span style="color:#707a7c">@XmlRootElement</span>(name = <span style="color:#cd5555">&#34;TBL_DailyStock&#34;</span>)
+    <span style="color:#8b008b;font-weight:bold">public</span> <span style="color:#8b008b;font-weight:bold">static</span> <span style="color:#8b008b;font-weight:bold">class</span> <span style="color:#008b45;font-weight:bold">TBL_DailyStock</span> {
+
+        <span style="color:#707a7c">@XmlElement</span>(name = <span style="color:#cd5555">&#34;DailyStock&#34;</span>)
+        <span style="color:#8b008b;font-weight:bold">private</span> List&lt;DailyStock&gt; dailyStocks;
+
+    }
+
+...</code></pre></div>
+<p>그런데 위의 코드에서 처럼 DailyStock를 리스트로 가지고 있는 TBL_DailyStock 클래스를 어떻게 생성해야 하는지 조금 헷갈렸었는데,<br />
+DailyStock은 그 자체로 9개의 Attribute를 가지고 있으므로, 아래와 같이 따로 클래스를 생성해야 했다.</p>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#228b22">/**
+</span><span style="color:#228b22"> * &lt;stockprice&gt;
+</span><span style="color:#228b22"> *     &lt;TBL_DailyStock&gt;
+</span><span style="color:#228b22"> *         &lt;DailyStock&gt;&lt;/DailyStock&gt;
+</span><span style="color:#228b22"> *         &lt;DailyStock&gt;&lt;/DailyStock&gt;
+</span><span style="color:#228b22"> *         ...
+</span><span style="color:#228b22"> *     &lt;/TBL_DailyStock&gt;
+</span><span style="color:#228b22"> * &lt;/stockprice&gt;
+</span><span style="color:#228b22"> */</span>
+<span style="color:#707a7c">@Getter</span>
+<span style="color:#707a7c">@ToString</span>
+<span style="color:#707a7c">@XmlRootElement</span>(name = <span style="color:#cd5555">&#34;DailyStock&#34;</span>)
+<span style="color:#8b008b;font-weight:bold">public</span> <span style="color:#8b008b;font-weight:bold">class</span> <span style="color:#008b45;font-weight:bold">DailyStock</span> {
+
+    <span style="color:#707a7c">@XmlAttribute</span>(name = <span style="color:#cd5555">&#34;day_Date&#34;</span>)
+    <span style="color:#8b008b;font-weight:bold">private</span> String day_Date;
+
+    <span style="color:#707a7c">@XmlAttribute</span>(name = <span style="color:#cd5555">&#34;day_EndPrice&#34;</span>)
+    <span style="color:#8b008b;font-weight:bold">private</span> String day_EndPrice;
+
+    <span style="color:#8b008b;font-weight:bold">private</span> String day_getAmount;
+
+    <span style="color:#707a7c">@XmlAttribute</span>(name = <span style="color:#cd5555">&#34;day_getAmount&#34;</span>)
+    <span style="color:#8b008b;font-weight:bold">public</span> <span style="color:#00688b;font-weight:bold">void</span> <span style="color:#008b45">setDay_getAmount</span>(String day_getAmount) {
+
+        <span style="color:#228b22">// 거래대금(백만) 단위 절삭
+</span><span style="color:#228b22"></span>        Long digit = Long.<span style="color:#658b00">parseLong</span>(day_getAmount.<span style="color:#658b00">replaceAll</span>(<span style="color:#cd5555">&#34;,&#34;</span>, <span style="color:#cd5555">&#34;&#34;</span>)) / 1000000;
+        <span style="color:#8b008b;font-weight:bold">this</span>.<span style="color:#658b00">day_getAmount</span> = String.<span style="color:#658b00">format</span>(<span style="color:#cd5555">&#34;%,d&#34;</span>, digit); <span style="color:#228b22">// &#34;%,d&#34;, it tells the method to put comma separator for each 3 digits
+</span><span style="color:#228b22"></span>    }
+    
+    <span style="color:#228b22">// ... 이하 필드 생략
+</span><span style="color:#228b22"></span>}</code></pre></div>
+<p>DailyStock은 17개의 Attribute만 내포하고 있으므로, 모든 필드에 @XmlAttribute를 붙인 것을 확인할 수 있다.</p>
+
+<p></br></p>
+
+<h2 id="unmarshalling-실행">Unmarshalling 실행</h2>
+
+<blockquote>
+<p>이 예제의 경우 프로젝트 내에서 Map으로만 반환해야 하는 상황이었기 때문에 Map을 사용했지만<br />
+Unmarshalling을 위해 반드시 Map을 사용해야하는 것은 아니다.</p>
+</blockquote>
+
+<p>XML의 데이터를 바인딩할 Java 클래스를 생성했으니 Unmarshalling을 실행하는 코드를 작성한다.(순서는 상관없다.)</p>
+
+<h3 id="unmarshalling-과정">Unmarshalling 과정</h3>
+
+<ol>
+<li>데이터를 반환할 Map 생성</li>
+<li>실시간 시세 XML 데이터를 반환하는 URL을 입력하고, XML 데이터를 String으로 저장한다.</li>
+<li><code>JAXB.newInstance(StockPrice.class)</code>를 통해 JAXB Context를 생성한다.</li>
+<li>생성된 JAXB Context로 Unmarshaller를 생성한다.</li>
+<li>생성된 Unmarshaller로 unmarshall 메소드를 호출하여 String에 저장한 XML 데이터를 읽어서 Java 객체(StockPrice)에 바인딩한다.</li>
+<li>Java 객체를 Map에 담아 화면단에 송출한다.</li>
+</ol>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#707a7c">@Controller</span>(<span style="color:#cd5555">&#34;/ir_stock&#34;</span>)
+<span style="color:#8b008b;font-weight:bold">public</span> Map&lt;String, StockPrice&gt; <span style="color:#008b45">krxParser</span>(HttpServletRequest request) {
+
+    Map&lt;String, StockPrice&gt; map = <span style="color:#8b008b;font-weight:bold">new</span> HashMap&lt;&gt;();
+
+    <span style="color:#8b008b;font-weight:bold">try</span> {
+        String html = StockUtil.<span style="color:#658b00">getHtml</span>(<span style="color:#cd5555">&#34;http://asp1.krx.co.kr/servlet/krx.asp.XMLSise?code=035420&#34;</span>); <span style="color:#228b22">// 035420 = 네이버의 종목코드
+</span><span style="color:#228b22"></span>
+        JAXBContext jaxbContext = JAXBContext.<span style="color:#658b00">newInstance</span>(StockPrice.<span style="color:#658b00">class</span>); <span style="color:#228b22">// JAXB Context 생성
+</span><span style="color:#228b22"></span>        Unmarshaller unmarshaller = jaxbContext.<span style="color:#658b00">createUnmarshaller</span>(); <span style="color:#228b22">// Unmarshaller Object 생성
+</span><span style="color:#228b22"></span>        StockPrice stockPrice = (StockPrice) unmarshaller.<span style="color:#658b00">unmarshal</span>(<span style="color:#8b008b;font-weight:bold">new</span> StringReader(html)); <span style="color:#228b22">// unmarshall 메소드 호출
+</span><span style="color:#228b22"></span>
+        stockPrice.<span style="color:#658b00">validation</span>();
+        map.<span style="color:#658b00">put</span>(<span style="color:#cd5555">&#34;stockprice&#34;</span>, stockPrice);
+
+        <span style="color:#8b008b;font-weight:bold">return</span> map;
+
+    } <span style="color:#8b008b;font-weight:bold">catch</span> (JAXBException | IOException e) {
+        logger.<span style="color:#658b00">error</span>(<span style="color:#cd5555">&#34;KRX API 예외 발생&#34;</span>, e);
+        map.<span style="color:#658b00">put</span>(<span style="color:#cd5555">&#34;stockprice&#34;</span>, StockPrice.<span style="color:#658b00">emptyStockPrice</span>()); <span style="color:#228b22">// 예외 발생 시, 빈 객체 반환
+</span><span style="color:#228b22"></span>        <span style="color:#8b008b;font-weight:bold">return</span> map;
+    }
+}</code></pre></div>
+<p>위의 코드에서 XML 데이터를 읽어서 String으로 반환해주는 <code>getHtml()</code> 메소드는 유틸리티 클래스에 아래와 같이 구현했다.</p>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#8b008b;font-weight:bold">public</span> <span style="color:#8b008b;font-weight:bold">static</span> String <span style="color:#008b45">getHtml</span>(String url) <span style="color:#8b008b;font-weight:bold">throws</span> IOException {
+
+    URL targetUrl = <span style="color:#8b008b;font-weight:bold">new</span> URL(url);
+
+    <span style="color:#8b008b;font-weight:bold">try</span> (BufferedReader reader = <span style="color:#8b008b;font-weight:bold">new</span> BufferedReader(<span style="color:#8b008b;font-weight:bold">new</span> InputStreamReader(targetUrl.<span style="color:#658b00">openStream</span>()))){
+        StringBuffer html = <span style="color:#8b008b;font-weight:bold">new</span> StringBuffer();
+        String tmp;
+
+        <span style="color:#8b008b;font-weight:bold">while</span> ((tmp = reader.<span style="color:#658b00">readLine</span>()) != <span style="color:#8b008b;font-weight:bold">null</span>) {
+            html.<span style="color:#658b00">append</span>(tmp);
+        }
+
+        <span style="color:#8b008b;font-weight:bold">return</span> html.<span style="color:#658b00">toString</span>();
+    }
+}</code></pre></div>
+<p>마지막으로, KRX API에서 제공하는 데이터 중 DungRak(등락)의 경우 상승, 동일, 하락을 &lsquo;2&rsquo;, &lsquo;3&rsquo;, &lsquo;5&rsquo;로 반환한다.<br />
+때문에 숫자만 보고는 상승인지 하락인지 판단할 수 없으므로<br />
+아래와 같이 Enum 클래스를 생성해서 사용하여 의미를 명시했다.</p>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#228b22">/**
+</span><span style="color:#228b22"> *
+</span><span style="color:#228b22"> * API에서는
+</span><span style="color:#228b22"> * 상승 = &#34;2&#34;
+</span><span style="color:#228b22"> * 변화없음 = &#34;3&#34;
+</span><span style="color:#228b22"> * 하락 = &#34;5&#34;
+</span><span style="color:#228b22"> */</span>
+<span style="color:#8b008b;font-weight:bold">public</span> <span style="color:#8b008b;font-weight:bold">enum</span> StockDungRak {
+
+    FLAT(<span style="color:#cd5555">&#34;flat&#34;</span>),
+    UP(<span style="color:#cd5555">&#34;up&#34;</span>),
+    DOWN(<span style="color:#cd5555">&#34;down&#34;</span>);
+
+    <span style="color:#8b008b;font-weight:bold">private</span> String name;
+
+    StockDungRak(String name) {
+        <span style="color:#8b008b;font-weight:bold">this</span>.<span style="color:#658b00">name</span> = name;
+    }
+
+    <span style="color:#8b008b;font-weight:bold">public</span> String <span style="color:#008b45">getName</span>() {
+        <span style="color:#8b008b;font-weight:bold">return</span> <span style="color:#8b008b;font-weight:bold">this</span>.<span style="color:#658b00">name</span>;
+    }
+}</code></pre></div>
+<p></br></p>
+
+<h2 id="결과">결과</h2>
+
+<p>해당 페이지에 접속하면 아래와 같은 정보를 제공할 수 있게 되었다.</p>
+
+<p align="center">
+  <img width="700" src="https://github.com/Integerous/TIL/blob/master/ETC/images/StockInfo.png?raw=true">
+</p>
+
+<p>XML 데이터를 Java 객체로 변환하여 사용해보니, (비즈니스 로직이 섞여있어 이 글에는 담지 못했지만)<br />
+확실히 예외 처리와 데이터 가공을 능동적으로 할 수 있어서 좋았다.</p>
+
+<h2 id="reference">*Reference</h2>
+
+<ul>
+<li><a href="https://javaee.github.io/jaxb-v2/doc/user-guide/ch03.html">JAXB Users Guide</a></li>
+<li><a href="https://www.ibm.com/support/knowledgecenter/ko/SSEQTP_9.0.0/com.ibm.websphere.base.doc/ae/cwbs_jaxb.html">JAXB</a></li>
+<li><a href="http://www.mimul.com/pebble/default/2010/03/23/1269343140000.html">JAXB를 활용한 Java 객체의 XML 자동 변환</a></li>
+</ul>
+
+  </div>
+  <footer>
+    <div class="article-footer">
+      
+
+      
+      
+      
+      
+      
+      <div id="pagenavigation-next-prev">
+        
+        <div id="pagenavigation-next">
+          <span class="pagenav-label">&lt; 이전 글</span>
+          <a href="http://integerous.github.io/post/dev/raspberry_server_1/">라즈베리파이4로 토이프로젝트용 서버 만들기 - 1편</a>
+        </div>
+        
+        
+        <div id="pagenavigation-prev">
+          <span class="pagenav-label">다음 글 ></span>
+          <a href="http://integerous.github.io/post/dev/try_with_resources/">Try-with-resources를 이용한 자원해제 처리</a>
+        </div>
+        
+      </div>
+      
+    </div>
+
+    <script src="https://utteranc.es/client.js"
+    repo="integerous/blog-comments"
+    issue-term="pathname"
+    crossorigin="anonymous"
+    async>
+    </script>
+  </footer>
+</div>
+
+
+
+
+
+</div>
+
+</div>
+<footer>
+<div id="site-footer-wrap">
+  <div id="site-footer">
+    <span>Powered by <a href="https://gohugo.io/">Hugo</a>.</span>
+    <span>
+      
+      Copyright (c) 2021, <a href="http://integerous.github.io/">Integerous DevLog</a>
+      
+    </span>
+  </div>
+</div>
+</footer>
+</div>
+</body>
+</html>

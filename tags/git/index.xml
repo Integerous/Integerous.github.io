@@ -13,19 +13,19 @@
     
     <item>
       <title>Git으로 협업하는 방법</title>
-      <link>http://integerous.github.io/post/etc/gitflow/</link>
+      <link>http://integerous.github.io/post/dev/gitflow/</link>
       <pubDate>Sat, 20 Oct 2018 21:17:01 +0900</pubDate>
       
-      <guid>http://integerous.github.io/post/etc/gitflow/</guid>
+      <guid>http://integerous.github.io/post/dev/gitflow/</guid>
       <description>회사에서 Git을 활용한 협업 workflow를 세팅하기 위해 학습하며 기록한 내용입니다. 회사의 협업 환경 = Git + Bitbucket + Trello + Telegram Bitbucket 대신 Github을 사용해도</description>
     </item>
     
     <item>
       <title>Hugo로 github.io 블로그 만들기</title>
-      <link>http://integerous.github.io/post/etc/creating_static_blog/</link>
+      <link>http://integerous.github.io/post/dev/creating_static_blog/</link>
       <pubDate>Sun, 12 Aug 2018 20:48:55 +0900</pubDate>
       
-      <guid>http://integerous.github.io/post/etc/creating_static_blog/</guid>
+      <guid>http://integerous.github.io/post/dev/creating_static_blog/</guid>
       <description>주소가 github.io인 개발 블로그들이 눈에 많이 띄었다. 찾다보니 Jekyll, Hexo, Hugo 등 Static Site Generator의 존재를 알게 되었다. Hugo와 Github Page의 조합</description>
     </item>
     

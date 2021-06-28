@@ -1,0 +1,360 @@
+
+
+<!DOCTYPE html>
+<html lang="ko-kr">
+  <head>
+    
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-KZXLS88');</script>
+    
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="generator" content="Hugo 0.55.3" />
+    <link rel="shortcut icon" href="/images/favicon.ico">
+    <link href="http://integerous.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Integerous DevLog" />
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:700i" rel="stylesheet">
+    
+    <script src="https://apis.google.com/js/platform.js" async defer>{lang: 'ja'}</script>
+    
+    <link rel="stylesheet" href="https://yandex.st/highlightjs/8.0/styles/default.min.css">
+    <script src="https://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+    <link rel="stylesheet" type="text/css" href="/css/single.css">
+    <title>AWS EC2 서버에 Java 프로젝트 배포/재배포 | Integerous DevLog</title>
+  </head>
+  <body>
+    
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KZXLS88"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  
+  
+    <div id="wrap">
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-126908369-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+      <header class="site-header">
+        <div class="site-header-left">
+          <a class="site-header-title" href="http://integerous.github.io/">Integerous DevLog</a>
+        </div>
+      </header>
+      <div class="container">
+        <div id="main">
+
+
+
+
+<div class="article">
+  <header>
+    <div class="article-header">
+      <h1>AWS EC2 서버에 Java 프로젝트 배포/재배포</h1>
+      <div class="article-meta">
+        <span class="posttime">2018/10/07</span>
+
+        
+        
+<div class="tags">
+  <ul>
+    
+    <li>
+        <a href="/tags/aws">AWS</a>
+    </li>
+    
+    <li>
+        <a href="/tags/deploy">Deploy</a>
+    </li>
+    
+    <li>
+        <a href="/tags/java">Java</a>
+    </li>
+    
+  </ul>
+</div>
+
+
+      </div>
+    </div>
+    
+  </header>
+  <div class="content">
+    
+
+<blockquote>
+<p>회사 고객센터용 카카오톡 챗봇을 만들어 AWS EC2 서버에 배포하기 위해<br />
+<a href="https://www.youtube.com/watch?v=--bUO7KNFJ4&amp;t=1047s">박재성님 유튜브 강의</a>를 들으며 실습한 내용</p>
+</blockquote>
+
+<h2 id="목차">목차</h2>
+
+<pre><code>1. AWS EC2 인스턴스 생성
+2. 생성한 인스턴스(서버)에 접속
+3. Java 설치
+4. Symbolic Link 추가
+5. 환경변수에 PATH 설정
+6. Git 설치 및 프로젝트 Clone
+7. 빌드 및 배포
+8. 수정된 소스코드 반영
+9. 쉘스크립트로 배포 자동화
+</code></pre>
+
+<h2 id="1-aws-ec2-인스턴스-생성">1. AWS EC2 인스턴스 생성</h2>
+
+<p><a href="https://aws.amazon.com/ko/ec2/">AWS 공식 홈페이지</a>의 설명이 제일 깔끔하다.</p>
+
+<h2 id="2-생성한-인스턴스-서버-에-접속">2. 생성한 인스턴스(서버)에 접속</h2>
+
+<ul>
+<li>퍼블릭 DNS를 사용하여 인스턴스에 연결<br />
+<code>$ ssh -i &quot;chatbot-kakao.pem&quot; ubuntu@ec2~~~.ap-northeast-2.compute.amazonaws.com</code></li>
+<li>Private Key 파일이 공개적으로 표시되어 있을 경우<br />
+<code>$ chmod 400 chatbot-kakao.pem</code> 명령 입력</li>
+<li><code>$ sudo locale-gen ko_KR.UTF-8</code> 혹은 <code>$ sudo apt-get install language-pack-ko</code> 명령으로 인코딩</li>
+</ul>
+
+<h2 id="3-java-설치">3. Java 설치</h2>
+
+<ul>
+<li><strong>apt-get으로 설치</strong>
+
+<ul>
+<li><code>$ apt-get install openjdk-8-jre-headless</code></li>
+</ul></li>
+<li><strong>wget으로 설치할 경우</strong>
+
+<ul>
+<li><code>$ wget</code>명령어를 활용하여 특정 주소에 있는 자바 프로그램을 다운로드</li>
+<li>구글에 jdk download로 검색하여 오라클에 들어간 후, linux x64 다운로드 파일을 마우스 우클릭으로 <code>링크주소복사</code></li>
+<li><code>$ wget 복사한 링크주소</code> 명령 입력</li>
+<li>하지만, 오라클 다운로드 페이지에서 약관동의한 것을 적용할 수 없었으므로 다운로드가 제대로 되지 않는다.</li>
+<li><code>$ rm jdk~~~~~</code> 명령으로 jdk 파일 삭제 및 <code>ls -al</code> 명령으로 삭제 확인</li>
+<li><code>$ wget --header &quot;Cookie: oraclelicense=accept-securebackup-cookie&quot; http://download.oracle.com/otn-pub/java/jdk/8u181-b13/96a7b8442fe848ef90c96a2fad6ed6d1/jdk-8u181-linux-x64.tar.gz</code></li>
+</ul></li>
+<li>설치완료 후 <code>$ ls -al</code>로 설치 확인</li>
+<li><code>$ tar -xvf jdk ~~~ tar.gz</code> 명령으로 압축 해제</li>
+<li><code>/jdk/bin</code> 경로로 이동하여 <code>./java -version</code>으로 자바 버전 확인</li>
+<li>아무 위치에서나 자바 프로그램에 접근이 안되므로 <code>심볼링 링크 설정</code>과 <code>환경 변수 설정</code>을 해야 한다.</li>
+</ul>
+
+<h2 id="4-symbolic-link-추가">4. Symbolic Link 추가</h2>
+
+<ul>
+<li><code>$ ln -s jdk~~/ java(별칭)</code></li>
+<li><code>$ cd java</code> 명령으로 경로에 접근 가능</li>
+</ul>
+
+<h2 id="5-환경변수에-path-설정">5. 환경변수에 PATH 설정</h2>
+
+<ul>
+<li><code>$ cd ~</code></li>
+<li><code>$ vi .bash_profile</code></li>
+<li><code>PATH=$PATH:~/java/bin</code> 작성하고 esc - :wq</li>
+<li><code>$ source .bash_profile</code> 명령으로 환경변수 파일 리로드</li>
+<li>java -version</li>
+</ul>
+
+<h2 id="6-git-설치-및-프로젝트-clone">6. Git 설치 및 프로젝트 Clone</h2>
+
+<ul>
+<li><code>$ git --version</code> 으로 git 설치 확인</li>
+<li>설치 안되어있을 경우, <code>$ sudo apt-get update</code> 후에 <code>$ sudo apt-get install git</code> 명령으로 git 설치</li>
+<li><code>$ git clone 저장소 주소</code> 명령으로 clone</li>
+</ul>
+
+<h2 id="7-빌드-및-배포">7. 빌드 및 배포</h2>
+
+<ul>
+<li><code>$ ./mvnw clean package</code> = 기존의 결과물을 날려버리고(clean) 배포할 수 있는 코드로 다시 빌드하는(package) 명령 입력
+
+<ul>
+<li>만약 각 배포 버전을 남기고 싶다면 clean 없이 <code>$ ./mvnw package</code></li>
+</ul></li>
+<li>빌드의 결과물은 target 디렉토리에 위치하므로 <code>$ cd target</code> 으로 이동하여 <code>$ nohup java -jar ChatBotTest-0.0.1-SNAPSHOT.jar &amp;</code> 명령으로 서버에 띄우기
+
+<ul>
+<li>서버에 띄우는 데에 시간이 너무 오래 걸리면 <code>$ java -Djava.security.egd=file:/dev/./urandom -jar ChatBotTest-0.0.1-SNAPSHOT.jar</code></li>
+<li>터미널을 분리하지 않으면 서버에 올리고나서 <code>Ctrl+c</code>로 명령어를 작성하게되면 서버가 같이 종료되므로 터미널을 분리해서 서버에 올려야한다. 이를 위해 java -jar 명령의 마지막에 <code>&amp;</code> 를 넣어서 터미널을 분리해야한다.</li>
+<li><a href="https://github.com/Integerous/TIL/blob/master/Linux/Maintaining_Process.md"><code>nohup</code> 명령을 하는 이유</a> 읽어보기.</li>
+</ul></li>
+<li><code>$ nohup java -jar ChatBotTest-0.0.1-SNAPSHOT.jar &amp;</code> 명령으로 실행 후 <code>Ctrl+c</code>로 터미널에서 빠져나와서</li>
+<li><code>$ curl http://localhost:8080</code> 명령으로 화면이 뜨는지 확인</li>
+<li><strong>배포한 코드 확인</strong>
+
+<ul>
+<li>8080포트는 보통 방화벽에 막혀있기 때문에 EC2의 보안그룹에서 사용자TCP 8080 위치무관을 선택하고 추가한다.</li>
+<li>인스턴스의 퍼블릭ip:8080 혹은 퍼블릭DNS:8080 을 주소로 접속하면 접속이 된다.
+<br /></li>
+</ul></li>
+</ul>
+
+<h2 id="8-수정된-소스코드-반영">8. 수정된 소스코드 반영</h2>
+
+<ul>
+<li><strong>수정된 코드 push &amp; pull</strong>
+
+<ul>
+<li><code>Ctrl+d</code>로 ssh에서 벗어나서 로컬에서 새로 작업한 내용을 github에 푸시</li>
+<li>다시 ssh로 우분투에 접속하여 프로젝트가 있는 디렉토리로 이동하여 <code>$ git pull</code></li>
+</ul></li>
+<li><strong>프로세스 종료 및 서버 재시작</strong>
+
+<ul>
+<li>새로운 추가된 내용을 적용하기 위해 서버를 재시작해야 한다. 즉,</li>
+<li>현재 떠있는 서버를 멈춰야 하므로 현재 실행되고 있는 프로그램을 <code>$ ps -ef | grep java</code> 명령으로 확인하거나,</li>
+<li><code>$ jps</code> 명령으로 실행되고있는 자바 프로그램과 PID만 확인하여</li>
+<li>배포했던 jar파일의 프로세스아이디(PID, 첫번째 숫자)를 <code>$ kill -9 프로세스아이디</code>로 프로세스를 종료하거나</li>
+<li><code>$ pkill -f '프로그램명'</code>으로 프로세스 종료 가능</li>
+<li><code>$ jps</code>로 프로세스 종료 확인</li>
+</ul></li>
+<li><strong>빌드 및 배포</strong>
+
+<ul>
+<li><code>$ ./mvnw clean package</code> 명령으로 수정된 소스코드를 빌드하고,</li>
+<li>target 디렉토리로 이동하여 <code>$ nohup java -jar ChatBotTest-0.0.1-SNAPSHOT.jar &amp;</code> 명령으로 배포</li>
+</ul></li>
+</ul>
+
+<h2 id="9-쉘-스크립트로-배포-자동화하기">9. 쉘 스크립트로 배포 자동화하기</h2>
+
+<blockquote>
+<p><a href="http://jojoldu.tistory.com/263?category=635883">http://jojoldu.tistory.com/263?category=635883</a> 참고하여 Gradle이 아닌 Maven 버전으로 작성함</p>
+</blockquote>
+
+<ol>
+<li><p><strong>EC2 인스턴스의 <code>/home/ubuntu</code> 디렉토리에 `deploy.sh&rsquo; 파일 생성</strong></p>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ nano deploy.sh</code></pre></div></li>
+
+<li><p><strong><code>deploy.sh</code> 파일에 배포 자동화를 위한 쉘스크립트 작성</strong></p>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#1e889b">#!/bin/bash
+</span><span style="color:#1e889b"></span>
+<span style="color:#00688b">REPOSITORY</span>=/home/ubuntu/Chat-Bot-Kakao
+
+<span style="color:#658b00">echo</span> <span style="color:#cd5555">&#34;&gt; 프로젝트 저장소로 이동!&#34;</span>
+<span style="color:#658b00">cd</span> <span style="color:#00688b">$REPOSITORY</span>
+
+<span style="color:#658b00">echo</span> <span style="color:#cd5555">&#34;&gt; Git Pull !!!&#34;</span>
+git pull
+
+<span style="color:#658b00">echo</span> <span style="color:#cd5555">&#34;&gt; 실행중인 프로세스 확인!&#34;</span>
+<span style="color:#00688b">CURRENT_PID</span>=<span style="color:#8b008b;font-weight:bold">$(</span>pgrep -f ChatBotTest<span style="color:#8b008b;font-weight:bold">)</span>
+
+<span style="color:#658b00">echo</span> <span style="color:#cd5555">&#34;&gt; 실행중인 프로세스 아이디 : </span><span style="color:#00688b">$CURRENT_PID</span><span style="color:#cd5555">&#34;</span>
+<span style="color:#8b008b;font-weight:bold">if</span> [ -z <span style="color:#00688b">$CURRENT_PID</span> ]; <span style="color:#8b008b;font-weight:bold">then</span>
+        <span style="color:#658b00">echo</span> <span style="color:#cd5555">&#34;&gt; 현재 실행중인 어플리케이션이 없으므로 종료하지 않습니다!&#34;</span>
+<span style="color:#8b008b;font-weight:bold">else</span>
+        <span style="color:#658b00">echo</span> <span style="color:#cd5555">&#34;&gt; 현재 실행중인 어플리케이션 종료! Kill -9 </span><span style="color:#00688b">$CURRENT_PID</span><span style="color:#cd5555">&#34;</span>
+        <span style="color:#658b00">kill</span> -9 <span style="color:#00688b">$CURRENT_PID</span>
+        sleep <span style="color:#b452cd">5</span>
+<span style="color:#8b008b;font-weight:bold">fi</span>
+
+<span style="color:#658b00">echo</span> <span style="color:#cd5555">&#34;&gt; 프로젝트 Build 시작! (이전 배포 버전 삭제 안함)&#34;</span>
+./mvnw package
+
+<span style="color:#658b00">echo</span> <span style="color:#cd5555">&#34;&gt; 새 배포 버전의 이름은 ??&#34;</span>
+<span style="color:#00688b">JAR_NAME</span>=<span style="color:#8b008b;font-weight:bold">$(</span>ls <span style="color:#00688b">$REPOSITORY</span>/target |grep <span style="color:#cd5555">&#39;ChatBotTest&#39;</span> |grep -v <span style="color:#cd5555">&#39;original&#39;</span> | tail -n <span style="color:#b452cd">1</span><span style="color:#8b008b;font-weight:bold">)</span>
+<span style="color:#658b00">echo</span> <span style="color:#cd5555">&#34;&gt; JAR Name: </span><span style="color:#00688b">$JAR_NAME</span><span style="color:#cd5555">&#34;</span>
+
+<span style="color:#658b00">echo</span> <span style="color:#cd5555">&#34;&gt; 새 어플리케이션 배포 !!!&#34;</span>
+nohup java -jar <span style="color:#00688b">$REPOSITORY</span>/target/<span style="color:#00688b">$JAR_NAME</span> &amp;</code></pre></div></li>
+
+<li><p><strong>./deploy.sh 실행 권한 설정</strong></p>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">$ chmod <span style="color:#b452cd">755</span> ./deploy.sh</code></pre></div>
+<p></br></p></li>
+</ol>
+
+<hr />
+
+<p><div style="display: flex; justify-content: space-around">
+    <div>
+        <a href="http://bit.ly/all-in-one-study">
+            <img src="/images/memoirs/2020/all-in-one-1.jpg" width="280" style="filter: drop-shadow(0 0.3rem 0.4rem rgba(0, 0, 0, 0.5))" />
+        </a>
+    </div>
+    <div>
+        <a href="http://bit.ly/all-in-one-job">
+            <img src="/images/memoirs/2020/all-in-one-2.jpg" width="280" style="filter: drop-shadow(0 0.3rem 0.4rem rgba(0, 0, 0, 0.5))" />
+        </a><br />
+    </div>
+    <div>
+        <a href="http://bit.ly/all-in-one-united">
+            <img src="/images/memoirs/2020/all-in-one-3.jpg" width="280" style="filter: drop-shadow(0 0.3rem 0.4rem rgba(0, 0, 0, 0.5))" />
+        </a><br />
+    </div></p>
+
+<h2 id="div"></div></h2>
+
+  </div>
+  <footer>
+    <div class="article-footer">
+      
+
+      
+      
+      
+      
+      
+      <div id="pagenavigation-next-prev">
+        
+        <div id="pagenavigation-next">
+          <span class="pagenav-label">&lt; 이전 글</span>
+          <a href="http://integerous.github.io/post/essay/father/">286컴퓨터와 도트프린터</a>
+        </div>
+        
+        
+        <div id="pagenavigation-prev">
+          <span class="pagenav-label">다음 글 ></span>
+          <a href="http://integerous.github.io/post/dev/vpc/">AWS VPC 총정리</a>
+        </div>
+        
+      </div>
+      
+    </div>
+
+    <script src="https://utteranc.es/client.js"
+    repo="integerous/blog-comments"
+    issue-term="pathname"
+    crossorigin="anonymous"
+    async>
+    </script>
+  </footer>
+</div>
+
+
+
+
+
+</div>
+
+</div>
+<footer>
+<div id="site-footer-wrap">
+  <div id="site-footer">
+    <span>Powered by <a href="https://gohugo.io/">Hugo</a>.</span>
+    <span>
+      
+      Copyright (c) 2021, <a href="http://integerous.github.io/">Integerous DevLog</a>
+      
+    </span>
+  </div>
+</div>
+</footer>
+</div>
+</body>
+</html>

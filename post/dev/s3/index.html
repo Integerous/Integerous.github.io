@@ -1,0 +1,548 @@
+
+
+<!DOCTYPE html>
+<html lang="ko-kr">
+  <head>
+    
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-KZXLS88');</script>
+    
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="generator" content="Hugo 0.55.3" />
+    <link rel="shortcut icon" href="/images/favicon.ico">
+    <link href="http://integerous.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Integerous DevLog" />
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:700i" rel="stylesheet">
+    
+    <script src="https://apis.google.com/js/platform.js" async defer>{lang: 'ja'}</script>
+    
+    <link rel="stylesheet" href="https://yandex.st/highlightjs/8.0/styles/default.min.css">
+    <script src="https://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+    <link rel="stylesheet" type="text/css" href="/css/single.css">
+    <title>AWS S3 총정리 | Integerous DevLog</title>
+  </head>
+  <body>
+    
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KZXLS88"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  
+  
+    <div id="wrap">
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-126908369-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+      <header class="site-header">
+        <div class="site-header-left">
+          <a class="site-header-title" href="http://integerous.github.io/">Integerous DevLog</a>
+        </div>
+      </header>
+      <div class="container">
+        <div id="main">
+
+
+
+
+<div class="article">
+  <header>
+    <div class="article-header">
+      <h1>AWS S3 총정리</h1>
+      <div class="article-meta">
+        <span class="posttime">2018/10/07</span>
+
+        
+        
+<div class="tags">
+  <ul>
+    
+    <li>
+        <a href="/tags/aws">AWS</a>
+    </li>
+    
+    <li>
+        <a href="/tags/s3">S3</a>
+    </li>
+    
+  </ul>
+</div>
+
+
+      </div>
+    </div>
+    
+  </header>
+  <div class="content">
+    
+
+<h2 id="s3-simple-storage-service">S3 (Simple Storage Service)</h2>
+
+<blockquote>
+<p>인터넷 스토리지 서비스. 용량에 관계 없이 파일을 저장할 수 있고 웹(HTTP 프로토콜)에서 파일에 접근할 수 있다.</p>
+</blockquote>
+
+<h2 id="1-사용-이유">1. 사용 이유</h2>
+
+<ul>
+<li>S3는 저장 용량이 무한대이고 파일 저장에 최적화되어 있다. 용량을 추가하거나 성능을 높이는 작업이 필요없다.</li>
+<li>비용은 EC2와 EBS로 구축하는 것보다 훨씬 저렴</li>
+<li>S3 자체가 수천 대 이상의 매우 성능이 좋은 웹 서버로 구성되어 있어서 EC2와 EBS로 구축했을 때 처럼 Auto Scaling이나 Load Balancing에 신경쓰지 않아도 된다.</li>
+<li>동적 웹페이지와 정적 웹페이지가 섞여있을 때 동적 웹페이지만 EC2에서 서비스하고 정적 웹페이지는 S3를 이용하면 성능도 높이고 비용도 절감.</li>
+<li>웹하드 서비스와 비슷하지만, 별도의 클라이언트 설치나 ActiveX를 통하지 않고 HTTP 프로토콜로 파일 업로드/다운로드 처리</li>
+<li>S3 자체로 정적 웹서비스 가능</li>
+</ul>
+
+<h2 id="2-버킷-bucket">2. 버킷(Bucket)</h2>
+
+<ul>
+<li>생성하면 default로 private.</li>
+<li>한 계정 당 최대 100개의 버킷 사용 가능.</li>
+<li>버킷 소유권은 이전할 수 없다.</li>
+<li>버킷의 이름은 region에 상관없이 globally unique 해야 한다.</li>
+<li>버킷 주소는 <code>https://s3-리전이름.amazonaws.com/버킷이름</code></li>
+<li>S3 데이터 모델은 flat structure라서 버킷에 hierarchie나 folder는 없다.</li>
+<li>하지만 keyname prefix (Folder1/Object1)를 사용해서 논리적인 hierarchies를 암시할 수 있다.</li>
+<li>버킷 안에 다른 버킷을 둘 수 없다.</li>
+<li>Access Control
+
+<ul>
+<li>Bucket Policies</li>
+<li>Access Control Lists</li>
+</ul></li>
+<li>Path-Style URL에서 버킷 이름은 Region specific endpoint를 사용하지 않는 이상 도메인명에 포함되지 않는다.</li>
+<li>Virtual Hosted Style URL에서 버킷이름은 URL의 도메인명의 일부가 된다.</li>
+<li>Virtual hosting은 HTTP Host Header를 사용해서 REST API 콜의 버킷을 address하는 데 사용될 수 있다.</li>
+</ul>
+
+<h2 id="3-객체-object">3. 객체(Object)</h2>
+
+<ul>
+<li>Object level storage(not a Block level storage)</li>
+<li>객체 하나의 크기는 1Byte ~ 5TB</li>
+<li>저장 가능한 객체 갯수 무제한</li>
+<li>객체마다 각각의 접근 권한 설정 가능</li>
+<li>default로 private 이다.</li>
+<li>객체 metadata는 객체가 업로드 된 후에는 수정될 수 없고, 복사해서 수정해야 한다.</li>
+<li>객체는 Range HTTP header를 이용해서 부분적으로 검색할 수 있다.</li>
+<li>객체는 Pre-signed url를 사용해서 다운로드 할 수 있다.</li>
+<li>객체의 metadata는 response header에 반환된다.</li>
+<li>Updating any metadata for an object requires all the metadata fields to be specified again
+<br /></li>
+</ul>
+
+<h2 id="4-암호화">4. 암호화</h2>
+
+<ol>
+<li>In Transit (S3로 데이터 업로드할 때)
+
+<ul>
+<li>SSL/TLS</li>
+</ul></li>
+<li>At Rest
+
+<ul>
+<li>서버 사이드 암호화
+
+<ul>
+<li>None과 AES-256 중 선택 가능</li>
+<li>S3 Managed Keys : SSE-S3</li>
+<li>AWS Key Management Service, Managed Keys : SSE-KMS</li>
+<li>Customer Provided Keys : SSE-C</li>
+</ul></li>
+<li>클라이언트 사이드 암호화</li>
+</ul></li>
+<li>복호화는 데이터를 가져올 때 이루어진다.</li>
+</ol>
+
+<h2 id="5-s3-tiers-classes">5. S3 Tiers/Classes</h2>
+
+<ul>
+<li>파일을 올리고 나서도 설정할 수 있다.</li>
+<li>S3 Standard
+
+<ul>
+<li>99.99% availability (아마존 게런티 99.9%)</li>
+<li>99.999999999% durablity.</li>
+<li>다수의 장치와 다수의 시설에 저장</li>
+<li>2개의 시설을 동시에 잃어도 지속되게끔 설계</li>
+</ul></li>
+<li>S3 IA (Infrequently Accessed)
+
+<ul>
+<li>자주 접근되지 않지만, 필요할 때 빠르게 접근할 필요가 있는 데이터에 적합</li>
+<li>S3보다 저렴하다. 하지만 retrieval fee가 과금된다.</li>
+</ul></li>
+<li>S3 One Zone IA
+
+<ul>
+<li>이전의 RRS를 대체하는 새로운 클래스</li>
+<li>RRS(Reduced Redundancy Storage)는 데이터 사본의 수를 줄여 비용을 낮춤. 원본에서 다시 생성할 수 있는 데이터 저장에 적함. (내구성 99.99%)</li>
+<li>자주 접근되지 않는 데이터를 위한 저비용 옵션</li>
+<li>S3 IA와 같지만 다수의 AZ이 아니라 하나의 AZ에 저장</li>
+</ul></li>
+<li>Glacier
+
+<ul>
+<li>매우 저렴하지만 Archival only.</li>
+<li>종류는 Expedidited / Standard / Bulk</li>
+<li>Standard의 retrieval time은 3~5시간</li>
+</ul></li>
+</ul>
+
+<h2 id="6-data-consistency-model">6. Data Consistency Model</h2>
+
+<ul>
+<li>Read after Write consistency for PUTS of new Objects
+
+<ul>
+<li>객체를 새로 추가하면 바로 읽을 수 있다.</li>
+<li>S3는 PUT 요청에 대하여 다수의 시설에 데이터를 저장한 후에 SUCCESS를 반환한다.</li>
+<li>A process writes a new object to S3 and immediately lists keys within its bucket. Until the change is fully propagated, the object might not appear in the list.</li>
+</ul></li>
+<li>Eventual Consistency for overwrite PUTS and DELETES (can take some time to propagate)
+
+<ul>
+<li>PUTS를 덮어쓰거나(업데이트) 객체를 삭제하면 propagate하는데에 시간이 걸린다.</li>
+</ul></li>
+</ul>
+
+<h2 id="7-storage-gateway-aws-서비스-중-하나">7. Storage Gateway (AWS 서비스 중 하나)</h2>
+
+<ul>
+<li>On-premise IT 환경과 AWS의 Storage 인프라를 연결시켜주는 서비스</li>
+<li>VM image로 다운로드 하여 데이터센터의 host에 설치할 수 있다.</li>
+<li>Storage Gateway는 VMware ESXi, Microsoft Hyper-V도 지원한다.</li>
+<li>종류
+
+<ul>
+<li>File Gateway(NFS) - for flat files, stored directly on S3</li>
+<li>Volumes Gateway(iSCSI)</li>
+<li>Stored Volumes - Entire Dataset is stored on site and is asynchronously backed up to S3</li>
+<li>Cached Volumes - Entire Dataset is stored on S3 and the most frequently accessed data is cached on site</li>
+<li>Tape Gateway(VTL) - Used for backup and uses popular backup applications like NetBackup, Backup Exec, Veeam etc</li>
+</ul></li>
+<li>File GateWay(NFS) 다이어그램
+<img src="https://github.com/Integerous/TIL/blob/master/AWS/img/FileGateway.png?raw=true" alt="" /></li>
+<li>Volumes Gateway(iSCSI)
+
+<ul>
+<li>Stored Volumes 다이어그램</li>
+<li><img src="https://github.com/Integerous/TIL/blob/master/AWS/img/StoredVolumes.png?raw=true" alt="" /></li>
+<li>Cached Volumes 다이어그램</li>
+<li><img src="https://github.com/Integerous/TIL/blob/master/AWS/img/CachedVolumes.png?raw=true" alt="" /></li>
+</ul></li>
+<li>Tape Gateway(VTL) 다이어그램
+<img src="https://github.com/Integerous/TIL/blob/master/AWS/img/TapeGateway.png?raw=true" alt="" />
+
+
+<br /></li>
+</ul>
+
+<h2 id="8-기타">8. 기타</h2>
+
+<ul>
+<li>운영체제 설치할 수 없다.</li>
+<li>사용자 설정 metadata는 반드시 &ldquo;x-amz-meta&rdquo;라는 prefix로 시작해야 사용자가 정한 key value pair가 설정된다.</li>
+<li>S3 does not process user-defined metadata</li>
+<li>S3 자체적으로 Version Control 기능을 내장하고 있다. 파일을 이전 내용으로 되돌리거나 삭제한 파일을 복원할 수 있다.
+
+<ul>
+<li>Versioning이 enabled 되면 disabled 될 수 없다. 오직 suspended 되는 것이다.</li>
+</ul></li>
+<li>다른 리전으로 복사하려면 소스버킷의 versioning을 활성화 해야한다.</li>
+<li>버킷에 저장된 객체의 LifeCycle을 관리할 수 있다.</li>
+<li>Multi Part 업로드
+
+<ul>
+<li>1 ~ 10000 parts를 지원하고, 각 파트는 5MB~5GB, 마지막 파트는 5MB 이하로도 가능하다.</li>
+<li>최대 업로드 사이즈는 5TB</li>
+</ul></li>
+<li>S3 Transfer Acceleration
+
+<ul>
+<li>S3에 바로 업로드하지 않고, 생성되는 URL을 사용해서 CloudFront의 Edge location에 바로 올리고 S3로 옮기는 것</li>
+</ul></li>
+<li>S3로 정적인 웹사이트 만들기
+
+<ul>
+<li>Endpoint 주소 : <code>http://버킷이름.s3-website-리젼이름.amazonaws.com</code></li>
+<li>S3 website endpoints는 https를 지원하지 않는다.</li>
+</ul></li>
+<li>Snowball
+
+<ul>
+<li>Snowball</li>
+<li>Snowball Edge</li>
+<li>Snowmobile</li>
+</ul></li>
+<li>Notification은 버킷 레벨에서 사용된다.
+<br /></li>
+</ul>
+
+<h2 id="9-비용">9. 비용</h2>
+
+<ul>
+<li>Charged for
+
+<ul>
+<li>Storage - GB/month</li>
+<li>Requests - per Request. Request Type(GET, PUT)에 따라 다르다.</li>
+<li>Storage Management Pricing</li>
+<li>Data Transfer Pricing</li>
+<li>Transfer in - free</li>
+<li>Transfer out - GB/month (같은 region이나 CloudFront로 이전 제외)</li>
+<li>Transfer Acceleration</li>
+</ul></li>
+<li>S3의 비용은 Region에 따라 다르다.
+
+<br /></li>
+</ul>
+
+<h2 id="10-더-자세한-학습-완료할-때-마다-줄-긋기">10. 더 자세한 학습 (완료할 때 마다 줄 긋기)</h2>
+
+<ul>
+<li><del><a href="http://jayendrapatil.com/aws-s3-data-consistency-model/">S3 Consistency Model</a></del></li>
+<li><del>S3 Subresources](<a href="http://jayendrapatil.com/aws-s3-subresources/">http://jayendrapatil.com/aws-s3-subresources/</a>)</del></li>
+<li><a href="http://jayendrapatil.com/aws-s3-storage-classes/">S3 Storage Tiers</a></li>
+<li><a href="http://jayendrapatil.com/aws-s3-object-versioning/">S3 Object Versioning</a></li>
+<li><a href="http://jayendrapatil.com/aws-s3-object-lifecycle-management/">S3 Lifecycle Management</a></li>
+<li><a href="http://jayendrapatil.com/aws-s3-permisions/">S3 Permission</a></li>
+<li><a href="http://jayendrapatil.com/aws-s3-data-protection/">S3 Data Protection</a></li>
+<li><a href="http://jayendrapatil.com/aws-s3-best-practices/">S3 Best Practices</a></li>
+</ul>
+
+<h2 id="어려운-문제들">*어려운 문제들</h2>
+
+<ol>
+<li><p>What are characteristics of Amazon S3? Choose 2 answers<br />
+a. <code>Objects are directly accessible via a URL</code><br />
+b. S3 should be used to host a relational database<br />
+c. S3 allows you to store objects or virtually unlimited size<br />
+d. <code>S3 allows you to store virtually unlimited amounts of data</code>
+e. S3 offers Provisioned IOPS</p></li>
+
+<li><p>You are building an automated transcription service in which Amazon EC2 worker instances process an uploaded audio file and generate a text file. You must store both of these files in the same durable storage until the text file is retrieved. You do not know what the storage capacity requirements are. Which storage option is both cost-efficient and scalable?<br />
+a. Multiple Amazon EBS volume with snapshots<br />
+b. A single Amazon Glacier vault<br />
+c. <code>A single Amazon S3 bucket</code><br />
+d. Multiple instance stores</p></li>
+
+<li><p>A media company produces new video files on-premises every day with a total size of around 100GB after compression. All files have a size of 1-2 GB and need to be uploaded to Amazon S3 every night in a fixed time window between 3am and 5am. Current upload takes almost 3 hours, although less than half of the available bandwidth is used. What step(s) would ensure that the file uploads are able to complete in the allotted time window?<br />
+a. Increase your network bandwidth to provide faster throughput to S3<br />
+b. <code>Upload the files in parallel to S3 using mulipart upload</code><br />
+c. Pack all files into a single archive, upload it to S3, then extract the files in AWS<br />
+d. Use AWS Import/Export to transfer the video files</p></li>
+
+<li><p>A company is deploying a two-tier, highly available web application to AWS. Which service provides durable storage for static content while utilizing lower Overall CPU resources for the web tier?<br />
+a. Amazon EBS volume<br />
+b. <code>Amazon S3</code><br />
+c. Amazon EC2 instance store<br />
+d. Amazon RDS instance</p></li>
+
+<li><p>When you put objects in Amazon S3, what is the indication that an object was successfully stored?<br />
+a. Each S3 account has a special bucket named_s3_logs. Success codes are written to this bucket with a timestamp and checksum.<br />
+b. A success code is inserted into the S3 object metadata.<br />
+c. <code>A HTTP 200 result code and MD5 checksum, taken together, indicate that the operation was successful.</code><br />
+d. Amazon S3 is engineered for 99.999999999% durability. Therefore there is no need to confirm that data was inserted.</p></li>
+
+<li><p>You have private video content in S3 that you want to serve to subscribed users on the Internet. User IDs, credentials, and subscriptions are stored in an Amazon RDS database. Which configuration will allow you to securely serve private content to your users?<br />
+a. <code>Generate pre-signed URLs for each user as they request access to protected S3 content</code><br />
+b. Create an IAM user for each subscribed user and assign the GetObject permission to each IAM user<br />
+c. Create an S3 bucket policy that limits access to your private content to only your subscribed users’ credentials<br />
+d. Create a CloudFront Origin Identity user for your subscribed users and assign the GetObject permission to this user</p></li>
+
+<li><p>You run an ad-supported photo sharing website using S3 to serve photos to visitors of your site. At some point you find out that other sites have been linking to the photos on your site, causing loss to your business. What is an effective method to mitigate this?<br />
+a. <code>Remove public read access and use signed URLs with expiry dates.</code><br />
+b. Use CloudFront distributions for static content.<br />
+c. Block the IPs of the offending websites in Security Groups.<br />
+d. Store photos on an EBS volume of the web server.</p></li>
+
+<li><p>You are designing a web application that stores static assets in an Amazon Simple Storage Service (S3) bucket. You expect this bucket to immediately receive over 150 PUT requests per second. What should you do to ensure optimal performance?<br />
+a. Use multi-part upload.<br />
+b. <code>Add a random prefix to the key names.</code><br />
+c. Amazon S3 will automatically manage performance at this scale.<br />
+d. Use a predictable naming scheme, such as sequential numbers or date time sequences, in the key names</p></li>
+
+<li><p>What is the maximum number of S3 buckets available per AWS Account?<br />
+a. 100 Per region<br />
+b. There is no Limit<br />
+c. <code>100 Per Account (Refer documentation)</code><br />
+d. 500 Per Account<br />
+e. 100 Per IAM User</p></li>
+
+<li><p>Your customer needs to create an application to allow contractors to upload videos to Amazon Simple Storage Service (S3) so they can be transcoded into a different format. She creates AWS Identity and Access Management (IAM) users for her application developers, and in just one week, they have the application hosted on a fleet of Amazon Elastic Compute Cloud (EC2) instances. The attached IAM role is assigned to the instances. As expected, a contractor who authenticates to the application is given a pre-signed URL that points to the location for video upload. However, contractors are reporting that they cannot upload their videos. Which of the following are valid reasons for this behavior? Choose 2 answers { “Version”: “2012-10-17”, “Statement”: [ { “Effect”: “Allow”, “Action”: “s3:*”, “Resource”: “*” } ] }<br />
+a. The IAM role does not explicitly grant permission to upload the object. (오답체크: The role has all permissions for all activities on S3)<br />
+b. The contractorsˈ accounts have not been granted “write” access to the S3 bucket. (오답체크: using pre-signed urls the contractors account don’t need to have access but only the creator of the pre-signed urls)<br />
+c. <code>The application is not using valid security credentials to generate the pre-signed URL.</code><br />
+d. The developers do not have access to upload objects to the S3 bucket. (오답체크: developers are not uploading the objects but its using pre-signed urls)<br />
+e. The S3 bucket still has the associated default permissions. (오답체크: does not matter as long as the user has permission to upload)<br />
+f. <code>The pre-signed URL has expired.</code></p></li>
+
+<li><p>S3 has what consistency model for PUTS of new objects?<br />
+a. <code>Read After Write Consistency</code><br />
+b. Write After Read Consistency<br />
+c. Eventual Consistency<br />
+d. Usual Consistency</p></li>
+
+<li><p>What is AWS Storage Gateway?<br />
+a. <code>It's an on-premise virtual appliance that can be used to cache S3 locaaly at a customers site</code><br />
+b. It allows large scale import/exports in to the AWS cloud without the use of an internet connection<br />
+c. It allows a direct MPLS connection in to AWS<br />
+d. None of the above.</p></li>
+
+<li><p>S3 has eventual consistency for which HTTP Methods?<br />
+a. PUTS of new Objects and DELETES<br />
+b. <code>overwrite PUTS and DELETES</code><br />
+c. PUTS of new objects and UPDATES<br />
+d. UPDATES and DELETES</p></li>
+
+<li><p>You need to use an Object based storage solution to store your critical, non replaceable data in a cost effective way. This data will be frequently updated and will need some form of version control enabled on it. Which S3 storage solution should you use?<br />
+a. <code>S3</code><br />
+b. S3-IA<br />
+c. S3-RRS<br />
+d. Glacier</p></li>
+
+<li><p>You work for a health insurance company who collects large amounts of documents regarding patients health records. This data will be used usually only once when assessing a customer and will then need to be securely stored for a period of 7 years. In some rare cases you may need to retrieve this data within 24 hours of a claim being lodged. Which storage solution would best suit this scenario? You need to keep your costs as low as possible.<br />
+a. S3<br />
+b. S3-IA<br />
+c. S3-RRS<br />
+d. <code>Glacier</code></p></li>
+
+<li><p>You run a meme creation website that frequently generates meme images. The original images are stored in S3 and the meta data about the memes are stored in DynamoDB. You need to store the memes themselves in a low cost storage solution. If an object is lost, you have created a Lambda function that will automatically recreate this meme using the original file in S3 and the metadata in Dynamodb. Which storage solution should you consider to store this non-critical, easily reproducible data on in the most cost effective solution as possible?<br />
+a. S3<br />
+b. S3-IA<br />
+c. <code>S3-RRS</code><br />
+d. Glacier</p></li>
+
+<li><p>You run a popular photo sharing website that is based off S3. You generate revenue from your website via paid for adverts, however you have discovered that other websites are linking directly to the images on your site, and not to the HTML pages that serve the content. This means that people are not seeing your adverts and every time a request is made to S3 to serve an image it is costing your business money. How could you resolve this issue?<br />
+a. Use CloudFront to serve the static content<br />
+b. <code>Remove the ability for images to be served publicly to the site and then used signed URL's with expiry dates</code><br />
+c. Use security groups to blacklist the IP addresses of the sites that do this<br />
+d. Use EBS rather than S3 to store the content</p></li>
+
+<li><p>A user has an S3 object in the US Standard region with the content “color=red”. The user updates the object with the content as “color=”white”. If the user tries to read the value 1 minute after it was uploaded, what will S3 return?<br />
+a. It will return &ldquo;color=white&rdquo;<br />
+b. It will return &ldquo;color=red&rdquo;<br />
+c. It will return and error saying that the object was not found<br />
+d. <code>It may return either &quot;color=red&quot; or &quot;color=white&quot; i.e. any of the value</code></p></li>
+
+<li><p>A user is enabling a static website hosting on an S3 bucket. Which of the below mentioned parameters cannot be configured by the user?<br />
+a. Error document<br />
+b. <code>Conditional error on object name</code><br />
+c. Index document<br />
+d. Conditional redirection on object name</p></li>
+
+<li><p>Company ABCD is running their corporate website on Amazon S3 accessed from http//www.companyabcd.com. Their marketing team has published new web fonts to a separate S3 bucket accessed by the S3 endpoint: <a href="https://s3-us-west1.amazonaws.com/abcdfonts">https://s3-us-west1.amazonaws.com/abcdfonts</a>. While testing the new web fonts, Company ABCD recognized the web fonts are being blocked by the browser. What should Company ABCD do to prevent the web fonts from being blocked by the browser?<br />
+a. Enable versioning on the abcdfonts bucket for each web font<br />
+b. Create a policy on the abcdfonts bucket to enable access to everyone
+c. Add the Content-MD5 header to the request for webfonts in the abcdfonts bucket from the website<br />
+d. <code>Configure the abcdfonts bucket to allow cross-origin requests by creating a CORS configuration</code></p></li>
+</ol>
+
+<h2 id="reference">*Reference</h2>
+
+<ul>
+<li><a href="https://www.udemy.com/aws-certified-solutions-architect-associate/">AWS Certified Solutions Architect - Associate 2018</a></li>
+<li><a href="http://pyrasis.com/book/TheArtOfAmazonWebServices/Chapter11">아마존 웹 서비스를 다루는 기술 11장 - HTTP 프로토콜과 연동되는 스토리지 S3</a></li>
+<li><a href="http://jayendrapatil.com/aws-simple-storage-service-s3-overview/">Jayendra&rsquo;s Blog - S3 Overview</a></li>
+</ul>
+
+<p></br></p>
+
+<hr />
+
+<p><div style="display: flex; justify-content: space-around">
+    <div>
+        <a href="http://bit.ly/all-in-one-study">
+            <img src="/images/memoirs/2020/all-in-one-1.jpg" width="280" style="filter: drop-shadow(0 0.3rem 0.4rem rgba(0, 0, 0, 0.5))" />
+        </a>
+    </div>
+    <div>
+        <a href="http://bit.ly/all-in-one-job">
+            <img src="/images/memoirs/2020/all-in-one-2.jpg" width="280" style="filter: drop-shadow(0 0.3rem 0.4rem rgba(0, 0, 0, 0.5))" />
+        </a><br />
+    </div>
+    <div>
+        <a href="http://bit.ly/all-in-one-united">
+            <img src="/images/memoirs/2020/all-in-one-3.jpg" width="280" style="filter: drop-shadow(0 0.3rem 0.4rem rgba(0, 0, 0, 0.5))" />
+        </a><br />
+    </div></p>
+
+<h2 id="div"></div></h2>
+
+  </div>
+  <footer>
+    <div class="article-footer">
+      
+
+      
+      
+      
+      
+      
+      <div id="pagenavigation-next-prev">
+        
+        <div id="pagenavigation-next">
+          <span class="pagenav-label">&lt; 이전 글</span>
+          <a href="http://integerous.github.io/post/dev/stringconcat/">Java 문자열 연결방법 비교</a>
+        </div>
+        
+        
+        <div id="pagenavigation-prev">
+          <span class="pagenav-label">다음 글 ></span>
+          <a href="http://integerous.github.io/post/dev/java-collections/">자바의 정석 - 컬렉션 프레임웍(Collections Framework)</a>
+        </div>
+        
+      </div>
+      
+    </div>
+
+    <script src="https://utteranc.es/client.js"
+    repo="integerous/blog-comments"
+    issue-term="pathname"
+    crossorigin="anonymous"
+    async>
+    </script>
+  </footer>
+</div>
+
+
+
+
+
+</div>
+
+</div>
+<footer>
+<div id="site-footer-wrap">
+  <div id="site-footer">
+    <span>Powered by <a href="https://gohugo.io/">Hugo</a>.</span>
+    <span>
+      
+      Copyright (c) 2021, <a href="http://integerous.github.io/">Integerous DevLog</a>
+      
+    </span>
+  </div>
+</div>
+</footer>
+</div>
+</body>
+</html>

@@ -13,10 +13,10 @@
     
     <item>
       <title>ActiveMQ의 Virtual Destinations를 활용한 메시지 로드밸런싱</title>
-      <link>http://integerous.github.io/post/server/activemq_virtual_destinations/</link>
+      <link>http://integerous.github.io/post/dev/activemq_virtual_destinations/</link>
       <pubDate>Sat, 07 Dec 2019 00:40:29 +0900</pubDate>
       
-      <guid>http://integerous.github.io/post/server/activemq_virtual_destinations/</guid>
+      <guid>http://integerous.github.io/post/dev/activemq_virtual_destinations/</guid>
       <description>AmazonMQ(ActiveMQ)의 Virtual Destinations를 사용하여 메시지 중복처리 문제를 해결한 경험에 대한 글이다. 회사의 서비스 간 컨텐츠 동</description>
     </item>
     

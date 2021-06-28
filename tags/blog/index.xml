@@ -13,10 +13,10 @@
     
     <item>
       <title>Hugo로 github.io 블로그 만들기</title>
-      <link>http://integerous.github.io/post/etc/creating_static_blog/</link>
+      <link>http://integerous.github.io/post/dev/creating_static_blog/</link>
       <pubDate>Sun, 12 Aug 2018 20:48:55 +0900</pubDate>
       
-      <guid>http://integerous.github.io/post/etc/creating_static_blog/</guid>
+      <guid>http://integerous.github.io/post/dev/creating_static_blog/</guid>
       <description>주소가 github.io인 개발 블로그들이 눈에 많이 띄었다. 찾다보니 Jekyll, Hexo, Hugo 등 Static Site Generator의 존재를 알게 되었다. Hugo와 Github Page의 조합</description>
     </item>
     

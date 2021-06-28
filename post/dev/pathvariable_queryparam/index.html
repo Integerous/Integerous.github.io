@@ -1,0 +1,240 @@
+
+
+<!DOCTYPE html>
+<html lang="ko-kr">
+  <head>
+    
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-KZXLS88');</script>
+    
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="generator" content="Hugo 0.55.3" />
+    <link rel="shortcut icon" href="/images/favicon.ico">
+    <link href="http://integerous.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Integerous DevLog" />
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:700i" rel="stylesheet">
+    
+    <script src="https://apis.google.com/js/platform.js" async defer>{lang: 'ja'}</script>
+    
+    <link rel="stylesheet" href="https://yandex.st/highlightjs/8.0/styles/default.min.css">
+    <script src="https://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+    <link rel="stylesheet" type="text/css" href="/css/single.css">
+    <title>[번역] Path Variable과 Query Parameter는 언제 사용해야 할까? | Integerous DevLog</title>
+  </head>
+  <body>
+    
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KZXLS88"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  
+  
+    <div id="wrap">
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-126908369-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+      <header class="site-header">
+        <div class="site-header-left">
+          <a class="site-header-title" href="http://integerous.github.io/">Integerous DevLog</a>
+        </div>
+      </header>
+      <div class="container">
+        <div id="main">
+
+
+
+
+<div class="article">
+  <header>
+    <div class="article-header">
+      <h1>[번역] Path Variable과 Query Parameter는 언제 사용해야 할까?</h1>
+      <div class="article-meta">
+        <span class="posttime">2019/04/23</span>
+
+        
+        
+<div class="tags">
+  <ul>
+    
+    <li>
+        <a href="/tags/web">Web</a>
+    </li>
+    
+    <li>
+        <a href="/tags/%EB%B2%88%EC%97%AD">번역</a>
+    </li>
+    
+  </ul>
+</div>
+
+
+      </div>
+    </div>
+    
+  </header>
+  <div class="content">
+    
+
+<blockquote>
+<p>원작자의 허락을 받고 번역한 글입니다.<br />
+원문: <a href="https://medium.com/@fullsour/when-should-you-use-path-variable-and-query-parameter-a346790e8a6d">When Should You Use Path Variable and Query Parameter?</a></p>
+
+<p>*역자 주:<br />
+Spring boot와 Vue.js로 파일럿 프로젝트를 개발하던 중,<br />
+카테고리로 게시물 목록을 필터링할 때 @PathVariable로 카테고리 이름을 전달했더니, &lsquo;/&lsquo;가 포함된 카테고리 이름이 문제를 일으켰다.<br />
+알고 보니, 이 글에서 설명하는 것 처럼 Resource를 가져오는 Get 메소드는 PathVariable을 사용하고,<br />
+정렬(sort)이나 필터링을 하는 경우 QueryParam을 사용하는 것이 옳은 방법이었다.</p>
+</blockquote>
+
+<p>이 글을 통해 PathVariable 과 Query Parameter 가 무엇이고, 어떻게 사용해야 하는지 이야기하고자 한다.</p>
+
+<h2 id="1-query-parameter">1. Query Parameter</h2>
+
+<p>당신이 웹 개발자라면, 가장 간단한 방법인 GET 메소드를 사용해서 데이터를 전송하는 방법을 배웠을 것이다.<br />
+소셜 서비스를 만든다고 가정해보자. 사용자 목록을 관리해야 하고, 모든 사용자는 사용자 페이지가 있어야 할 것이다.</p>
+
+<p>그리고 각각의 사용자를 위한 페이지를 만들려면 페이지 마다 식별된 파라미터 경로가 필요한데,<br />
+다음과 같은 get 파라미터를 사용할 수 있을 것이다.</p>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml">/users?id=<span style="color:#b452cd">123</span><span style="color:#bbb">  </span><span style="color:#228b22"># 아이디가 123인 사용자를 가져온다.</span></code></pre></div>
+<p>그럼 서버로 부터 id 변수를 얻을 수 있다. 이것이 Query String이 동작하는 방식이다.<br />
+(이 글에서는 서버단에서의 동작까지는 설명하지 않을 것이다.)</p>
+
+<h2 id="2-path-variable">2. Path Variable</h2>
+
+<p>하지만 데이터를 넘기는 방법 중의 하나로 Path Variable도 사용할 수 있다.<br />
+Path Variable은 다음과 같이 사용한다.</p>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml">/users/<span style="color:#b452cd">123</span><span style="color:#bbb">  </span><span style="color:#228b22"># 아이디가 123인 사용자를 가져온다.</span></code></pre></div>
+<p>이 경우에, 123 을 서버단에 전달한다. 경로를 변수로서 사용하는 것이다.</p>
+
+<h2 id="3-그럼-path-variable과-query-parameter를-각각-언제-사용해야-하는가">3. 그럼 Path Variable과 Query Parameter를 각각 언제 사용해야 하는가?</h2>
+
+<p>만약 어떤 <strong>resource를 식별</strong>하고 싶으면 <strong>Path Variable</strong>을 사용하고,<br />
+<strong>정렬이나 필터링</strong>을 한다면 <strong>Query Parameter</strong>를 사용하는 것이 Best Practice이다.</p>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml">/users<span style="color:#bbb">  </span><span style="color:#228b22"># 사용자 목록을 가져온다.</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span>/users?occupation=programer<span style="color:#bbb">  </span><span style="color:#228b22"># 프로그래머인 사용자 목록을 가져온다.</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span>/users/<span style="color:#b452cd">123</span><span style="color:#bbb">  </span><span style="color:#228b22"># 아이디가 123인 사용자를 가져온다.</span></code></pre></div>
+<p>또한, 기본적인 CRUD 기능을 위해서 또 다른 URL이나 query parameter를 정의할 필요는 없다.<br />
+대신 원하는 기능에 맞게 HTTP 메소드를 바꾸어야 한다.</p>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml">/users<span style="color:#bbb"> </span>[GET]<span style="color:#bbb"> </span><span style="color:#228b22"># 사용자 목록을 가져온다.</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span>/users<span style="color:#bbb"> </span>[POST]<span style="color:#bbb"> </span><span style="color:#228b22"># 새로운 사용자를 생성한다.</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span>/users/<span style="color:#b452cd">123</span><span style="color:#bbb"> </span>[PUT]<span style="color:#bbb"> </span><span style="color:#228b22"># 사용자를 갱신한다.</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span>/users/<span style="color:#b452cd">123</span><span style="color:#bbb"> </span>[DELETE]<span style="color:#bbb"> </span><span style="color:#228b22"># 사용자를 삭제한다.</span></code></pre></div>
+<p>그렇다! 거의 모든 CRUD 프로세스를
+추가적인 endpoint(예를 들어 users/create) 또는<br />
+query parameter(예를 들어 users?action=create) 없이 수행할 수 있다. 게다가 단순하고 예측 가능하다.</p>
+
+<h2 id="4-정리">4. 정리</h2>
+
+<p>앞서 말한 방법대로 구현하지 않아도 동작하는 API를 만들 수는 있다.<br />
+하지만 훨씬 복잡해질 것이고 개발속도를 늦출 것이다.<br />
+개발 효율을 최대한 끌어 올리고 다른 개발자들과의 협업을 고려하면, 표준이 되는 방법과 best practice를 따르는 것이 좋다.</p>
+
+<p>마지막으로, References의 링크들을 통해 RESTful API를 설계하는 또 다른 best practice들을 확인할 수 있다.</p>
+
+<h2 id="references">References</h2>
+
+<ul>
+<li><a href="http://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api">Best Practices for Designing a Pragmatic RESTful API</a></li>
+<li><a href="https://hackernoon.com/restful-api-designing-guidelines-the-best-practices-60e1d954e7c9">RESTful API Designing guidelines — The best practices</a></li>
+<li><a href="https://phauer.com/2015/restful-api-design-best-practices/">RESTful API Design. Best Practices in a Nutshell</a></li>
+</ul>
+
+<p></br></p>
+
+<hr />
+
+<p><div style="display: flex; justify-content: space-around">
+    <div>
+        <a href="http://bit.ly/all-in-one-study">
+            <img src="/images/memoirs/2020/all-in-one-1.jpg" width="280" style="filter: drop-shadow(0 0.3rem 0.4rem rgba(0, 0, 0, 0.5))" />
+        </a>
+    </div>
+    <div>
+        <a href="http://bit.ly/all-in-one-job">
+            <img src="/images/memoirs/2020/all-in-one-2.jpg" width="280" style="filter: drop-shadow(0 0.3rem 0.4rem rgba(0, 0, 0, 0.5))" />
+        </a><br />
+    </div>
+    <div>
+        <a href="http://bit.ly/all-in-one-united">
+            <img src="/images/memoirs/2020/all-in-one-3.jpg" width="280" style="filter: drop-shadow(0 0.3rem 0.4rem rgba(0, 0, 0, 0.5))" />
+        </a><br />
+    </div></p>
+
+<h2 id="div"></div></h2>
+
+  </div>
+  <footer>
+    <div class="article-footer">
+      
+
+      
+      
+      
+      
+      
+      <div id="pagenavigation-next-prev">
+        
+        <div id="pagenavigation-next">
+          <span class="pagenav-label">&lt; 이전 글</span>
+          <a href="http://integerous.github.io/post/dev/jpa_basics/">&lt;JPA 프로그래밍 기본기 다지기&gt; 내용 정리</a>
+        </div>
+        
+        
+        <div id="pagenavigation-prev">
+          <span class="pagenav-label">다음 글 ></span>
+          <a href="http://integerous.github.io/post/memoirs/memoirs2018/">체대 출신 개발자의 2018년 회고</a>
+        </div>
+        
+      </div>
+      
+    </div>
+
+    <script src="https://utteranc.es/client.js"
+    repo="integerous/blog-comments"
+    issue-term="pathname"
+    crossorigin="anonymous"
+    async>
+    </script>
+  </footer>
+</div>
+
+
+
+
+
+</div>
+
+</div>
+<footer>
+<div id="site-footer-wrap">
+  <div id="site-footer">
+    <span>Powered by <a href="https://gohugo.io/">Hugo</a>.</span>
+    <span>
+      
+      Copyright (c) 2021, <a href="http://integerous.github.io/">Integerous DevLog</a>
+      
+    </span>
+  </div>
+</div>
+</footer>
+</div>
+</body>
+</html>

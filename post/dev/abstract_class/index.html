@@ -1,0 +1,275 @@
+
+
+<!DOCTYPE html>
+<html lang="ko-kr">
+  <head>
+    
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-KZXLS88');</script>
+    
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="generator" content="Hugo 0.55.3" />
+    <link rel="shortcut icon" href="/images/favicon.ico">
+    <link href="http://integerous.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Integerous DevLog" />
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:700i" rel="stylesheet">
+    
+    <script src="https://apis.google.com/js/platform.js" async defer>{lang: 'ja'}</script>
+    
+    <link rel="stylesheet" href="https://yandex.st/highlightjs/8.0/styles/default.min.css">
+    <script src="https://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+    <link rel="stylesheet" type="text/css" href="/css/single.css">
+    <title>추상(abstract) 클래스가 필요한 기본적인 이유 | Integerous DevLog</title>
+  </head>
+  <body>
+    
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KZXLS88"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  
+  
+    <div id="wrap">
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-126908369-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+      <header class="site-header">
+        <div class="site-header-left">
+          <a class="site-header-title" href="http://integerous.github.io/">Integerous DevLog</a>
+        </div>
+      </header>
+      <div class="container">
+        <div id="main">
+
+
+
+
+<div class="article">
+  <header>
+    <div class="article-header">
+      <h1>추상(abstract) 클래스가 필요한 기본적인 이유</h1>
+      <div class="article-meta">
+        <span class="posttime">2019/05/22</span>
+
+        
+        
+<div class="tags">
+  <ul>
+    
+    <li>
+        <a href="/tags/java">Java</a>
+    </li>
+    
+  </ul>
+</div>
+
+
+      </div>
+    </div>
+    
+  </header>
+  <div class="content">
+    
+
+<div style="display: flex; justify-content: space-around">
+    <div>
+        <a href="http://bit.ly/all-in-one-study">
+            <img src="/images/memoirs/2020/all-in-one-1.jpg" width="280" style="filter: drop-shadow(0 0.3rem 0.4rem rgba(0, 0, 0, 0.5))" />
+        </a> 
+    </div> 
+    <div>
+        <a href="http://bit.ly/all-in-one-job">
+            <img src="/images/memoirs/2020/all-in-one-2.jpg" width="280" style="filter: drop-shadow(0 0.3rem 0.4rem rgba(0, 0, 0, 0.5))" />
+        </a>  
+    </div>
+    <div>
+        <a href="http://bit.ly/all-in-one-united">
+            <img src="/images/memoirs/2020/all-in-one-3.jpg" width="280" style="filter: drop-shadow(0 0.3rem 0.4rem rgba(0, 0, 0, 0.5))" />
+        </a>  
+    </div>
+</div>
+
+<hr />
+
+<p></br></p>
+
+<blockquote>
+<p><code>Java의 정석</code>으로 Java의 개념들을 공부한 나는 추상클래스가 언제나 찝찝했다.<br />
+개발을 공부하기 시작한지 얼마 안되어 학습한 내용이었기 때문에 적당한 수준으로 이해하고 넘어갔던 것이다.<br />
+찝찝한 상태로 남아있는 개념들을 하나씩 바로 잡을 계획이었는데, 추상클래스에 대해 조금 더 이해 할 기회가 생겨 정리해본다.</p>
+</blockquote>
+
+<p></br>
+<code>Java의 정석</code>에서는 추상클래스와 추상메서드가 필요한 이유를 명확하게 설명하지 않았다.</p>
+
+<p>때문에 나는 지금까지 추상클래스(메서드)가 필요한 이유를<br />
+<code>자손 클래스에서 추상메서드를 반드시 구현하도록 강요하기 위해서</code>라고만 이해하고 있었다.<br />
+그리고 아직 실무에서 추상클래스(메서드)를 작성할 일이 없었기 때문에 발전이 없는 상태였다.</p>
+
+<p>하지만 <a href="https://www.inflearn.com/course/java-%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0/lecture/7465">Java로 배우는 자료구조</a> 강의에서는
+조금 다르게 설명했고, 난 이 예제와 설명이 더 와닿았다.</p>
+
+<p></br></p>
+
+<h3 id="예제를-단순화-해보면">예제를 단순화 해보면,</h3>
+
+<ol>
+<li><p>Event 라는 부모클래스가 있고,</p>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#8b008b;font-weight:bold">public</span> <span style="color:#8b008b;font-weight:bold">class</span> <span style="color:#008b45;font-weight:bold">Event</span> {
+    ...
+}</code></pre></div></li>
+
+<li><p>Event를 상속받은 자식클래스 aEvent, bEvent, cEvent가 있으며, 각각 isRelevant() 메서드를 구현하였다.</p>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#8b008b;font-weight:bold">public</span> <span style="color:#8b008b;font-weight:bold">class</span> <span style="color:#008b45;font-weight:bold">aEvent</span> <span style="color:#8b008b;font-weight:bold">extends</span> Event {
+    ...
+    <span style="color:#8b008b;font-weight:bold">public</span> <span style="color:#00688b;font-weight:bold">boolean</span> <span style="color:#008b45">isRelevant</span>(Data data) {
+        <span style="color:#8b008b;font-weight:bold">return</span> logic.<span style="color:#658b00">a</span>;
+    }
+}</code></pre></div><div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#8b008b;font-weight:bold">public</span> <span style="color:#8b008b;font-weight:bold">class</span> <span style="color:#008b45;font-weight:bold">bEvent</span> <span style="color:#8b008b;font-weight:bold">extends</span> Event {
+    ...
+    <span style="color:#8b008b;font-weight:bold">public</span> <span style="color:#00688b;font-weight:bold">boolean</span> <span style="color:#008b45">isRelevant</span>(Data data) {
+        <span style="color:#8b008b;font-weight:bold">return</span> logic.<span style="color:#658b00">b</span>;
+    }
+}</code></pre></div><div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#8b008b;font-weight:bold">public</span> <span style="color:#8b008b;font-weight:bold">class</span> <span style="color:#008b45;font-weight:bold">cEvent</span> <span style="color:#8b008b;font-weight:bold">extends</span> Event {
+    ...
+    <span style="color:#8b008b;font-weight:bold">public</span> <span style="color:#00688b;font-weight:bold">boolean</span> <span style="color:#008b45">isRelevant</span>(Data data) {
+        <span style="color:#8b008b;font-weight:bold">return</span> logic.<span style="color:#658b00">c</span>;
+    }
+}</code></pre></div></li>
+
+<li><p>그리고 다른 클래스의 어느 메서드에서 Event 타입으로 선언된 배열 events[]의 각 원소를 isRelevant()메소드로 검증하는 로직을 작성했다. (events[] 배열의 각 원소는 aEvent, bEvent, cEvent 타입의 원소들이다.)</p>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#8b008b;font-weight:bold">public</span> <span style="color:#8b008b;font-weight:bold">class</span> <span style="color:#008b45">someClass</span>() {
+    ...
+    Event events[] = <span style="color:#8b008b;font-weight:bold">new</span> Event[100];
+    ...
+        
+    <span style="color:#8b008b;font-weight:bold">public</span> <span style="color:#00688b;font-weight:bold">void</span> <span style="color:#008b45">someMethod</span>() {
+        <span style="color:#8b008b;font-weight:bold">for</span>(<span style="color:#00688b;font-weight:bold">int</span> i=0; i&lt;n; i++)
+            <span style="color:#8b008b;font-weight:bold">if</span>(events[i].<span style="color:#658b00">isRelevant</span>(someData)) <span style="color:#228b22">// 컴파일 에러!!!
+</span><span style="color:#228b22"></span>                system.<span style="color:#658b00">out</span>.<span style="color:#658b00">println</span>( events[i].<span style="color:#658b00">toString</span>());
+    }</code></pre></div>
+<p>그런데 isRelevant()메소드에서 컴파일 에러가 발생한다.<br />
+왜냐하면 <strong>events[] 배열은 Event 타입으로 선언되었는데, Event 클래스에는 isRelevant() 메서드가 정의되어 있지 않기 때문</strong>이다.</p>
+
+<p>배열의 각 원소가 Event 클래스를 상속받은 클래스의 객체이고, 각 클래스는 isRelevant() 메서드가 구현되어 있지만,<br />
+컴파일러는 Event 클래스에 isRelevant() 메서드가 없는 것을 허용하지 않는 것이다.</p>
+
+<p>(<code>events[i].toString()</code>에서 컴파일 에러가 나지 않는 이유는 toString() 메서드는 모든 클래스의 조상 클래스인 Object 클래스에 정의된 메서드이기 때문이다.)</p></li>
+
+<li><p>이 때, 단순히 컴파일 에러만 피하고자 한다면,<br />
+아래와 같이 Event 객체에 사용될 일 없는 isRelevant() 메서드를 정의할 수 있을 것이다.</p>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#8b008b;font-weight:bold">public</span> <span style="color:#8b008b;font-weight:bold">class</span> <span style="color:#008b45;font-weight:bold">Event</span> {
+    ...
+
+    <span style="color:#8b008b;font-weight:bold">public</span> <span style="color:#00688b;font-weight:bold">boolean</span> <span style="color:#008b45">isRelevant</span>(Data data) {
+        <span style="color:#8b008b;font-weight:bold">return</span> <span style="color:#8b008b;font-weight:bold">false</span>;
+    }
+}</code></pre></div>
+<p>위와 같이 메서드를 정의하면 컴파일 에러는 사라지고 정상적으로 동작한다.<br />
+하지만 사용되지 않을 메서드를 구현하는 것은 올바른 해결책이 아니다.</p></li>
+
+<li><p>이 문제를 해결하려면 isRelevant()메서드를 추상 메서드로 만들면 된다.<br />
+(그리고 아래 코드와 같이 추상 메서드가 하나라도 있으면 그 클래스는 추상 클래스가 된다.)</p>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#8b008b;font-weight:bold">public</span> <span style="color:#8b008b;font-weight:bold">abstract</span> <span style="color:#8b008b;font-weight:bold">class</span> <span style="color:#008b45;font-weight:bold">Event</span> {
+    ...
+
+    <span style="color:#8b008b;font-weight:bold">public</span> <span style="color:#8b008b;font-weight:bold">abstract</span> <span style="color:#00688b;font-weight:bold">boolean</span> <span style="color:#008b45">isRelevant</span>(Data data);
+}</code></pre></div></li>
+</ol>
+
+<p></br>
+이 예제가 이해하기 쉬웠던 이유는 나같은 초보자가 코드를 짜면서 맞이하는 상황과 비슷한 흐름이기 때문이다.<br />
+나의 경우에는, 큰 그림을 보지 못하고 우선 동작하는 코드를 작성한다.<br />
+그러다 보면 코드 중복이 발견되고, 그 중복을 해결하기 위해 그제서야 추상화와 상속을 고민한다.</p>
+
+<p>때문에 부모클래스에 추상 메서드를 선언하여 추상클래스로 만들고, 그 클래스를 상속받은 서브클래스들에서 추상메서드를 구현하는 방식으로 설명하는 <code>Java의 정석</code>의 예제는 초보개발자 입장에서 제대로 이해할 수 없었던 것이다.</p>
+
+<blockquote>
+<p>물론 추상 메서드와 추상 클래스의 역할과 활용에 대해서는 더 깊은 이야기들이 있겠지만,<br />
+실무에서 마주하게 되길 바라면서 우선은 이 정도로 정리해본다.</p>
+</blockquote>
+
+<hr />
+
+<h3 id="reference">*Reference</h3>
+
+<ul>
+<li><a href="https://www.inflearn.com/course/java-%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0/lecture/7465">Java로 배우는 자료구조 - 권오흠</a></li>
+</ul>
+
+  </div>
+  <footer>
+    <div class="article-footer">
+      
+
+      
+      
+      
+      
+      
+      <div id="pagenavigation-next-prev">
+        
+        <div id="pagenavigation-next">
+          <span class="pagenav-label">&lt; 이전 글</span>
+          <a href="http://integerous.github.io/post/dev/try_with_resources/">Try-with-resources를 이용한 자원해제 처리</a>
+        </div>
+        
+        
+        <div id="pagenavigation-prev">
+          <span class="pagenav-label">다음 글 ></span>
+          <a href="http://integerous.github.io/post/dev/jpa_basics/">&lt;JPA 프로그래밍 기본기 다지기&gt; 내용 정리</a>
+        </div>
+        
+      </div>
+      
+    </div>
+
+    <script src="https://utteranc.es/client.js"
+    repo="integerous/blog-comments"
+    issue-term="pathname"
+    crossorigin="anonymous"
+    async>
+    </script>
+  </footer>
+</div>
+
+
+
+
+
+</div>
+
+</div>
+<footer>
+<div id="site-footer-wrap">
+  <div id="site-footer">
+    <span>Powered by <a href="https://gohugo.io/">Hugo</a>.</span>
+    <span>
+      
+      Copyright (c) 2021, <a href="http://integerous.github.io/">Integerous DevLog</a>
+      
+    </span>
+  </div>
+</div>
+</footer>
+</div>
+</body>
+</html>

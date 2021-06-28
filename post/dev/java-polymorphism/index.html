@@ -1,0 +1,231 @@
+
+
+<!DOCTYPE html>
+<html lang="ko-kr">
+  <head>
+    
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-KZXLS88');</script>
+    
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="generator" content="Hugo 0.55.3" />
+    <link rel="shortcut icon" href="/images/favicon.ico">
+    <link href="http://integerous.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Integerous DevLog" />
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:700i" rel="stylesheet">
+    
+    <script src="https://apis.google.com/js/platform.js" async defer>{lang: 'ja'}</script>
+    
+    <link rel="stylesheet" href="https://yandex.st/highlightjs/8.0/styles/default.min.css">
+    <script src="https://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+    <link rel="stylesheet" type="text/css" href="/css/single.css">
+    <title>자바의 정석 - 다형성(Polymorphism) | Integerous DevLog</title>
+  </head>
+  <body>
+    
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KZXLS88"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  
+  
+    <div id="wrap">
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-126908369-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+      <header class="site-header">
+        <div class="site-header-left">
+          <a class="site-header-title" href="http://integerous.github.io/">Integerous DevLog</a>
+        </div>
+      </header>
+      <div class="container">
+        <div id="main">
+
+
+
+
+<div class="article">
+  <header>
+    <div class="article-header">
+      <h1>자바의 정석 - 다형성(Polymorphism)</h1>
+      <div class="article-meta">
+        <span class="posttime">2018/10/03</span>
+
+        
+        
+<div class="tags">
+  <ul>
+    
+    <li>
+        <a href="/tags/java">Java</a>
+    </li>
+    
+  </ul>
+</div>
+
+
+      </div>
+    </div>
+    
+  </header>
+  <div class="content">
+    
+
+<div style="display: flex; justify-content: space-around">
+    <div>
+        <a href="http://bit.ly/all-in-one-study">
+            <img src="/images/memoirs/2020/all-in-one-1.jpg" width="280" style="filter: drop-shadow(0 0.3rem 0.4rem rgba(0, 0, 0, 0.5))" />
+        </a> 
+    </div> 
+    <div>
+        <a href="http://bit.ly/all-in-one-job">
+            <img src="/images/memoirs/2020/all-in-one-2.jpg" width="280" style="filter: drop-shadow(0 0.3rem 0.4rem rgba(0, 0, 0, 0.5))" />
+        </a>  
+    </div>
+    <div>
+        <a href="http://bit.ly/all-in-one-united">
+            <img src="/images/memoirs/2020/all-in-one-3.jpg" width="280" style="filter: drop-shadow(0 0.3rem 0.4rem rgba(0, 0, 0, 0.5))" />
+        </a>  
+    </div>
+</div>
+
+<hr />
+
+<p></br></p>
+
+<blockquote>
+<p>자바의 정석(남궁성 저) 학습내용 정리</p>
+</blockquote>
+
+<h2 id="1-다형성-polymorphism">1. 다형성 (Polymorphism)</h2>
+
+<ul>
+<li>Java에서는 한 타입의 참조변수로 여러 타입의 객체를 참조할 수 있도록 하는 것.</li>
+<li>부모클래스 타입의 참조변수로 자식클래스의 인스턴스를 참조할 수 있도록 하는 것.</li>
+<li>참조변수의 타입이 참조변수가 참조하고 있는 인스턴스에서 사용할 수 있는 멤버의 개수를 결정한다.</li>
+<li>모든 참조변수는 null 또는 4 byte의 주소값이 저장된다.</li>
+</ul>
+
+<h2 id="2-참조변수의-형변환">2. 참조변수의 형변환</h2>
+
+<ul>
+<li>부모타입의 참조변수를 자식타입의 참조변수로 변환하는 것 = down-casting (형변환 생략 불가)</li>
+<li>형변환은 참조변수의 타입을 변환하는 것이지 인스턴스를 변환하는 것은 아니기 때문에, 참조변수의 형변환은 인스턴스에 아무 영향 없다.</li>
+<li>컴파일 시, 참조변수 간의 타입만 체크하기 때문에 실행 시 생성될 인스턴스의 타입에 대해서는 알지 못하여 컴파일은 성공하더라도 실행 시 에러(ClassCastException)가 발생할 수 있다.</li>
+</ul>
+
+<h2 id="3-instanceof-연산자">3. instanceof 연산자</h2>
+
+<ul>
+<li>참조변수가 참조하고 있는 인스턴스의 실제 타입을 알아보기 위해 <code>instanceof</code> 연산자를 사용한다.(주로 조건문에 사용)</li>
+<li><code>instanceof</code>를 이용한 연산 결과로 <code>true</code>를 얻었다는 것은 참조변수가 검사한 타입으로 형변환이 가능하다는 뜻이다.
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#00688b;font-weight:bold">void</span> <span style="color:#008b45">doWork</span>(Car c) {
+  <span style="color:#8b008b;font-weight:bold">if</span> (c <span style="color:#8b008b;font-weight:bold">instanceof</span> FireEngine){
+      FireEngine fe = (FireEngine)c;
+      fe.<span style="color:#658b00">water</span>();
+      ...
+  }<span style="color:#8b008b;font-weight:bold">else</span> <span style="color:#8b008b;font-weight:bold">if</span> ...
+}</code></pre></div></li>
+</ul>
+
+<h2 id="4-참조변수와-인스턴스의-연결">4. 참조변수와 인스턴스의 연결</h2>
+
+<ul>
+<li>static 메소드는 static 변수처럼 참조변수의 타입에 영향을 받는다. 참조변수의 타입에 영향을 받지 않는 것은 인스턴스 메소드 뿐이다.</li>
+<li>따라서 static 메소드는 반드시 참조변수가 아닌 <code>클래스이름.메소드()</code>로 호출해야 한다.</li>
+</ul>
+
+<h2 id="5-여러-종류의-객체를-배열로-다루기">5. 여러 종류의 객체를 배열로 다루기</h2>
+
+<ul>
+<li>부모타입의 참조변수 배열을 사용하면, 공통의 조상을 가진 서로 다른 종류의 객체를 배열로 묶어서 다룰 수 있다.</li>
+<li><code>Vector</code>클래스는 내부적으로 <code>Object</code>타입의 배열을 가지고 있어서, 이 배열에 객체를 추가하거나 제거할 수 있다.<br />
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#8b008b;font-weight:bold">public</span> <span style="color:#8b008b;font-weight:bold">class</span> <span style="color:#008b45;font-weight:bold">Vector</span> <span style="color:#8b008b;font-weight:bold">extends</span> AbstractList
+              <span style="color:#8b008b;font-weight:bold">implements</span> List, Cloneable, java.<span style="color:#658b00">io</span>.<span style="color:#658b00">Serializable</span>  {
+    <span style="color:#8b008b;font-weight:bold">protected</span> Object elementData[];
+    ...
+}</code></pre></div></li>
+<li><code>Vector</code>클래스는 배열의 크기를 알아서 관리해주기 때문에 저장할 인스턴스의 개수에 신경 쓰지 않아도 된다.</li>
+<li><code>Vector</code>클래스는 단지 동적으로 크기가 관리되는 객체배열일 뿐이다.
+
+<ul>
+<li><code>Vector item = new Vector();</code></li>
+</ul></li>
+</ul>
+
+  </div>
+  <footer>
+    <div class="article-footer">
+      
+
+      
+      
+      
+      
+      
+      <div id="pagenavigation-next-prev">
+        
+        <div id="pagenavigation-next">
+          <span class="pagenav-label">&lt; 이전 글</span>
+          <a href="http://integerous.github.io/post/dev/java-abstract-interface/">자바의 정석 - 추상클래스, 인터페이스</a>
+        </div>
+        
+        
+        <div id="pagenavigation-prev">
+          <span class="pagenav-label">다음 글 ></span>
+          <a href="http://integerous.github.io/post/essay/myuniverse/">내 우주가 생긴 날</a>
+        </div>
+        
+      </div>
+      
+    </div>
+
+    <script src="https://utteranc.es/client.js"
+    repo="integerous/blog-comments"
+    issue-term="pathname"
+    crossorigin="anonymous"
+    async>
+    </script>
+  </footer>
+</div>
+
+
+
+
+
+</div>
+
+</div>
+<footer>
+<div id="site-footer-wrap">
+  <div id="site-footer">
+    <span>Powered by <a href="https://gohugo.io/">Hugo</a>.</span>
+    <span>
+      
+      Copyright (c) 2021, <a href="http://integerous.github.io/">Integerous DevLog</a>
+      
+    </span>
+  </div>
+</div>
+</footer>
+</div>
+</body>
+</html>

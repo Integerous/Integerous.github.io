@@ -1,0 +1,476 @@
+
+
+<!DOCTYPE html>
+<html lang="ko-kr">
+  <head>
+    
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-KZXLS88');</script>
+    
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="generator" content="Hugo 0.55.3" />
+    <link rel="shortcut icon" href="/images/favicon.ico">
+    <link href="http://integerous.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Integerous DevLog" />
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:700i" rel="stylesheet">
+    
+    <script src="https://apis.google.com/js/platform.js" async defer>{lang: 'ja'}</script>
+    
+    <link rel="stylesheet" href="https://yandex.st/highlightjs/8.0/styles/default.min.css">
+    <script src="https://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+    <link rel="stylesheet" type="text/css" href="/css/single.css">
+    <title>Hugo로 github.io 블로그 만들기 | Integerous DevLog</title>
+  </head>
+  <body>
+    
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KZXLS88"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  
+  
+    <div id="wrap">
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-126908369-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+      <header class="site-header">
+        <div class="site-header-left">
+          <a class="site-header-title" href="http://integerous.github.io/">Integerous DevLog</a>
+        </div>
+      </header>
+      <div class="container">
+        <div id="main">
+
+
+
+
+<div class="article">
+  <header>
+    <div class="article-header">
+      <h1>Hugo로 github.io 블로그 만들기</h1>
+      <div class="article-meta">
+        <span class="posttime">2018/08/12</span>
+
+        
+        
+<div class="tags">
+  <ul>
+    
+    <li>
+        <a href="/tags/hugo">Hugo</a>
+    </li>
+    
+    <li>
+        <a href="/tags/git">Git</a>
+    </li>
+    
+    <li>
+        <a href="/tags/blog">Blog</a>
+    </li>
+    
+  </ul>
+</div>
+
+
+      </div>
+    </div>
+    
+  </header>
+  <div class="content">
+    
+
+<blockquote>
+<p>주소가 github.io인 개발 블로그들이 눈에 많이 띄었다.<br />
+찾다보니 Jekyll, Hexo, Hugo 등 Static Site Generator의 존재를 알게 되었다.<br />
+Hugo와 Github Page의 조합으로 Devlog로 사용할 개인 블로그를 만들기로 했다.<br />
+놀다 지친 여름휴가 막바지에 집중공략을 시작!</p>
+</blockquote>
+
+<h2 id="0-목차">0. 목차</h2>
+
+<pre><code>1. Static Site Generator 란?
+2. Static Site Generator 선택 과정
+3. Hugo, 너로 정했다!
+4. Hugo + Github Page 만드는 과정
+5. 댓글 위젯 추가하기 (Utterances 사용)
+6. 사용 후기 (계속 추가 예정)
+</code></pre>
+
+<h2 id="1-static-site-generator-란">1. Static Site Generator 란?</h2>
+
+<p><a href="https://blog.nacyot.com/articles/2014-01-15-static-site-generator/">이 글</a>이 정적 웹사이트 생성기와 동적 웹사이트 생성기의 차이를 잘 설명해주고 있다.</p>
+
+<h2 id="2-static-site-generator-선택-과정">2. Static Site Generator 선택 과정</h2>
+
+<p><a href="https://www.staticgen.com/">이 곳</a>에서 모든(?) Static Site Generator들을 한눈에 볼 수 있었다.<br />
+<a href="http://tadakichi.tistory.com/188">이 글</a>에서 가장 많이 사용하는 Jekyll , Hexo, Hugo를 비교하여 아래 내용을 참고하였다.</p>
+
+<pre><code>Jekyll
+  -루비 기반
+  -현재 가장 인기 있음(깃헙 별 수 제일 많음)
+  -한글 레퍼런스도 제일 많음
+  -느리다는 제보가 많음(몇 십개의 포스팅 뿐인데도 빌드 하는데 5분씩 걸린다고)
+  -윈도우 공식 지원 안됨
+
+Hexo
+  -자바스크립트(Node.js) 기반
+  -한글 레퍼런스 꽤 많음
+  -메인 개발자가 손을 놓은 듯
+  -개발자가 중국인? 이라 구글링하면 중국어 글이 많이 나옴
+
+Hugo
+  -Golang 기반
+  -빌드 빠름
+  -문서화 잘돼있음
+  -깃헙 별 수가 헥소보다 많음
+  -한글 레퍼런스가 거의 없음
+
+출처: http://tadakichi.tistory.com/188
+</code></pre>
+
+<h2 id="3-hugo-너로-정했다">3. Hugo, 너로 정했다!</h2>
+
+<h3 id="3-1-내가-hugo를-선택한-이유">3.1. 내가 Hugo를 선택한 이유</h3>
+
+<ul>
+<li>Go로 제작되었다. (Go를 공부중이다.)</li>
+<li>Hugo는 런타임에 다른 의존성이 필요하지 않아 빌드시간이 세계에서 제일 빠르다. (&ldquo;Hugo is the world’s fastest static website engine.&rdquo;)</li>
+<li><strong><em>오픈소스에 기여할 기회 !!</em></strong> (Hugo는 한글 Reference가 거의 없는 오픈소스이며 Jekyll에 비해 기여할 수 있는 여지가 남아있다.)</li>
+</ul>
+
+<h3 id="3-2-cloudz-labs-http-tech-cloudz-labs-io-posts-hugo-hugo-에서-github-page와-환상의-조합인-jekyll-대신-hugo를-선택한-이유">3.2. <a href="http://tech.cloudz-labs.io/posts/hugo/hugo/">CloudZ Labs</a>에서 Github Page와 환상의 조합인 Jekyll 대신 Hugo를 선택한 이유</h3>
+
+<ul>
+<li>&ldquo;Jekyll을 사용할 경우, 별도의 Build 과정 없이 Repository에 Push만으로 작성한 글들이 알아서 Publishing됩니다. 하지만, 글이 많아질 수록 Jekyll의 빌드 성능은 현저하게 저하됩니다. 하지만, Hugo는 Build 과정이 있어도 성능저하 없이, 빠르게 글을 Publishing할 수 있습니다. Go나 기타 종속성 없이, Hugo CLI를 통해서 쉽게 블로그 및 글을 생성할 수 있습니다. 그래서, Hugo로 블로그를 만들게 되었습니다.&rdquo;</li>
+</ul>
+
+<h2 id="4-hugo-github-page-만드는-과정">4. Hugo + Github Page 만드는 과정</h2>
+
+<h3 id="4-1-hugo-설치">4.1. Hugo 설치</h3>
+
+<blockquote>
+<p>나도 멋깔나게 <code>$ brew install hugo</code>를 mac 터미널에 입력해서 설치하고 싶었다.<br />
+하지만 현실은 WINDOWS&hellip;<br />
+Giraffe Academy의 <a href="https://gohugo.io/getting-started/installing#windows">Windows에서 Hugo설치하기</a> 이 영상 하나면 설치는 쉽다.</p>
+</blockquote>
+
+<ul>
+<li><a href="https://github.com/gohugoio/hugo/releases">hugo 공식 깃헙</a>에서 운영체제에 맞는 최신버전 다운로드</li>
+<li><code>C:\Hugo\bin</code> 디렉토리 생성해서 다운받은 압축파일 해제</li>
+<li>어느 위치에서나 Hugo가 실행될 수 있도록<code>$ set PATH=%PATH%;C:\Hugo\bin</code> 명령으로 환경변수에 <code>C:\Hugo\bin</code>추가</li>
+<li>명령 프롬프트에 <code>$ hugo version</code> 혹은 <code>$ hugo help</code>로 동작 확인</li>
+</ul>
+
+<h3 id="4-2-github-저장소-2개-만들기">4.2. Github 저장소 2개 만들기</h3>
+
+<ul>
+<li>하나는 Hugo의 컨텐츠와 소스파일들을 포함할 <code>&lt;YOUR-PROJECT&gt;</code> 저장소 생성 (나의 경우 <code>blog</code>라는 이름으로 생성)</li>
+<li>다른 하나는 렌더링된 버전의 Hugo 웹사이트를 포함할 <code>&lt;USERNAME&gt;.github.io</code> 저장소 생성 (<code>integerous.github.io</code>)</li>
+</ul>
+
+<h3 id="4-3-directory-structure-구성">4.3. Directory Structure 구성</h3>
+
+<ul>
+<li><code>$ hugo new site blog</code> 명령으로 로컬에서 컨텐츠를 관리하기 위한 장소(Hugo/blog) 생성</li>
+<li><code>C:\Hugo\blog</code>에서 <code>$ dir</code>로 directory structure를 확인할 수 있다.</li>
+</ul>
+
+<h3 id="4-4-테마-다운로드-및-설정">4.4. 테마 다운로드 및 설정</h3>
+
+<ul>
+<li><a href="https://themes.gohugo.io/">https://themes.gohugo.io/</a> 에서 원하는 테마를 선택한다.</li>
+<li>선택한 테마의 github에서 저장소 주소를 복사한다.</li>
+<li><code>C:\Hugo\blog\themes</code>에 선택한 테마를 clone한다. <code>$ git clone https://github.com/선택한/테마</code></li>
+<li><code>config.toml</code> 파일을 선택한 테마의 설명서에 따라 수정한다.</li>
+</ul>
+
+<h3 id="4-5-remote와-submodule-설정">4.5. Remote와 Submodule 설정</h3>
+
+<ul>
+<li>깃헙에 만든 <code>blog 저장소</code>를 local의 blog 디렉토리의 remote로 등록한다.
+
+<ul>
+<li><code>C:\Hugo\blog</code> 로 이동</li>
+<li><code>$ git init</code></li>
+<li><code>$ git remote add origin git@github.com:integerous/blog.git</code></li>
+</ul></li>
+<li><code>integerous.github.io 저장소</code>를 blog의 submodule로 등록한다.
+
+<ul>
+<li><code>$ git submodule add -b masater git@github.com:integerous/integerous.github.io.git public</code></li>
+<li>이렇게 함으로써 <code>hugo</code> 명령으로 <code>public</code>에 웹사이트를 만들 때, 만들어진 <code>public</code> 디렉토리는 다른 remote origin을 가질 것이다.</li>
+</ul></li>
+</ul>
+
+<h3 id="4-6-컨텐츠-생성">4.6. 컨텐츠 생성</h3>
+
+<ul>
+<li><code>$ hugo new post/test1.md</code> 명령으로 파일을 생성하면 <code>\content\post\test1.md</code></li>
+<li>컨텐츠가 어떻게 보여지는지 확인하려면
+
+<ul>
+<li><code>$ hugo server</code> 혹은 <code>$ hugo server -D</code>로 웹서버 실행</li>
+<li><code>http://localhost:1313/</code>에 접속해서 확인</li>
+<li>-D 옵션은 draft 문서들도 보여지는 옵션. 다른 옵션은 <a href="https://gohugo.io/commands/hugo_server/#options">여기</a>에서 확인
+<br /></li>
+</ul></li>
+</ul>
+
+<h3 id="4-7-컨텐츠-업로드-블로그에">4.7. 컨텐츠 업로드 (블로그에)</h3>
+
+<ul>
+<li><code>C:\Hugo\blog</code>로 이동</li>
+<li><code>$ hugo -t 테마이름</code> 명령을 통해 테마가 적용된 블로그 내용을 public에 생성한다.</li>
+<li><code>$ cd public</code> public 디렉토리로 이동하여</li>
+<li><code>$ git add .</code> 수정된 파일들을 index에 올린다.</li>
+<li><code>$ git commit -m &quot;커밋메세지&quot;</code> 변경 내용을 commit하고</li>
+<li><code>$ git push origin master</code> commit을 Integerous.github.io에 푸시</li>
+<li><code>blog 저장소</code>에도 변경내용 푸시
+
+<ul>
+<li><code>$ git add .</code></li>
+<li><code>$ git commit -m &quot;커밋메세지&quot;</code></li>
+<li><code>$ git push origin master</code></li>
+</ul></li>
+</ul>
+
+<h3 id="4-8-쉘-스크립트로-업로드-자동화하기">4.8. 쉘 스크립트로 업로드 자동화하기</h3>
+
+<ul>
+<li><a href="http://gohugo.io/tutorials/github-pages-blog/">Hugo Docs</a>의 deploy.sh 파일을 활용하여 쉘스크립트 작성
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#1e889b">#!/bin/bash
+</span><span style="color:#1e889b"></span>
+<span style="color:#658b00">echo</span> -e <span style="color:#cd5555">&#34;\033[0;32mDeploying updates to GitHub...\033[0m&#34;</span>
+
+<span style="color:#228b22"># Build the project.</span>
+hugo -t hugo-theme-geppaku
+
+<span style="color:#228b22"># Go To Public folder</span>
+<span style="color:#658b00">cd</span> public
+<span style="color:#228b22"># Add changes to git.</span>
+git add .
+
+<span style="color:#228b22"># Commit changes.</span>
+<span style="color:#00688b">msg</span>=<span style="color:#cd5555">&#34;rebuilding site `date`&#34;</span>
+<span style="color:#8b008b;font-weight:bold">if</span> [ <span style="color:#00688b">$#</span> -eq <span style="color:#b452cd">1</span> ]
+  <span style="color:#8b008b;font-weight:bold">then</span> <span style="color:#00688b">msg</span>=<span style="color:#cd5555">&#34;</span><span style="color:#00688b">$1</span><span style="color:#cd5555">&#34;</span>
+<span style="color:#8b008b;font-weight:bold">fi</span>
+git commit -m <span style="color:#cd5555">&#34;</span><span style="color:#00688b">$msg</span><span style="color:#cd5555">&#34;</span>
+
+<span style="color:#228b22"># Push source and build repos.</span>
+git push origin master
+
+<span style="color:#228b22"># Come Back up to the Project Root</span>
+<span style="color:#658b00">cd</span> ..
+
+
+<span style="color:#228b22"># blog 저장소 Commit &amp; Push</span>
+git add .
+
+<span style="color:#00688b">msg</span>=<span style="color:#cd5555">&#34;rebuilding site `date`&#34;</span>
+<span style="color:#8b008b;font-weight:bold">if</span> [ <span style="color:#00688b">$#</span> -eq <span style="color:#b452cd">1</span> ]
+  <span style="color:#8b008b;font-weight:bold">then</span> <span style="color:#00688b">msg</span>=<span style="color:#cd5555">&#34;</span><span style="color:#00688b">$1</span><span style="color:#cd5555">&#34;</span>
+<span style="color:#8b008b;font-weight:bold">fi</span>
+git commit -m <span style="color:#cd5555">&#34;</span><span style="color:#00688b">$msg</span><span style="color:#cd5555">&#34;</span>
+
+git push origin master</code></pre></div></li>
+</ul>
+
+<h2 id="5-utterences-github-댓글-위젯-추가하기">5. Utterences (Github 댓글 위젯) 추가하기</h2>
+
+<blockquote>
+<p><a href="https://blog.outsider.ne.kr/1356?category=1">아웃사이더님의 블로그 글</a>에서 Utterences의 존재를 알게 되었다.<br />
+Hugo 공식 문서에 소개된 댓글 위젯 중 Utterences는 없길래 생애 처음으로 오픈소스에 PR을 날려봄!</p>
+</blockquote>
+
+<h3 id="5-1-hugo-docs에서-내-pull-request-받아줌">5.1. Hugo Docs에서 내 Pull Request 받아줌!!!</h3>
+
+<blockquote>
+<p>생애 첫 오픈소스 기여! (매우 소소한 기여지만.. 오픈소스에 기여하기 시작했다는 사실만으로 햄볶!)</p>
+</blockquote>
+
+<p><img src="https://github.com/Integerous/TIL/blob/master/ETC/images/myfirstPR.png?raw=true" alt="" /></p>
+
+<h3 id="5-2-작동-원리">5.2. 작동 원리</h3>
+
+<p><a href="https://utteranc.es/">Utterance 프로젝트</a>의 작동 방식을 소개하자면,<br />
+<a href="https://developer.github.com/v3/search/#search-issues">Github의 이슈 검색 API</a>를 사용해서 각 글에 해당하는 이슈가 생성되고(최초 댓글 작성 시),<br />
+댓글들은 해당 글로 생성된 이슈에 대한 댓글로 추가되는 방식이다. 댓글은 <a href="https://primer.github.io/">Primer</a>를 이용해서 Github 스타일로 보여진다.</p>
+
+<h3 id="5-3-사용-방법">5.3. 사용 방법</h3>
+
+<ol>
+<li>Github에 public 저장소를 만들고(blog-comments 등으로)</li>
+<li><a href="https://utteranc.es/">Utterance document</a>에서 방금 만든 저장소를 입력하고(나의 경우 Integerous/blog-comments)</li>
+<li>블로그 글과 Github 이슈를 매핑할 방법 6가지 중 한 가지를 선택하면</li>
+<li>밑에 아래와 같은 script를 자동으로 생성해준다.
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">&lt;script src=<span style="color:#cd5555">&#34;https://utteranc.es/client.js&#34;</span>
+        repo=<span style="color:#cd5555">&#34;integerous/blog-comments&#34;</span>
+        issue-term=<span style="color:#cd5555">&#34;pathname&#34;</span>
+        crossorigin=<span style="color:#cd5555">&#34;anonymous&#34;</span>
+        <span style="color:#8b008b;font-weight:bold">async</span>&gt;
+&lt;<span style="color:#a61717;background-color:#e3d2d2">/script&gt;</span>
+</code></pre></div></li>
+<li>위의 script를 본인의 블로그 템플릿중 원하는 위치에 넣으면</li>
+<li>끝!<br /></li>
+</ol>
+
+<h1 id="6-사용-후기-계속-추가될-예정">6. 사용 후기 (계속 추가될 예정)</h1>
+
+<h2 id="6-1-마크다운-파일에-gist-삽입하기">6.1. 마크다운 파일에 Gist 삽입하기</h2>
+
+<blockquote>
+<p>Gist는 마크다운 파일에 embed 되지 않는다. 하지만 Hugo, Jekyll 에서는 가능하다.</p>
+</blockquote>
+
+<h3 id="6-1-1-gist-생성">6.1.1. Gist 생성</h3>
+
+<ul>
+<li><a href="https://gist.github.com/">Gist</a>에 코드를 작성</li>
+<li>java 코드면 파일명을 <code>파일명.java</code>로 만들고 <code>Create public gist</code> 클릭</li>
+<li>생성되는 gist의 sha1 hash(url 끝부분)을 복사</li>
+</ul>
+
+<h3 id="6-1-2-hugo에-커스텀-shorcodes-생성">6.1.2. Hugo에 커스텀 shorcodes 생성</h3>
+
+<blockquote>
+<p>간단한 설명은 <a href="http://blog.cronally.com/embed-gists-with-hugo/">여기</a> 참고.<br />
+자세한 사용법은 <a href="https://www.youtube.com/watch?v=Eu4zSaKOY4A&amp;list=PLLAZ4kZ9dFpOnyRlyS-liKL5ReHDcj4G3&amp;index=22">이 튜토리얼 영상</a> 참고</p>
+</blockquote>
+
+<ul>
+<li><code>themes/본인테마/layouts</code> 디렉토리에 <code>shortcodes</code> 폴더를 생성</li>
+<li><code>shortcodes</code> 폴더 내에 <code>gist.html</code> 파일 생성 (파일명은 상관없지만 gist로 하는게 정체성이 분명함)</li>
+<li><code>gist.html</code>에 아래 코드 입력</li>
+</ul>
+
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">&lt;script type=<span style="color:#cd5555">&#34;text/javascript&#34;</span> src=<span style="color:#cd5555">&#34;http://gist.github.com/{{ .Get 0 }}.js&#34;</span>&gt;&lt;<span style="color:#a61717;background-color:#e3d2d2">/script&gt;</span>
+</code></pre></div>
+
+<ul>
+<li>여기서 <code>{{ . GET 0 }}</code>에 들어갈 부분이 위에서 복사해둔 각 gist의 sha1 hash(url 끝부분)이다.</li>
+</ul>
+
+<h3 id="6-1-3-shortcode-삽입">6.1.3. shortcode 삽입</h3>
+
+<ul>
+<li>글 내용 중 코드가 들어갈 부분에 {{&lt; gist url끝부분 &gt;}} 을 넣어주면,</li>
+</ul>
+
+<p><img src="https://github.com/Integerous/TIL/blob/master/ETC/images/exampleGist.png?raw=true" alt="gistExample" /></p>
+
+<ul>
+<li>위 처럼 마크다운 파일(.md)에도 gist를 삽입할 수 있다. (행복)</li>
+</ul>
+
+<h2 id="블로그-주소">*블로그 주소</h2>
+
+<p><a href="https://ryan-han.com">https://ryan-han.com</a></p>
+
+<h2 id="reference">*Reference</h2>
+
+<ul>
+<li><a href="https://gohugo.io/hosting-and-deployment/hosting-on-github/">Hosting on Github</a></li>
+<li><a href="http://tadakichi.tistory.com/188">Jekyll, Hexo, Hugo 간단 비교 글</a></li>
+<li><a href="http://tech.cloudz-labs.io/posts/hugo/hugo/">Hugo를 활용한 기술 블로그 구축기</a></li>
+<li><a href="https://github.com/sabzil/blog/blob/master/content/post/tips/hugo.md">Github Page에 Hugo 올리기</a></li>
+<li><a href="https://blog.outsider.ne.kr/1356?category=1">페이스북 댓글을 Utterances로 교체하기</a></li>
+<li><a href="https://utteranc.es/">Utterances 프로젝트</a></li>
+<li><a href="https://www.youtube.com/watch?v=Eu4zSaKOY4A&amp;list=PLLAZ4kZ9dFpOnyRlyS-liKL5ReHDcj4G3&amp;index=22">Youtube Hugo 튜토리얼</a></li>
+<li><a href="http://blog.cronally.com/embed-gists-with-hugo/">Hugo에서 gist 사용하기</a></li>
+</ul>
+
+<p></br></p>
+
+<hr />
+
+<p><div style="display: flex; justify-content: space-around">
+    <div>
+        <a href="http://bit.ly/all-in-one-study">
+            <img src="/images/memoirs/2020/all-in-one-1.jpg" width="280" style="filter: drop-shadow(0 0.3rem 0.4rem rgba(0, 0, 0, 0.5))" />
+        </a>
+    </div>
+    <div>
+        <a href="http://bit.ly/all-in-one-job">
+            <img src="/images/memoirs/2020/all-in-one-2.jpg" width="280" style="filter: drop-shadow(0 0.3rem 0.4rem rgba(0, 0, 0, 0.5))" />
+        </a><br />
+    </div>
+    <div>
+        <a href="http://bit.ly/all-in-one-united">
+            <img src="/images/memoirs/2020/all-in-one-3.jpg" width="280" style="filter: drop-shadow(0 0.3rem 0.4rem rgba(0, 0, 0, 0.5))" />
+        </a><br />
+    </div></p>
+
+<h2 id="div"></div></h2>
+
+  </div>
+  <footer>
+    <div class="article-footer">
+      
+
+      
+      
+      
+      
+      
+      <div id="pagenavigation-next-prev">
+        
+        <div id="pagenavigation-next">
+          <span class="pagenav-label">&lt; 이전 글</span>
+          <a href="http://integerous.github.io/post/essay/bali/">2016년 발리 서핑</a>
+        </div>
+        
+        
+      </div>
+      
+    </div>
+
+    <script src="https://utteranc.es/client.js"
+    repo="integerous/blog-comments"
+    issue-term="pathname"
+    crossorigin="anonymous"
+    async>
+    </script>
+  </footer>
+</div>
+
+
+
+
+
+</div>
+
+</div>
+<footer>
+<div id="site-footer-wrap">
+  <div id="site-footer">
+    <span>Powered by <a href="https://gohugo.io/">Hugo</a>.</span>
+    <span>
+      
+      Copyright (c) 2021, <a href="http://integerous.github.io/">Integerous DevLog</a>
+      
+    </span>
+  </div>
+</div>
+</footer>
+</div>
+</body>
+</html>

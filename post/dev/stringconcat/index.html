@@ -1,0 +1,234 @@
+
+
+<!DOCTYPE html>
+<html lang="ko-kr">
+  <head>
+    
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-KZXLS88');</script>
+    
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="generator" content="Hugo 0.55.3" />
+    <link rel="shortcut icon" href="/images/favicon.ico">
+    <link href="http://integerous.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Integerous DevLog" />
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:700i" rel="stylesheet">
+    
+    <script src="https://apis.google.com/js/platform.js" async defer>{lang: 'ja'}</script>
+    
+    <link rel="stylesheet" href="https://yandex.st/highlightjs/8.0/styles/default.min.css">
+    <script src="https://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+    <link rel="stylesheet" type="text/css" href="/css/single.css">
+    <title>Java 문자열 연결방법 비교 | Integerous DevLog</title>
+  </head>
+  <body>
+    
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KZXLS88"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  
+  
+    <div id="wrap">
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-126908369-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+      <header class="site-header">
+        <div class="site-header-left">
+          <a class="site-header-title" href="http://integerous.github.io/">Integerous DevLog</a>
+        </div>
+      </header>
+      <div class="container">
+        <div id="main">
+
+
+
+
+<div class="article">
+  <header>
+    <div class="article-header">
+      <h1>Java 문자열 연결방법 비교</h1>
+      <div class="article-meta">
+        <span class="posttime">2018/10/07</span>
+
+        
+        
+<div class="tags">
+  <ul>
+    
+    <li>
+        <a href="/tags/java">Java</a>
+    </li>
+    
+  </ul>
+</div>
+
+
+      </div>
+    </div>
+    
+  </header>
+  <div class="content">
+    
+
+<div style="display: flex; justify-content: space-around">
+    <div>
+        <a href="http://bit.ly/all-in-one-study">
+            <img src="/images/memoirs/2020/all-in-one-1.jpg" width="280" style="filter: drop-shadow(0 0.3rem 0.4rem rgba(0, 0, 0, 0.5))" />
+        </a> 
+    </div> 
+    <div>
+        <a href="http://bit.ly/all-in-one-job">
+            <img src="/images/memoirs/2020/all-in-one-2.jpg" width="280" style="filter: drop-shadow(0 0.3rem 0.4rem rgba(0, 0, 0, 0.5))" />
+        </a>  
+    </div>
+    <div>
+        <a href="http://bit.ly/all-in-one-united">
+            <img src="/images/memoirs/2020/all-in-one-3.jpg" width="280" style="filter: drop-shadow(0 0.3rem 0.4rem rgba(0, 0, 0, 0.5))" />
+        </a>  
+    </div>
+</div>
+
+<hr />
+
+<p></br></p>
+
+<blockquote>
+<p>CodeWars에서 알고리즘 문제들을 풀다보면 문자열 연결할 일이 많았는데,<br />
+퍼포먼스 이슈가 많다 보니 정리가 필요했다.</p>
+</blockquote>
+
+<p>이 글에서는 <code>StringBuilder</code>, <code>StringBuffer</code>, <code>+ 연산자</code>, <code>Concat메서드</code>를 비교하는 것에 중점을 두었다.<br />
+문자열 연결과 구분에 대한 추가적인 내용은 <a href="https://ryan-han.com/post/2018/early-bird/180930/">아침공부 #8</a>을 참고하면 좋다.</p>
+
+<h2 id="1-concat-메서드">1. Concat 메서드</h2>
+
+<p>String 클래스에는 문자열을 이어주는 concat 메서드가 있다.</p>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">String sample = <span style="color:#cd5555">&#34;X&#34;</span>.<span style="color:#658b00">concat</span>(<span style="color:#cd5555">&#34;Y&#34;</span>).<span style="color:#658b00">concat</span>(<span style="color:#cd5555">&#34;Z&#34;</span>); // XYZ</code></pre></div>
+<p>하지만 Java에서 String 객체는 Immutable(불변)이기 때문에, 새로운 문자열을 더할 때마다 새로운 인스턴스를 생성한다. 그래서 퍼포먼스가 좋지 않다.</p>
+
+<p>예를 들어 수십번 String이 더해지는 경우, 각 String의 주소값이 stack에 쌓이고,<br />
+가비지콜렉터가 호출되기 전 까지 클래스들은 heap에 지속적으로 쌓이게 된다.<br />
+즉, 메모리 관리 측면에서 치명적이다.</p>
+
+<h2 id="2-stringbuilder">2. StringBuilder</h2>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">String sample = <span style="color:#8b008b;font-weight:bold">new</span> StringBuilder().<span style="color:#658b00">append</span>(<span style="color:#cd5555">&#34;X&#34;</span>).<span style="color:#658b00">append</span>(<span style="color:#cd5555">&#34;Y&#34;</span>).<span style="color:#658b00">append</span>(<span style="color:#cd5555">&#34;Z&#34;</span>).<span style="color:#658b00">toString</span>();</code></pre></div>
+<p>StringBuilder는 내부적으로 문자열을 가지고 문자열을 변경하는 메서드를 제공한다.<br />
+String 객체가 매 수정 시에 새로운 인스턴스를 만드는 것과 달리,<br />
+StringBuilder는 문자열을 계속해서 앞뒤로 덧붙이거나 문자열을 삽입, 삭제하는 등 다양한 연산이 가능하다.</p>
+
+<h2 id="3-stringbuilder-vs-stringbuffer">3. StringBuilder vs. StringBuffer</h2>
+
+<ul>
+<li>두 클래스가 제공하는 메서드는 같다. 둘의 차이는 멀티쓰레드 환경에서 동기화 보장이 되는냐 안되느냐의 차이이다.</li>
+<li>StringBuffer는 thread-safe 이므로 MultiThreaded 환경에서는 StringBuilder를 사용해야 한다.</li>
+<li>StringBuffer는 멀티쓰레드 환경에서 다른 값을 변경하지 못하도록 하므로<br />
+<strong>Web이나 소켓환경과 같이 비동기로 동작하는 경우가 많을 때에는 StringBuffer를 사용</strong>하는 것이 안전하다 .</li>
+</ul>
+
+<h2 id="3-연산자">3. + 연산자</h2>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">String sample = <span style="color:#cd5555">&#34;X&#34;</span> + <span style="color:#cd5555">&#34;Y&#34;</span> + <span style="color:#cd5555">&#34;Z&#34;</span>; // XYZ</code></pre></div>
+<p>연산자로도 문자열을 붙일 수 있다.<br />
+<code>+ 연산자</code>는 Java 1.5 이전에는 concat 메서드와 동일하게 새로운 String 인스턴스를 생성했지만, Java 1.5 부터는 컴파일 단계에서 StringBuilder로 컴파일 되도록 변경되었기 때문에 StringBuilder와 동일하다고 볼 수 있다.</p>
+
+<p>간단한 경우에는 가독성이 좋은 + 연산자를 사용하는 것이 좋다.<br />
+하지만 + 연산자는 만들 때마다 StringBuilder 인스턴스를 생성하기 때문에,<br />
+반복문에서 문자열을 조합하는 것처럼 StringBuilder 인스턴스를 생성해서 여러 작업을 하는 경우에는 StringBuilder를 쓰는 것이 좋다.</p>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">List&lt;String&gt; list = Array.<span style="color:#658b00">asList</span>(<span style="color:#cd5555">&#34;foo&#34;</span>,<span style="color:#cd5555">&#34;bar&#34;</span>,<span style="color:#cd5555">&#34;baz&#34;</span>,<span style="color:#cd5555">&#34;qux&#34;</span>);
+
+StringBuilder sb = <span style="color:#8b008b;font-weight:bold">new</span> StringBuilder();
+  <span style="color:#8b008b;font-weight:bold">for</span>(String s : list){
+    sb.<span style="color:#658b00">append</span>(s);
+  }
+System.<span style="color:#658b00">out</span>.<span style="color:#658b00">println</span>(sb);</code></pre></div>
+<h2 id="4-성능-비교">4. 성능 비교</h2>
+
+<p><img src="https://docs.google.com/spreadsheets/d/1dV4Pbe2_ZCsc9TDBYsN9u69a2a3xSjCAzxKR7I6fxzg/pubchart?oid=1847999196&amp;format=image" alt="성능비교" /><br />
+출처 : <a href="http://www.pellegrino.link/2015/08/22/string-concatenation-with-java-8.html">http://www.pellegrino.link/2015/08/22/string-concatenation-with-java-8.html</a></p>
+
+<h1 id="reference">Reference</h1>
+
+<ul>
+<li><a href="http://javahungry.blogspot.com/2013/06/difference-between-string-stringbuilder.html">http://javahungry.blogspot.com/2013/06/difference-between-string-stringbuilder.html</a></li>
+<li><a href="http://www.pellegrino.link/2015/08/22/string-concatenation-with-java-8.html">http://www.pellegrino.link/2015/08/22/string-concatenation-with-java-8.html</a></li>
+<li><a href="https://novemberde.github.io/2017/04/15/String_0.html">https://novemberde.github.io/2017/04/15/String_0.html</a></li>
+<li><a href="https://www.slipp.net/questions/271">https://www.slipp.net/questions/271</a></li>
+<li><a href="http://futurecreator.github.io/2018/06/02/java-string-concatenation/">http://futurecreator.github.io/2018/06/02/java-string-concatenation/</a></li>
+</ul>
+
+  </div>
+  <footer>
+    <div class="article-footer">
+      
+
+      
+      
+      
+      
+      
+      <div id="pagenavigation-next-prev">
+        
+        <div id="pagenavigation-next">
+          <span class="pagenav-label">&lt; 이전 글</span>
+          <a href="http://integerous.github.io/post/dev/vpc/">AWS VPC 총정리</a>
+        </div>
+        
+        
+        <div id="pagenavigation-prev">
+          <span class="pagenav-label">다음 글 ></span>
+          <a href="http://integerous.github.io/post/dev/s3/">AWS S3 총정리</a>
+        </div>
+        
+      </div>
+      
+    </div>
+
+    <script src="https://utteranc.es/client.js"
+    repo="integerous/blog-comments"
+    issue-term="pathname"
+    crossorigin="anonymous"
+    async>
+    </script>
+  </footer>
+</div>
+
+
+
+
+
+</div>
+
+</div>
+<footer>
+<div id="site-footer-wrap">
+  <div id="site-footer">
+    <span>Powered by <a href="https://gohugo.io/">Hugo</a>.</span>
+    <span>
+      
+      Copyright (c) 2021, <a href="http://integerous.github.io/">Integerous DevLog</a>
+      
+    </span>
+  </div>
+</div>
+</footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,291 @@
+
+
+<!DOCTYPE html>
+<html lang="ko-kr">
+  <head>
+    
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-KZXLS88');</script>
+    
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="generator" content="Hugo 0.55.3" />
+    <link rel="shortcut icon" href="/images/favicon.ico">
+    <link href="http://integerous.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Integerous DevLog" />
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:700i" rel="stylesheet">
+    
+    <script src="https://apis.google.com/js/platform.js" async defer>{lang: 'ja'}</script>
+    
+    <link rel="stylesheet" href="https://yandex.st/highlightjs/8.0/styles/default.min.css">
+    <script src="https://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+    <link rel="stylesheet" type="text/css" href="/css/single.css">
+    <title>자바의 정석 - 직렬화(Serialization) | Integerous DevLog</title>
+  </head>
+  <body>
+    
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KZXLS88"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  
+  
+    <div id="wrap">
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-126908369-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+      <header class="site-header">
+        <div class="site-header-left">
+          <a class="site-header-title" href="http://integerous.github.io/">Integerous DevLog</a>
+        </div>
+      </header>
+      <div class="container">
+        <div id="main">
+
+
+
+
+<div class="article">
+  <header>
+    <div class="article-header">
+      <h1>자바의 정석 - 직렬화(Serialization)</h1>
+      <div class="article-meta">
+        <span class="posttime">2018/12/02</span>
+
+        
+        
+<div class="tags">
+  <ul>
+    
+    <li>
+        <a href="/tags/java">Java</a>
+    </li>
+    
+  </ul>
+</div>
+
+
+      </div>
+    </div>
+    
+  </header>
+  <div class="content">
+    
+
+<div style="display: flex; justify-content: space-around">
+    <div>
+        <a href="http://bit.ly/all-in-one-study">
+            <img src="/images/memoirs/2020/all-in-one-1.jpg" width="280" style="filter: drop-shadow(0 0.3rem 0.4rem rgba(0, 0, 0, 0.5))" />
+        </a> 
+    </div> 
+    <div>
+        <a href="http://bit.ly/all-in-one-job">
+            <img src="/images/memoirs/2020/all-in-one-2.jpg" width="280" style="filter: drop-shadow(0 0.3rem 0.4rem rgba(0, 0, 0, 0.5))" />
+        </a>  
+    </div>
+    <div>
+        <a href="http://bit.ly/all-in-one-united">
+            <img src="/images/memoirs/2020/all-in-one-3.jpg" width="280" style="filter: drop-shadow(0 0.3rem 0.4rem rgba(0, 0, 0, 0.5))" />
+        </a>  
+    </div>
+</div>
+
+<hr />
+
+<p></br></p>
+
+<blockquote>
+<p>자바의 정석(남궁성 저) 2권 학습내용 정리</p>
+</blockquote>
+
+<h2 id="1-직렬화란">1. 직렬화란?</h2>
+
+<blockquote>
+<p>객체를 데이터 스트림으로 만드는 것<br />
+객체에 저장된 데이터를 스트림에 쓰기 위해 연속적인 데이터로 변환하는 것<br />
+스트림으로부터 데이터를 읽어서 객체를 만드는 것은 역직렬화</p>
+</blockquote>
+
+<h3 id="객체-정의">* 객체 정의</h3>
+
+<p>객체는 클래스에 정의된 인스턴스변수의 집합.<br />
+객체에는 클래스변수나 메서드가 포함되지 않는다.<br />
+객체는 오직 인스턴스변수들로만 구성.</p>
+
+<p><code>객체를 저장한다는 것</code>은 객체의 모든 인스턴스변수의 값을 저장하는 것.<br />
+<code>두 객체가 동일한지 판단하는 기준</code>은 두 객체의 인스턴스변수의 값들이 같은지에 따른다.</p>
+
+<h2 id="2-objectinputstream-objectoutputstream">2. ObjectInputStream, ObjectOutputStream</h2>
+
+<blockquote>
+<p>직렬화 = 스트림에 객체를 출력 = ObjectOutputStream 사용<br />
+역직렬화 = 스트림으로부터 객체를 입력 = ObjectInputStream 사용</p>
+</blockquote>
+
+<h3 id="2-1-objectinputstream과-objectoutputstream은-보조스트림이라-기반스트림이-필요하다">2.1. ObjectInputStream과 ObjectOutputStream은 보조스트림이라 기반스트림이 필요하다.</h3>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">ObjectInputStream(InputStream in)
+ObjectOutputStream(OutputStream out)</code></pre></div>
+<h3 id="2-2-파일에-객체를-저장-직렬화-방법">2.2. 파일에 객체를 저장(직렬화) 방법</h3>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">FileOutputStream fos = <span style="color:#8b008b;font-weight:bold">new</span> FileOutputStream(<span style="color:#cd5555">&#34;objectfile.ser&#34;</span>);
+ObjectOutputStream out = <span style="color:#8b008b;font-weight:bold">new</span> ObjectOutputStream(fos);
+
+out.<span style="color:#658b00">writeObject</span>(<span style="color:#8b008b;font-weight:bold">new</span> Member());  //objectfile.<span style="color:#658b00">ser</span> 파일에 Member 객체를 직렬화하여 저장</code></pre></div>
+<h3 id="2-3-역직렬화-방법">2.3. 역직렬화 방법</h3>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">FileInputStream fis = <span style="color:#8b008b;font-weight:bold">new</span> FileInputStream(<span style="color:#cd5555">&#34;objectfile.ser&#34;</span>);
+ObjectInputStream in = <span style="color:#8b008b;font-weight:bold">new</span> ObjectInputStream(fis);
+
+Member member = (Member)in.<span style="color:#658b00">readObject</span>();  //readObject()의 반환타입이 Object라서 형변환 필요</code></pre></div>
+<h2 id="3-직렬화-가능한-클래스-만들기">3. 직렬화 가능한 클래스 만들기</h2>
+
+<blockquote>
+<p>직렬화하고자 하는 클래스가 java.io.Serializable 인터페이스를 구현하면 된다.</p>
+</blockquote>
+
+<h3 id="3-1-serializable을-구현한-클래스를-상속받아도-직렬화가-가능하다">3.1. Serializable을 구현한 클래스를 상속받아도 직렬화가 가능하다.</h3>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#8b008b;font-weight:bold">public</span> <span style="color:#8b008b;font-weight:bold">class</span> <span style="color:#008b45;font-weight:bold">SuperMember</span> <span style="color:#8b008b;font-weight:bold">implements</span> Serializable  {
+  String name;
+  String password;
+}
+<span style="color:#8b008b;font-weight:bold">public</span> <span style="color:#8b008b;font-weight:bold">class</span> <span style="color:#008b45;font-weight:bold">Member</span> <span style="color:#8b008b;font-weight:bold">extends</span> SuperMember {
+  <span style="color:#00688b;font-weight:bold">int</span> age;
+}</code></pre></div>
+<h3 id="3-2-object객체는-직렬화할-수-없지만-실제-저장된-객체의-종류에-따른다">3.2. Object객체는 직렬화할 수 없지만, 실제 저장된 객체의 종류에 따른다.</h3>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#8b008b;font-weight:bold">public</span> <span style="color:#8b008b;font-weight:bold">class</span> <span style="color:#008b45;font-weight:bold">Member</span> <span style="color:#8b008b;font-weight:bold">implements</span> Serializable {
+  String name;
+  String password;
+  <span style="color:#00688b;font-weight:bold">int</span> age;
+  
+  Object obj = <span style="color:#8b008b;font-weight:bold">new</span> Object();  <span style="color:#228b22">// Object객체는 직렬화 불가능
+</span><span style="color:#228b22"></span>  Object obj2 = <span style="color:#8b008b;font-weight:bold">new</span> String(<span style="color:#cd5555">&#34;abc&#34;</span>);  <span style="color:#228b22">// 실제 저장된 객체의 종류가 String 이므로 직렬화 가능.
+</span><span style="color:#228b22"></span>}</code></pre></div>
+<h3 id="3-3-제어자-transient로-직렬화-대상에서-제외시키기">3.3. 제어자 transient로 직렬화 대상에서 제외시키기</h3>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#8b008b;font-weight:bold">public</span> <span style="color:#8b008b;font-weight:bold">class</span> <span style="color:#008b45;font-weight:bold">Memebr</span> <span style="color:#8b008b;font-weight:bold">implements</span> Serializable {
+  String name;
+  <span style="color:#8b008b;font-weight:bold">transient</span> String password;  <span style="color:#228b22">// 직렬화 대상에서 제외
+</span><span style="color:#228b22"></span>  <span style="color:#00688b;font-weight:bold">int</span> age;
+  <span style="color:#8b008b;font-weight:bold">transient</span> Object obj = <span style="color:#8b008b;font-weight:bold">new</span> Object();  // 직렬화 대상에서 제외</code></pre></div>
+<h2 id="4-직렬화-역직렬화-예제">4. 직렬화/역직렬화 예제</h2>
+
+<h3 id="4-1-생성한-객체를-직렬화하여-파일에-저장">4.1. 생성한 객체를 직렬화하여 파일에 저장</h3>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#8b008b;font-weight:bold">public</span> <span style="color:#8b008b;font-weight:bold">static</span> <span style="color:#00688b;font-weight:bold">void</span> <span style="color:#008b45">main</span>(String[] args)  {
+  
+  <span style="color:#8b008b;font-weight:bold">try</span> {
+      String fileName = <span style="color:#cd5555">&#34;Member.ser&#34;</span>;
+      
+      FileOutputStream fos = <span style="color:#8b008b;font-weight:bold">new</span> FileOutputStream(fileName);
+      BufferedOutputStream bos = <span style="color:#8b008b;font-weight:bold">new</span> BufferedOutputStream(fos);
+      ObjectOutputStream out = <span style="color:#8b008b;font-weight:bold">new</span> ObjectOutputStream(bos);
+      
+      Member m1 = <span style="color:#8b008b;font-weight:bold">new</span> Member(<span style="color:#cd5555">&#34;JavaMan&#34;</span>, <span style="color:#cd5555">&#34;1234&#34;</span>, 29);
+      Member m2 = <span style="color:#8b008b;font-weight:bold">new</span> Member(<span style="color:#cd5555">&#34;JavaWoman&#34;</span>, <span style="color:#cd5555">&#34;0000&#34;</span>, 29);
+      
+      ArrayList&lt;Member&gt; list = <span style="color:#8b008b;font-weight:bold">new</span> ArrayList&lt;&gt;();
+        list.<span style="color:#658b00">add</span>(m1);
+        list.<span style="color:#658b00">add</span>(m2);
+      
+      <span style="color:#228b22">// 객체 직렬화
+</span><span style="color:#228b22"></span>      out.<span style="color:#658b00">writeObject</span>(m1);
+      out.<span style="color:#658b00">writeObject</span>(m2);
+      out.<span style="color:#658b00">writeObject</span>(list);
+      
+      out.<span style="color:#658b00">close</span>();
+      
+  } <span style="color:#8b008b;font-weight:bold">catch</span>(IOException e)  {
+      e.<span style="color:#658b00">printStackTrace</span>();
+  }
+}</code></pre></div>
+<h3 id="4-2-위의-직렬화한-객체를-역직렬화">4.2. 위의 직렬화한 객체를 역직렬화</h3>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#8b008b;font-weight:bold">public</span> <span style="color:#8b008b;font-weight:bold">static</span> <span style="color:#00688b;font-weight:bold">void</span> <span style="color:#008b45">main</span>(String[] args)  {
+  
+  <span style="color:#8b008b;font-weight:bold">try</span> {
+      String fileName = <span style="color:#cd5555">&#34;Member.ser&#34;</span>;
+      FileInputStream fis = <span style="color:#8b008b;font-weight:bold">new</span> FileInputStream(fileName);
+      BufferedInputStream bis = <span style="color:#8b008b;font-weight:bold">new</span> BufferedInputStream(fis);
+      ObjectInputStream in = <span style="color:#8b008b;font-weight:bold">new</span> ObjectInputStream(bis);
+      
+      <span style="color:#228b22">// 객체를 읽을 때는 출력한 순서와 일치해야함.
+</span><span style="color:#228b22"></span>      <span style="color:#228b22">// 그러므로 객체가 많을 때는 ArrayList 같은 컬렉션에 저자해서 직렬화하는 것이 편함.
+</span><span style="color:#228b22"></span>      Memebr m1 = (Member)in.<span style="color:#658b00">readObject</span>();
+      Member m2 = (Member)in.<span style="color:#658b00">readObject</span>();
+      ArrayList list = (ArrayList)in.<span style="color:#658b00">readObject</span>();
+      
+      in.<span style="color:#658b00">close</span>();
+  } <span style="color:#8b008b;font-weight:bold">catch</span> (Exception e) {
+    e.<span style="color:#658b00">printStackTrace</span>();
+  }
+}</code></pre></div>
+  </div>
+  <footer>
+    <div class="article-footer">
+      
+
+      
+      
+      
+      
+      
+      <div id="pagenavigation-next-prev">
+        
+        <div id="pagenavigation-next">
+          <span class="pagenav-label">&lt; 이전 글</span>
+          <a href="http://integerous.github.io/post/memoirs/memoirs2018/">체대 출신 개발자의 2018년 회고</a>
+        </div>
+        
+        
+        <div id="pagenavigation-prev">
+          <span class="pagenav-label">다음 글 ></span>
+          <a href="http://integerous.github.io/post/dev/java-stream/">자바의 정석 - 스트림(Stream)</a>
+        </div>
+        
+      </div>
+      
+    </div>
+
+    <script src="https://utteranc.es/client.js"
+    repo="integerous/blog-comments"
+    issue-term="pathname"
+    crossorigin="anonymous"
+    async>
+    </script>
+  </footer>
+</div>
+
+
+
+
+
+</div>
+
+</div>
+<footer>
+<div id="site-footer-wrap">
+  <div id="site-footer">
+    <span>Powered by <a href="https://gohugo.io/">Hugo</a>.</span>
+    <span>
+      
+      Copyright (c) 2021, <a href="http://integerous.github.io/">Integerous DevLog</a>
+      
+    </span>
+  </div>
+</div>
+</footer>
+</div>
+</body>
+</html>

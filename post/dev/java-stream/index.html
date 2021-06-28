@@ -1,0 +1,843 @@
+
+
+<!DOCTYPE html>
+<html lang="ko-kr">
+  <head>
+    
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-KZXLS88');</script>
+    
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="generator" content="Hugo 0.55.3" />
+    <link rel="shortcut icon" href="/images/favicon.ico">
+    <link href="http://integerous.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Integerous DevLog" />
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:700i" rel="stylesheet">
+    
+    <script src="https://apis.google.com/js/platform.js" async defer>{lang: 'ja'}</script>
+    
+    <link rel="stylesheet" href="https://yandex.st/highlightjs/8.0/styles/default.min.css">
+    <script src="https://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+    <link rel="stylesheet" type="text/css" href="/css/single.css">
+    <title>자바의 정석 - 스트림(Stream) | Integerous DevLog</title>
+  </head>
+  <body>
+    
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KZXLS88"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  
+  
+    <div id="wrap">
+      
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-126908369-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+      <header class="site-header">
+        <div class="site-header-left">
+          <a class="site-header-title" href="http://integerous.github.io/">Integerous DevLog</a>
+        </div>
+      </header>
+      <div class="container">
+        <div id="main">
+
+
+
+
+<div class="article">
+  <header>
+    <div class="article-header">
+      <h1>자바의 정석 - 스트림(Stream)</h1>
+      <div class="article-meta">
+        <span class="posttime">2018/11/29</span>
+
+        
+        
+<div class="tags">
+  <ul>
+    
+    <li>
+        <a href="/tags/java">Java</a>
+    </li>
+    
+  </ul>
+</div>
+
+
+      </div>
+    </div>
+    
+  </header>
+  <div class="content">
+    
+
+<div style="display: flex; justify-content: space-around">
+    <div>
+        <a href="http://bit.ly/all-in-one-study">
+            <img src="/images/memoirs/2020/all-in-one-1.jpg" width="280" style="filter: drop-shadow(0 0.3rem 0.4rem rgba(0, 0, 0, 0.5))" />
+        </a> 
+    </div> 
+    <div>
+        <a href="http://bit.ly/all-in-one-job">
+            <img src="/images/memoirs/2020/all-in-one-2.jpg" width="280" style="filter: drop-shadow(0 0.3rem 0.4rem rgba(0, 0, 0, 0.5))" />
+        </a>  
+    </div>
+    <div>
+        <a href="http://bit.ly/all-in-one-united">
+            <img src="/images/memoirs/2020/all-in-one-3.jpg" width="280" style="filter: drop-shadow(0 0.3rem 0.4rem rgba(0, 0, 0, 0.5))" />
+        </a>  
+    </div>
+</div>
+
+<hr />
+
+<p></br></p>
+
+<blockquote>
+<p>자바의 정석(남궁성 저) 2권 학습내용 정리</p>
+</blockquote>
+
+<h2 id="1-스트림-stream">1. 스트림(Stream)</h2>
+
+<blockquote>
+<p>스트림은 데이터 소스를 추상화하고, 데이터를 다루는데 자주 사용되는 메서드들을 정의해 놓았다.</p>
+</blockquote>
+
+<p>Collection이나 Iterator 같은 인터페이스를 이용해서 컬렉션을 다루는 방식을 표준화 했지만, 각 컬렉션 클래스에는 같은 기능의 메서드들이 중복해서 정의되어 있다. List를 정렬할 때는 Collection.sort()를 사용해야하고, 배열을 정렬할 때는 Arrays.sort()를 사용해야 한다. 이렇게 데이터 소스마다 다른 방식으로 다루어야하는 문제점을 해결해주는 것이 Stream 이다.</p>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#228b22">// 기존
+</span><span style="color:#228b22"></span>String[] strArr = {<span style="color:#cd5555">&#34;aaa&#34;</span>, <span style="color:#cd5555">&#34;bbb&#34;</span>, <span style="color:#cd5555">&#34;ccc&#34;</span>};
+List&lt;String&gt; strList = Arrays.<span style="color:#658b00">asList</span>(strArr);
+
+<span style="color:#228b22">// 스트림 생성
+</span><span style="color:#228b22"></span>Stream&lt;String&gt; strStream1 = strList.<span style="color:#658b00">stream</span>();
+Stream&lt;String&gt; strStream2 = Arrays.<span style="color:#658b00">stream</span>(strArr);
+
+<span style="color:#228b22">// 스트림 출력
+</span><span style="color:#228b22"></span>strStream1.<span style="color:#658b00">sorted</span>().<span style="color:#658b00">forEach</span>(System.<span style="color:#658b00">out</span>::println);
+strStream2.<span style="color:#658b00">sorted</span>().<span style="color:#658b00">forEach</span>(System.<span style="color:#658b00">out</span>::println);</code></pre></div>
+<ul>
+<li>스트림은 데이터 소스로 부터 데이터를 읽기만 할 뿐, 변경하지 않는다.</li>
+<li>스트림은 한번 사용하면 닫혀서 다시 사용할 수 없다.</li>
+<li>스트림은 작업을 내부 반복으로 처리한다.
+<br /></li>
+</ul>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">  <span style="color:#00688b;font-weight:bold">void</span> <span style="color:#008b45">forEach</span>(Consumer&lt;? <span style="color:#8b008b;font-weight:bold">super</span> T&gt; action) {
+    Objects.<span style="color:#658b00">requireNonNull</span>(action); <span style="color:#228b22">// 매개변수의 널 체크
+</span><span style="color:#228b22"></span>    
+    <span style="color:#8b008b;font-weight:bold">for</span>(T t : src)  {
+      action.<span style="color:#658b00">accept</span>(T);
+    }
+  }</code></pre></div>
+<ul>
+<li>스트림은 최종 연산이 수행되기 전까지 중간 연산이 수행되지 않는다. 중간 연산을 호출하는 것은 단지 어떤 작업이 수행되어야하는지를 지정해주는 것일 뿐이다.</li>
+<li>요소의 타입이 T인 스트림은 Stream<T>이지만, 오토박싱/언박싱의 비효율을 줄이기 위해
+데이터 소스의 요소를 기본형으로 다루는 InsStream, LongStream, DoubleStream이 제공된다.</li>
+<li>병렬스트림은 내부적으로 fork&amp;join 프레임웍을 이용해서 자동적으로 연산을 병렬로 수행한다. 스트림에 parallel() 메서드를 호출하면 병렬로 연산하고, parallel()을 취소하려면 sequential()을 호출한다.</li>
+<li>parallel()과 sequential()은 새로운 스트림을 생성하는 것이 아니라, 그저 스트림의 속성을 변경할 뿐이다.</li>
+</ul>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">  <span style="color:#00688b;font-weight:bold">int</span> sum = strStream.<span style="color:#658b00">parallelStream</span>()
+                     .<span style="color:#658b00">mapToInt</span>(s -&gt; s.<span style="color:#658b00">length</span>())
+                     .<span style="color:#658b00">sum</span>();</code></pre></div>
+<h2 id="2-스트림-만들기">2. 스트림 만들기</h2>
+
+<blockquote>
+<p>스트림의 소스가 될 수 있는 대상은 배열, 컬렉션, 임의의 수 등 다양하다.</p>
+</blockquote>
+
+<h3 id="2-1-컬렉션">2.1. 컬렉션</h3>
+
+<blockquote>
+<p>컬렉션의 최고 조상인 Collection에 stream()이 정의되어 있어서
+Collection의 자손인 List와 Set을 구현한 컬렉션 클래스들은 모두 stream()으로 스트림을 생성할 수 있다.</p>
+</blockquote>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">Stream&lt;T&gt; Collection.<span style="color:#658b00">stream</span>()
+
+<span style="color:#228b22">// List로부터 스트림 생성
+</span><span style="color:#228b22"></span>List&lt;Integer&gt; list = Arrays.<span style="color:#658b00">asList</span>(1,2,3,4,5);
+Stream&lt;Integer&gt; intStream = list.<span style="color:#658b00">stream</span>();  // list를 소스로 하는 컬렉션 생성</code></pre></div>
+<h3 id="2-2-배열">2.2. 배열</h3>
+
+<blockquote>
+<p>배열을 소스로 하는 스트림을 생성하는 메서드는 다음과 같이 Stream과 Arrays에 static메서드로 정의되어 있다.</p>
+</blockquote>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">Stream&lt;T&gt; Stream.<span style="color:#658b00">of</span>(T... values)  <span style="color:#228b22">// 가변 인자
+</span><span style="color:#228b22"></span>Stream&lt;T&gt; Stream.<span style="color:#658b00">of</span>(T[])
+Stream&lt;T&gt; Arrays.<span style="color:#658b00">stream</span>(T[])
+Stream&lt;T&gt; Arrays.<span style="color:#658b00">stream</span>(T[] array, <span style="color:#00688b;font-weight:bold">int</span> startInclusive, <span style="color:#00688b;font-weight:bold">int</span> endExclusive)</code></pre></div>
+<ul>
+<li>문자열 스트림 생성
+<br /></li>
+</ul>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">  Stream&lt;String&gt; strStream = Stream.<span style="color:#658b00">of</span>(<span style="color:#cd5555">&#34;a&#34;</span>,<span style="color:#cd5555">&#34;b&#34;</span>,<span style="color:#cd5555">&#34;c&#34;</span>); <span style="color:#228b22">// 가변인자
+</span><span style="color:#228b22"></span>  Stream&lt;String&gt; strStream = Stream.<span style="color:#658b00">of</span>(<span style="color:#8b008b;font-weight:bold">new</span> String[]{<span style="color:#cd5555">&#34;a&#34;</span>,<span style="color:#cd5555">&#34;b&#34;</span>,<span style="color:#cd5555">&#34;c&#34;</span>});
+  Stream&lt;String&gt; strStream = Arrays.<span style="color:#658b00">stream</span>(<span style="color:#8b008b;font-weight:bold">new</span> String[]{<span style="color:#cd5555">&#34;a&#34;</span>,<span style="color:#cd5555">&#34;b&#34;</span>,<span style="color:#cd5555">&#34;c&#34;</span>});
+  Stream&lt;String&gt; strStream = Arrays.<span style="color:#658b00">stream</span>(<span style="color:#8b008b;font-weight:bold">new</span> String[]{<span style="color:#cd5555">&#34;a&#34;</span>,<span style="color:#cd5555">&#34;b&#34;</span>,<span style="color:#cd5555">&#34;c&#34;</span>}, 0, 3);</code></pre></div>
+<ul>
+<li>int, long, double과 같은 기본형 배열을 소스로 하는 스트림 생성
+<br /></li>
+</ul>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">  IntStream IntStream.<span style="color:#658b00">of</span>(<span style="color:#00688b;font-weight:bold">int</span>...<span style="color:#658b00">values</span>)
+  IntStream IntStream.<span style="color:#658b00">of</span>(<span style="color:#00688b;font-weight:bold">int</span>[])
+  IntStream Arrays.<span style="color:#658b00">stream</span>(<span style="color:#00688b;font-weight:bold">int</span>[])
+  IntStream Arrays.<span style="color:#658b00">stream</span>(<span style="color:#00688b;font-weight:bold">int</span>[] array, <span style="color:#00688b;font-weight:bold">int</span> startInclusive, endExclusive)</code></pre></div>
+<h3 id="2-3-특정-범위의-정수">2.3. 특정 범위의 정수</h3>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">  IntStream intStream = IntStream.<span style="color:#658b00">range</span>(1, 5);      <span style="color:#228b22">// 1,2,3,4
+</span><span style="color:#228b22"></span>  IntStream intStream = IntStream.<span style="color:#658b00">rangeClosed</span>(1, 5) // 1,2,3,4,5</code></pre></div>
+<h3 id="2-4-임의의-수">2.4. 임의의 수</h3>
+
+<blockquote>
+<p>난수를 생상하는 Random클래스에는 아래와 같은 인스턴스 메서드들이 포함되어 있다.</p>
+</blockquote>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#228b22">//해당 타입의 난수들로 이루어진 스트림 반환하는 메서드들
+</span><span style="color:#228b22"></span>
+IntStream <span style="color:#008b45">ints</span>()
+LongStream <span style="color:#008b45">longs</span>()
+DoubleStream <span style="color:#008b45">doubles</span>()
+
+<span style="color:#228b22">//위의 메서드들이 반환하는 스트림은 크기가 정해지지 않은 무한 스트림(infinite stream)이므로  
+</span><span style="color:#228b22">//limit()도 같이 사용해서 스트림의 크기를 제한해 주어야 한다. limit()은 스트림의 개수를 지정하는데 사용된다.
+</span><span style="color:#228b22"></span>
+IntStream intStream = <span style="color:#8b008b;font-weight:bold">new</span> Random().<span style="color:#658b00">ints</span>();  <span style="color:#228b22">// 무한스트림
+</span><span style="color:#228b22"></span>intStream.<span style="color:#658b00">limit</span>(5).<span style="color:#658b00">forEach</span>(System.<span style="color:#658b00">out</span>::println);  <span style="color:#228b22">// 5개의 요소만 출력
+</span><span style="color:#228b22"></span>
+
+<span style="color:#228b22">//매개변수로 스트림의 크기를 지정하면 limit()을 사용하지 않아도 된다.
+</span><span style="color:#228b22"></span>IntStream <span style="color:#008b45">ints</span>(<span style="color:#00688b;font-weight:bold">long</span> streamSize)
+LongStream <span style="color:#008b45">longs</span>(<span style="color:#00688b;font-weight:bold">long</span> streamSize)
+DoubleStream <span style="color:#008b45">doubles</span>(<span style="color:#00688b;font-weight:bold">long</span> streamSize)
+
+<span style="color:#228b22">//지정된 범위의 난수를 발생시키는 스트림을 얻는 메서드들(end는 범위에 미포함)
+</span><span style="color:#228b22"></span>IntStream <span style="color:#008b45">ints</span>(<span style="color:#00688b;font-weight:bold">int</span> begin, <span style="color:#00688b;font-weight:bold">int</span> end)
+LongStream <span style="color:#008b45">longs</span>(<span style="color:#00688b;font-weight:bold">long</span> begin, <span style="color:#00688b;font-weight:bold">long</span> end)
+DoubleStream <span style="color:#008b45">doubles</span>(<span style="color:#00688b;font-weight:bold">double</span> begin, <span style="color:#00688b;font-weight:bold">double</span> end)
+
+IntStream <span style="color:#008b45">ints</span>(<span style="color:#00688b;font-weight:bold">long</span> streamSize, <span style="color:#00688b;font-weight:bold">int</span> begin, <span style="color:#00688b;font-weight:bold">int</span> end)
+LongStream <span style="color:#008b45">longs</span>(<span style="color:#00688b;font-weight:bold">long</span> streamSize, <span style="color:#00688b;font-weight:bold">long</span> begin, <span style="color:#00688b;font-weight:bold">long</span> end)
+DoubleStream <span style="color:#008b45">doubles</span>(<span style="color:#00688b;font-weight:bold">long</span> streamSize, <span style="color:#00688b;font-weight:bold">double</span> begin, <span style="color:#00688b;font-weight:bold">double</span> end)</code></pre></div>
+<h3 id="2-5-람다식-iterate-generate">2.5. 람다식 - iterate(), generate()</h3>
+
+<blockquote>
+<p>Stream 클래스의 iterate()와 generate()는 람다식을 매개변수로 받아서, 이 람다식에 의해 계산되는 값들을 요소로 하는 무한 스트림을 생성한다.</p>
+</blockquote>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#8b008b;font-weight:bold">static</span> &lt;T&gt; Stream&lt;T&gt; <span style="color:#008b45">iterate</span>(T seed, UnaryOperator&lt;T&gt; f)
+<span style="color:#8b008b;font-weight:bold">static</span> &lt;T&gt; Stream&lt;T&gt; <span style="color:#008b45">generate</span>(Supplier&lt;T&gt; s)</code></pre></div>
+<ul>
+<li>iterate()는 씨앗값(seed)으로 지정된 값부터 시작해서 람다식 f에 의해 계산된 결과를 다시 seed값으로 계산을 반복한다.</li>
+<li>generate()는 iterate()와 달리 이전 결과를 이용해서 다음 요소를 계산하지 않는다.</li>
+<li>iterate()와 generate()에 의해 생성된 스트림은 기본형 스트림 타입의 참조변수로 다룰 수 없다.</li>
+</ul>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#228b22">// iterate()
+</span><span style="color:#228b22"></span>Stream&lt;Integer&gt; evenStream = Stream.<span style="color:#658b00">iterate</span>(0, n-&gt;n+2); <span style="color:#228b22">// 0, 2, 4, 6, ...
+</span><span style="color:#228b22"></span>
+<span style="color:#228b22">// generate()
+</span><span style="color:#228b22"></span>Stream&lt;Double&gt; randomStream = Stream.<span style="color:#658b00">generate</span>(Math::random);
+Stream&lt;Integer&gt; oneStream = Stream.<span style="color:#658b00">generate</span>(()-&gt;1);</code></pre></div>
+<h3 id="2-6-빈-스트림">2.6. 빈 스트림</h3>
+
+<blockquote>
+<p>요소가 하나도 없는 빈 스트림을 생성할 수 있다.<br />
+스트림에 연산을 수행한 결과가 하나도 없을 때, null보다 빈 스트림을 반환하는 것이 낫다.</p>
+</blockquote>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">Stream emptyStream = Stream.<span style="color:#658b00">empty</span>();  <span style="color:#228b22">// empty()는 빈 스트림을 생성해서 반환한다.
+</span><span style="color:#228b22"></span><span style="color:#00688b;font-weight:bold">long</span> count = emptyStream.<span style="color:#658b00">count</span>();   // count의 값은 0</code></pre></div>
+<h3 id="2-7-두-스트림의-연결">2.7. 두 스트림의 연결</h3>
+
+<blockquote>
+<p>Stream의 static 메서드인 concat()을 사용해서 두 스트림을 하나로 연결할 수 있다.<br />
+두 스트림은 같은 타입이어야 한다.</p>
+</blockquote>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">String[] str1 = {<span style="color:#cd5555">&#34;123&#34;</span>, <span style="color:#cd5555">&#34;456&#34;</span>, <span style="color:#cd5555">&#34;789&#34;</span>}
+String[] str2 = {<span style="color:#cd5555">&#34;ABC&#34;</span>, <span style="color:#cd5555">&#34;abc&#34;</span>, <span style="color:#cd5555">&#34;DEF&#34;</span>}
+
+Stream&lt;String&gt; strs1 = Stream.<span style="color:#658b00">of</span>(str1);
+Stream&lt;String&gt; strs2 = Stream.<span style="color:#658b00">of</span>(str2);
+Stream&lt;String&gt; strs3 = Stream.<span style="color:#658b00">concat</span>(strs1, strs2);   // 두 스트림을 하나로 연결</code></pre></div>
+<h2 id="3-스트림의-중간연산">3. 스트림의 중간연산</h2>
+
+<h3 id="3-1-스트림-자르기">3.1. 스트림 자르기</h3>
+
+<blockquote>
+<p>Stream<T> skip(long n)  // 처음 n개의 요소 건너뛰기<br />
+Strema<T> limit(long maxSize)  // 스트림의 요소를 maxSize개로 제한</p>
+</blockquote>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">IntStream exampleStream = IntStream.<span style="color:#658b00">rangeClosed</span>(1, 10); <span style="color:#228b22">// 1~10의 요소를 가진 스트림
+</span><span style="color:#228b22"></span>exampleStream.<span style="color:#658b00">skip</span>(3).<span style="color:#658b00">limit</span>(5).<span style="color:#658b00">forEach</span>(System.<span style="color:#658b00">out</span>::print);  // 45678</code></pre></div>
+<h3 id="3-2-스트림-요소-걸러내기">3.2. 스트림 요소 걸러내기</h3>
+
+<blockquote>
+<p>distinct()는 스트림에서 중복된 요소들 제거<br />
+filter()는 주어진 조건(Predicate)에 맞지 않는 요소를 걸러낸다.</p>
+</blockquote>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#228b22">// distinct()
+</span><span style="color:#228b22"></span>IntStream exampleStream = IntStream.<span style="color:#658b00">of</span>(1,2,2,3,3,3,4,5,5,6);
+exampleStream.<span style="color:#658b00">distinct</span>().<span style="color:#658b00">forEach</span>(System.<span style="color:#658b00">out</span>::print);  <span style="color:#228b22">// 123456
+</span><span style="color:#228b22"></span>
+<span style="color:#228b22">// filter()
+</span><span style="color:#228b22"></span>IntStream example2Stream = IntStream.<span style="color:#658b00">rangeClosed</span>(1, 10);
+example2Stream.<span style="color:#658b00">filter</span>(i -&gt; i%2 ==0).<span style="color:#658b00">forEach</span>(System.<span style="color:#658b00">out</span>::print); <span style="color:#228b22">// 246810
+</span><span style="color:#228b22"></span>
+<span style="color:#228b22">// filter()를 다른 조건으로 여러 번 사용. 두 문장의 결과는 같다.
+</span><span style="color:#228b22"></span>example2Stream.<span style="color:#658b00">filter</span>(i -&gt; i%2!=0 &amp;&amp; i%3!=0).<span style="color:#658b00">forEach</span>(System.<span style="color:#658b00">out</span>::print);  <span style="color:#228b22">//157
+</span><span style="color:#228b22"></span>example2Stream.<span style="color:#658b00">filter</span>(i -&gt; i%2!=0).<span style="color:#658b00">filter</span>(i -&gt; i%3!=0).<span style="color:#658b00">forEach</span>(System.<span style="color:#658b00">out</span>::print);</code></pre></div>
+<h3 id="3-3-스트림-정렬">3.3. 스트림 정렬</h3>
+
+<blockquote>
+<p>Stream<T> sorted()<br />
+Stream<T> sorted(Comparator&lt;? super T&gt; comparator)</p>
+</blockquote>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">Stream&lt;String&gt; strStream = Stream.<span style="color:#658b00">of</span>(<span style="color:#cd5555">&#34;dd&#34;</span>,<span style="color:#cd5555">&#34;aaa&#34;</span>,<span style="color:#cd5555">&#34;CC&#34;</span>,<span style="color:#cd5555">&#34;cc&#34;</span>,<span style="color:#cd5555">&#34;b&#34;</span>);
+strStream.<span style="color:#658b00">sorted</span>().<span style="color:#658b00">forEach</span>(System.<span style="color:#658b00">out</span>::print); <span style="color:#228b22">// CCaaabccdd
+</span><span style="color:#228b22"></span>
+<span style="color:#228b22">// 기본정렬 역순
+</span><span style="color:#228b22"></span>strStream.<span style="color:#658b00">sorted</span>(Comparator.<span style="color:#658b00">reverseOrder</span>());
+
+<span style="color:#228b22">// 대소문자 구분 없이
+</span><span style="color:#228b22"></span>strStream.<span style="color:#658b00">sorted</span>(String.<span style="color:#658b00">CASE_INSESITIVE_ORDER</span>)
+
+<span style="color:#228b22">// 길이 순 정렬
+</span><span style="color:#228b22"></span>strStream.<span style="color:#658b00">sorted</span>(Comparator.<span style="color:#658b00">comparing</span>(String::length))
+
+<span style="color:#228b22">//정렬 조건을 추가할 때는 thenComparing() 사용
+</span><span style="color:#228b22"></span>studentStream.<span style="color:#658b00">sorted</span>(Comparator.<span style="color:#658b00">comparing</span>(Student::getBan)
+                      .<span style="color:#658b00">thenComparing</span>(Student::getTotalScore)
+                      .<span style="color:#658b00">thenComparing</span>(Student::getName)
+                      .<span style="color:#658b00">forEach</span>(System.<span style="color:#658b00">out</span>::println);</code></pre></div>
+<h3 id="3-4-스트림-변환">3.4. 스트림 변환</h3>
+
+<blockquote>
+<p>스트림의 요소에 저장된 값 중에서 원하는 필드만 뽑아내거나, 특정 형태로 변환해야 할 때<br />
+map() 사용</p>
+</blockquote>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#228b22">// map()으로 Stream&lt;File&gt;을 Stream&lt;String&gt;으로 변환하기
+</span><span style="color:#228b22"></span>
+Stream&lt;File&gt; fileStream = Stream.<span style="color:#658b00">of</span>(<span style="color:#8b008b;font-weight:bold">new</span> File(<span style="color:#cd5555">&#34;Ex1.java&#34;</span>), <span style="color:#8b008b;font-weight:bold">new</span> File(<span style="color:#cd5555">&#34;Ex2.java&#34;</span>));
+Stream&lt;String&gt; filenameStream = fileStream.<span style="color:#658b00">map</span>(File::getName);
+filenameStream.<span style="color:#658b00">forEach</span>(System.<span style="color:#658b00">out</span>::println);
+
+<span style="color:#228b22">// map() 여러 번 사용
+</span><span style="color:#228b22"></span>
+fileStream.<span style="color:#658b00">map</span>(File::getName)   <span style="color:#228b22">// Stream&lt;File&gt; -&gt; Stream&lt;String&gt;
+</span><span style="color:#228b22"></span>  .<span style="color:#658b00">filter</span>(s -&gt; s.<span style="color:#658b00">indexOf</span>(<span style="color:#cd5555">&#39;.&#39;</span>)!= -1)   <span style="color:#228b22">// 확장자 없는 것 제외
+</span><span style="color:#228b22"></span>  .<span style="color:#658b00">map</span>(s -&gt; s.<span style="color:#658b00">substring</span>(s.<span style="color:#658b00">indexOf</span>(<span style="color:#cd5555">&#39;.&#39;</span>)+1))    <span style="color:#228b22">// Stream&lt;String&gt; -&gt; Stream&lt;String&gt;
+</span><span style="color:#228b22"></span>  .<span style="color:#658b00">map</span>(String::toUpperCase)   <span style="color:#228b22">// 모두 대문자로 변환
+</span><span style="color:#228b22"></span>  .<span style="color:#658b00">distinct</span>()   
+  .<span style="color:#658b00">forEach</span>(System.<span style="color:#658b00">out</span>::print);</code></pre></div>
+<h2 id="4-스트림의-중간연산">4. 스트림의 중간연산</h2>
+
+<h3 id="4-1-스트림-조회">4.1. 스트림 조회</h3>
+
+<blockquote>
+<p>연산과 연산 사이에 올바르게 처리되었는지 확인하려면 peek() 사용<br />
+forEach()와 달리 스트림의 요소를 소모하지 않으므로 연산 사이에 여러 번 사용 가능</p>
+</blockquote>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">fileStream.<span style="color:#658b00">map</span>(File::getName)
+  .<span style="color:#658b00">filter</span>(s -&gt; s.<span style="color:#658b00">indexOf</span>(<span style="color:#cd5555">&#39;.&#39;</span>) != -1)    <span style="color:#228b22">//확장자 없는 것 제외
+</span><span style="color:#228b22"></span>  .<span style="color:#658b00">peek</span>(s -&gt; System.<span style="color:#658b00">out</span>.<span style="color:#658b00">printf</span>(<span style="color:#cd5555">&#34;filename=%s%n&#34;</span>, s))   <span style="color:#228b22">//파일명 출력
+</span><span style="color:#228b22"></span>  .<span style="color:#658b00">map</span>(s -&gt; s.<span style="color:#658b00">substring</span>(s.<span style="color:#658b00">indexOf</span>(<span style="color:#cd5555">&#39;.&#39;</span>)+1))   <span style="color:#228b22">//확장자만 추출
+</span><span style="color:#228b22"></span>  .<span style="color:#658b00">peek</span>(s -&gt; System.<span style="color:#658b00">out</span>.<span style="color:#658b00">printf</span>(<span style="color:#cd5555">&#34;extension=%s%n&#34;</span>, s))  <span style="color:#228b22">//확장자 출력
+</span><span style="color:#228b22"></span>  .<span style="color:#658b00">forEach</span>(System.<span style="color:#658b00">out</span>::println);</code></pre></div>
+<h3 id="4-2-stream-t-스트림을-기본형-스트림으로-변환">4.2. Stream<T> 스트림을 기본형 스트림으로 변환</h3>
+
+<blockquote>
+<p>map()은 연산의 결과로 Stream<t> 타입의 스트림을 반환하는데,<br />
+스트림의 요소를 숫자로 변환하는 경우 IntStream과 같은 기본형 스트림으로 변환하는 것이 더 유용할 수 있다.</p>
+</blockquote>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">DoubleStream <span style="color:#008b45">mapToDouble</span>(ToDoubleFunction&lt;? <span style="color:#8b008b;font-weight:bold">super</span> T&gt; mapper)  
+IntStream <span style="color:#008b45">mapToInt</span>(ToIntFunction&lt;? <span style="color:#8b008b;font-weight:bold">super</span> T&gt; mapper)
+LongStream <span style="color:#008b45">mapToLong</span>(ToLongFunction&lt;? <span style="color:#8b008b;font-weight:bold">super</span> T&gt; mapper)
+
+<span style="color:#228b22">// 스트림에 포함된 모든 학생의 성적을 합산하기 위해 map()으로 새로운 스트림 생성
+</span><span style="color:#228b22"></span>Stream&lt;Integer&gt; studentScoreStream = studentStream.<span style="color:#658b00">map</span>(Student::getTotalScore);
+
+<span style="color:#228b22">// 애초에 Stream&lt;Integer&gt;가 아닌 IntStream 타입의 스트림 생성하기
+</span><span style="color:#228b22">// 성적을 더할 때 Integer를 int로 변환할 필요 없어서 더 효율적이다.
+</span><span style="color:#228b22"></span>IntStream studentScoreStream = studentStream.<span style="color:#658b00">mapToInt</span>(Student::getTotalScore);
+<span style="color:#00688b;font-weight:bold">int</span> allTotalScore = studentScoreStream.<span style="color:#658b00">sum</span>();</code></pre></div>
+<blockquote>
+<p>count()만 지원하는 Stream<T>와 달리 IntStream과 같은 기본형 스트림은 아래와 같이 숫자를 다루는데 편리한 메서드들을 제공한다.</p>
+</blockquote>
+
+<pre><code>int sum()                   스트림 모든 요소의 총합
+OptionalDouble average()    sum()/count()
+OptionalInt max()           스트림 요소 중 제일 큰 값
+OPtionalInt min()           스트림 요소 중 제일 작은 값
+
+* max()와 min()은 Stream에도 정의되어 있지만 매개변수로 Comparator를 지정해야 한다.
+* 이 메서드들은 최종연산이다.
+* sum()과 average()를 모두 호출하려면 summaryStatistics() 메서드 사용
+</code></pre>
+
+<blockquote>
+<p>IntStream을 Stream<T>로 변환할 때는 mapToObj() 사용<br />
+IntStream을 Steram<Integer>로 변환할 때는 boxed() 사용</p>
+</blockquote>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#228b22">//mapToObj() 사용해서 IntStream을 Stream&lt;String&gt;으로 변환
+</span><span style="color:#228b22"></span>
+<span style="color:#228b22">//로또번호 생성기
+</span><span style="color:#228b22"></span>IntStream intStream = <span style="color:#8b008b;font-weight:bold">new</span> Random().<span style="color:#658b00">ints</span>(1,46);  <span style="color:#228b22">// 1~45사이의 정수
+</span><span style="color:#228b22"></span>Stream&lt;String&gt; lottoStream = intStream.<span style="color:#658b00">distinct</span>().<span style="color:#658b00">limit</span>(6).<span style="color:#658b00">sorted</span>()
+                                .<span style="color:#658b00">mapToObj</span>(i-&gt;i+<span style="color:#cd5555">&#34;,&#34;</span>);    <span style="color:#228b22">// 정수를 문자열로 변환
+</span><span style="color:#228b22"></span>lottoStream.<span style="color:#658b00">forEach</span>(System.<span style="color:#658b00">out</span>::print); // 12,14,23,29,45</code></pre></div>
+<blockquote>
+<p>CharSequence에 정의된 chars()는 String이나 StringBuffer에 저장된 문자들을 IntStream으로 다룰 수 있게 해준다.</p>
+</blockquote>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">IntStream charStream = <span style="color:#cd5555">&#34;12345&#34;</span>.<span style="color:#658b00">chars</span>();
+<span style="color:#00688b;font-weight:bold">int</span> charSum = charStream.<span style="color:#658b00">map</span>(ch-&gt; ch-<span style="color:#cd5555">&#39;0&#39;</span>).<span style="color:#658b00">sum</span>() // charSum=15</code></pre></div>
+<blockquote>
+<p>Stream<String> -&gt; IntStream 변환 시, mapToInt(Integer::parseInt) 사용<br />
+Stream<Integer> -&gt; IntStream 변환 시, mapToInt(Integer::intValue) 사용</p>
+</blockquote>
+
+<h3 id="4-3-stream-t-를-stream-t-로-변환">4.3. Stream<T[]>를 Stream<T>로 변환</h3>
+
+<blockquote>
+<p>flatMap() 사용</p>
+</blockquote>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#228b22">// 요소가 문자열 배열(String[])인 스트림
+</span><span style="color:#228b22"></span>Stream&lt;String[]&gt; strArrStrm = Stream.<span style="color:#658b00">of</span>(
+                              <span style="color:#8b008b;font-weight:bold">new</span> String[]{<span style="color:#cd5555">&#34;abc&#34;</span>, <span style="color:#cd5555">&#34;def&#34;</span>, <span style="color:#cd5555">&#34;ghi&#34;</span>},
+                              <span style="color:#8b008b;font-weight:bold">new</span> String[]{<span style="color:#cd5555">&#34;ABC&#34;</span>, <span style="color:#cd5555">&#34;DEF&#34;</span>m <span style="color:#cd5555">&#34;JKLMN&#34;</span>}
+                              );
+
+<span style="color:#228b22">// Stream&lt;String[]&gt;을 map(Arrays::stream)으로 변환한 결과는 Stream&lt;String&gt;이 아닌 Stream&lt;Stream&lt;String&gt;&gt;.
+</span><span style="color:#228b22">// 즉 스트림의 스트림이다.
+</span><span style="color:#228b22"></span>Stream&lt;Stream&lt;String&gt;&gt; strStrStrm = strArrStrm.<span style="color:#658b00">map</span>(Arrays::stream);
+
+<span style="color:#228b22">//map() 대신 flatMap() 사용하면 각 배열이 하나의 스트림의 요소가 된다.
+</span><span style="color:#228b22"></span>Stream&lt;String&gt; strStrm = strArrStrm.<span style="color:#658b00">flatMap</span>(Arrays::stream);</code></pre></div>
+<h2 id="5-optional-t">5. Optional<T></h2>
+
+<blockquote>
+<p>Optional<T>은 지네릭 클래스로 &lsquo;T타입의 객체&rsquo;를 감싸는 래퍼 클래스다.<br />
+그래서 Optional타입의 객체에는 모든 타입의 참조변수를 담을 수 있다.</p>
+</blockquote>
+
+<p>최종 연산의 결과를 그냥 반환하는 것이 아니라 Optional 객체에 담아서 반환하면,<br />
+반환된 결과가 null인지 매번 if문으로 체크하는 대신 Optional에 정의된 메서드를 통해 간단히 처리할 수 있다.</p>
+
+<h3 id="5-1-optional-객체-생성하기">5.1. Optional 객체 생성하기</h3>
+
+<blockquote>
+<p>of() 또는 ofNullable() 사용</p>
+</blockquote>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#228b22">//참조변수의 값이 null일 가능성이 있으면 of()대신 ofNullable() 사용
+</span><span style="color:#228b22"></span>Optional&lt;String&gt; optVal = Optional.<span style="color:#658b00">of</span>(<span style="color:#8b008b;font-weight:bold">null</span>); <span style="color:#228b22">//NullPointerException 발생
+</span><span style="color:#228b22"></span>Optional&lt;String&gt; optVal = Optional.<span style="color:#658b00">ofNullable</span>(<span style="color:#8b008b;font-weight:bold">null</span>);  <span style="color:#228b22">// OK
+</span><span style="color:#228b22"></span>
+<span style="color:#228b22">//Optional&lt;T&gt; 타입의 참조변수를 기본값으로 초기화할 때 empty() 사용
+</span><span style="color:#228b22">//null로 초기화할 수 있지만 empty()로 초기화하는 것이 바람직
+</span><span style="color:#228b22"></span>Optional&lt;String&gt; optVal = <span style="color:#8b008b;font-weight:bold">null</span>;
+Optional&lt;String&gt; optVal = Optional.<span style="color:#658b00">empty</span>();  // 빈 객체로 초기화</code></pre></div>
+<h3 id="5-2-optional-객체의-값-가져오기">5.2. Optional 객체의 값 가져오기</h3>
+
+<blockquote>
+<p>get(), orElse()</p>
+</blockquote>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">Optional&lt;String&gt; optVal = Optional.<span style="color:#658b00">of</span>(<span style="color:#cd5555">&#34;abc&#34;</span>);
+String str1 = optVal.<span style="color:#658b00">get</span>();   <span style="color:#228b22">// optVal에 저장된 값을 반환. null이면 예외발생
+</span><span style="color:#228b22"></span>String str2 = optVal.<span style="color:#658b00">orElse</span>(<span style="color:#cd5555">&#34;&#34;</span>);  <span style="color:#228b22">// optVal에 저장된 값이 null이면 &#34;&#34;를 반환
+</span><span style="color:#228b22"></span>String str3 = optVal.<span style="color:#658b00">orElseGet</span>(String::<span style="color:#8b008b;font-weight:bold">new</span>);  <span style="color:#228b22">// null을 대체할 값을 반환하는 람다식 지정
+</span><span style="color:#228b22"></span>String str4 = optVal.<span style="color:#658b00">orElseThrow</span>(NullPointerException::<span style="color:#8b008b;font-weight:bold">new</span>);  // null일 때 지정된 예외를 발생</code></pre></div>
+<blockquote>
+<p>isPresent()는 Optional 객체의 값이 null이면 false를, 아니면 true 반환<br />
+ifPresent(Consumer<T> block)는 값이 있으면 주어진 람다식 실행, 없으면 아무일 안함</p>
+</blockquote>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#228b22">//조건문
+</span><span style="color:#228b22"></span><span style="color:#8b008b;font-weight:bold">if</span>(str!=<span style="color:#8b008b;font-weight:bold">null</span>) {
+  System.<span style="color:#658b00">out</span>.<span style="color:#658b00">println</span>(str);
+}
+
+<span style="color:#228b22">//위의 조건문을 isPresent()로 구현
+</span><span style="color:#228b22"></span><span style="color:#8b008b;font-weight:bold">if</span>(Optional.<span style="color:#658b00">ofNullable</span>(str).<span style="color:#658b00">isPresent</span>())  {
+  System.<span style="color:#658b00">out</span>.<span style="color:#658b00">println</span>(str);
+}
+
+<span style="color:#228b22">//위의 조건문을 ifPresent()로 구현
+</span><span style="color:#228b22"></span>Optional.<span style="color:#658b00">ofNullable</span>(str).<span style="color:#658b00">ifPresent</span>(System.<span style="color:#658b00">out</span>::println);</code></pre></div>
+<h2 id="6-스트림의-최종-연산">6. 스트림의 최종 연산</h2>
+
+<blockquote>
+<p>최종 연산은 스트림의 요소를 소모해서 결과를 만든다. 그래서 최종 연산후에는 스트림이 닫혀서 더이 상 사용할 수 없다.</p>
+</blockquote>
+
+<h3 id="6-1-foreach">6.1. forEach()</h3>
+
+<blockquote>
+<p>반환 타입이 void이므로 스트림의 요소를 출력하는 용도로 많이 사용</p>
+</blockquote>
+
+<h3 id="6-2-조건검사">6.2. 조건검사</h3>
+
+<blockquote>
+<p>allMatch(), anyMatch(), noneMatch(), findFirst(), findAny()</p>
+</blockquote>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#00688b;font-weight:bold">boolean</span> <span style="color:#008b45">allMatch</span> (Predicate&lt;? <span style="color:#8b008b;font-weight:bold">super</span> T&gt; predicate)
+<span style="color:#00688b;font-weight:bold">boolean</span> <span style="color:#008b45">anyMatch</span> (Predicate&lt;? <span style="color:#8b008b;font-weight:bold">super</span> T&gt; predicate)
+<span style="color:#00688b;font-weight:bold">boolean</span> <span style="color:#008b45">noneMatch</span> (Predicate&lt;? <span style="color:#8b008b;font-weight:bold">super</span> T&gt; predicate)
+
+<span style="color:#228b22">// 학생성적 스트림에서 총점이 낙제점 이하인 학생 확인
+</span><span style="color:#228b22"></span><span style="color:#00688b;font-weight:bold">boolean</span> noFailed = stuStream.<span style="color:#658b00">anyMatch</span>(s-&gt;s.<span style="color:#658b00">getTotalScore</span>()&lt;=100);
+
+<span style="color:#228b22">// 스트림 요소 중 조건에 일치하는 첫 번째 것 반환
+</span><span style="color:#228b22"></span>Optional&lt;Student&gt; stu = stuStream.<span style="color:#658b00">filter</span>(s-&gt;s.<span style="color:#658b00">getTotalScore</span>()&lt;=100).<span style="color:#658b00">findFirst</span>();
+
+<span style="color:#228b22">// 병렬스트림의 경우 findFirst() 대신 findAny() 사용
+</span><span style="color:#228b22"></span>Optional&lt;Student&gt; stu = parallelStream.<span style="color:#658b00">filter</span>(s-&gt;s.<span style="color:#658b00">getTotalScore</span>()&lt;=100).<span style="color:#658b00">findAny</span>();</code></pre></div>
+<h3 id="6-3-통계">6.3. 통계</h3>
+
+<blockquote>
+<p>count(), sum(), average(), max(), min()</p>
+</blockquote>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#228b22">// 기본형 스트림이 아닌 경우 통계 관련 메서드는 아래 3개 뿐이다.
+</span><span style="color:#228b22">// 기본형 스트림의 min(), max()와 달리 매개변수로 Comparator가 필요하다.
+</span><span style="color:#228b22"></span><span style="color:#00688b;font-weight:bold">long</span> <span style="color:#008b45">count</span>()
+Optional&lt;T&gt; <span style="color:#008b45">max</span>(Comparator&lt;? <span style="color:#8b008b;font-weight:bold">super</span> T&gt; comparator)
+Optional&lt;T&gt; <span style="color:#008b45">min</span>(Comparator&lt;? <span style="color:#8b008b;font-weight:bold">super</span> T&gt; comparator)</code></pre></div>
+<h3 id="6-4-reduce">6.4. reduce()</h3>
+
+<blockquote>
+<p>reduce()는 스트림의 요소를 줄여나가면서 연산을 수행하고 최종결과를 반환한다.<br />
+그래서 매개변수의 타입이 BinaryOperator<T> 이다.<br />
+처음 두 요소를 가지고 연산한 결과로 그 다음 요소와 연산한다.<br />
+모든 스트림의 요소를 소모하게 되면 그 결과를 반환한다.</p>
+</blockquote>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">Optional&lt;T&gt; <span style="color:#008b45">reduce</span>(BinaryOperator&lt;T&gt; accumulator)</code></pre></div>
+<blockquote>
+<p>reduce()의 사용방법은 초기값과 어떤 연산(BinaryOperator)으로 스트림의 요소를 줄여나갈 것인지만 결정하면 된다.</p>
+</blockquote>
+
+<h2 id="7-collect">7. collect()</h2>
+
+<blockquote>
+<p>스트림의 요소를 수집하는 최종 연산<br />
+collect()가 스트림의 요소를 수집하기 위한 수집 방법이 정의된 것이 collector.<br />
+collector는 Collector인터페이스를 구현한 것.</p>
+</blockquote>
+
+<pre><code>collect() 스트림의 최종 연산. 매개변수로 collector가 필요하다.
+Collector 인터페이스. collector는 이 인터페이스를 구현해야한다.
+Collectors 클래스. static 메서드로 미리 작성된 collector를 제공한다.
+</code></pre>
+
+<p>collect()의 매개변수 타입은 Collector인데. 매개변수가 Collector를 구현한 클래스의 객체이어야 한다는 뜻.<br />
+그리고 collect()는 이 객체에 구현된 방법대로 스트림의 요소를 수집한다.</p>
+
+<h3 id="7-1-스트림을-컬렉션과-배열로-변환">7.1. 스트림을 컬렉션과 배열로 변환</h3>
+
+<blockquote>
+<p>toList(), toSet(), toMap(), toCollection(), toArray()</p>
+</blockquote>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#228b22">// 스트림의 모든 요소를 컬렉션에 수집하려면, Collectors클래스의 toList()와 같은 메서드를 사용하면 된다.  
+</span><span style="color:#228b22"></span>List&lt;String&gt; names = stuStream.<span style="color:#658b00">map</span>(Student::getName)
+                              .<span style="color:#658b00">collect</span>(Collectors.<span style="color:#658b00">toList</span>());
+
+<span style="color:#228b22">// List나 Set이 아닌 특정 컬렉션을 지정하려면,
+</span><span style="color:#228b22">// toCollection()에 해당 컬렉션의 생성자 참조를 매개변수로 넣어주면 된다.
+</span><span style="color:#228b22"></span>ArrayList&lt;String&gt; list = names.<span style="color:#658b00">stream</span>()
+                              .<span style="color:#658b00">collect</span>(Collectors.<span style="color:#658b00">toCollection</span>(ArrayList::<span style="color:#8b008b;font-weight:bold">new</span>));
+                              
+<span style="color:#228b22">// Map은 객체의 어떤 필드를 키와 값으로 사용하지 지정해야 한다.
+</span><span style="color:#228b22">// 요소의 타입이 Person인 스트림에서 사람의 주민번호(regId)를 키로 하고, 값으로 Person 객체를 그대로 저장
+</span><span style="color:#228b22"></span>Map&lt;String, Person&gt; map = personStream.<span style="color:#658b00">collect</span>(Collectors.<span style="color:#658b00">toMap</span>(p-&gt;p.<span style="color:#658b00">getRegId</span>(), p-&gt;p)
+
+<span style="color:#228b22">// 스트림에 저장된 요소들을 T[] 타입의 배열로 변환하려면 toArray() 사용
+</span><span style="color:#228b22">// 단, 해당 타입의 생성자 참조를 매개변수로 지정해줘야 한다. 지정하지 않으면 반환되는 배열의 타입은 Object[]
+</span><span style="color:#228b22"></span>Student[] stuNames = studentStream.<span style="color:#658b00">toArray</span>(Student[]::<span style="color:#8b008b;font-weight:bold">new</span>);   <span style="color:#228b22">// OK
+</span><span style="color:#228b22"></span>Student[] stuNames = studentStream.<span style="color:#658b00">toArray</span>();                 <span style="color:#228b22">// 에러
+</span><span style="color:#228b22"></span>Object[] stuNames = studentStream.<span style="color:#658b00">toArray</span>();                  // OK</code></pre></div>
+<h3 id="7-2-통계">7.2. 통계</h3>
+
+<blockquote>
+<p>counting(), summingInt(), averagingInt(), maxBy(), minBy()</p>
+</blockquote>
+
+<h3 id="7-3-문자열-결합">7.3. 문자열 결합</h3>
+
+<blockquote>
+<p>joining()<br />
+스트림의 요소가 String이나 StringBuffer처럼 CharSequence의 자손인 경우에만 결합 가능하므로<br />
+스트림의 요소가 문자열이 아닌 경우에는 먼저 map()을 이용해서 스트림의 요소를 문자열로 변환해야 한다.</p>
+</blockquote>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">String studentNames = stuStream.<span style="color:#658b00">map</span>(Student::getName).<span style="color:#658b00">collect</span>(joining());
+String studentNames = stuStream.<span style="color:#658b00">map</span>(Student::getName).<span style="color:#658b00">collect</span>(joining(<span style="color:#cd5555">&#34;,&#34;</span>));
+String studentNames = stuStream.<span style="color:#658b00">map</span>(Student::getName).<span style="color:#658b00">collect</span>(joining(<span style="color:#cd5555">&#34;,&#34;</span>, <span style="color:#cd5555">&#34;[&#34;</span>, <span style="color:#cd5555">&#34;]&#34;</span>));
+
+<span style="color:#228b22">// 만약 map()없이 스트림에 바로 joining()하면, 스트림의 요소에 toString()을 호출한 결과를 결합한다.
+</span><span style="color:#228b22"></span>String studentInfo = stuStream.<span style="color:#658b00">collect</span>(joining(<span style="color:#cd5555">&#34;,&#34;</span>));</code></pre></div>
+<h3 id="7-4-그룹화와-분할">7.4. 그룹화와 분할</h3>
+
+<blockquote>
+<p>groupingBy(), partitioningBy()<br />
+그룹화는 스트림의 요소를 특정 기준으로 그룹화하는 것<br />
+분할은 스트림의 요소를 두 가지, 지정된 조건에 일치하는 그룹과 아닌 그룹으로 분할하는 것<br />
+groupingBy()는 스트림의 요소를 Function으로, partitioningBy()는 Predicate로 분류<br />
+보통 스트림의 두 개의 그룹으로 나눠야 하면 partitioningBy()쓰는 것이 더 빠르고, 그 외에는 groupingBy()를 쓰면 된다.<br />
+그룹화와 분할의 결과는 Map에 담겨 반환된다.</p>
+</blockquote>
+
+<h3 id="7-5-partitioningby-에-의한-분류">7.5. partitioningBy()에 의한 분류</h3>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#228b22">// 1. 기본 분할
+</span><span style="color:#228b22"></span>Map&lt;Boolean, List&lt;Student&gt;&gt; stuBySex 
+              = stuStream.<span style="color:#658b00">collect</span>(partitioningBy(Student::isMale));  <span style="color:#228b22">// 학생들을 성별로 분할
+</span><span style="color:#228b22"></span>List&lt;Student&gt; maleStudent = stuBySex.<span style="color:#658b00">get</span>(<span style="color:#8b008b;font-weight:bold">true</span>);   <span style="color:#228b22">// Map에서 남학생 목록을 얻는다.
+</span><span style="color:#228b22"></span>List&lt;Student&gt; femaleStudent = stuBySex.<span style="color:#658b00">get</span>(<span style="color:#8b008b;font-weight:bold">false</span>);  <span style="color:#228b22">// 여학생 목록
+</span><span style="color:#228b22"></span>
+<span style="color:#228b22">// 2. 기본 분할 + 통계 정보
+</span><span style="color:#228b22"></span>Map&lt;Boolean, Long&gt; stuNumBySex = stuStream.<span style="color:#658b00">collect</span>(partitioningBy(Student::isMale, counting()));
+System.<span style="color:#658b00">out</span>.<span style="color:#658b00">println</span>(stuNumBySex.<span style="color:#658b00">get</span>(<span style="color:#8b008b;font-weight:bold">true</span>));  <span style="color:#228b22">// 8 (남학생수)
+</span><span style="color:#228b22"></span>System.<span style="color:#658b00">out</span>.<span style="color:#658b00">println</span>(stuNumBySex.<span style="color:#658b00">get</span>(<span style="color:#8b008b;font-weight:bold">false</span>));  <span style="color:#228b22">// 10 (여학생수)
+</span><span style="color:#228b22"></span>
+
+<span style="color:#228b22">// 남학생 1등 구하기, mapBy()의 반환타입은 Optional&lt;Student&gt;
+</span><span style="color:#228b22"></span>Map&lt;Boolean, Optional&lt;Student&gt;&gt; topScoreBySex
+                = stuStream.<span style="color:#658b00">collect</span>(partitioningBy(Student::isMale, maxBy(comparingInt(Student::getScore))));
+System.<span style="color:#658b00">out</span>.<span style="color:#658b00">println</span>(topScoreBySex.<span style="color:#658b00">get</span>(<span style="color:#8b008b;font-weight:bold">true</span>));  <span style="color:#228b22">// Optional{[남일등, 남, 1, 1, 300]}
+</span><span style="color:#228b22"></span>
+
+<span style="color:#228b22">// mapBy()의 반환타입이 Optional&lt;Student&gt;가 아닌 Student를 반환 결과로 얻으려면,  
+</span><span style="color:#228b22">// collectiongAndThen()과 Optional::get 함께 사용
+</span><span style="color:#228b22"></span>Map&lt;Boolean, student&gt; topScoreBySex 
+            = stuStream.<span style="color:#658b00">collect</span>(
+                        partitioningBy(
+                            Student::isMale, collectingAndThen(
+                                              maxBy(comparingInt(Student::getScore))
+                                              , Optional::get)));
+                                              
+<span style="color:#228b22">// 3. 이중 분할
+</span><span style="color:#228b22"></span>Map&lt;Boolean, Map&lt;Boolean, List&lt;Student&gt;&gt;&gt; failedStuBySex 
+                         = stuStream.<span style="color:#658b00">collect</span>(
+                                      partitioningBy(Student::isMale, partitioningBy(s-&gt;s.<span style="color:#658b00">getScore</span>()&lt;150)));
+List&lt;Student&gt; failedMaleStu = failedStuBySex.<span style="color:#658b00">get</span>(<span style="color:#8b008b;font-weight:bold">true</span>).<span style="color:#658b00">get</span>(<span style="color:#8b008b;font-weight:bold">true</span>);</code></pre></div>
+<h3 id="7-6-groupingby-에-의한-분류">7.6. groupingBy()에 의한 분류</h3>
+
+<blockquote>
+<p>groupingBy()로 그룹화하면 기본적으로 List<T>에 담는다.</p>
+</blockquote>
+<div class="highlight"><pre style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#228b22">// 1. 학생 스트림을 반 별로 그룹지어 Map에 저장 
+</span><span style="color:#228b22"></span>Map&lt;Integer, List&lt;Student&gt;&gt; stuByBan 
+                  = stuStream.<span style="color:#658b00">collect</span>(groupingBy(Student::getBan, toList()));   <span style="color:#228b22">//toList()생략가능
+</span><span style="color:#228b22"></span>
+Map&lt;Integer, HashSet&lt;Student&gt;&gt; stuByHak 
+                  = stuStream.<span style="color:#658b00">collect</span>(groupingBy(Student::getHak, toCollection(HashSet::<span style="color:#8b008b;font-weight:bold">new</span>)));
+
+
+<span style="color:#228b22">// 2. 학생 스트림을 성적의 등급(Student.Level)으로 그룹화
+</span><span style="color:#228b22"></span>Map&lt;Student.<span style="color:#658b00">Level</span>, Long&gt; stuByLevel
+            = stuStream.<span style="color:#658b00">collect</span>(
+                        groupingBy(s-&gt; { <span style="color:#8b008b;font-weight:bold">if</span>(s.<span style="color:#658b00">getScore</span>()&gt;=200)      <span style="color:#8b008b;font-weight:bold">return</span> Student.<span style="color:#658b00">Level</span>.<span style="color:#658b00">HIGH</span>;
+                                         <span style="color:#8b008b;font-weight:bold">else</span> <span style="color:#8b008b;font-weight:bold">if</span>(s.<span style="color:#658b00">getScore</span>()&gt;=100) <span style="color:#8b008b;font-weight:bold">return</span> Student.<span style="color:#658b00">Level</span>.<span style="color:#658b00">MID</span>;
+                                         <span style="color:#8b008b;font-weight:bold">else</span>                       <span style="color:#8b008b;font-weight:bold">return</span> Student.<span style="color:#658b00">Level</span>.<span style="color:#658b00">LOW</span>;
+                                       }, counting()));
+
+
+<span style="color:#228b22">// 3. groupingBy() 다중 사용하기.
+</span><span style="color:#228b22">// 학년별로 그룹화하고 다시 반별로 그룹화
+</span><span style="color:#228b22"></span>Map&lt;Integer, Map&lt;Integer, List&lt;Student&gt;&gt;&gt; stuByHakAndBan
+            = stuStream.<span style="color:#658b00">collect</span>(groupingBy(Student::getHak,
+                                groupingBy(Student::getBan)));
+                                
+
+<span style="color:#228b22">// 4. 각 반별 1등 추출
+</span><span style="color:#228b22"></span>Map&lt;Integer, Map&lt;Integer, Student&gt;&gt; topStuByHakAndBan
+            = stuStream.<span style="color:#658b00">collect</span>(groupingBy(Student::getHak,
+                                groupingBy(Student::getBan, 
+                                           collectingAndThen(
+                                                        maxBy(comparingInt(Student::getScore)),
+                                                                                      Optional::get))));
+
+
+<span style="color:#228b22">// 5. 학년별, 반별 그룹화한 후에 성적그룹으로 변환하여 Set에 저장
+</span><span style="color:#228b22"></span>Map&lt;Integer, Map&lt;Integer, Set&lt;Student.<span style="color:#658b00">Level</span>&gt;&gt;&gt; stuByHakAndBan
+            = stuStream.<span style="color:#658b00">collect</span>(groupingBy(Student::getHak,
+                                groupingBy(Student::getBan,
+                                           mapping(s-&gt; {
+                                                        <span style="color:#8b008b;font-weight:bold">if</span>(s.<span style="color:#658b00">getScore</span>()&gt;=200)      <span style="color:#8b008b;font-weight:bold">return</span> Student.<span style="color:#658b00">Level</span>.<span style="color:#658b00">HIGH</span>;
+                                                        <span style="color:#8b008b;font-weight:bold">else</span> <span style="color:#8b008b;font-weight:bold">if</span>(s.<span style="color:#658b00">getScore</span>()&gt;=100) <span style="color:#8b008b;font-weight:bold">return</span> Student.<span style="color:#658b00">Level</span>.<span style="color:#658b00">MID</span>;
+                                                        <span style="color:#8b008b;font-weight:bold">else</span>                       <span style="color:#8b008b;font-weight:bold">return</span> Student.<span style="color:#658b00">Level</span>.<span style="color:#658b00">LOW</span>;
+                                                       } , toSet()))));</code></pre></div>
+<h2 id="8-스트림-변환-정리">8. 스트림 변환 정리</h2>
+
+<table>
+<thead>
+<tr>
+<th>from</th>
+<th>to</th>
+<th>변환메서드</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><strong>1. 스트림 -&gt; 기본형 스트림</strong></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>Stream<T></td>
+<td>IntStream</td>
+<td>mapToInt (ToIntFunction<T> mapper)</td>
+</tr>
+
+<tr>
+<td></td>
+<td>LongStream</td>
+<td>mapToLong (ToLongFunction<T> mapper)</td>
+</tr>
+
+<tr>
+<td></td>
+<td>DoubleStream</td>
+<td>mapToDouble (ToDoubleFunction<T> mapper)</td>
+</tr>
+
+<tr>
+<td><strong>2. 기본형 스트림 -&gt; 스트림</strong></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>IntStream</td>
+<td>Stream<Integer></td>
+<td></td>
+</tr>
+
+<tr>
+<td>LongStream</td>
+<td>Stream<Long></td>
+<td>boxed()</td>
+</tr>
+
+<tr>
+<td>DoubleStream</td>
+<td>Stream<Double></td>
+<td></td>
+</tr>
+
+<tr>
+<td></td>
+<td>Stream<U></td>
+<td>mapToObj (DoubleFunction<U> mapper)</td>
+</tr>
+
+<tr>
+<td><strong>3. 스트림의 스트림 -&gt; 스트림</strong></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>Stream<Stream<T>&gt;</td>
+<td>Stream<T></td>
+<td>flatMap (Function mapper)</td>
+</tr>
+
+<tr>
+<td>Stream<IntStream></td>
+<td>IntStream</td>
+<td>flatMapToInt (Function mapper)</td>
+</tr>
+
+<tr>
+<td>Stream<LongStream></td>
+<td>LongStream</td>
+<td>flatMapToLong (Function mapper)</td>
+</tr>
+
+<tr>
+<td>Stream<DoubleStream></td>
+<td>DoubleStream</td>
+<td>flatMapToDouble (Function mapper)</td>
+</tr>
+
+<tr>
+<td><strong>4. 컬렉션 -&gt; 스트림</strong></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>Collection<T>, List<T>, Set<T></td>
+<td>Stream<t></td>
+<td>stream()</td>
+</tr>
+</tbody>
+</table>
+
+  </div>
+  <footer>
+    <div class="article-footer">
+      
+
+      
+      
+      
+      
+      
+      <div id="pagenavigation-next-prev">
+        
+        <div id="pagenavigation-next">
+          <span class="pagenav-label">&lt; 이전 글</span>
+          <a href="http://integerous.github.io/post/dev/java-serialization/">자바의 정석 - 직렬화(Serialization)</a>
+        </div>
+        
+        
+        <div id="pagenavigation-prev">
+          <span class="pagenav-label">다음 글 ></span>
+          <a href="http://integerous.github.io/post/dev/java-lambda/">자바의 정석 - 람다식(Lambda Expression)</a>
+        </div>
+        
+      </div>
+      
+    </div>
+
+    <script src="https://utteranc.es/client.js"
+    repo="integerous/blog-comments"
+    issue-term="pathname"
+    crossorigin="anonymous"
+    async>
+    </script>
+  </footer>
+</div>
+
+
+
+
+
+</div>
+
+</div>
+<footer>
+<div id="site-footer-wrap">
+  <div id="site-footer">
+    <span>Powered by <a href="https://gohugo.io/">Hugo</a>.</span>
+    <span>
+      
+      Copyright (c) 2021, <a href="http://integerous.github.io/">Integerous DevLog</a>
+      
+    </span>
+  </div>
+</div>
+</footer>
+</div>
+</body>
+</html>

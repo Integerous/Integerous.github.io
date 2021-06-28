@@ -4,48 +4,48 @@
   
   <url>
     <loc>http://integerous.github.io/post/review/troublesome_words/</loc>
-    <lastmod>2021-06-12T17:19:20+09:00</lastmod>
+    <lastmod>2021-06-12T20:28:53+09:00</lastmod>
   </url>
   
   <url>
     <loc>http://integerous.github.io/tags/book/</loc>
-    <lastmod>2021-06-12T17:19:20+09:00</lastmod>
+    <lastmod>2021-06-12T20:28:53+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://integerous.github.io/categories/</loc>
-    <lastmod>2021-06-12T17:19:20+09:00</lastmod>
+    <lastmod>2021-06-12T20:28:53+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://integerous.github.io/</loc>
-    <lastmod>2021-06-12T17:19:20+09:00</lastmod>
+    <lastmod>2021-06-12T20:28:53+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://integerous.github.io/post/</loc>
-    <lastmod>2021-06-12T17:19:20+09:00</lastmod>
+    <lastmod>2021-06-12T20:28:53+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://integerous.github.io/tags/review/</loc>
-    <lastmod>2021-06-12T17:19:20+09:00</lastmod>
+    <lastmod>2021-06-12T20:28:53+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://integerous.github.io/tags/</loc>
-    <lastmod>2021-06-12T17:19:20+09:00</lastmod>
+    <lastmod>2021-06-12T20:28:53+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://integerous.github.io/categories/%EC%84%9C%ED%8F%89/</loc>
-    <lastmod>2021-06-12T17:19:20+09:00</lastmod>
+    <loc>http://integerous.github.io/categories/%EC%84%9C%ED%8F%89-review/</loc>
+    <lastmod>2021-06-12T20:28:53+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -66,13 +66,13 @@
   </url>
   
   <url>
-    <loc>http://integerous.github.io/categories/%ED%9A%8C%EA%B3%A0/</loc>
+    <loc>http://integerous.github.io/categories/%ED%9A%8C%EA%B3%A0-memoirs/</loc>
     <lastmod>2021-01-25T21:22:25+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://integerous.github.io/categories/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC/</loc>
+    <loc>http://integerous.github.io/categories/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC-essay/</loc>
     <lastmod>2021-03-07T18:46:52+09:00</lastmod>
     <priority>0</priority>
   </url>
@@ -148,14 +148,14 @@
   </url>
   
   <url>
-    <loc>http://integerous.github.io/categories/etc/</loc>
-    <lastmod>2021-03-07T18:46:52+09:00</lastmod>
+    <loc>http://integerous.github.io/categories/%EA%B0%9C%EB%B0%9C-dev/</loc>
+    <lastmod>2020-03-06T00:29:40+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://integerous.github.io/post/etc/books/</loc>
-    <lastmod>2021-03-07T18:46:52+09:00</lastmod>
+    <loc>http://integerous.github.io/post/dev/books/</loc>
+    <lastmod>2020-03-06T00:29:40+09:00</lastmod>
   </url>
   
   <url>
@@ -169,20 +169,14 @@
   </url>
   
   <url>
-    <loc>http://integerous.github.io/categories/java/</loc>
-    <lastmod>2021-01-25T19:52:23+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>http://integerous.github.io/tags/java/</loc>
-    <lastmod>2021-03-07T18:46:52+09:00</lastmod>
+    <lastmod>2020-01-18T22:00:08+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://integerous.github.io/post/java/serialization/</loc>
-    <lastmod>2021-01-25T19:52:23+09:00</lastmod>
+    <loc>http://integerous.github.io/post/dev/serialization/</loc>
+    <lastmod>2020-01-18T22:00:08+09:00</lastmod>
   </url>
   
   <url>
@@ -197,126 +191,108 @@
   
   <url>
     <loc>http://integerous.github.io/tags/activemq/</loc>
-    <lastmod>2021-03-07T18:46:52+09:00</lastmod>
+    <lastmod>2019-12-07T00:40:29+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://integerous.github.io/post/server/activemq_virtual_destinations/</loc>
-    <lastmod>2021-03-07T18:46:52+09:00</lastmod>
+    <loc>http://integerous.github.io/post/dev/activemq_virtual_destinations/</loc>
+    <lastmod>2019-12-07T00:40:29+09:00</lastmod>
   </url>
   
   <url>
     <loc>http://integerous.github.io/tags/amazonmq/</loc>
-    <lastmod>2021-03-07T18:46:52+09:00</lastmod>
+    <lastmod>2019-12-07T00:40:29+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://integerous.github.io/tags/message-broker/</loc>
-    <lastmod>2021-03-07T18:46:52+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://integerous.github.io/categories/server/</loc>
-    <lastmod>2021-03-07T18:46:52+09:00</lastmod>
+    <lastmod>2019-12-07T00:40:29+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://integerous.github.io/tags/spring/</loc>
-    <lastmod>2021-03-07T18:46:52+09:00</lastmod>
+    <lastmod>2019-12-07T00:40:29+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://integerous.github.io/tags/%EB%A1%9C%EB%93%9C%EB%B0%B8%EB%9F%B0%EC%8B%B1/</loc>
-    <lastmod>2021-03-07T18:46:52+09:00</lastmod>
+    <lastmod>2019-12-07T00:40:29+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://integerous.github.io/tags/network/</loc>
-    <lastmod>2021-03-07T18:46:52+09:00</lastmod>
+    <lastmod>2019-12-02T04:32:43+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://integerous.github.io/tags/nginx/</loc>
-    <lastmod>2021-03-07T18:46:52+09:00</lastmod>
+    <lastmod>2019-12-02T04:32:43+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://integerous.github.io/tags/raspberry-pi/</loc>
-    <lastmod>2021-03-07T18:46:52+09:00</lastmod>
+    <lastmod>2019-12-02T04:32:43+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://integerous.github.io/tags/ssl/</loc>
-    <lastmod>2021-03-07T18:46:52+09:00</lastmod>
+    <lastmod>2019-12-02T04:32:43+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://integerous.github.io/post/server/raspberry_server_1/</loc>
-    <lastmod>2021-03-07T18:46:52+09:00</lastmod>
+    <loc>http://integerous.github.io/post/dev/raspberry_server_1/</loc>
+    <lastmod>2019-12-02T04:32:43+09:00</lastmod>
   </url>
   
   <url>
-    <loc>http://integerous.github.io/post/java/xml_to_java_object/</loc>
-    <lastmod>2021-01-25T19:52:23+09:00</lastmod>
+    <loc>http://integerous.github.io/post/dev/xml_to_java_object/</loc>
+    <lastmod>2019-06-04T00:29:21+09:00</lastmod>
   </url>
   
   <url>
-    <loc>http://integerous.github.io/post/java/try_with_resources/</loc>
-    <lastmod>2021-01-25T19:52:23+09:00</lastmod>
+    <loc>http://integerous.github.io/post/dev/try_with_resources/</loc>
+    <lastmod>2019-05-30T23:04:20+09:00</lastmod>
   </url>
   
   <url>
-    <loc>http://integerous.github.io/post/java/abstract_class/</loc>
-    <lastmod>2021-01-25T19:52:23+09:00</lastmod>
+    <loc>http://integerous.github.io/post/dev/abstract_class/</loc>
+    <lastmod>2019-05-22T23:47:00+09:00</lastmod>
   </url>
   
   <url>
-    <loc>http://integerous.github.io/post/jpa/jpa_basics/</loc>
-    <lastmod>2021-03-07T18:46:52+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://integerous.github.io/categories/jpa/</loc>
-    <lastmod>2021-03-07T18:46:52+09:00</lastmod>
-    <priority>0</priority>
+    <loc>http://integerous.github.io/post/dev/jpa_basics/</loc>
+    <lastmod>2019-04-23T01:58:27+09:00</lastmod>
   </url>
   
   <url>
     <loc>http://integerous.github.io/tags/jpa/</loc>
-    <lastmod>2021-03-07T18:46:52+09:00</lastmod>
+    <lastmod>2019-04-23T01:58:27+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://integerous.github.io/tags/web/</loc>
-    <lastmod>2021-03-07T18:46:52+09:00</lastmod>
+    <lastmod>2019-04-23T00:39:42+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://integerous.github.io/post/translated/pathvariable_queryparam/</loc>
-    <lastmod>2021-03-07T18:46:52+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://integerous.github.io/categories/%EB%B2%88%EC%97%AD/</loc>
-    <lastmod>2021-03-07T18:46:52+09:00</lastmod>
-    <priority>0</priority>
+    <loc>http://integerous.github.io/post/dev/pathvariable_queryparam/</loc>
+    <lastmod>2019-04-23T00:39:42+09:00</lastmod>
   </url>
   
   <url>
     <loc>http://integerous.github.io/tags/%EB%B2%88%EC%97%AD/</loc>
-    <lastmod>2021-03-07T18:46:52+09:00</lastmod>
+    <lastmod>2019-04-23T00:39:42+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -326,44 +302,44 @@
   </url>
   
   <url>
-    <loc>http://integerous.github.io/post/java/java-serialization/</loc>
-    <lastmod>2021-01-25T19:52:23+09:00</lastmod>
+    <loc>http://integerous.github.io/post/dev/java-serialization/</loc>
+    <lastmod>2018-12-02T00:37:49+09:00</lastmod>
   </url>
   
   <url>
-    <loc>http://integerous.github.io/post/java/java-stream/</loc>
-    <lastmod>2021-01-25T19:52:23+09:00</lastmod>
+    <loc>http://integerous.github.io/post/dev/java-stream/</loc>
+    <lastmod>2018-11-29T00:10:13+09:00</lastmod>
   </url>
   
   <url>
-    <loc>http://integerous.github.io/post/java/java-lambda/</loc>
-    <lastmod>2021-01-25T19:52:23+09:00</lastmod>
+    <loc>http://integerous.github.io/post/dev/java-lambda/</loc>
+    <lastmod>2018-11-29T00:10:00+09:00</lastmod>
   </url>
   
   <url>
-    <loc>http://integerous.github.io/post/java/java-thread/</loc>
-    <lastmod>2021-01-25T19:52:23+09:00</lastmod>
+    <loc>http://integerous.github.io/post/dev/java-thread/</loc>
+    <lastmod>2018-10-30T01:39:34+09:00</lastmod>
   </url>
   
   <url>
-    <loc>http://integerous.github.io/post/java/java-enums/</loc>
-    <lastmod>2021-01-25T19:52:23+09:00</lastmod>
+    <loc>http://integerous.github.io/post/dev/java-enums/</loc>
+    <lastmod>2018-10-28T19:29:48+09:00</lastmod>
   </url>
   
   <url>
-    <loc>http://integerous.github.io/post/java/java-generics/</loc>
-    <lastmod>2021-01-25T19:52:23+09:00</lastmod>
+    <loc>http://integerous.github.io/post/dev/java-generics/</loc>
+    <lastmod>2018-10-25T00:28:04+09:00</lastmod>
   </url>
   
   <url>
     <loc>http://integerous.github.io/tags/git/</loc>
-    <lastmod>2021-03-07T18:46:52+09:00</lastmod>
+    <lastmod>2018-10-20T21:17:01+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://integerous.github.io/post/etc/gitflow/</loc>
-    <lastmod>2021-03-07T18:46:52+09:00</lastmod>
+    <loc>http://integerous.github.io/post/dev/gitflow/</loc>
+    <lastmod>2018-10-20T21:17:01+09:00</lastmod>
   </url>
   
   <url>
@@ -372,77 +348,71 @@
   </url>
   
   <url>
-    <loc>http://integerous.github.io/categories/aws/</loc>
-    <lastmod>2021-03-07T18:46:52+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>http://integerous.github.io/tags/aws/</loc>
-    <lastmod>2021-03-07T18:46:52+09:00</lastmod>
+    <lastmod>2018-10-07T23:30:21+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://integerous.github.io/post/aws/deployonec2/</loc>
-    <lastmod>2021-03-07T18:46:52+09:00</lastmod>
+    <loc>http://integerous.github.io/post/dev/deployonec2/</loc>
+    <lastmod>2018-10-07T23:30:21+09:00</lastmod>
   </url>
   
   <url>
     <loc>http://integerous.github.io/tags/deploy/</loc>
-    <lastmod>2021-03-07T18:46:52+09:00</lastmod>
+    <lastmod>2018-10-07T23:30:21+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://integerous.github.io/post/aws/vpc/</loc>
-    <lastmod>2021-03-07T18:46:52+09:00</lastmod>
+    <loc>http://integerous.github.io/post/dev/vpc/</loc>
+    <lastmod>2018-10-07T22:56:09+09:00</lastmod>
   </url>
   
   <url>
-    <loc>http://integerous.github.io/post/java/stringconcat/</loc>
-    <lastmod>2021-01-25T19:52:23+09:00</lastmod>
+    <loc>http://integerous.github.io/post/dev/stringconcat/</loc>
+    <lastmod>2018-10-07T18:21:44+09:00</lastmod>
   </url>
   
   <url>
-    <loc>http://integerous.github.io/post/aws/s3/</loc>
-    <lastmod>2021-03-07T18:46:52+09:00</lastmod>
+    <loc>http://integerous.github.io/post/dev/s3/</loc>
+    <lastmod>2018-10-07T18:12:32+09:00</lastmod>
   </url>
   
   <url>
     <loc>http://integerous.github.io/tags/s3/</loc>
-    <lastmod>2021-03-07T18:46:52+09:00</lastmod>
+    <lastmod>2018-10-07T18:12:32+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://integerous.github.io/post/java/java-collections/</loc>
-    <lastmod>2021-01-25T19:52:23+09:00</lastmod>
+    <loc>http://integerous.github.io/post/dev/java-collections/</loc>
+    <lastmod>2018-10-07T10:02:58+09:00</lastmod>
   </url>
   
   <url>
-    <loc>http://integerous.github.io/post/java/java-calendar-date/</loc>
-    <lastmod>2021-01-25T19:52:23+09:00</lastmod>
+    <loc>http://integerous.github.io/post/dev/java-calendar-date/</loc>
+    <lastmod>2018-10-03T14:01:53+09:00</lastmod>
   </url>
   
   <url>
-    <loc>http://integerous.github.io/post/java/java-lang/</loc>
-    <lastmod>2021-01-25T19:52:23+09:00</lastmod>
+    <loc>http://integerous.github.io/post/dev/java-lang/</loc>
+    <lastmod>2018-10-03T13:26:15+09:00</lastmod>
   </url>
   
   <url>
-    <loc>http://integerous.github.io/post/java/java-exception/</loc>
-    <lastmod>2021-01-25T19:52:23+09:00</lastmod>
+    <loc>http://integerous.github.io/post/dev/java-exception/</loc>
+    <lastmod>2018-10-03T13:20:33+09:00</lastmod>
   </url>
   
   <url>
-    <loc>http://integerous.github.io/post/java/java-abstract-interface/</loc>
-    <lastmod>2021-01-25T19:52:23+09:00</lastmod>
+    <loc>http://integerous.github.io/post/dev/java-abstract-interface/</loc>
+    <lastmod>2018-10-03T12:33:20+09:00</lastmod>
   </url>
   
   <url>
-    <loc>http://integerous.github.io/post/java/java-polymorphism/</loc>
-    <lastmod>2021-01-25T19:52:23+09:00</lastmod>
+    <loc>http://integerous.github.io/post/dev/java-polymorphism/</loc>
+    <lastmod>2018-10-03T11:43:34+09:00</lastmod>
   </url>
   
   <url>
@@ -461,19 +431,19 @@
   </url>
   
   <url>
-    <loc>http://integerous.github.io/post/aws/ebs/</loc>
-    <lastmod>2021-03-07T18:46:52+09:00</lastmod>
+    <loc>http://integerous.github.io/post/dev/ebs/</loc>
+    <lastmod>2018-08-25T21:44:50+09:00</lastmod>
   </url>
   
   <url>
     <loc>http://integerous.github.io/tags/ebs/</loc>
-    <lastmod>2021-03-07T18:46:52+09:00</lastmod>
+    <lastmod>2018-08-25T21:44:50+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://integerous.github.io/post/aws/certificate/</loc>
-    <lastmod>2021-03-07T18:46:52+09:00</lastmod>
+    <loc>http://integerous.github.io/post/dev/certificate/</loc>
+    <lastmod>2018-08-25T21:26:12+09:00</lastmod>
   </url>
   
   <url>
@@ -503,19 +473,19 @@
   
   <url>
     <loc>http://integerous.github.io/tags/blog/</loc>
-    <lastmod>2021-03-07T18:46:52+09:00</lastmod>
+    <lastmod>2018-08-12T20:48:55+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://integerous.github.io/tags/hugo/</loc>
-    <lastmod>2021-03-07T18:46:52+09:00</lastmod>
+    <lastmod>2018-08-12T20:48:55+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://integerous.github.io/post/etc/creating_static_blog/</loc>
-    <lastmod>2021-03-07T18:46:52+09:00</lastmod>
+    <loc>http://integerous.github.io/post/dev/creating_static_blog/</loc>
+    <lastmod>2018-08-12T20:48:55+09:00</lastmod>
   </url>
   
 </urlset>
