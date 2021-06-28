@@ -8,8 +8,17 @@
 
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sat, 12 Jun 2021 17:19:20 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 28 Jun 2021 15:26:11 +0900</lastBuildDate>
     <atom:link href="/tags/book/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>&lt;백만장자 메신저&gt;</title>
+      <link>http://integerous.github.io/post/review/the_millionaire_messenger/</link>
+      <pubDate>Mon, 28 Jun 2021 15:26:11 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/post/review/the_millionaire_messenger/</guid>
+      <description>The Millionaire Messenger: Make a Difference and a Fortune Sharing Your Advice by Brendon Burchard, 2011 인프런에서 &amp;lt;비전공자를 위한 개발자 취업 가이드&amp;gt; 강의를 판매중인 나에게 친구가 추천해준 책이다. 내가 만든 온</description>
+    </item>
     
     <item>
       <title>&lt;빌 브라이슨의 틀리기 쉬운 영어&gt;</title>
@@ -135,15 +144,6 @@
       
       <guid>http://integerous.github.io/post/review/what_i_talk_about_when_i_talk_about_running/</guid>
       <description>이런 저런 일들에 휘둘린 요즘, 무언가를 꾸준히 하는 것에 대한 이야기를 듣고 싶었다. 나는 어떤 일을 시작할 때 마다 &amp;lsquo;꾸준히 해야만 한다&amp;rsquo;</description>
-    </item>
-    
-    <item>
-      <title>&lt;부의 추월차선&gt;</title>
-      <link>http://integerous.github.io/post/review/the_millionaire_fastlane/</link>
-      <pubDate>Wed, 11 Mar 2020 23:06:02 +0900</pubDate>
-      
-      <guid>http://integerous.github.io/post/review/the_millionaire_fastlane/</guid>
-      <description>나와 성향이 비슷한 친구들이 추천해준 책이다. 단백질보충제 사업을 접고 취업준비를 하던 2016년쯤에 이 책을 읽었다면, 내 삶이 완전 다른 방향으로 향했을 것 같다</description>
     </item>
     
   </channel>
