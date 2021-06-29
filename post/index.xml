@@ -8,8 +8,17 @@
 
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Mon, 28 Jun 2021 15:26:11 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 29 Jun 2021 15:29:58 +0900</lastBuildDate>
     <atom:link href="/post/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>&lt;일은 배신하지 않는다&gt;</title>
+      <link>http://integerous.github.io/post/review/work_does_not_betray/</link>
+      <pubDate>Tue, 29 Jun 2021 15:29:58 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/post/review/work_does_not_betray/</guid>
+      <description>개정판 by 김종민, 2021 퇴사를 마음먹은 시점에 일은 배신하지 않는다라는 제목에 이끌려 구매한 책이다. 인터렉티브 개발자/디자이너로 일하다가 현재는 구글의 시니어</description>
+    </item>
     
     <item>
       <title>&lt;백만장자 메신저&gt;</title>
@@ -135,15 +144,6 @@
       
       <guid>http://integerous.github.io/post/review/homo_underliner/</guid>
       <description>올 초 내 나이만큼 책 읽기 프로젝트를 시작하면서, 지인들을 만날 때 마다 그들의 인생책이 무엇인지 물어보고 바로 구매해서 읽기 시작했다. 내 주변에는 나보다 못난 사람</description>
-    </item>
-    
-    <item>
-      <title>&lt;디스럽터&gt;</title>
-      <link>http://integerous.github.io/post/review/non-bullshit_innovation/</link>
-      <pubDate>Fri, 12 Jun 2020 23:37:51 +0900</pubDate>
-      
-      <guid>http://integerous.github.io/post/review/non-bullshit_innovation/</guid>
-      <description>원서 제목은 Non-bullshit Innovation: Radical Ideas from the World&amp;rsquo;s Smartest Minds 김봉진 전 우아한형제들 대표님이 페이스북에 쓴 이 책의 후기를 보고 바로 구매했다. 스스로 &amp;lsquo;과시적 독서가&amp;rsqu</description>
     </item>
     
   </channel>

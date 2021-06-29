@@ -8,8 +8,17 @@
 
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Mon, 28 Jun 2021 15:26:11 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 29 Jun 2021 15:29:58 +0900</lastBuildDate>
     <atom:link href="/tags/book/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>&lt;일은 배신하지 않는다&gt;</title>
+      <link>http://integerous.github.io/post/review/work_does_not_betray/</link>
+      <pubDate>Tue, 29 Jun 2021 15:29:58 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/post/review/work_does_not_betray/</guid>
+      <description>개정판 by 김종민, 2021 퇴사를 마음먹은 시점에 일은 배신하지 않는다라는 제목에 이끌려 구매한 책이다. 인터렉티브 개발자/디자이너로 일하다가 현재는 구글의 시니어</description>
+    </item>
     
     <item>
       <title>&lt;백만장자 메신저&gt;</title>
@@ -135,15 +144,6 @@
       
       <guid>http://integerous.github.io/post/review/the_monk_and_the_riddle/</guid>
       <description>이 책이 &amp;ldquo;인생책&amp;rdquo;이라고 표현한 지인이 있어서 바로 구매했다. 결과적으로 나의 인생책은 되지 않았지만, 내가 사업을 진행중이었다면 인</description>
-    </item>
-    
-    <item>
-      <title>&lt;달리기를 말할 때 내가 하고 싶은 이야기&gt;</title>
-      <link>http://integerous.github.io/post/review/what_i_talk_about_when_i_talk_about_running/</link>
-      <pubDate>Wed, 25 Mar 2020 20:30:38 +0900</pubDate>
-      
-      <guid>http://integerous.github.io/post/review/what_i_talk_about_when_i_talk_about_running/</guid>
-      <description>이런 저런 일들에 휘둘린 요즘, 무언가를 꾸준히 하는 것에 대한 이야기를 듣고 싶었다. 나는 어떤 일을 시작할 때 마다 &amp;lsquo;꾸준히 해야만 한다&amp;rsquo;</description>
     </item>
     
   </channel>

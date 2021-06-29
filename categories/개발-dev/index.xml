@@ -8,17 +8,8 @@
 
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Fri, 06 Mar 2020 00:29:40 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 18 Jan 2020 22:00:08 +0900</lastBuildDate>
     <atom:link href="/categories/%EA%B0%9C%EB%B0%9C-dev/" rel="self" type="application/rss+xml" />
-    
-    <item>
-      <title>내가 읽은&#43;읽을 개발서적 정리</title>
-      <link>http://integerous.github.io/post/dev/books/</link>
-      <pubDate>Fri, 06 Mar 2020 00:29:40 +0900</pubDate>
-      
-      <guid>http://integerous.github.io/post/dev/books/</guid>
-      <description>2020년 3월 6일 기준 최신순 정렬 읽는 중 해커, 광기의 랩소디 스프링부트와 AWS로 혼자 구현하는 웹서비스 만화로 배우는 리눅스 시스템 관리 1편 HTTP 완벽 가이드</description>
-    </item>
     
     <item>
       <title>Java Serialization 개념 정리</title>
@@ -144,6 +135,15 @@
       
       <guid>http://integerous.github.io/post/dev/java-generics/</guid>
       <description>자바의 정석(남궁성 저) 학습내용 정리 1. 지네릭스(Generics) 지네릭스는 다양한 타입의 객체들을 다루는 메서드나 컬렉션 클래스에 컴파일 시의 타입 체크</description>
+    </item>
+    
+    <item>
+      <title>Git으로 협업하는 방법</title>
+      <link>http://integerous.github.io/post/dev/gitflow/</link>
+      <pubDate>Sat, 20 Oct 2018 21:17:01 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/post/dev/gitflow/</guid>
+      <description>회사에서 Git을 활용한 협업 workflow를 세팅하기 위해 학습하며 기록한 내용입니다. 회사의 협업 환경 = Git + Bitbucket + Trello + Telegram Bitbucket 대신 Github을 사용해도</description>
     </item>
     
   </channel>
