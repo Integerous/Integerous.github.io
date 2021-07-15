@@ -8,8 +8,17 @@
 
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Tue, 29 Jun 2021 15:29:58 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 15 Jul 2021 18:04:52 +0900</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>&lt;린치핀&gt;</title>
+      <link>http://integerous.github.io/post/review/linchpin/</link>
+      <pubDate>Thu, 15 Jul 2021 18:04:52 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/post/review/linchpin/</guid>
+      <description>Linchpin: Are You Indispensable? by Seth Godin, 2011 마케팅에 일가견(?)이 있는 친구로부터 추천을 받아 &amp;lsquo;This is Marketing&amp;rsquo;을 구매하면서, 무심결에 함께 구매한 책이다. 요</description>
+    </item>
     
     <item>
       <title>&lt;일은 배신하지 않는다&gt;</title>
@@ -135,15 +144,6 @@
       
       <guid>http://integerous.github.io/post/review/the_art_of_travel/</guid>
       <description>by 알랭 드 보통(Alain de Botton), 2002 이 책 또한, 내 나이만큼 책 읽기 프로젝트를 시작하면서, 지인들을 만날 때 마다 그들의 인생책이 무엇인지 물어보고 구매한 책 중 하나</description>
-    </item>
-    
-    <item>
-      <title>&lt;직업으로서의 소설가&gt;</title>
-      <link>http://integerous.github.io/post/review/homo_underliner/</link>
-      <pubDate>Sun, 02 Aug 2020 21:47:10 +0900</pubDate>
-      
-      <guid>http://integerous.github.io/post/review/homo_underliner/</guid>
-      <description>올 초 내 나이만큼 책 읽기 프로젝트를 시작하면서, 지인들을 만날 때 마다 그들의 인생책이 무엇인지 물어보고 바로 구매해서 읽기 시작했다. 내 주변에는 나보다 못난 사람</description>
     </item>
     
   </channel>
