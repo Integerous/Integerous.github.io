@@ -8,8 +8,17 @@
 
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Thu, 15 Jul 2021 18:04:52 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 16 Aug 2021 17:37:07 +0900</lastBuildDate>
     <atom:link href="/categories/%EC%84%9C%ED%8F%89-review/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>&lt;내러티브 &amp; 넘버스&gt;</title>
+      <link>http://integerous.github.io/post/review/narrative_and_numbers/</link>
+      <pubDate>Mon, 16 Aug 2021 17:37:07 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/post/review/narrative_and_numbers/</guid>
+      <description>Narrative and Numbers by Aswath Damodaran, 2017 경제 관련 유튜브 영상을 보다가 가치평가의 대가로 불린다는 다모다란 교수를 알게 되었고, 그의 저서인 &amp;lt;투자 철학&amp;gt;과 이 책을 고민하다</description>
+    </item>
     
     <item>
       <title>&lt;린치핀&gt;</title>
@@ -135,15 +144,6 @@
       
       <guid>http://integerous.github.io/post/review/homo_underliner/</guid>
       <description>올 초 내 나이만큼 책 읽기 프로젝트를 시작하면서, 지인들을 만날 때 마다 그들의 인생책이 무엇인지 물어보고 바로 구매해서 읽기 시작했다. 내 주변에는 나보다 못난 사람</description>
-    </item>
-    
-    <item>
-      <title>&lt;디스럽터&gt;</title>
-      <link>http://integerous.github.io/post/review/non-bullshit_innovation/</link>
-      <pubDate>Fri, 12 Jun 2020 23:37:51 +0900</pubDate>
-      
-      <guid>http://integerous.github.io/post/review/non-bullshit_innovation/</guid>
-      <description>원서 제목은 Non-bullshit Innovation: Radical Ideas from the World&amp;rsquo;s Smartest Minds 김봉진 전 우아한형제들 대표님이 페이스북에 쓴 이 책의 후기를 보고 바로 구매했다. 스스로 &amp;lsquo;과시적 독서가&amp;rsqu</description>
     </item>
     
   </channel>

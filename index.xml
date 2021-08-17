@@ -8,8 +8,17 @@
 
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Thu, 15 Jul 2021 18:04:52 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 16 Aug 2021 17:37:07 +0900</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>&lt;내러티브 &amp; 넘버스&gt;</title>
+      <link>http://integerous.github.io/post/review/narrative_and_numbers/</link>
+      <pubDate>Mon, 16 Aug 2021 17:37:07 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/post/review/narrative_and_numbers/</guid>
+      <description>Narrative and Numbers by Aswath Damodaran, 2017 경제 관련 유튜브 영상을 보다가 가치평가의 대가로 불린다는 다모다란 교수를 알게 되었고, 그의 저서인 &amp;lt;투자 철학&amp;gt;과 이 책을 고민하다</description>
+    </item>
     
     <item>
       <title>&lt;린치핀&gt;</title>
@@ -135,15 +144,6 @@
       
       <guid>http://integerous.github.io/post/review/the_life_before_us/</guid>
       <description>by 로맹 가리(Romain Gary), 1975 저자가 의견을 직접 말하는 책들은 주로 머리로 읽어왔지만, 장편 소설 같은 문학 작품은 오로지 가슴(?)으로 읽고 감상하는 것이 나의</description>
-    </item>
-    
-    <item>
-      <title>&lt;여행의 기술&gt;</title>
-      <link>http://integerous.github.io/post/review/the_art_of_travel/</link>
-      <pubDate>Sat, 22 Aug 2020 00:23:28 +0900</pubDate>
-      
-      <guid>http://integerous.github.io/post/review/the_art_of_travel/</guid>
-      <description>by 알랭 드 보통(Alain de Botton), 2002 이 책 또한, 내 나이만큼 책 읽기 프로젝트를 시작하면서, 지인들을 만날 때 마다 그들의 인생책이 무엇인지 물어보고 구매한 책 중 하나</description>
     </item>
     
   </channel>
