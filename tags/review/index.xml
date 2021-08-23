@@ -8,8 +8,17 @@
 
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Mon, 16 Aug 2021 17:37:07 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 23 Aug 2021 18:17:51 +0900</lastBuildDate>
     <atom:link href="/tags/review/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>&lt;글쓰기의 쓸모&gt;</title>
+      <link>http://integerous.github.io/post/review/the_benefit_of_writing/</link>
+      <pubDate>Mon, 23 Aug 2021 18:17:51 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/post/review/the_benefit_of_writing/</guid>
+      <description>by 손현, 2021 이 책은 브런치(brunch)에서 글을 읽다가 추천 글 목록에 뜬 &amp;lt;숫자 너머의 낭만, 출판사&amp;gt;라는 글을 무심결에 클릭한 계기로 손현 작가</description>
+    </item>
     
     <item>
       <title>&lt;내러티브 &amp; 넘버스&gt;</title>
@@ -135,15 +144,6 @@
       
       <guid>http://integerous.github.io/post/review/the_art_of_travel/</guid>
       <description>by 알랭 드 보통(Alain de Botton), 2002 이 책 또한, 내 나이만큼 책 읽기 프로젝트를 시작하면서, 지인들을 만날 때 마다 그들의 인생책이 무엇인지 물어보고 구매한 책 중 하나</description>
-    </item>
-    
-    <item>
-      <title>&lt;직업으로서의 소설가&gt;</title>
-      <link>http://integerous.github.io/post/review/homo_underliner/</link>
-      <pubDate>Sun, 02 Aug 2020 21:47:10 +0900</pubDate>
-      
-      <guid>http://integerous.github.io/post/review/homo_underliner/</guid>
-      <description>올 초 내 나이만큼 책 읽기 프로젝트를 시작하면서, 지인들을 만날 때 마다 그들의 인생책이 무엇인지 물어보고 바로 구매해서 읽기 시작했다. 내 주변에는 나보다 못난 사람</description>
     </item>
     
   </channel>
