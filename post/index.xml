@@ -8,8 +8,17 @@
 
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Mon, 23 Aug 2021 18:17:51 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 23 Sep 2021 10:10:39 +0900</lastBuildDate>
     <atom:link href="/post/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>&lt;이와타씨에게 묻다&gt;</title>
+      <link>http://integerous.github.io/post/review/ask_iwata/</link>
+      <pubDate>Thu, 23 Sep 2021 10:10:39 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/post/review/ask_iwata/</guid>
+      <description>by 호보닛칸이토이신문 엮음, 2021 이 책은 페이스북에서 팔로우중인 유명한 시니어 개발자분들이 유행처럼 너도나도 후기를 남기는 것을 보고 구매했다. 일본 닌텐도 사장</description>
+    </item>
     
     <item>
       <title>&lt;글쓰기의 쓸모&gt;</title>
@@ -135,15 +144,6 @@
       
       <guid>http://integerous.github.io/post/review/die_or_scratch/</guid>
       <description>by 미노와 고스케, 2018 이 책은 우연히 본 유튜브 영상에서 추천하길래 구매한 책이다. 영상에서 추천한 이유는 별로 와닿지 않았는데, 표지에 적힌 새로운 시대, 일하기 혁</description>
-    </item>
-    
-    <item>
-      <title>&lt;부자 아빠 가난한 아빠&gt;</title>
-      <link>http://integerous.github.io/post/review/rich_dad_poor_dad/</link>
-      <pubDate>Mon, 14 Sep 2020 21:04:04 +0900</pubDate>
-      
-      <guid>http://integerous.github.io/post/review/rich_dad_poor_dad/</guid>
-      <description>by 로버트 기요사키(Robert T. Kiyosaki), 1997 이 책은 지인들로부터 여러 번 추천을 받았으나, 책 제목이 갖는 &amp;lsquo;뻔함&amp;rsquo;에 이끌리지 않아 읽기를</description>
     </item>
     
   </channel>

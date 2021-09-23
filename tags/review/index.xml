@@ -8,8 +8,17 @@
 
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Mon, 23 Aug 2021 18:17:51 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 23 Sep 2021 10:10:39 +0900</lastBuildDate>
     <atom:link href="/tags/review/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>&lt;이와타씨에게 묻다&gt;</title>
+      <link>http://integerous.github.io/post/review/ask_iwata/</link>
+      <pubDate>Thu, 23 Sep 2021 10:10:39 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/post/review/ask_iwata/</guid>
+      <description>by 호보닛칸이토이신문 엮음, 2021 이 책은 페이스북에서 팔로우중인 유명한 시니어 개발자분들이 유행처럼 너도나도 후기를 남기는 것을 보고 구매했다. 일본 닌텐도 사장</description>
+    </item>
     
     <item>
       <title>&lt;글쓰기의 쓸모&gt;</title>
@@ -135,15 +144,6 @@
       
       <guid>http://integerous.github.io/post/review/the_life_before_us/</guid>
       <description>by 로맹 가리(Romain Gary), 1975 저자가 의견을 직접 말하는 책들은 주로 머리로 읽어왔지만, 장편 소설 같은 문학 작품은 오로지 가슴(?)으로 읽고 감상하는 것이 나의</description>
-    </item>
-    
-    <item>
-      <title>&lt;여행의 기술&gt;</title>
-      <link>http://integerous.github.io/post/review/the_art_of_travel/</link>
-      <pubDate>Sat, 22 Aug 2020 00:23:28 +0900</pubDate>
-      
-      <guid>http://integerous.github.io/post/review/the_art_of_travel/</guid>
-      <description>by 알랭 드 보통(Alain de Botton), 2002 이 책 또한, 내 나이만큼 책 읽기 프로젝트를 시작하면서, 지인들을 만날 때 마다 그들의 인생책이 무엇인지 물어보고 구매한 책 중 하나</description>
     </item>
     
   </channel>
