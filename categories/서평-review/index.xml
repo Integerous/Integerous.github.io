@@ -8,8 +8,17 @@
 
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Thu, 23 Sep 2021 10:10:39 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 06 Nov 2021 17:07:38 +0900</lastBuildDate>
     <atom:link href="/categories/%EC%84%9C%ED%8F%89-review/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>&lt;Uncopyable&gt;</title>
+      <link>http://integerous.github.io/post/review/uncopyable/</link>
+      <pubDate>Sat, 06 Nov 2021 17:07:38 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/post/review/uncopyable/</guid>
+      <description>The Innovation Stack: Building an Unbeatable Business One Crazy Idea at a Time by Jim Mckelvey, 2020 이 책은 과시적 독서가 김봉진님이 가끔 페이스북에 추천하는 책 중 하나였다. 스퀘어(Square)를 창업한 짐 맥캘비가 쓴</description>
+    </item>
     
     <item>
       <title>&lt;이와타씨에게 묻다&gt;</title>
@@ -135,15 +144,6 @@
       
       <guid>http://integerous.github.io/post/review/rich_dad_poor_dad/</guid>
       <description>by 로버트 기요사키(Robert T. Kiyosaki), 1997 이 책은 지인들로부터 여러 번 추천을 받았으나, 책 제목이 갖는 &amp;lsquo;뻔함&amp;rsquo;에 이끌리지 않아 읽기를</description>
-    </item>
-    
-    <item>
-      <title>&lt;자기 앞의 생&gt;</title>
-      <link>http://integerous.github.io/post/review/the_life_before_us/</link>
-      <pubDate>Thu, 10 Sep 2020 19:43:58 +0900</pubDate>
-      
-      <guid>http://integerous.github.io/post/review/the_life_before_us/</guid>
-      <description>by 로맹 가리(Romain Gary), 1975 저자가 의견을 직접 말하는 책들은 주로 머리로 읽어왔지만, 장편 소설 같은 문학 작품은 오로지 가슴(?)으로 읽고 감상하는 것이 나의</description>
     </item>
     
   </channel>
