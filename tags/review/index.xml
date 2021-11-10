@@ -8,8 +8,17 @@
 
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sat, 06 Nov 2021 17:07:38 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 10 Nov 2021 14:17:57 +0900</lastBuildDate>
     <atom:link href="/tags/review/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>&lt;너의 내면을 검색하라&gt;</title>
+      <link>http://integerous.github.io/post/review/search_inside_yourself/</link>
+      <pubDate>Wed, 10 Nov 2021 14:17:57 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/post/review/search_inside_yourself/</guid>
+      <description>Search Inside Yourself by Chade-Meng Tan, 2012 이 책은 과동기 김진짜가 추천해준 책이었다. 추천해 줄 당시, &amp;ldquo;뭐 그렇게 엄청 좋은 책은 아닌데, 읽을만한 책이야&amp;rdquo;라고</description>
+    </item>
     
     <item>
       <title>&lt;Uncopyable&gt;</title>
@@ -135,15 +144,6 @@
       
       <guid>http://integerous.github.io/post/review/die_or_scratch/</guid>
       <description>by 미노와 고스케, 2018 이 책은 우연히 본 유튜브 영상에서 추천하길래 구매한 책이다. 영상에서 추천한 이유는 별로 와닿지 않았는데, 표지에 적힌 새로운 시대, 일하기 혁</description>
-    </item>
-    
-    <item>
-      <title>&lt;부자 아빠 가난한 아빠&gt;</title>
-      <link>http://integerous.github.io/post/review/rich_dad_poor_dad/</link>
-      <pubDate>Mon, 14 Sep 2020 21:04:04 +0900</pubDate>
-      
-      <guid>http://integerous.github.io/post/review/rich_dad_poor_dad/</guid>
-      <description>by 로버트 기요사키(Robert T. Kiyosaki), 1997 이 책은 지인들로부터 여러 번 추천을 받았으나, 책 제목이 갖는 &amp;lsquo;뻔함&amp;rsquo;에 이끌리지 않아 읽기를</description>
     </item>
     
   </channel>

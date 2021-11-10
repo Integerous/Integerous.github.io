@@ -8,8 +8,17 @@
 
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sat, 06 Nov 2021 17:07:38 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 10 Nov 2021 14:17:57 +0900</lastBuildDate>
     <atom:link href="/post/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>&lt;너의 내면을 검색하라&gt;</title>
+      <link>http://integerous.github.io/post/review/search_inside_yourself/</link>
+      <pubDate>Wed, 10 Nov 2021 14:17:57 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/post/review/search_inside_yourself/</guid>
+      <description>Search Inside Yourself by Chade-Meng Tan, 2012 이 책은 과동기 김진짜가 추천해준 책이었다. 추천해 줄 당시, &amp;ldquo;뭐 그렇게 엄청 좋은 책은 아닌데, 읽을만한 책이야&amp;rdquo;라고</description>
+    </item>
     
     <item>
       <title>&lt;Uncopyable&gt;</title>
@@ -135,15 +144,6 @@
       
       <guid>http://integerous.github.io/post/review/the_right_it/</guid>
       <description>원서 제목은 The Right It: Why So Many Ideas Fail and How to Make Sure Yours Succeed by 알베르토 사보이아(Alberto Savoia), 2019 책에서 말하는 프리토타입(Pretotype)이 그렇게 인상깊지는</description>
-    </item>
-    
-    <item>
-      <title>&lt;인연&gt;</title>
-      <link>http://integerous.github.io/post/review/connection/</link>
-      <pubDate>Sun, 01 Nov 2020 21:54:30 +0900</pubDate>
-      
-      <guid>http://integerous.github.io/post/review/connection/</guid>
-      <description>수필집 by 피천득, 1996 이 책은 김진짜가 사석에 자주 언급한 책이라 구매했다. 주변에 다독하는 지인이 별로 없는 탓에, 책을 많이 읽어온 진짜형(나보다 1살 많음)이 자</description>
     </item>
     
   </channel>
