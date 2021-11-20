@@ -8,8 +8,17 @@
 
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Wed, 10 Nov 2021 14:17:57 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 20 Nov 2021 14:18:09 +0900</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>&lt;Deep Work&gt;</title>
+      <link>http://integerous.github.io/post/review/deep_work/</link>
+      <pubDate>Sat, 20 Nov 2021 14:18:09 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/post/review/deep_work/</guid>
+      <description>DEEP WORK: Rules for Focused Success in a Distracted World by Cal Newport, 2016 이 책은 얼마 전 합류한 스타트업에서 바이블(?)로 삼고 있는 3개의 책 중 하나다. &amp;lt;Remote&amp;gt; &amp;lt;Deep work&amp;gt; &amp;lt;Radical Candor&amp;gt; 이 팀은 100% 원격근무를 하며 팀원들의 절</description>
+    </item>
     
     <item>
       <title>&lt;너의 내면을 검색하라&gt;</title>
@@ -135,15 +144,6 @@
       
       <guid>http://integerous.github.io/post/review/getting_out_of_the_box/</guid>
       <description>원서 제목은 Leadership &amp;amp; Self-Deception; Getting out of the Box by 아빈저연구소(The Arbinger Institute Properties, Inc.), 2010 이 책은 내가 좋아하는 이종립님의 블로그 글, 나의 성장을 도와준 고마운 책들에서 추천하신 책이라</description>
-    </item>
-    
-    <item>
-      <title>&lt;아이디어 불패의 법칙&gt;</title>
-      <link>http://integerous.github.io/post/review/the_right_it/</link>
-      <pubDate>Sun, 08 Nov 2020 20:57:37 +0900</pubDate>
-      
-      <guid>http://integerous.github.io/post/review/the_right_it/</guid>
-      <description>원서 제목은 The Right It: Why So Many Ideas Fail and How to Make Sure Yours Succeed by 알베르토 사보이아(Alberto Savoia), 2019 책에서 말하는 프리토타입(Pretotype)이 그렇게 인상깊지는</description>
     </item>
     
   </channel>
