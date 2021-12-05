@@ -8,8 +8,17 @@
 
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sat, 20 Nov 2021 14:18:09 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 05 Dec 2021 23:25:53 +0900</lastBuildDate>
     <atom:link href="/tags/book/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>&lt;예언자&gt;</title>
+      <link>http://integerous.github.io/post/review/the_prophet/</link>
+      <pubDate>Sun, 05 Dec 2021 23:25:53 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/post/review/the_prophet/</guid>
+      <description>The Prophet by Kahlil Gibran, 1923 이 책은 성경 다음으로 많이 팔린 책이라는 마케팅 문구에 혹해서 충동구매한 책이다. 그런데 올해 읽은 책 중에 가장 좋았다. 번역본도 이만큼 좋았는데, 원</description>
+    </item>
     
     <item>
       <title>&lt;Deep Work&gt;</title>
@@ -135,15 +144,6 @@
       
       <guid>http://integerous.github.io/post/review/the_right_it/</guid>
       <description>원서 제목은 The Right It: Why So Many Ideas Fail and How to Make Sure Yours Succeed by 알베르토 사보이아(Alberto Savoia), 2019 책에서 말하는 프리토타입(Pretotype)이 그렇게 인상깊지는</description>
-    </item>
-    
-    <item>
-      <title>&lt;인연&gt;</title>
-      <link>http://integerous.github.io/post/review/connection/</link>
-      <pubDate>Sun, 01 Nov 2020 21:54:30 +0900</pubDate>
-      
-      <guid>http://integerous.github.io/post/review/connection/</guid>
-      <description>수필집 by 피천득, 1996 이 책은 김진짜가 사석에 자주 언급한 책이라 구매했다. 주변에 다독하는 지인이 별로 없는 탓에, 책을 많이 읽어온 진짜형(나보다 1살 많음)이 자</description>
     </item>
     
   </channel>
