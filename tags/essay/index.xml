@@ -8,8 +8,17 @@
 
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sat, 23 Jan 2021 00:24:24 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 14 Dec 2021 23:42:00 +0900</lastBuildDate>
     <atom:link href="/tags/essay/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>체대 출신 개발자의 2021년 회고</title>
+      <link>http://integerous.github.io/post/memoirs/memoirs2021/</link>
+      <pubDate>Tue, 14 Dec 2021 23:42:00 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/post/memoirs/memoirs2021/</guid>
+      <description>이 글은 개인적인 회고록이다. 그래서 독백체 2018년 회고와 2019년 회고와, 2020년 회고에 이어, 2021년의 경험과 생각을 정리한다. 1. 토스 페이먼</description>
+    </item>
     
     <item>
       <title>체대 출신 개발자의 2020년 회고</title>

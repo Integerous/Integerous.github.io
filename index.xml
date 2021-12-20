@@ -8,8 +8,17 @@
 
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sun, 05 Dec 2021 23:25:53 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 14 Dec 2021 23:42:00 +0900</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>체대 출신 개발자의 2021년 회고</title>
+      <link>http://integerous.github.io/post/memoirs/memoirs2021/</link>
+      <pubDate>Tue, 14 Dec 2021 23:42:00 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/post/memoirs/memoirs2021/</guid>
+      <description>이 글은 개인적인 회고록이다. 그래서 독백체 2018년 회고와 2019년 회고와, 2020년 회고에 이어, 2021년의 경험과 생각을 정리한다. 1. 토스 페이먼</description>
+    </item>
     
     <item>
       <title>&lt;예언자&gt;</title>
@@ -135,15 +144,6 @@
       
       <guid>http://integerous.github.io/post/essay/lucky_with_women/</guid>
       <description>2020년 10월 19일 씀 초등학교 6학년 때의 일이었다. 축구부로 유명한 근처 학교의 축구부 코치님이 점심시간에 축구하는 나를 불러내시더니 자기네 학교 축구부</description>
-    </item>
-    
-    <item>
-      <title>&lt;그리스인 조르바&gt;</title>
-      <link>http://integerous.github.io/post/review/zorba_the_greek/</link>
-      <pubDate>Sun, 27 Dec 2020 22:36:11 +0900</pubDate>
-      
-      <guid>http://integerous.github.io/post/review/zorba_the_greek/</guid>
-      <description>원서 제목은 VIOS KE POLITIA TU ALEXI ZORBA by 니코스 카잔차키스(Nikos Kazantzakis), 1946 이 책은 나의 2020년 프로젝트 중 하나인 내 나이 만큼 책 읽기의 마지막(31번) 책이다. 마지막</description>
     </item>
     
   </channel>

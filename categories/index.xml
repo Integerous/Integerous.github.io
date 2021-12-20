@@ -8,8 +8,17 @@
 
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sun, 05 Dec 2021 23:25:53 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 14 Dec 2021 23:42:00 +0900</lastBuildDate>
     <atom:link href="/categories/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>회고 memoirs</title>
+      <link>http://integerous.github.io/categories/%ED%9A%8C%EA%B3%A0-memoirs/</link>
+      <pubDate>Tue, 14 Dec 2021 23:42:00 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/categories/%ED%9A%8C%EA%B3%A0-memoirs/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>서평 review</title>
@@ -17,15 +26,6 @@
       <pubDate>Sun, 05 Dec 2021 23:25:53 +0900</pubDate>
       
       <guid>http://integerous.github.io/categories/%EC%84%9C%ED%8F%89-review/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>회고 memoirs</title>
-      <link>http://integerous.github.io/categories/%ED%9A%8C%EA%B3%A0-memoirs/</link>
-      <pubDate>Sat, 23 Jan 2021 00:24:24 +0900</pubDate>
-      
-      <guid>http://integerous.github.io/categories/%ED%9A%8C%EA%B3%A0-memoirs/</guid>
       <description></description>
     </item>
     
