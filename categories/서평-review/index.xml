@@ -8,8 +8,17 @@
 
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sun, 05 Dec 2021 23:25:53 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 04 Jan 2022 18:45:53 +0900</lastBuildDate>
     <atom:link href="/categories/%EC%84%9C%ED%8F%89-review/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>&lt;This Is Marketing&gt;</title>
+      <link>http://integerous.github.io/post/review/this_is_marketing/</link>
+      <pubDate>Tue, 04 Jan 2022 18:45:53 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/post/review/this_is_marketing/</guid>
+      <description>This Is Marketing: You Can&amp;rsquo;t Be Seen Until You Learn to See by Seth Godin, 2018 &amp;lt;린치핀&amp;gt;을 읽고 작성한 리뷰 내용 중에, 뜬구름 잡는 소리가 많았고, 별 감흥이 없었다. (그래서 This is Mark</description>
+    </item>
     
     <item>
       <title>&lt;예언자&gt;</title>
@@ -135,15 +144,6 @@
       
       <guid>http://integerous.github.io/post/review/getting_out_of_the_box/</guid>
       <description>원서 제목은 Leadership &amp;amp; Self-Deception; Getting out of the Box by 아빈저연구소(The Arbinger Institute Properties, Inc.), 2010 이 책은 내가 좋아하는 이종립님의 블로그 글, 나의 성장을 도와준 고마운 책들에서 추천하신 책이라</description>
-    </item>
-    
-    <item>
-      <title>&lt;아이디어 불패의 법칙&gt;</title>
-      <link>http://integerous.github.io/post/review/the_right_it/</link>
-      <pubDate>Sun, 08 Nov 2020 20:57:37 +0900</pubDate>
-      
-      <guid>http://integerous.github.io/post/review/the_right_it/</guid>
-      <description>원서 제목은 The Right It: Why So Many Ideas Fail and How to Make Sure Yours Succeed by 알베르토 사보이아(Alberto Savoia), 2019 책에서 말하는 프리토타입(Pretotype)이 그렇게 인상깊지는</description>
     </item>
     
   </channel>
