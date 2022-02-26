@@ -8,8 +8,17 @@
 
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Tue, 04 Jan 2022 18:45:53 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 26 Feb 2022 11:16:40 +0900</lastBuildDate>
     <atom:link href="/post/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>&lt;효율적으로 비효율적인 시장&gt;</title>
+      <link>http://integerous.github.io/post/review/efficiently_inefficient/</link>
+      <pubDate>Sat, 26 Feb 2022 11:16:40 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/post/review/efficiently_inefficient/</guid>
+      <description>Efficiently Inefficient: How Smart Money Invests and Market Prices Are Determined by Lasse Heje Pedersen, 2015 이 책은 두물머리 대표인 천영록님의 추천사를 보고 구매했다. 이 책은 자산운용업에 종사하는 전문가가 배우게 되는 모든 지식을 정</description>
+    </item>
     
     <item>
       <title>&lt;This Is Marketing&gt;</title>
@@ -135,15 +144,6 @@
       
       <guid>http://integerous.github.io/post/review/no_rules_rules/</guid>
       <description>원서 제목은 NO RULES RULES by 리드 헤이스팅스(Reed Hastings), 에린 마이어(Erin Meyer), 2020 이 책은 이직한 회사에서 집으로 보낸 입사 선물 중 하나였다. 넷플릭스 공동창업자들이</description>
-    </item>
-    
-    <item>
-      <title>체대 출신 개발자의 2020년 회고</title>
-      <link>http://integerous.github.io/post/memoirs/memoirs2020/</link>
-      <pubDate>Sat, 23 Jan 2021 00:24:24 +0900</pubDate>
-      
-      <guid>http://integerous.github.io/post/memoirs/memoirs2020/</guid>
-      <description>이 글은 개인적인 회고록이다. 그래서 독백체 체대 출신 개발자의 2018년 회고와 체대 출신 개발자의 2019년 회고에 이어, 2020년의 경험과 생각을 정리하고</description>
     </item>
     
   </channel>

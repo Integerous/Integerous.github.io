@@ -8,8 +8,17 @@
 
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Tue, 04 Jan 2022 18:45:53 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 26 Feb 2022 11:16:40 +0900</lastBuildDate>
     <atom:link href="/tags/review/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>&lt;효율적으로 비효율적인 시장&gt;</title>
+      <link>http://integerous.github.io/post/review/efficiently_inefficient/</link>
+      <pubDate>Sat, 26 Feb 2022 11:16:40 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/post/review/efficiently_inefficient/</guid>
+      <description>Efficiently Inefficient: How Smart Money Invests and Market Prices Are Determined by Lasse Heje Pedersen, 2015 이 책은 두물머리 대표인 천영록님의 추천사를 보고 구매했다. 이 책은 자산운용업에 종사하는 전문가가 배우게 되는 모든 지식을 정</description>
+    </item>
     
     <item>
       <title>&lt;This Is Marketing&gt;</title>
@@ -135,15 +144,6 @@
       
       <guid>http://integerous.github.io/post/review/zorba_the_greek/</guid>
       <description>원서 제목은 VIOS KE POLITIA TU ALEXI ZORBA by 니코스 카잔차키스(Nikos Kazantzakis), 1946 이 책은 나의 2020년 프로젝트 중 하나인 내 나이 만큼 책 읽기의 마지막(31번) 책이다. 마지막</description>
-    </item>
-    
-    <item>
-      <title>&lt;상자 밖에 있는 사람&gt;</title>
-      <link>http://integerous.github.io/post/review/getting_out_of_the_box/</link>
-      <pubDate>Tue, 17 Nov 2020 21:45:49 +0900</pubDate>
-      
-      <guid>http://integerous.github.io/post/review/getting_out_of_the_box/</guid>
-      <description>원서 제목은 Leadership &amp;amp; Self-Deception; Getting out of the Box by 아빈저연구소(The Arbinger Institute Properties, Inc.), 2010 이 책은 내가 좋아하는 이종립님의 블로그 글, 나의 성장을 도와준 고마운 책들에서 추천하신 책이라</description>
     </item>
     
   </channel>
