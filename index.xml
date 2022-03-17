@@ -8,8 +8,17 @@
 
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Tue, 15 Mar 2022 15:11:42 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 17 Mar 2022 17:35:19 +0900</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>&lt;아이를 사랑하는 일&gt;</title>
+      <link>http://integerous.github.io/post/review/loving_my_kid/</link>
+      <pubDate>Thu, 17 Mar 2022 17:35:19 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/post/review/loving_my_kid/</guid>
+      <description>by 오카와 시게코, 2019 이 책은 와이프가 먼저 읽어보고 강력하게 추천해준 책이다. 이 책을 읽기 전과 후의 육아가 많이 달라졌다. 아니, 육아가 달라진 것이 아니라 나의 마</description>
+    </item>
     
     <item>
       <title>&lt;별게 다 영감&gt;</title>
@@ -135,15 +144,6 @@
       
       <guid>http://integerous.github.io/post/review/the_millionaire_messenger/</guid>
       <description>The Millionaire Messenger: Make a Difference and a Fortune Sharing Your Advice by Brendon Burchard, 2011 인프런에서 &amp;lt;비전공자를 위한 개발자 취업 가이드&amp;gt; 강의를 판매중인 나에게 친구가 추천해준 책이다. 내가 만든 온</description>
-    </item>
-    
-    <item>
-      <title>&lt;빌 브라이슨의 틀리기 쉬운 영어&gt;</title>
-      <link>http://integerous.github.io/post/review/troublesome_words/</link>
-      <pubDate>Sat, 12 Jun 2021 17:19:20 +0900</pubDate>
-      
-      <guid>http://integerous.github.io/post/review/troublesome_words/</guid>
-      <description>원서 제목은 BRYSON&amp;rsquo;S DICTIONARY OF TROUBLESOME WORDS by 빌 브라이슨(Bill Bryson), 2001 이 책은 100% 제목에 이끌려 충동 구매한 책이다. 개발자가 된 이후, 구글링 또는 기술 문서를 읽으며 영어 문장은 매일</description>
     </item>
     
   </channel>

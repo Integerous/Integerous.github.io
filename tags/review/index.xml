@@ -8,8 +8,17 @@
 
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Tue, 15 Mar 2022 15:11:42 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 17 Mar 2022 17:35:19 +0900</lastBuildDate>
     <atom:link href="/tags/review/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>&lt;아이를 사랑하는 일&gt;</title>
+      <link>http://integerous.github.io/post/review/loving_my_kid/</link>
+      <pubDate>Thu, 17 Mar 2022 17:35:19 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/post/review/loving_my_kid/</guid>
+      <description>by 오카와 시게코, 2019 이 책은 와이프가 먼저 읽어보고 강력하게 추천해준 책이다. 이 책을 읽기 전과 후의 육아가 많이 달라졌다. 아니, 육아가 달라진 것이 아니라 나의 마</description>
+    </item>
     
     <item>
       <title>&lt;별게 다 영감&gt;</title>
@@ -135,15 +144,6 @@
       
       <guid>http://integerous.github.io/post/review/troublesome_words/</guid>
       <description>원서 제목은 BRYSON&amp;rsquo;S DICTIONARY OF TROUBLESOME WORDS by 빌 브라이슨(Bill Bryson), 2001 이 책은 100% 제목에 이끌려 충동 구매한 책이다. 개발자가 된 이후, 구글링 또는 기술 문서를 읽으며 영어 문장은 매일</description>
-    </item>
-    
-    <item>
-      <title>&lt;규칙 없음&gt;</title>
-      <link>http://integerous.github.io/post/review/no_rules_rules/</link>
-      <pubDate>Sun, 07 Mar 2021 14:45:01 +0900</pubDate>
-      
-      <guid>http://integerous.github.io/post/review/no_rules_rules/</guid>
-      <description>원서 제목은 NO RULES RULES by 리드 헤이스팅스(Reed Hastings), 에린 마이어(Erin Meyer), 2020 이 책은 이직한 회사에서 집으로 보낸 입사 선물 중 하나였다. 넷플릭스 공동창업자들이</description>
     </item>
     
   </channel>
