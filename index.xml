@@ -8,8 +8,17 @@
 
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Thu, 17 Mar 2022 17:35:19 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 24 Apr 2022 16:06:39 +0900</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>&lt;개발자로 살아남기&gt;</title>
+      <link>http://integerous.github.io/post/review/survival_as_developer/</link>
+      <pubDate>Sun, 24 Apr 2022 16:06:39 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/post/review/survival_as_developer/</guid>
+      <description>by 박종천, 2022 이 책은 페이스북에 팔로우중인 많은 개발자분들이 추천하길래 구매했다. 어쩌면 가장 성공적인 개발자 커리어를 쌓아 올렸을, 저자의 경험담과 조언을 들</description>
+    </item>
     
     <item>
       <title>&lt;아이를 사랑하는 일&gt;</title>
@@ -135,15 +144,6 @@
       
       <guid>http://integerous.github.io/post/review/work_does_not_betray/</guid>
       <description>개정판 by 김종민, 2021 퇴사를 마음먹은 시점에 일은 배신하지 않는다라는 제목에 이끌려 구매한 책이다. 인터렉티브 개발자/디자이너로 일하다가 현재는 구글의 시니어</description>
-    </item>
-    
-    <item>
-      <title>&lt;백만장자 메신저&gt;</title>
-      <link>http://integerous.github.io/post/review/the_millionaire_messenger/</link>
-      <pubDate>Mon, 28 Jun 2021 15:26:11 +0900</pubDate>
-      
-      <guid>http://integerous.github.io/post/review/the_millionaire_messenger/</guid>
-      <description>The Millionaire Messenger: Make a Difference and a Fortune Sharing Your Advice by Brendon Burchard, 2011 인프런에서 &amp;lt;비전공자를 위한 개발자 취업 가이드&amp;gt; 강의를 판매중인 나에게 친구가 추천해준 책이다. 내가 만든 온</description>
     </item>
     
   </channel>
