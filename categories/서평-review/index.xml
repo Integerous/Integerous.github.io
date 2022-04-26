@@ -8,8 +8,17 @@
 
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sun, 24 Apr 2022 16:06:39 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 26 Apr 2022 14:57:56 +0900</lastBuildDate>
     <atom:link href="/categories/%EC%84%9C%ED%8F%89-review/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>&lt;실용주의 프로그래머&gt;</title>
+      <link>http://integerous.github.io/post/review/the_pragmatic_programmer/</link>
+      <pubDate>Tue, 26 Apr 2022 14:57:56 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/post/review/the_pragmatic_programmer/</guid>
+      <description>The Pragmatic Programmer: Your Journey to Mastery, 20th Anniversary Edition by Thomas David, Hunt Andrew, 2020 이 책은 현재 총원 4명의 개발팀 팀원들과 함께 스터디를 하기 위해 읽은 책이다. 각자 책을 읽어 오고 총 3회로 걸쳐서, 회당 2시간</description>
+    </item>
     
     <item>
       <title>&lt;개발자로 살아남기&gt;</title>
@@ -135,15 +144,6 @@
       
       <guid>http://integerous.github.io/post/review/work_does_not_betray/</guid>
       <description>개정판 by 김종민, 2021 퇴사를 마음먹은 시점에 일은 배신하지 않는다라는 제목에 이끌려 구매한 책이다. 인터렉티브 개발자/디자이너로 일하다가 현재는 구글의 시니어</description>
-    </item>
-    
-    <item>
-      <title>&lt;백만장자 메신저&gt;</title>
-      <link>http://integerous.github.io/post/review/the_millionaire_messenger/</link>
-      <pubDate>Mon, 28 Jun 2021 15:26:11 +0900</pubDate>
-      
-      <guid>http://integerous.github.io/post/review/the_millionaire_messenger/</guid>
-      <description>The Millionaire Messenger: Make a Difference and a Fortune Sharing Your Advice by Brendon Burchard, 2011 인프런에서 &amp;lt;비전공자를 위한 개발자 취업 가이드&amp;gt; 강의를 판매중인 나에게 친구가 추천해준 책이다. 내가 만든 온</description>
     </item>
     
   </channel>
