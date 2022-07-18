@@ -8,8 +8,17 @@
 
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Tue, 26 Apr 2022 14:57:56 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 18 Jul 2022 10:55:37 +0900</lastBuildDate>
     <atom:link href="/categories/%EC%84%9C%ED%8F%89-review/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>&lt;보도 섀퍼의 돈&gt;</title>
+      <link>http://integerous.github.io/post/review/the_road_to_financial_freedom/</link>
+      <pubDate>Mon, 18 Jul 2022 10:55:37 +0900</pubDate>
+      
+      <guid>http://integerous.github.io/post/review/the_road_to_financial_freedom/</guid>
+      <description>The Road to Financial Freedom: Earn Your First Million in Seven Years by Bodo Schafer, 1998 돌이켜보면, 돈에 대한 개념과 돈을 관리하는 방법은 학교에서도 부모님에게서도 배우지 못했다. 그래서 정기적으로 수중에 돈이</description>
+    </item>
     
     <item>
       <title>&lt;실용주의 프로그래머&gt;</title>
@@ -135,15 +144,6 @@
       
       <guid>http://integerous.github.io/post/review/linchpin/</guid>
       <description>Linchpin: Are You Indispensable? by Seth Godin, 2011 마케팅에 일가견(?)이 있는 친구로부터 추천을 받아 &amp;lsquo;This is Marketing&amp;rsquo;을 구매하면서, 무심결에 함께 구매한 책이다. 요</description>
-    </item>
-    
-    <item>
-      <title>&lt;일은 배신하지 않는다&gt;</title>
-      <link>http://integerous.github.io/post/review/work_does_not_betray/</link>
-      <pubDate>Tue, 29 Jun 2021 15:29:58 +0900</pubDate>
-      
-      <guid>http://integerous.github.io/post/review/work_does_not_betray/</guid>
-      <description>개정판 by 김종민, 2021 퇴사를 마음먹은 시점에 일은 배신하지 않는다라는 제목에 이끌려 구매한 책이다. 인터렉티브 개발자/디자이너로 일하다가 현재는 구글의 시니어</description>
     </item>
     
   </channel>
