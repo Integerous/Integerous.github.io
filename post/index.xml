@@ -8,8 +8,17 @@
 
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Tue, 26 Apr 2022 14:57:56 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 17 Dec 2022 12:55:35 -0800</lastBuildDate>
     <atom:link href="/post/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>밀린 숙제</title>
+      <link>http://integerous.github.io/post/essay/homework/</link>
+      <pubDate>Sat, 17 Dec 2022 12:55:35 -0800</pubDate>
+      
+      <guid>http://integerous.github.io/post/essay/homework/</guid>
+      <description>2019년 2월 23일에 쓴 글 어쩌다보니, 20대에 인생의 방향타를 큼지막하게 돌리곤 했다. 직장이 아니라 직종을 여러 번 바꾸었는데, 그럴 때 마다 자연스럽게 밀</description>
+    </item>
     
     <item>
       <title>&lt;실용주의 프로그래머&gt;</title>
@@ -135,15 +144,6 @@
       
       <guid>http://integerous.github.io/post/review/narrative_and_numbers/</guid>
       <description>Narrative and Numbers by Aswath Damodaran, 2017 경제 관련 유튜브 영상을 보다가 가치평가의 대가로 불린다는 다모다란 교수를 알게 되었고, 그의 저서인 &amp;lt;투자 철학&amp;gt;과 이 책을 고민하다</description>
-    </item>
-    
-    <item>
-      <title>&lt;린치핀&gt;</title>
-      <link>http://integerous.github.io/post/review/linchpin/</link>
-      <pubDate>Thu, 15 Jul 2021 18:04:52 +0900</pubDate>
-      
-      <guid>http://integerous.github.io/post/review/linchpin/</guid>
-      <description>Linchpin: Are You Indispensable? by Seth Godin, 2011 마케팅에 일가견(?)이 있는 친구로부터 추천을 받아 &amp;lsquo;This is Marketing&amp;rsquo;을 구매하면서, 무심결에 함께 구매한 책이다. 요</description>
     </item>
     
   </channel>

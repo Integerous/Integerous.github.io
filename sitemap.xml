@@ -3,6 +3,47 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>http://integerous.github.io/categories/</loc>
+    <lastmod>2022-12-17T12:55:35-08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://integerous.github.io/</loc>
+    <lastmod>2022-12-17T12:55:35-08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://integerous.github.io/post/</loc>
+    <lastmod>2022-12-17T12:55:35-08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://integerous.github.io/tags/</loc>
+    <lastmod>2022-12-17T12:55:35-08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://integerous.github.io/tags/essay/</loc>
+    <lastmod>2022-12-17T12:55:35-08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://integerous.github.io/post/essay/homework/</loc>
+    <lastmod>2022-12-17T12:55:35-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://integerous.github.io/categories/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC-essay/</loc>
+    <lastmod>2022-12-17T12:55:35-08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://integerous.github.io/post/review/the_pragmatic_programmer/</loc>
     <lastmod>2022-04-26T15:45:45+09:00</lastmod>
   </url>
@@ -14,31 +55,7 @@
   </url>
   
   <url>
-    <loc>http://integerous.github.io/categories/</loc>
-    <lastmod>2022-04-26T15:45:45+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://integerous.github.io/</loc>
-    <lastmod>2022-04-26T15:45:45+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://integerous.github.io/post/</loc>
-    <lastmod>2022-04-26T15:45:45+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>http://integerous.github.io/tags/review/</loc>
-    <lastmod>2022-04-26T15:45:45+09:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://integerous.github.io/tags/</loc>
     <lastmod>2022-04-26T15:45:45+09:00</lastmod>
     <priority>0</priority>
   </url>
@@ -72,12 +89,6 @@
   <url>
     <loc>http://integerous.github.io/post/review/this_is_marketing/</loc>
     <lastmod>2022-01-04T19:18:56+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://integerous.github.io/tags/essay/</loc>
-    <lastmod>2021-12-23T14:03:37+09:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -154,12 +165,6 @@
   <url>
     <loc>http://integerous.github.io/post/memoirs/memoirs2020/</loc>
     <lastmod>2021-11-06T18:02:31+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://integerous.github.io/categories/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC-essay/</loc>
-    <lastmod>2021-06-28T13:54:20+09:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>

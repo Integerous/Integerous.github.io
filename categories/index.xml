@@ -8,8 +8,17 @@
 
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Tue, 26 Apr 2022 14:57:56 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 17 Dec 2022 12:55:35 -0800</lastBuildDate>
     <atom:link href="/categories/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>생각정리 essay</title>
+      <link>http://integerous.github.io/categories/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC-essay/</link>
+      <pubDate>Sat, 17 Dec 2022 12:55:35 -0800</pubDate>
+      
+      <guid>http://integerous.github.io/categories/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC-essay/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>서평 review</title>
@@ -26,15 +35,6 @@
       <pubDate>Mon, 20 Dec 2021 21:00:00 +0900</pubDate>
       
       <guid>http://integerous.github.io/categories/%ED%9A%8C%EA%B3%A0-memoirs/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>생각정리 essay</title>
-      <link>http://integerous.github.io/categories/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC-essay/</link>
-      <pubDate>Fri, 22 Jan 2021 20:55:49 +0900</pubDate>
-      
-      <guid>http://integerous.github.io/categories/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC-essay/</guid>
       <description></description>
     </item>
     
