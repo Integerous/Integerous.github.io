@@ -8,8 +8,17 @@
 
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sat, 17 Dec 2022 12:55:35 -0800</lastBuildDate>
+    <lastBuildDate>Sun, 18 Dec 2022 00:18:02 -0800</lastBuildDate>
     <atom:link href="/tags/essay/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>체대 출신 개발자의 2022년 회고</title>
+      <link>http://integerous.github.io/post/memoirs/memoirs2022/</link>
+      <pubDate>Sun, 18 Dec 2022 00:18:02 -0800</pubDate>
+      
+      <guid>http://integerous.github.io/post/memoirs/memoirs2022/</guid>
+      <description>이 글은 개인적인 회고록이다. 그래서 독백체 2018년 회고 2019년 회고 2020년 회고 2021년 회고에 이어, 2022년의 경험과 생각을 정리한다. 이번</description>
+    </item>
     
     <item>
       <title>밀린 숙제</title>
@@ -135,15 +144,6 @@
       
       <guid>http://integerous.github.io/post/essay/4thgrade/</guid>
       <description>2016년 1월 21일 졸업을 무려 7학점 앞둔 아재느낌의 학생으로서 하고싶은걸 하기위해 해야하는것, 해야하는걸 하기위해 해야하는것, 남들하니까 하기위해 해</description>
-    </item>
-    
-    <item>
-      <title>2016년 발리 서핑</title>
-      <link>http://integerous.github.io/post/essay/bali/</link>
-      <pubDate>Fri, 24 Aug 2018 03:57:22 +0900</pubDate>
-      
-      <guid>http://integerous.github.io/post/essay/bali/</guid>
-      <description>발리에서 30일간 서핑하던 어느 새벽 2016년 7월 19일 새벽부터 서핑을 하노라면 파도가 좋고, 바다는 나의 것이며, 상어도 꿈나라에 있을테다. 동이 틀 무렵에</description>
     </item>
     
   </channel>
