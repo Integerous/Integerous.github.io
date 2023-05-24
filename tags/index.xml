@@ -8,22 +8,13 @@
 
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sun, 18 Dec 2022 00:18:02 -0800</lastBuildDate>
+    <lastBuildDate>Tue, 23 May 2023 21:38:57 -0700</lastBuildDate>
     <atom:link href="/tags/" rel="self" type="application/rss+xml" />
-    
-    <item>
-      <title>essay</title>
-      <link>http://integerous.github.io/tags/essay/</link>
-      <pubDate>Sun, 18 Dec 2022 00:18:02 -0800</pubDate>
-      
-      <guid>http://integerous.github.io/tags/essay/</guid>
-      <description></description>
-    </item>
     
     <item>
       <title>Book</title>
       <link>http://integerous.github.io/tags/book/</link>
-      <pubDate>Tue, 26 Apr 2022 14:57:56 +0900</pubDate>
+      <pubDate>Tue, 23 May 2023 21:38:57 -0700</pubDate>
       
       <guid>http://integerous.github.io/tags/book/</guid>
       <description></description>
@@ -32,9 +23,18 @@
     <item>
       <title>Review</title>
       <link>http://integerous.github.io/tags/review/</link>
-      <pubDate>Tue, 26 Apr 2022 14:57:56 +0900</pubDate>
+      <pubDate>Tue, 23 May 2023 21:38:57 -0700</pubDate>
       
       <guid>http://integerous.github.io/tags/review/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>essay</title>
+      <link>http://integerous.github.io/tags/essay/</link>
+      <pubDate>Sun, 18 Dec 2022 00:18:02 -0800</pubDate>
+      
+      <guid>http://integerous.github.io/tags/essay/</guid>
       <description></description>
     </item>
     

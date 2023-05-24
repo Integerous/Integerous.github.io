@@ -4,42 +4,65 @@
   
   <url>
     <loc>http://integerous.github.io/post/memoirs/memoirs2022/</loc>
-    <lastmod>2022-12-17T13:14:59-08:00</lastmod>
+    <lastmod>2022-12-18T03:00:10-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://integerous.github.io/post/review/highlight2022/</loc>
+    <lastmod>2023-05-23T21:38:57-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://integerous.github.io/tags/book/</loc>
+    <lastmod>2023-05-23T21:38:57-07:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
     <loc>http://integerous.github.io/categories/</loc>
-    <lastmod>2022-12-17T13:19:17-08:00</lastmod>
+    <lastmod>2023-05-23T21:38:57-07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://integerous.github.io/</loc>
-    <lastmod>2022-12-17T13:19:17-08:00</lastmod>
+    <lastmod>2023-05-23T21:38:57-07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://integerous.github.io/post/</loc>
-    <lastmod>2022-12-17T13:19:17-08:00</lastmod>
+    <lastmod>2023-05-23T21:38:57-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://integerous.github.io/tags/review/</loc>
+    <lastmod>2023-05-23T21:38:57-07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://integerous.github.io/tags/</loc>
-    <lastmod>2022-12-17T13:19:17-08:00</lastmod>
+    <lastmod>2023-05-23T21:38:57-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://integerous.github.io/categories/%EC%84%9C%ED%8F%89-review/</loc>
+    <lastmod>2023-05-23T21:38:57-07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://integerous.github.io/tags/essay/</loc>
-    <lastmod>2022-12-17T13:19:17-08:00</lastmod>
+    <lastmod>2022-12-18T03:00:10-08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://integerous.github.io/categories/%ED%9A%8C%EA%B3%A0-memoirs/</loc>
-    <lastmod>2022-12-17T13:14:59-08:00</lastmod>
+    <lastmod>2022-12-18T03:00:10-08:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -55,26 +78,13 @@
   </url>
   
   <url>
+    <loc>http://integerous.github.io/post/review/the_road_to_financial_freedom/</loc>
+    <lastmod>2022-12-09T00:26:08-08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>http://integerous.github.io/post/review/the_pragmatic_programmer/</loc>
     <lastmod>2022-04-26T15:45:45+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://integerous.github.io/tags/book/</loc>
-    <lastmod>2022-12-17T13:14:59-08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://integerous.github.io/tags/review/</loc>
-    <lastmod>2022-12-17T13:14:59-08:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://integerous.github.io/categories/%EC%84%9C%ED%8F%89-review/</loc>
-    <lastmod>2022-12-17T13:14:59-08:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>

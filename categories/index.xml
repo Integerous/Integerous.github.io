@@ -8,8 +8,17 @@
 
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sun, 18 Dec 2022 00:18:02 -0800</lastBuildDate>
+    <lastBuildDate>Tue, 23 May 2023 21:38:57 -0700</lastBuildDate>
     <atom:link href="/categories/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>서평 review</title>
+      <link>http://integerous.github.io/categories/%EC%84%9C%ED%8F%89-review/</link>
+      <pubDate>Tue, 23 May 2023 21:38:57 -0700</pubDate>
+      
+      <guid>http://integerous.github.io/categories/%EC%84%9C%ED%8F%89-review/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>회고 memoirs</title>
@@ -26,15 +35,6 @@
       <pubDate>Sat, 17 Dec 2022 12:55:35 -0800</pubDate>
       
       <guid>http://integerous.github.io/categories/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC-essay/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>서평 review</title>
-      <link>http://integerous.github.io/categories/%EC%84%9C%ED%8F%89-review/</link>
-      <pubDate>Tue, 26 Apr 2022 14:57:56 +0900</pubDate>
-      
-      <guid>http://integerous.github.io/categories/%EC%84%9C%ED%8F%89-review/</guid>
       <description></description>
     </item>
     
