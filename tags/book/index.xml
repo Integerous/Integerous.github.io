@@ -8,8 +8,17 @@
 
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Tue, 23 May 2023 21:38:57 -0700</lastBuildDate>
+    <lastBuildDate>Sat, 05 Aug 2023 16:30:54 -0700</lastBuildDate>
     <atom:link href="/tags/book/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>블로그 옮겼습니다!</title>
+      <link>http://integerous.github.io/post/essay/blog-migration/</link>
+      <pubDate>Sat, 05 Aug 2023 16:30:54 -0700</pubDate>
+      
+      <guid>http://integerous.github.io/post/essay/blog-migration/</guid>
+      <description>블로그를 https://jobless.blog 로 옮겼습니다 :) 새로운 블로그는 구독할 수 있어서, 새 글이 올라오면 이메일로 받아보실 수 있습니다 :)</description>
+    </item>
     
     <item>
       <title>2022년에 밑줄 친 문장들</title>
@@ -135,15 +144,6 @@
       
       <guid>http://integerous.github.io/post/review/the_benefit_of_writing/</guid>
       <description>by 손현, 2021 우선 책 이야기를 해보자면, 이 책은 브런치(brunch)에서 글을 읽다가 추천 글 목록에 뜬 &amp;lt;숫자 너머의 낭만, 출판사&amp;gt;라는 글을 무심</description>
-    </item>
-    
-    <item>
-      <title>&lt;내러티브 &amp; 넘버스&gt;</title>
-      <link>http://integerous.github.io/post/review/narrative_and_numbers/</link>
-      <pubDate>Mon, 16 Aug 2021 17:37:07 +0900</pubDate>
-      
-      <guid>http://integerous.github.io/post/review/narrative_and_numbers/</guid>
-      <description>Narrative and Numbers by Aswath Damodaran, 2017 경제 관련 유튜브 영상을 보다가 가치평가의 대가로 불린다는 다모다란 교수를 알게 되었고, 그의 저서인 &amp;lt;투자 철학&amp;gt;과 이 책을 고민하다</description>
     </item>
     
   </channel>
