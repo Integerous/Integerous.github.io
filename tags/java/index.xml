@@ -8,8 +8,17 @@
 
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sat, 18 Jan 2020 22:00:08 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 05 Aug 2023 17:01:58 -0700</lastBuildDate>
     <atom:link href="/tags/java/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>블로그 옮겼습니다!</title>
+      <link>http://integerous.github.io/post/dev/blog-migration/</link>
+      <pubDate>Sat, 05 Aug 2023 17:01:58 -0700</pubDate>
+      
+      <guid>http://integerous.github.io/post/dev/blog-migration/</guid>
+      <description>블로그를 https://jobless.blog 로 옮겼습니다 :) 새로운 블로그는 구독할 수 있어서, 새 글이 올라오면 이메일로 받아보실 수 있습니다 :)</description>
+    </item>
     
     <item>
       <title>Java Serialization 개념 정리</title>
@@ -135,15 +144,6 @@
       
       <guid>http://integerous.github.io/post/dev/java-calendar-date/</guid>
       <description>자바의 정석(남궁성 저) 학습내용 정리 1. Calendar 와 Date Date는 JDK1.0, Calendar는 JDK1.1 부터 제공되었다. JDK1.8부터 java.time 패키지로 Calendar와 Dat</description>
-    </item>
-    
-    <item>
-      <title>자바의 정석 - java.lang 패키지</title>
-      <link>http://integerous.github.io/post/dev/java-lang/</link>
-      <pubDate>Wed, 03 Oct 2018 13:26:15 +0900</pubDate>
-      
-      <guid>http://integerous.github.io/post/dev/java-lang/</guid>
-      <description>자바의 정석(남궁성 저) 학습내용 정리 1. java.lang 패키지 java.lang 패키지의 클래스들은 import문 없이도 사용 가능하다. 2. Object 클래스 Object 클래스는 모든 클래스의 최고 조상 Object</description>
     </item>
     
   </channel>

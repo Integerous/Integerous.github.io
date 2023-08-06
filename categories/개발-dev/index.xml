@@ -8,8 +8,17 @@
 
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sat, 18 Jan 2020 22:00:08 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 05 Aug 2023 17:01:58 -0700</lastBuildDate>
     <atom:link href="/categories/%EA%B0%9C%EB%B0%9C-dev/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>블로그 옮겼습니다!</title>
+      <link>http://integerous.github.io/post/dev/blog-migration/</link>
+      <pubDate>Sat, 05 Aug 2023 17:01:58 -0700</pubDate>
+      
+      <guid>http://integerous.github.io/post/dev/blog-migration/</guid>
+      <description>블로그를 https://jobless.blog 로 옮겼습니다 :) 새로운 블로그는 구독할 수 있어서, 새 글이 올라오면 이메일로 받아보실 수 있습니다 :)</description>
+    </item>
     
     <item>
       <title>Java Serialization 개념 정리</title>
@@ -135,15 +144,6 @@
       
       <guid>http://integerous.github.io/post/dev/java-generics/</guid>
       <description>자바의 정석(남궁성 저) 학습내용 정리 1. 지네릭스(Generics) 지네릭스는 다양한 타입의 객체들을 다루는 메서드나 컬렉션 클래스에 컴파일 시의 타입 체크</description>
-    </item>
-    
-    <item>
-      <title>Git으로 협업하는 방법</title>
-      <link>http://integerous.github.io/post/dev/gitflow/</link>
-      <pubDate>Sat, 20 Oct 2018 21:17:01 +0900</pubDate>
-      
-      <guid>http://integerous.github.io/post/dev/gitflow/</guid>
-      <description>회사에서 Git을 활용한 협업 workflow를 세팅하기 위해 학습하며 기록한 내용입니다. 회사의 협업 환경 = Git + Bitbucket + Trello + Telegram Bitbucket 대신 Github을 사용해도</description>
     </item>
     
   </channel>

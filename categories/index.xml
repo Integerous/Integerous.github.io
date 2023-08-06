@@ -12,9 +12,27 @@
     <atom:link href="/categories/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>about</title>
+      <link>http://integerous.github.io/categories/about/</link>
+      <pubDate>Sat, 05 Aug 2023 17:05:38 -0700</pubDate>
+      
+      <guid>http://integerous.github.io/categories/about/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>개발 dev</title>
+      <link>http://integerous.github.io/categories/%EA%B0%9C%EB%B0%9C-dev/</link>
+      <pubDate>Sat, 05 Aug 2023 17:01:58 -0700</pubDate>
+      
+      <guid>http://integerous.github.io/categories/%EA%B0%9C%EB%B0%9C-dev/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>서평 review</title>
       <link>http://integerous.github.io/categories/%EC%84%9C%ED%8F%89-review/</link>
-      <pubDate>Sat, 05 Aug 2023 17:05:38 -0700</pubDate>
+      <pubDate>Sat, 05 Aug 2023 17:01:21 -0700</pubDate>
       
       <guid>http://integerous.github.io/categories/%EC%84%9C%ED%8F%89-review/</guid>
       <description></description>
@@ -23,7 +41,7 @@
     <item>
       <title>회고 memoirs</title>
       <link>http://integerous.github.io/categories/%ED%9A%8C%EA%B3%A0-memoirs/</link>
-      <pubDate>Sun, 18 Dec 2022 00:18:02 -0800</pubDate>
+      <pubDate>Sat, 05 Aug 2023 17:00:29 -0700</pubDate>
       
       <guid>http://integerous.github.io/categories/%ED%9A%8C%EA%B3%A0-memoirs/</guid>
       <description></description>
@@ -32,18 +50,9 @@
     <item>
       <title>생각정리 essay</title>
       <link>http://integerous.github.io/categories/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC-essay/</link>
-      <pubDate>Sat, 17 Dec 2022 12:55:35 -0800</pubDate>
+      <pubDate>Sat, 05 Aug 2023 16:30:54 -0700</pubDate>
       
       <guid>http://integerous.github.io/categories/%EC%83%9D%EA%B0%81%EC%A0%95%EB%A6%AC-essay/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>개발 dev</title>
-      <link>http://integerous.github.io/categories/%EA%B0%9C%EB%B0%9C-dev/</link>
-      <pubDate>Sat, 18 Jan 2020 22:00:08 +0900</pubDate>
-      
-      <guid>http://integerous.github.io/categories/%EA%B0%9C%EB%B0%9C-dev/</guid>
       <description></description>
     </item>
     

@@ -1,15 +1,42 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>essay on Integerous DevLog</title>
+    <title>Essay on Integerous DevLog</title>
     <link>http://integerous.github.io/tags/essay/</link>
-    <description>Recent content in essay on Integerous DevLog</description>
+    <description>Recent content in Essay on Integerous DevLog</description>
 
     
 
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sun, 18 Dec 2022 00:18:02 -0800</lastBuildDate>
+    <lastBuildDate>Sat, 05 Aug 2023 17:01:58 -0700</lastBuildDate>
     <atom:link href="/tags/essay/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>블로그 옮겼습니다!</title>
+      <link>http://integerous.github.io/post/essay/blog-migration/</link>
+      <pubDate>Sat, 05 Aug 2023 16:30:54 -0700</pubDate>
+      
+      <guid>http://integerous.github.io/post/essay/blog-migration/</guid>
+      <description>블로그를 https://jobless.blog 로 옮겼습니다 :) 새로운 블로그는 구독할 수 있어서, 새 글이 올라오면 이메일로 받아보실 수 있습니다 :)</description>
+    </item>
+    
+    <item>
+      <title>블로그 옮겼습니다!</title>
+      <link>http://integerous.github.io/post/dev/blog-migration/</link>
+      <pubDate>Sat, 05 Aug 2023 17:01:58 -0700</pubDate>
+      
+      <guid>http://integerous.github.io/post/dev/blog-migration/</guid>
+      <description>블로그를 https://jobless.blog 로 옮겼습니다 :) 새로운 블로그는 구독할 수 있어서, 새 글이 올라오면 이메일로 받아보실 수 있습니다 :)</description>
+    </item>
+    
+    <item>
+      <title>블로그 옮겼습니다!</title>
+      <link>http://integerous.github.io/post/memoirs/blog-migration/</link>
+      <pubDate>Sat, 05 Aug 2023 17:00:29 -0700</pubDate>
+      
+      <guid>http://integerous.github.io/post/memoirs/blog-migration/</guid>
+      <description>블로그를 https://jobless.blog 로 옮겼습니다 :) 새로운 블로그는 구독할 수 있어서, 새 글이 올라오면 이메일로 받아보실 수 있습니다 :)</description>
+    </item>
     
     <item>
       <title>체대 출신 개발자의 2022년 회고</title>
@@ -117,33 +144,6 @@
       
       <guid>http://integerous.github.io/post/essay/hotbed/</guid>
       <description>2012년 7월 27일 (전역 2주 후) 오늘 밤도 침대가 뜨겁다 당구 다이 마냥 열선이 깔린게 확실하다. 선풍기 돌고있는데 바람은 어디로가고 나는 왜 강풍 앞에 땀흘리</description>
-    </item>
-    
-    <item>
-      <title>애쉬튼 커쳐의 지름길 이론</title>
-      <link>http://integerous.github.io/post/essay/ashton/</link>
-      <pubDate>Fri, 24 Aug 2018 04:39:51 +0900</pubDate>
-      
-      <guid>http://integerous.github.io/post/essay/ashton/</guid>
-      <description>2014년 12월 5일 애쉬튼 커쳐는 세부적으로 섹터를 인식하고 그 섹터에 대한 문제의 해결책을 찾아다니는 방식의 투자 모델을 가졌다고 한다. 애쉬튼 커쳐는 “그것</description>
-    </item>
-    
-    <item>
-      <title>계획하지 않는 삶</title>
-      <link>http://integerous.github.io/post/essay/withoutplan/</link>
-      <pubDate>Fri, 24 Aug 2018 04:21:13 +0900</pubDate>
-      
-      <guid>http://integerous.github.io/post/essay/withoutplan/</guid>
-      <description>2014년 대학교 3학년때 쓴 글인데 나의 미래를 다소 예측했다는 점에서 이 곳에 저장해둔다. 2016년에 취준생이 되었을 때 이 글을 읽었다면 내 삶은 어떻게 달라졌</description>
-    </item>
-    
-    <item>
-      <title>대학교 4학년</title>
-      <link>http://integerous.github.io/post/essay/4thgrade/</link>
-      <pubDate>Fri, 24 Aug 2018 04:15:05 +0900</pubDate>
-      
-      <guid>http://integerous.github.io/post/essay/4thgrade/</guid>
-      <description>2016년 1월 21일 졸업을 무려 7학점 앞둔 아재느낌의 학생으로서 하고싶은걸 하기위해 해야하는것, 해야하는걸 하기위해 해야하는것, 남들하니까 하기위해 해</description>
     </item>
     
   </channel>
