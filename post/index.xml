@@ -8,7 +8,7 @@
 
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sat, 05 Aug 2023 17:00:29 -0700</lastBuildDate>
+    <lastBuildDate>Sat, 05 Aug 2023 17:05:38 -0700</lastBuildDate>
     <atom:link href="/post/" rel="self" type="application/rss+xml" />
     
     <item>
@@ -21,12 +21,30 @@
     </item>
     
     <item>
-      <title>체대 출신 개발자의 2022년 회고</title>
-      <link>http://integerous.github.io/post/memoirs/memoirs2022/</link>
-      <pubDate>Sun, 18 Dec 2022 00:18:02 -0800</pubDate>
+      <title>블로그 옮겼습니다!</title>
+      <link>http://integerous.github.io/post/about/blog-migration/</link>
+      <pubDate>Sat, 05 Aug 2023 17:05:38 -0700</pubDate>
       
-      <guid>http://integerous.github.io/post/memoirs/memoirs2022/</guid>
-      <description>이 글은 개인적인 회고록이다. 그래서 독백체 2018년 회고 2019년 회고 2020년 회고 2021년 회고에 이어, 2022년의 경험과 생각을 정리한다. 이번</description>
+      <guid>http://integerous.github.io/post/about/blog-migration/</guid>
+      <description>블로그를 https://jobless.blog 로 옮겼습니다 :) 새로운 블로그는 구독할 수 있어서, 새 글이 올라오면 이메일로 받아보실 수 있습니다 :)</description>
+    </item>
+    
+    <item>
+      <title>블로그 옮겼습니다!</title>
+      <link>http://integerous.github.io/post/dev/blog-migration/</link>
+      <pubDate>Sat, 05 Aug 2023 17:01:58 -0700</pubDate>
+      
+      <guid>http://integerous.github.io/post/dev/blog-migration/</guid>
+      <description>블로그를 https://jobless.blog 로 옮겼습니다 :) 새로운 블로그는 구독할 수 있어서, 새 글이 올라오면 이메일로 받아보실 수 있습니다 :)</description>
+    </item>
+    
+    <item>
+      <title>블로그 옮겼습니다!</title>
+      <link>http://integerous.github.io/post/review/blog-migration/</link>
+      <pubDate>Sat, 05 Aug 2023 17:01:21 -0700</pubDate>
+      
+      <guid>http://integerous.github.io/post/review/blog-migration/</guid>
+      <description>블로그를 https://jobless.blog 로 옮겼습니다 :) 새로운 블로그는 구독할 수 있어서, 새 글이 올라오면 이메일로 받아보실 수 있습니다 :)</description>
     </item>
     
     <item>
@@ -45,6 +63,15 @@
       
       <guid>http://integerous.github.io/post/review/highlight2022/</guid>
       <description>2022년에 읽은 책들의 리뷰를 작성할 시간이 없.. 앞으로는 리뷰를 작성하는 대신, 밑줄 친 문장들을 모아두고 자주 꺼내보려한다. 2022년에 읽은 책들 &amp;lt</description>
+    </item>
+    
+    <item>
+      <title>체대 출신 개발자의 2022년 회고</title>
+      <link>http://integerous.github.io/post/memoirs/memoirs2022/</link>
+      <pubDate>Sun, 18 Dec 2022 00:18:02 -0800</pubDate>
+      
+      <guid>http://integerous.github.io/post/memoirs/memoirs2022/</guid>
+      <description>이 글은 개인적인 회고록이다. 그래서 독백체 2018년 회고 2019년 회고 2020년 회고 2021년 회고에 이어, 2022년의 경험과 생각을 정리한다. 이번</description>
     </item>
     
     <item>
@@ -117,33 +144,6 @@
       
       <guid>http://integerous.github.io/post/review/this_is_marketing/</guid>
       <description>This Is Marketing: You Can&amp;rsquo;t Be Seen Until You Learn to See by Seth Godin, 2018 &amp;lt;린치핀&amp;gt;을 읽고 작성한 리뷰 내용 중에, 뜬구름 잡는 소리가 많았고, 별 감흥이 없었다. (그래서 This is Mark</description>
-    </item>
-    
-    <item>
-      <title>체대 출신 개발자의 2021년 회고</title>
-      <link>http://integerous.github.io/post/memoirs/memoirs2021/</link>
-      <pubDate>Mon, 20 Dec 2021 21:00:00 +0900</pubDate>
-      
-      <guid>http://integerous.github.io/post/memoirs/memoirs2021/</guid>
-      <description>이 글은 개인적인 회고록이다. 그래서 독백체 2018년 회고와 2019년 회고와, 2020년 회고에 이어, 2021년의 경험과 생각을 정리한다. 1. 토스 페이먼</description>
-    </item>
-    
-    <item>
-      <title>&lt;예언자&gt;</title>
-      <link>http://integerous.github.io/post/review/the_prophet/</link>
-      <pubDate>Sun, 05 Dec 2021 23:25:53 +0900</pubDate>
-      
-      <guid>http://integerous.github.io/post/review/the_prophet/</guid>
-      <description>The Prophet by Kahlil Gibran, 1923 이 책은 성경 다음으로 많이 팔린 책이라는 마케팅 문구에 혹해서 충동구매한 책이다. 그런데 올해 읽은 책 중에 가장 좋았다. 번역본도 이만큼 좋았는데, 원</description>
-    </item>
-    
-    <item>
-      <title>&lt;Deep Work&gt;</title>
-      <link>http://integerous.github.io/post/review/deep_work/</link>
-      <pubDate>Sat, 20 Nov 2021 14:18:09 +0900</pubDate>
-      
-      <guid>http://integerous.github.io/post/review/deep_work/</guid>
-      <description>DEEP WORK: Rules for Focused Success in a Distracted World by Cal Newport, 2016 이 책은 얼마 전 합류한 스타트업에서 바이블(?)로 삼고 있는 3개의 책 중 하나다. &amp;lt;Remote&amp;gt; &amp;lt;Deep work&amp;gt; &amp;lt;Radical Candor&amp;gt; 이 팀은 100% 원격근무를 하며 팀원들의 절</description>
     </item>
     
   </channel>

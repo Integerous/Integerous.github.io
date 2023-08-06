@@ -8,7 +8,7 @@
 
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sat, 05 Aug 2023 17:00:29 -0700</lastBuildDate>
+    <lastBuildDate>Sat, 05 Aug 2023 17:05:38 -0700</lastBuildDate>
     <atom:link href="/tags/book/" rel="self" type="application/rss+xml" />
     
     <item>
@@ -17,6 +17,33 @@
       <pubDate>Sat, 05 Aug 2023 16:30:54 -0700</pubDate>
       
       <guid>http://integerous.github.io/post/essay/blog-migration/</guid>
+      <description>블로그를 https://jobless.blog 로 옮겼습니다 :) 새로운 블로그는 구독할 수 있어서, 새 글이 올라오면 이메일로 받아보실 수 있습니다 :)</description>
+    </item>
+    
+    <item>
+      <title>블로그 옮겼습니다!</title>
+      <link>http://integerous.github.io/post/about/blog-migration/</link>
+      <pubDate>Sat, 05 Aug 2023 17:05:38 -0700</pubDate>
+      
+      <guid>http://integerous.github.io/post/about/blog-migration/</guid>
+      <description>블로그를 https://jobless.blog 로 옮겼습니다 :) 새로운 블로그는 구독할 수 있어서, 새 글이 올라오면 이메일로 받아보실 수 있습니다 :)</description>
+    </item>
+    
+    <item>
+      <title>블로그 옮겼습니다!</title>
+      <link>http://integerous.github.io/post/dev/blog-migration/</link>
+      <pubDate>Sat, 05 Aug 2023 17:01:58 -0700</pubDate>
+      
+      <guid>http://integerous.github.io/post/dev/blog-migration/</guid>
+      <description>블로그를 https://jobless.blog 로 옮겼습니다 :) 새로운 블로그는 구독할 수 있어서, 새 글이 올라오면 이메일로 받아보실 수 있습니다 :)</description>
+    </item>
+    
+    <item>
+      <title>블로그 옮겼습니다!</title>
+      <link>http://integerous.github.io/post/review/blog-migration/</link>
+      <pubDate>Sat, 05 Aug 2023 17:01:21 -0700</pubDate>
+      
+      <guid>http://integerous.github.io/post/review/blog-migration/</guid>
       <description>블로그를 https://jobless.blog 로 옮겼습니다 :) 새로운 블로그는 구독할 수 있어서, 새 글이 올라오면 이메일로 받아보실 수 있습니다 :)</description>
     </item>
     
@@ -117,33 +144,6 @@
       
       <guid>http://integerous.github.io/post/review/deep_work/</guid>
       <description>DEEP WORK: Rules for Focused Success in a Distracted World by Cal Newport, 2016 이 책은 얼마 전 합류한 스타트업에서 바이블(?)로 삼고 있는 3개의 책 중 하나다. &amp;lt;Remote&amp;gt; &amp;lt;Deep work&amp;gt; &amp;lt;Radical Candor&amp;gt; 이 팀은 100% 원격근무를 하며 팀원들의 절</description>
-    </item>
-    
-    <item>
-      <title>&lt;너의 내면을 검색하라&gt;</title>
-      <link>http://integerous.github.io/post/review/search_inside_yourself/</link>
-      <pubDate>Wed, 10 Nov 2021 14:17:57 +0900</pubDate>
-      
-      <guid>http://integerous.github.io/post/review/search_inside_yourself/</guid>
-      <description>Search Inside Yourself by Chade-Meng Tan, 2012 이 책은 과동기 김진짜가 추천해준 책이었다. 추천해 줄 당시, &amp;ldquo;뭐 그렇게 엄청 좋은 책은 아닌데, 읽을만한 책이야&amp;rdquo;라고</description>
-    </item>
-    
-    <item>
-      <title>&lt;Uncopyable&gt;</title>
-      <link>http://integerous.github.io/post/review/uncopyable/</link>
-      <pubDate>Sat, 06 Nov 2021 17:07:38 +0900</pubDate>
-      
-      <guid>http://integerous.github.io/post/review/uncopyable/</guid>
-      <description>The Innovation Stack: Building an Unbeatable Business One Crazy Idea at a Time by Jim Mckelvey, 2020 이 책은 과시적 독서가 김봉진님이 가끔 페이스북에 추천하는 책 중 하나였다. 스퀘어(Square)를 창업한 짐 맥캘비가 쓴</description>
-    </item>
-    
-    <item>
-      <title>&lt;이와타씨에게 묻다&gt;</title>
-      <link>http://integerous.github.io/post/review/ask_iwata/</link>
-      <pubDate>Thu, 23 Sep 2021 10:10:39 +0900</pubDate>
-      
-      <guid>http://integerous.github.io/post/review/ask_iwata/</guid>
-      <description>by 호보닛칸이토이신문 엮음, 2021 이 책은 페이스북에서 팔로우중인 유명한 시니어 개발자분들이 유행처럼 너도나도 후기를 남기는 것을 보고 구매했다. 일본 닌텐도 사장</description>
     </item>
     
   </channel>
