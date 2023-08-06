@@ -8,7 +8,7 @@
 
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sat, 05 Aug 2023 16:30:54 -0700</lastBuildDate>
+    <lastBuildDate>Sat, 05 Aug 2023 17:00:29 -0700</lastBuildDate>
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
@@ -27,6 +27,15 @@
       
       <guid>http://integerous.github.io/post/memoirs/memoirs2022/</guid>
       <description>이 글은 개인적인 회고록이다. 그래서 독백체 2018년 회고 2019년 회고 2020년 회고 2021년 회고에 이어, 2022년의 경험과 생각을 정리한다. 이번</description>
+    </item>
+    
+    <item>
+      <title>블로그 옮겼습니다!</title>
+      <link>http://integerous.github.io/post/memoirs/blog-migration/</link>
+      <pubDate>Sat, 05 Aug 2023 17:00:29 -0700</pubDate>
+      
+      <guid>http://integerous.github.io/post/memoirs/blog-migration/</guid>
+      <description>블로그를 https://jobless.blog 로 옮겼습니다 :) 새로운 블로그는 구독할 수 있어서, 새 글이 올라오면 이메일로 받아보실 수 있습니다 :)</description>
     </item>
     
     <item>
@@ -135,15 +144,6 @@
       
       <guid>http://integerous.github.io/post/review/deep_work/</guid>
       <description>DEEP WORK: Rules for Focused Success in a Distracted World by Cal Newport, 2016 이 책은 얼마 전 합류한 스타트업에서 바이블(?)로 삼고 있는 3개의 책 중 하나다. &amp;lt;Remote&amp;gt; &amp;lt;Deep work&amp;gt; &amp;lt;Radical Candor&amp;gt; 이 팀은 100% 원격근무를 하며 팀원들의 절</description>
-    </item>
-    
-    <item>
-      <title>&lt;너의 내면을 검색하라&gt;</title>
-      <link>http://integerous.github.io/post/review/search_inside_yourself/</link>
-      <pubDate>Wed, 10 Nov 2021 14:17:57 +0900</pubDate>
-      
-      <guid>http://integerous.github.io/post/review/search_inside_yourself/</guid>
-      <description>Search Inside Yourself by Chade-Meng Tan, 2012 이 책은 과동기 김진짜가 추천해준 책이었다. 추천해 줄 당시, &amp;ldquo;뭐 그렇게 엄청 좋은 책은 아닌데, 읽을만한 책이야&amp;rdquo;라고</description>
     </item>
     
   </channel>

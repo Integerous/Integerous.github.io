@@ -8,7 +8,7 @@
 
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sat, 05 Aug 2023 16:30:54 -0700</lastBuildDate>
+    <lastBuildDate>Sat, 05 Aug 2023 17:00:29 -0700</lastBuildDate>
     <atom:link href="/categories/%EC%84%9C%ED%8F%89-review/" rel="self" type="application/rss+xml" />
     
     <item>
@@ -17,6 +17,15 @@
       <pubDate>Sat, 05 Aug 2023 16:30:54 -0700</pubDate>
       
       <guid>http://integerous.github.io/post/essay/blog-migration/</guid>
+      <description>블로그를 https://jobless.blog 로 옮겼습니다 :) 새로운 블로그는 구독할 수 있어서, 새 글이 올라오면 이메일로 받아보실 수 있습니다 :)</description>
+    </item>
+    
+    <item>
+      <title>블로그 옮겼습니다!</title>
+      <link>http://integerous.github.io/post/memoirs/blog-migration/</link>
+      <pubDate>Sat, 05 Aug 2023 17:00:29 -0700</pubDate>
+      
+      <guid>http://integerous.github.io/post/memoirs/blog-migration/</guid>
       <description>블로그를 https://jobless.blog 로 옮겼습니다 :) 새로운 블로그는 구독할 수 있어서, 새 글이 올라오면 이메일로 받아보실 수 있습니다 :)</description>
     </item>
     
@@ -135,15 +144,6 @@
       
       <guid>http://integerous.github.io/post/review/ask_iwata/</guid>
       <description>by 호보닛칸이토이신문 엮음, 2021 이 책은 페이스북에서 팔로우중인 유명한 시니어 개발자분들이 유행처럼 너도나도 후기를 남기는 것을 보고 구매했다. 일본 닌텐도 사장</description>
-    </item>
-    
-    <item>
-      <title>&lt;글쓰기의 쓸모&gt;</title>
-      <link>http://integerous.github.io/post/review/the_benefit_of_writing/</link>
-      <pubDate>Mon, 23 Aug 2021 18:17:51 +0900</pubDate>
-      
-      <guid>http://integerous.github.io/post/review/the_benefit_of_writing/</guid>
-      <description>by 손현, 2021 우선 책 이야기를 해보자면, 이 책은 브런치(brunch)에서 글을 읽다가 추천 글 목록에 뜬 &amp;lt;숫자 너머의 낭만, 출판사&amp;gt;라는 글을 무심</description>
     </item>
     
   </channel>
