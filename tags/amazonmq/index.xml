@@ -1,7 +1,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>AmazonMQ on ryan-han.com ❌ 🡒 jobless.blog ⭕️</title>
-    <link>http://integerous.github.io/tags/amazonmq/</link>
+    <link>https://jobless.blog/tags/amazonmq/</link>
     <description>Recent content in AmazonMQ on ryan-han.com ❌ 🡒 jobless.blog ⭕️</description>
 
     
@@ -13,10 +13,10 @@
     
     <item>
       <title>ActiveMQ의 Virtual Destinations를 활용한 메시지 로드밸런싱</title>
-      <link>http://integerous.github.io/post/dev/activemq_virtual_destinations/</link>
+      <link>https://jobless.blog/post/dev/activemq_virtual_destinations/</link>
       <pubDate>Sat, 07 Dec 2019 00:40:29 +0900</pubDate>
       
-      <guid>http://integerous.github.io/post/dev/activemq_virtual_destinations/</guid>
+      <guid>https://jobless.blog/post/dev/activemq_virtual_destinations/</guid>
       <description>AmazonMQ(ActiveMQ)의 Virtual Destinations를 사용하여 메시지 중복처리 문제를 해결한 경험에 대한 글이다. 회사의 서비스 간 컨텐츠 동</description>
     </item>
     

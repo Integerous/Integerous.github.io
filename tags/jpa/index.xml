@@ -1,7 +1,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>JPA on ryan-han.com ❌ 🡒 jobless.blog ⭕️</title>
-    <link>http://integerous.github.io/tags/jpa/</link>
+    <link>https://jobless.blog/tags/jpa/</link>
     <description>Recent content in JPA on ryan-han.com ❌ 🡒 jobless.blog ⭕️</description>
 
     
@@ -13,10 +13,10 @@
     
     <item>
       <title>&lt;JPA 프로그래밍 기본기 다지기&gt; 내용 정리</title>
-      <link>http://integerous.github.io/post/dev/jpa_basics/</link>
+      <link>https://jobless.blog/post/dev/jpa_basics/</link>
       <pubDate>Tue, 23 Apr 2019 01:58:27 +0900</pubDate>
       
-      <guid>http://integerous.github.io/post/dev/jpa_basics/</guid>
+      <guid>https://jobless.blog/post/dev/jpa_basics/</guid>
       <description>Tacademy 강의를 듣고 내용 정리 강사: 김영한님 (현 우아한형제들 개발자) 이 강의는 김영한님의 두꺼운 JPA 책을 본격적으로 보기 전에 보면 딱 좋을 강의라고 생각한다. 그런데</description>
     </item>
     
