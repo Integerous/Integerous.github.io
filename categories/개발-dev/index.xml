@@ -1,7 +1,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>개발 dev on ryan-han.com ❌ 🡒 jobless.blog ⭕️</title>
-    <link>https://jobless.blog/categories/%EA%B0%9C%EB%B0%9C-dev/</link>
+    <link>http://integerous.github.io/categories/%EA%B0%9C%EB%B0%9C-dev/</link>
     <description>Recent content in 개발 dev on ryan-han.com ❌ 🡒 jobless.blog ⭕️</description>
 
     
@@ -13,136 +13,136 @@
     
     <item>
       <title>블로그 옮겼습니다!</title>
-      <link>https://jobless.blog/post/dev/blog-migration/</link>
+      <link>http://integerous.github.io/post/dev/blog-migration/</link>
       <pubDate>Sat, 05 Aug 2023 17:01:58 -0700</pubDate>
       
-      <guid>https://jobless.blog/post/dev/blog-migration/</guid>
+      <guid>http://integerous.github.io/post/dev/blog-migration/</guid>
       <description>새로운 블로그는 구독할 수 있어서, 새 글이 올라오면 이메일로 받아보실 수 있습니다 :)</description>
     </item>
     
     <item>
       <title>Java Serialization 개념 정리</title>
-      <link>https://jobless.blog/post/dev/serialization/</link>
+      <link>http://integerous.github.io/post/dev/serialization/</link>
       <pubDate>Sat, 18 Jan 2020 22:00:08 +0900</pubDate>
       
-      <guid>https://jobless.blog/post/dev/serialization/</guid>
+      <guid>http://integerous.github.io/post/dev/serialization/</guid>
       <description>새로 맡게 된 레거시 프로젝트의 몇몇 클래스들이 Serializable 인터페이스를 왜 상속받는지 알아보는 과정에서 Java 직렬화 개념 정리 작성일 : 2019년 10월 13일 간단하게 Java 내</description>
     </item>
     
     <item>
       <title>ActiveMQ의 Virtual Destinations를 활용한 메시지 로드밸런싱</title>
-      <link>https://jobless.blog/post/dev/activemq_virtual_destinations/</link>
+      <link>http://integerous.github.io/post/dev/activemq_virtual_destinations/</link>
       <pubDate>Sat, 07 Dec 2019 00:40:29 +0900</pubDate>
       
-      <guid>https://jobless.blog/post/dev/activemq_virtual_destinations/</guid>
+      <guid>http://integerous.github.io/post/dev/activemq_virtual_destinations/</guid>
       <description>AmazonMQ(ActiveMQ)의 Virtual Destinations를 사용하여 메시지 중복처리 문제를 해결한 경험에 대한 글이다. 회사의 서비스 간 컨텐츠 동</description>
     </item>
     
     <item>
       <title>라즈베리파이4로 토이프로젝트용 서버 만들기 - 1편</title>
-      <link>https://jobless.blog/post/dev/raspberry_server_1/</link>
+      <link>http://integerous.github.io/post/dev/raspberry_server_1/</link>
       <pubDate>Mon, 02 Dec 2019 04:32:43 +0900</pubDate>
       
-      <guid>https://jobless.blog/post/dev/raspberry_server_1/</guid>
+      <guid>http://integerous.github.io/post/dev/raspberry_server_1/</guid>
       <description>토이프로젝트를 올릴 서버를 2019년 7월에 새로 출시한 라즈베리파이4로 만들어 보았다. 크게 3단계로 작업을 진행할 예정이다. 1편 - 라즈베리파이4를 서버</description>
     </item>
     
     <item>
       <title>XML 데이터를 Java 객체로 변환하기 (feat. JAXB)</title>
-      <link>https://jobless.blog/post/dev/xml_to_java_object/</link>
+      <link>http://integerous.github.io/post/dev/xml_to_java_object/</link>
       <pubDate>Tue, 04 Jun 2019 00:29:21 +0900</pubDate>
       
-      <guid>https://jobless.blog/post/dev/xml_to_java_object/</guid>
+      <guid>http://integerous.github.io/post/dev/xml_to_java_object/</guid>
       <description>XML 데이터를 Java 객체로 변환하여 사용한 경험을 정리해본다. JSON 데이터만 다루다가 XML을 다루어야 했기 때문에 조금 생소했다. (요즘 같은 세상에 XML 이라니!) 그런</description>
     </item>
     
     <item>
       <title>Try-with-resources를 이용한 자원해제 처리</title>
-      <link>https://jobless.blog/post/dev/try_with_resources/</link>
+      <link>http://integerous.github.io/post/dev/try_with_resources/</link>
       <pubDate>Thu, 30 May 2019 23:04:20 +0900</pubDate>
       
-      <guid>https://jobless.blog/post/dev/try_with_resources/</guid>
+      <guid>http://integerous.github.io/post/dev/try_with_resources/</guid>
       <description>코드 리뷰를 받던 중 Try-with-resources를 알게 되어 정리 코드 리뷰를 받기 전 코드는 아래와 같았다. public static String getHtml(String url) { try{ URL targetUrl = new URL(url); BufferedReader reader = new BufferedReader(new InputStreamReader(targetUrl.openStream())); StringBuffer</description>
     </item>
     
     <item>
       <title>추상(abstract) 클래스가 필요한 기본적인 이유</title>
-      <link>https://jobless.blog/post/dev/abstract_class/</link>
+      <link>http://integerous.github.io/post/dev/abstract_class/</link>
       <pubDate>Wed, 22 May 2019 23:47:00 +0900</pubDate>
       
-      <guid>https://jobless.blog/post/dev/abstract_class/</guid>
+      <guid>http://integerous.github.io/post/dev/abstract_class/</guid>
       <description>Java의 정석으로 Java의 개념들을 공부한 나는 추상클래스가 언제나 찝찝했다. 개발을 공부하기 시작한지 얼마 안되어 학습한 내용이었기 때문에 적당한 수준으</description>
     </item>
     
     <item>
       <title>&lt;JPA 프로그래밍 기본기 다지기&gt; 내용 정리</title>
-      <link>https://jobless.blog/post/dev/jpa_basics/</link>
+      <link>http://integerous.github.io/post/dev/jpa_basics/</link>
       <pubDate>Tue, 23 Apr 2019 01:58:27 +0900</pubDate>
       
-      <guid>https://jobless.blog/post/dev/jpa_basics/</guid>
+      <guid>http://integerous.github.io/post/dev/jpa_basics/</guid>
       <description>Tacademy 강의를 듣고 내용 정리 강사: 김영한님 (현 우아한형제들 개발자) 이 강의는 김영한님의 두꺼운 JPA 책을 본격적으로 보기 전에 보면 딱 좋을 강의라고 생각한다. 그런데</description>
     </item>
     
     <item>
       <title>[번역] Path Variable과 Query Parameter는 언제 사용해야 할까?</title>
-      <link>https://jobless.blog/post/dev/pathvariable_queryparam/</link>
+      <link>http://integerous.github.io/post/dev/pathvariable_queryparam/</link>
       <pubDate>Tue, 23 Apr 2019 00:39:42 +0900</pubDate>
       
-      <guid>https://jobless.blog/post/dev/pathvariable_queryparam/</guid>
+      <guid>http://integerous.github.io/post/dev/pathvariable_queryparam/</guid>
       <description>원작자의 허락을 받고 번역한 글입니다. 원문: When Should You Use Path Variable and Query Parameter? *역자 주: Spring boot와 Vue.js로 파일럿 프로젝트를 개발하던 중, 카테고리로 게시물 목</description>
     </item>
     
     <item>
       <title>자바의 정석 - 직렬화(Serialization)</title>
-      <link>https://jobless.blog/post/dev/java-serialization/</link>
+      <link>http://integerous.github.io/post/dev/java-serialization/</link>
       <pubDate>Sun, 02 Dec 2018 00:37:49 +0900</pubDate>
       
-      <guid>https://jobless.blog/post/dev/java-serialization/</guid>
+      <guid>http://integerous.github.io/post/dev/java-serialization/</guid>
       <description>자바의 정석(남궁성 저) 2권 학습내용 정리 1. 직렬화란? 객체를 데이터 스트림으로 만드는 것 객체에 저장된 데이터를 스트림에 쓰기 위해 연속적인 데이터로 변환하는</description>
     </item>
     
     <item>
       <title>자바의 정석 - 스트림(Stream)</title>
-      <link>https://jobless.blog/post/dev/java-stream/</link>
+      <link>http://integerous.github.io/post/dev/java-stream/</link>
       <pubDate>Thu, 29 Nov 2018 00:10:13 +0900</pubDate>
       
-      <guid>https://jobless.blog/post/dev/java-stream/</guid>
+      <guid>http://integerous.github.io/post/dev/java-stream/</guid>
       <description>자바의 정석(남궁성 저) 2권 학습내용 정리 1. 스트림(Stream) 스트림은 데이터 소스를 추상화하고, 데이터를 다루는데 자주 사용되는 메서드들을 정의해 놓</description>
     </item>
     
     <item>
       <title>자바의 정석 - 람다식(Lambda Expression)</title>
-      <link>https://jobless.blog/post/dev/java-lambda/</link>
+      <link>http://integerous.github.io/post/dev/java-lambda/</link>
       <pubDate>Thu, 29 Nov 2018 00:10:00 +0900</pubDate>
       
-      <guid>https://jobless.blog/post/dev/java-lambda/</guid>
+      <guid>http://integerous.github.io/post/dev/java-lambda/</guid>
       <description>자바의 정석(남궁성 저) 2권 학습내용 정리 1. 람다식 메서드를 하나의 식(expression)으로 표현한 것. 메서드를 람다식으로 표현하면 메서드의 이름과</description>
     </item>
     
     <item>
       <title>자바의 정석 - 쓰레드(Thread)</title>
-      <link>https://jobless.blog/post/dev/java-thread/</link>
+      <link>http://integerous.github.io/post/dev/java-thread/</link>
       <pubDate>Tue, 30 Oct 2018 01:39:34 +0900</pubDate>
       
-      <guid>https://jobless.blog/post/dev/java-thread/</guid>
+      <guid>http://integerous.github.io/post/dev/java-thread/</guid>
       <description>자바의 정석(남궁성 저) 2권 학습 1. 프로세스와 쓰레드 프로세스란 실행중인 프로그램이다. 프로그램을 실행하면 OS로부터 실행에 필요한 자원(메모리)를 할당</description>
     </item>
     
     <item>
       <title>자바의 정석 - 열거형(Enums)</title>
-      <link>https://jobless.blog/post/dev/java-enums/</link>
+      <link>http://integerous.github.io/post/dev/java-enums/</link>
       <pubDate>Sun, 28 Oct 2018 19:29:48 +0900</pubDate>
       
-      <guid>https://jobless.blog/post/dev/java-enums/</guid>
+      <guid>http://integerous.github.io/post/dev/java-enums/</guid>
       <description>자바의 정석(남궁성 저) 학습내용 정리 1. 열거형(Enums) Java의 열거형은 C언어의 열거형과 다르게 열거형이 갖는 값 뿐만 아니라 타입까지 관리한다. 기</description>
     </item>
     
     <item>
       <title>자바의 정석 - 지네릭스(Generics)</title>
-      <link>https://jobless.blog/post/dev/java-generics/</link>
+      <link>http://integerous.github.io/post/dev/java-generics/</link>
       <pubDate>Thu, 25 Oct 2018 00:28:04 +0900</pubDate>
       
-      <guid>https://jobless.blog/post/dev/java-generics/</guid>
+      <guid>http://integerous.github.io/post/dev/java-generics/</guid>
       <description>자바의 정석(남궁성 저) 학습내용 정리 1. 지네릭스(Generics) 지네릭스는 다양한 타입의 객체들을 다루는 메서드나 컬렉션 클래스에 컴파일 시의 타입 체크</description>
     </item>
     

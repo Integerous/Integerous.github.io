@@ -1,7 +1,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>AWS on ryan-han.com ❌ 🡒 jobless.blog ⭕️</title>
-    <link>https://jobless.blog/tags/aws/</link>
+    <link>http://integerous.github.io/tags/aws/</link>
     <description>Recent content in AWS on ryan-han.com ❌ 🡒 jobless.blog ⭕️</description>
 
     
@@ -13,46 +13,46 @@
     
     <item>
       <title>AWS EC2 서버에 Java 프로젝트 배포/재배포</title>
-      <link>https://jobless.blog/post/dev/deployonec2/</link>
+      <link>http://integerous.github.io/post/dev/deployonec2/</link>
       <pubDate>Sun, 07 Oct 2018 23:30:21 +0900</pubDate>
       
-      <guid>https://jobless.blog/post/dev/deployonec2/</guid>
+      <guid>http://integerous.github.io/post/dev/deployonec2/</guid>
       <description>회사 고객센터용 카카오톡 챗봇을 만들어 AWS EC2 서버에 배포하기 위해 박재성님 유튜브 강의를 들으며 실습한 내용 목차 1. AWS EC2 인스턴스 생성 2. 생성한 인스턴스(서버)에</description>
     </item>
     
     <item>
       <title>AWS VPC 총정리</title>
-      <link>https://jobless.blog/post/dev/vpc/</link>
+      <link>http://integerous.github.io/post/dev/vpc/</link>
       <pubDate>Sun, 07 Oct 2018 22:56:09 +0900</pubDate>
       
-      <guid>https://jobless.blog/post/dev/vpc/</guid>
+      <guid>http://integerous.github.io/post/dev/vpc/</guid>
       <description>AWS Certified Solutions Architect - Associate 2018 강의를 듣고 내용 정리 1. What is a VPC ? VPC는 클라우드 내의 가상 데이터 센터. 2. What can you do with a VPC ? 내가 선택한 서브넷에 인스턴스를 실행할 수 있다.</description>
     </item>
     
     <item>
       <title>AWS S3 총정리</title>
-      <link>https://jobless.blog/post/dev/s3/</link>
+      <link>http://integerous.github.io/post/dev/s3/</link>
       <pubDate>Sun, 07 Oct 2018 18:12:32 +0900</pubDate>
       
-      <guid>https://jobless.blog/post/dev/s3/</guid>
+      <guid>http://integerous.github.io/post/dev/s3/</guid>
       <description>S3 (Simple Storage Service) 인터넷 스토리지 서비스. 용량에 관계 없이 파일을 저장할 수 있고 웹(HTTP 프로토콜)에서 파일에 접근할 수 있다. 1. 사용 이유 S3는 저장 용량이 무한대</description>
     </item>
     
     <item>
       <title>AWS EBS 총정리</title>
-      <link>https://jobless.blog/post/dev/ebs/</link>
+      <link>http://integerous.github.io/post/dev/ebs/</link>
       <pubDate>Sat, 25 Aug 2018 21:44:50 +0900</pubDate>
       
-      <guid>https://jobless.blog/post/dev/ebs/</guid>
+      <guid>http://integerous.github.io/post/dev/ebs/</guid>
       <description>EBS (Elastic Block Store) EC2 인스턴스에 장착하여 사용할 수 있는 가상 저장 장치. 1. 사용 이유 데이터에 빠르게 액세스하고 장기적으로 지속해야 하는 경우 EC2 인스턴스에서 제공하는 기본</description>
     </item>
     
     <item>
       <title>AWS 자격증 공부법</title>
-      <link>https://jobless.blog/post/dev/certificate/</link>
+      <link>http://integerous.github.io/post/dev/certificate/</link>
       <pubDate>Sat, 25 Aug 2018 21:26:12 +0900</pubDate>
       
-      <guid>https://jobless.blog/post/dev/certificate/</guid>
+      <guid>http://integerous.github.io/post/dev/certificate/</guid>
       <description>AWS Certified Solution Architect Associate 자격증 준비 방법과 과정을 기록 모든 자료는 중요하고 유용한 순서로 정렬함. Index 0. 내가 정한 학습 순서 1. 필수 학습 자료 2. 추가 학습 자료 3. 합격 후기 모음 4. 기</description>
     </item>
     

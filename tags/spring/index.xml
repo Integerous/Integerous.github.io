@@ -1,7 +1,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Spring on ryan-han.com ❌ 🡒 jobless.blog ⭕️</title>
-    <link>https://jobless.blog/tags/spring/</link>
+    <link>http://integerous.github.io/tags/spring/</link>
     <description>Recent content in Spring on ryan-han.com ❌ 🡒 jobless.blog ⭕️</description>
 
     
@@ -13,19 +13,19 @@
     
     <item>
       <title>ActiveMQ의 Virtual Destinations를 활용한 메시지 로드밸런싱</title>
-      <link>https://jobless.blog/post/dev/activemq_virtual_destinations/</link>
+      <link>http://integerous.github.io/post/dev/activemq_virtual_destinations/</link>
       <pubDate>Sat, 07 Dec 2019 00:40:29 +0900</pubDate>
       
-      <guid>https://jobless.blog/post/dev/activemq_virtual_destinations/</guid>
+      <guid>http://integerous.github.io/post/dev/activemq_virtual_destinations/</guid>
       <description>AmazonMQ(ActiveMQ)의 Virtual Destinations를 사용하여 메시지 중복처리 문제를 해결한 경험에 대한 글이다. 회사의 서비스 간 컨텐츠 동</description>
     </item>
     
     <item>
       <title>XML 데이터를 Java 객체로 변환하기 (feat. JAXB)</title>
-      <link>https://jobless.blog/post/dev/xml_to_java_object/</link>
+      <link>http://integerous.github.io/post/dev/xml_to_java_object/</link>
       <pubDate>Tue, 04 Jun 2019 00:29:21 +0900</pubDate>
       
-      <guid>https://jobless.blog/post/dev/xml_to_java_object/</guid>
+      <guid>http://integerous.github.io/post/dev/xml_to_java_object/</guid>
       <description>XML 데이터를 Java 객체로 변환하여 사용한 경험을 정리해본다. JSON 데이터만 다루다가 XML을 다루어야 했기 때문에 조금 생소했다. (요즘 같은 세상에 XML 이라니!) 그런</description>
     </item>
     

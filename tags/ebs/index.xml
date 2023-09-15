@@ -1,7 +1,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>EBS on ryan-han.com ❌ 🡒 jobless.blog ⭕️</title>
-    <link>https://jobless.blog/tags/ebs/</link>
+    <link>http://integerous.github.io/tags/ebs/</link>
     <description>Recent content in EBS on ryan-han.com ❌ 🡒 jobless.blog ⭕️</description>
 
     
@@ -13,10 +13,10 @@
     
     <item>
       <title>AWS EBS 총정리</title>
-      <link>https://jobless.blog/post/dev/ebs/</link>
+      <link>http://integerous.github.io/post/dev/ebs/</link>
       <pubDate>Sat, 25 Aug 2018 21:44:50 +0900</pubDate>
       
-      <guid>https://jobless.blog/post/dev/ebs/</guid>
+      <guid>http://integerous.github.io/post/dev/ebs/</guid>
       <description>EBS (Elastic Block Store) EC2 인스턴스에 장착하여 사용할 수 있는 가상 저장 장치. 1. 사용 이유 데이터에 빠르게 액세스하고 장기적으로 지속해야 하는 경우 EC2 인스턴스에서 제공하는 기본</description>
     </item>
     
